@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { vi } from 'vitest';
 
 import { act, fireEvent, render } from '../../../tests/utils';
 import Button from '../Button';
@@ -30,16 +31,18 @@ const Content = () => {
 
 it('Delay loading timer in Button component', () => {
   const otherTimer = 9528;
-  jest.spyOn<Window, 'setTimeout'>(window, 'setTimeout').mockReturnValue(otherTimer);
-  jest.restoreAllMocks();
+  vi.spyOn(window, 'setTimeout').mockReturnValue(
+    otherTimer as unknown as ReturnType<typeof setTimeout>,
+  );
+  vi.restoreAllMocks();
 
   const wrapper = render(<Content />);
 
   const btnTimer = 9527;
-  const setTimeoutMock = jest
-    .spyOn<Window, 'setTimeout'>(window, 'setTimeout')
-    .mockReturnValue(btnTimer);
-  const clearTimeoutMock = jest.spyOn<Window, 'clearTimeout'>(window, 'clearTimeout');
+  const setTimeoutMock = vi
+    .spyOn(window, 'setTimeout')
+    .mockReturnValue(btnTimer as unknown as ReturnType<typeof setTimeout>);
+  const clearTimeoutMock = vi.spyOn(window, 'clearTimeout');
 
   // other component may call setTimeout or clearTimeout
   const setTimeoutCount = () => {
@@ -89,7 +92,7 @@ it('Delay loading timer in Button component', () => {
   expect(setTimeoutCount()).toBe(3);
   expect(clearTimeoutCount()).toBe(2);
 
-  jest.restoreAllMocks();
+  vi.restoreAllMocks();
 });
 it('Delay loading while use loading delay at first time', () => {
   const Demo = () => <Button loading={{ delay: specialDelay }} />;

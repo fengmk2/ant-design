@@ -3,28 +3,14 @@ import '@testing-library/jest-dom/vitest';
 import { toHaveNoViolations } from 'jest-axe';
 import jsdom from 'jsdom';
 import format, { plugins } from 'pretty-format';
-import { expect, vi } from 'vitest';
+import { expect } from 'vitest';
 
 import { defaultConfig } from '../components/theme/internal';
 
 // Not use dynamic hashed for test env since version will change hash dynamically.
 defaultConfig.hashed = false;
 
-if (process.env.LIB_DIR === 'dist') {
-  vi.mock('antd', async () => await vi.importActual('../dist/antd'));
-} else if (process.env.LIB_DIR === 'dist-min') {
-  vi.mock('antd', async () => await vi.importActual('../dist/antd.min'));
-} else if (process.env.LIB_DIR === 'es') {
-  vi.mock('antd', async () => await vi.importActual('../es'));
-  vi.mock('../es/theme/internal', async () => {
-    const esTheme = await vi.importActual<any>('../es/theme/internal');
-    if (esTheme.defaultConfig) {
-      esTheme.defaultConfig.hashed = false;
-    }
-
-    return esTheme;
-  });
-}
+// Conditional mocking for dist/es builds is handled in separate setup files
 
 function cleanup(node: HTMLElement) {
   const childList = Array.from(node.childNodes);

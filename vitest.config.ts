@@ -18,13 +18,6 @@ const compileModules = [
   'jsdom',
 ];
 
-function getTestRegex(libDir?: string) {
-  if (['dist', 'lib', 'es', 'dist-min'].includes(libDir || '')) {
-    return 'demo\\.test\\.(j|t)sx?$';
-  }
-  return '.*\\.test\\.(j|t)sx?$';
-}
-
 export default defineConfig({
   plugins: [react(), demoPlugin(), imagePlugin()],
   resolve: {
@@ -58,11 +51,7 @@ export default defineConfig({
       },
     },
     pool: 'threads',
-    poolOptions: {
-      threads: {
-        singleThread: false,
-      },
-    },
+    isolate: true,
     coverage: {
       provider: 'v8',
       include: ['components/**/*.{ts,tsx}'],
@@ -89,7 +78,5 @@ export default defineConfig({
         },
       },
     },
-    // Snapshot serializers
-    snapshotSerializers: ['./tests/snapshotSerializer.ts'],
   },
 });
