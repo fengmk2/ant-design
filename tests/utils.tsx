@@ -5,6 +5,7 @@ import { _rs as onLibResize } from '@rc-component/resize-observer/lib/utils/obse
 import type { RenderOptions } from '@testing-library/react';
 import { act, render } from '@testing-library/react';
 import MockDate from 'mockdate';
+import { vi } from 'vitest';
 
 export function assertsExist<T>(item?: T): asserts item is T {
   expect(item).not.toBeUndefined();
@@ -80,9 +81,9 @@ export async function waitFakeTimer(advanceTime = 1000, times = 20) {
       await Promise.resolve();
 
       if (advanceTime > 0) {
-        jest.advanceTimersByTime(advanceTime);
+        vi.advanceTimersByTime(advanceTime);
       } else {
-        jest.runAllTimers();
+        vi.runAllTimers();
       }
     });
   }
@@ -97,7 +98,7 @@ export async function waitFakeTimer19(advanceTime = 1000) {
     await Promise.resolve();
   });
   await act(async () => {
-    jest.advanceTimersByTime(advanceTime);
+    vi.advanceTimersByTime(advanceTime);
   });
 }
 

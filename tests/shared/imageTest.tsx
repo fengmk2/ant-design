@@ -11,13 +11,14 @@ import { JSDOM } from 'jsdom';
 import MockDate from 'mockdate';
 import type { HTTPRequest, Viewport } from 'puppeteer';
 import ReactDOMServer from 'react-dom/server';
+import { vi } from 'vitest';
 
 import { App, ConfigProvider, theme } from '../../components';
 import { fillWindowEnv } from '../setup';
 import { render } from '../utils';
 import { TriggerMockContext } from './demoTestContext';
 
-jest.mock('../../components/grid/hooks/useBreakpoint', () => () => ({}));
+vi.mock('../../components/grid/hooks/useBreakpoint', () => ({ default: () => ({}) }));
 
 const snapshotPath = path.join(process.cwd(), 'imageSnapshots');
 fse.ensureDirSync(snapshotPath);
@@ -35,7 +36,7 @@ interface ImageTestOptions {
   mobile?: boolean;
 }
 
-// eslint-disable-next-line jest/no-export
+// eslint-disable-next-line vitest/no-export
 export default function imageTest(
   component: React.ReactElement<any>,
   identifier: string,
@@ -94,8 +95,8 @@ export default function imageTest(
     // Fake matchMedia
     win.matchMedia = (() => ({
       matches: false,
-      addEventListener: jest.fn(),
-      removeEventListener: jest.fn(),
+      addEventListener: vi.fn(),
+      removeEventListener: vi.fn(),
     })) as unknown as typeof matchMedia;
 
     // Fill window
@@ -283,7 +284,7 @@ type Options = {
   mobile?: string[];
 };
 
-// eslint-disable-next-line jest/no-export
+// eslint-disable-next-line vitest/no-export
 export function imageDemoTest(component: string, options: Options = {}) {
   let describeMethod = options.skip === true ? describe.skip : describe;
   const files = options.only

@@ -2,7 +2,7 @@ import React from 'react';
 
 import { render } from '../utils';
 
-// eslint-disable-next-line jest/no-export
+// eslint-disable-next-line vitest/no-export
 export default function mountTest(Component: React.ComponentType) {
   describe(`mount and unmount`, () => {
     // https://github.com/ant-design/ant-design/pull/18441

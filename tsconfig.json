@@ -5,6 +5,7 @@
     "jsxFactory": "React.createElement",
     "jsxFragmentFactory": "React.Fragment",
     "lib": ["dom", "es2017"],
+    "types": ["vitest/globals"],
     "experimentalDecorators": true,
     "baseUrl": "./",
     "module": "esnext",

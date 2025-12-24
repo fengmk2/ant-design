@@ -1,8 +1,9 @@
-import '@testing-library/jest-dom';
+import '@testing-library/jest-dom/vitest';
 
 import { toHaveNoViolations } from 'jest-axe';
 import jsdom from 'jsdom';
 import format, { plugins } from 'pretty-format';
+import { expect, vi } from 'vitest';
 
 import { defaultConfig } from '../components/theme/internal';
 
@@ -10,13 +11,13 @@ import { defaultConfig } from '../components/theme/internal';
 defaultConfig.hashed = false;
 
 if (process.env.LIB_DIR === 'dist') {
-  jest.mock('antd', () => jest.requireActual('../dist/antd'));
+  vi.mock('antd', async () => await vi.importActual('../dist/antd'));
 } else if (process.env.LIB_DIR === 'dist-min') {
-  jest.mock('antd', () => jest.requireActual('../dist/antd.min'));
+  vi.mock('antd', async () => await vi.importActual('../dist/antd.min'));
 } else if (process.env.LIB_DIR === 'es') {
-  jest.mock('antd', () => jest.requireActual('../es'));
-  jest.mock('../es/theme/internal', () => {
-    const esTheme = jest.requireActual('../es/theme/internal');
+  vi.mock('antd', async () => await vi.importActual('../es'));
+  vi.mock('../es/theme/internal', async () => {
+    const esTheme = await vi.importActual<any>('../es/theme/internal');
     if (esTheme.defaultConfig) {
       esTheme.defaultConfig.hashed = false;
     }

@@ -1,5 +1,6 @@
-/* eslint-disable jest/no-export */
+/* eslint-disable vitest/no-export */
 import React from 'react';
+import { vi } from 'vitest';
 
 import ConfigProvider from '../../components/config-provider';
 import { render, waitFakeTimer } from '../utils';
@@ -39,7 +40,7 @@ export default function rootPropsTest(
 
     beforeEach(() => {
       passed = false;
-      jest.useFakeTimers();
+      vi.useFakeTimers();
       document.body.innerHTML = '';
     });
 
@@ -47,7 +48,7 @@ export default function rootPropsTest(
       if (!passed || process.env.DEBUG === 'true') {
         console.log(document.body.innerHTML);
       }
-      jest.useRealTimers();
+      vi.useRealTimers();
     });
 
     it(['rootClassName', subComponentName].filter((v) => v).join(' '), async () => {

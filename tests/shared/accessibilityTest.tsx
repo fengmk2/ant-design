@@ -2,6 +2,8 @@ import React from 'react';
 import { render } from '@testing-library/react';
 import { globSync } from 'glob';
 import { axe } from 'jest-axe';
+import type { Mock } from 'vitest';
+import { vi } from 'vitest';
 
 class AxeQueueManager {
   private queue: Promise<any> = Promise.resolve();
@@ -53,23 +55,23 @@ const convertRulesToAxeFormat = (rules: string[]) => {
   return rules.reduce<Rules>((acc, rule) => ({ ...acc, [rule]: { enabled: false } }), {});
 };
 
-// eslint-disable-next-line jest/no-export
+// eslint-disable-next-line vitest/no-export
 export const accessibilityTest = (
   Component: React.ComponentType<any>,
   disabledRules?: string[],
 ) => {
   beforeAll(() => {
     // Fake ResizeObserver
-    global.ResizeObserver = jest.fn(() => {
+    global.ResizeObserver = vi.fn(() => {
       return {
         observe() {},
         unobserve() {},
         disconnect() {},
       };
-    }) as jest.Mock;
+    }) as Mock;
 
     // fake fetch
-    global.fetch = jest.fn(() => {
+    global.fetch = vi.fn(() => {
       return {
         then() {
           return this;
@@ -81,23 +83,23 @@ export const accessibilityTest = (
           return this;
         },
       };
-    }) as jest.Mock;
+    }) as Mock;
   });
 
   beforeEach(() => {
     // Reset all mocks
     if (global.fetch) {
-      (global.fetch as jest.Mock).mockClear();
+      (global.fetch as Mock).mockClear();
     }
   });
 
   afterEach(() => {
     // Clear all mocks
-    jest.clearAllMocks();
+    vi.clearAllMocks();
   });
   describe(`accessibility`, () => {
     it(`component does not have any violations`, async () => {
-      jest.useRealTimers();
+      vi.useRealTimers();
       const { container } = render(<Component />);
 
       const rules = convertRulesToAxeFormat(disabledRules || []);
@@ -121,11 +123,11 @@ type Options = {
   disabledRules?: string[];
 };
 
-// eslint-disable-next-line jest/no-export
+// eslint-disable-next-line vitest/no-export
 export default function accessibilityDemoTest(component: string, options: Options = {}) {
   // If skip is true, return immediately without executing any tests
   if (options.skip === true) {
-    // eslint-disable-next-line jest/no-disabled-tests
+    // eslint-disable-next-line vitest/no-disabled-tests
     describe.skip(`${component} demo a11y`, () => {
       it('skipped', () => {});
     });

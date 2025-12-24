@@ -1,6 +1,7 @@
 import util from 'util';
 import React from 'react';
 import type { DOMWindow } from 'jsdom';
+import { vi } from 'vitest';
 
 console.log('Current React Version:', React.version);
 
@@ -38,10 +39,10 @@ export function fillWindowEnv(window: Window | DOMWindow) {
     Object.defineProperty(win, 'matchMedia', {
       writable: true,
       configurable: true,
-      value: jest.fn((query) => ({
+      value: vi.fn((query) => ({
         matches: query.includes('max-width'),
-        addEventListener: jest.fn(),
-        removeEventListener: jest.fn(),
+        addEventListener: vi.fn(),
+        removeEventListener: vi.fn(),
       })),
     });
   }
@@ -125,8 +126,8 @@ if (typeof MessageChannel === 'undefined') {
 }
 
 // Mock useId to return a stable id for snapshot testing
-jest.mock('react', () => {
-  const originReact = jest.requireActual('react');
+vi.mock('react', async () => {
+  const originReact = await vi.importActual<typeof import('react')>('react');
   let cloneReact = {
     ...originReact,
   };

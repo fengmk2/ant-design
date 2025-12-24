@@ -5,6 +5,7 @@ import { ConfigProvider } from 'antd';
 import { globSync } from 'glob';
 import kebabCase from 'lodash/kebabCase';
 import { renderToString } from 'react-dom/server';
+import { vi } from 'vitest';
 
 import { resetWarned } from '../../components/_util/warning';
 import { render } from '../utils';
@@ -47,8 +48,8 @@ function baseTest(doInject: boolean, component: string, options: Options = {}) {
 
         const errSpy = excludeWarning();
 
-        Date.now = jest.fn(() => new Date('2016-11-22').getTime());
-        jest.useFakeTimers().setSystemTime(new Date('2016-11-22'));
+        Date.now = vi.fn(() => new Date('2016-11-22').getTime());
+        vi.useFakeTimers().setSystemTime(new Date('2016-11-22'));
 
         let Demo = require(`../../${file}`).default;
         // Inject Trigger status unless skipped
@@ -78,7 +79,7 @@ function baseTest(doInject: boolean, component: string, options: Options = {}) {
           expect({ type: 'demo', html }).toMatchSnapshot();
         }
 
-        jest.clearAllTimers();
+        vi.clearAllTimers();
 
         // Snapshot of warning info
         if (doInject) {
@@ -98,7 +99,7 @@ function baseTest(doInject: boolean, component: string, options: Options = {}) {
         errSpy.mockRestore();
       },
     );
-    jest.useRealTimers();
+    vi.useRealTimers();
   });
 }
 
