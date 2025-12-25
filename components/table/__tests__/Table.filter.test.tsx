@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { vi } from 'vitest';
 
 import type { ColumnGroupType, ColumnType, TableProps } from '..';
 import Table from '..';
@@ -77,18 +78,18 @@ describe('Table.filter', () => {
   function refreshTimer() {
     for (let i = 0; i < 3; i += 1) {
       act(() => {
-        jest.runAllTimers();
+        vi.runAllTimers();
       });
     }
   }
 
   beforeEach(() => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
   });
 
   afterEach(() => {
-    jest.clearAllTimers();
-    jest.useRealTimers();
+    vi.clearAllTimers();
+    vi.useRealTimers();
   });
 
   it('not show filter icon when undefined', () => {
@@ -134,7 +135,7 @@ describe('Table.filter', () => {
   it('renders empty menu correctly', () => {
     resetWarned();
 
-    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
     const { container } = render(
       createTable({
         columns: [
@@ -149,7 +150,7 @@ describe('Table.filter', () => {
     fireEvent.click(container.querySelector('span.ant-dropdown-trigger')!, nativeEvent);
 
     act(() => {
-      jest.runAllTimers();
+      vi.runAllTimers();
     });
 
     expect(container.querySelector('.ant-empty')).toBeTruthy();
@@ -379,8 +380,8 @@ describe('Table.filter', () => {
   });
 
   it('fires change event when visible change', () => {
-    const onFilterDropdownOpenChange = jest.fn();
-    const onOpenChange = jest.fn();
+    const onFilterDropdownOpenChange = vi.fn();
+    const onOpenChange = vi.fn();
     const { container } = render(
       createTable({
         columns: [
@@ -638,7 +639,7 @@ describe('Table.filter', () => {
 
   //  Warning: An update to Item ran an effect, but was not wrapped in act(...).
   it('fires change event', () => {
-    const handleChange = jest.fn();
+    const handleChange = vi.fn();
     const { container } = render(createTable({ onChange: handleChange }));
     fireEvent.click(container.querySelector('.ant-dropdown-trigger')!);
     fireEvent.click(container.querySelectorAll('.ant-dropdown-menu-item')[0]);
@@ -659,7 +660,7 @@ describe('Table.filter', () => {
   });
 
   it('fires pagination change event', async () => {
-    const onPaginationChange = jest.fn();
+    const onPaginationChange = vi.fn();
     const { container } = render(createTable({ pagination: { onChange: onPaginationChange } }));
     fireEvent.click(container.querySelector('.ant-dropdown-trigger')!);
     fireEvent.click(container.querySelectorAll('.ant-dropdown-menu-item')[0]);
@@ -672,7 +673,7 @@ describe('Table.filter', () => {
   });
 
   it('should not fire change event when close filterDropdown without changing anything', async () => {
-    const handleChange = jest.fn();
+    const handleChange = vi.fn();
     const { container } = render(createTable({ onChange: handleChange }));
 
     fireEvent.click(container.querySelector('.ant-dropdown-trigger')!);
@@ -685,7 +686,7 @@ describe('Table.filter', () => {
   });
 
   it('should not fire change event when close a filtered filterDropdown without changing anything', async () => {
-    const handleChange = jest.fn();
+    const handleChange = vi.fn();
     const { container } = render(
       createTable({
         onChange: handleChange,
@@ -707,7 +708,7 @@ describe('Table.filter', () => {
   });
 
   it('three levels menu', () => {
-    const onChange = jest.fn();
+    const onChange = vi.fn();
     const filters = [
       { text: 'Upper', value: 'Upper' },
       { text: 'Lower', value: 'Lower' },
@@ -782,7 +783,7 @@ describe('Table.filter', () => {
       ['Bamboo', false],
     ].forEach(([text, value]) => {
       it(`${typeof value} type`, async () => {
-        const onChange = jest.fn();
+        const onChange = vi.fn();
         const filters = [{ text, value }];
         const { container } = render(
           createTable({
@@ -934,7 +935,7 @@ describe('Table.filter', () => {
 
   // Warning: An update to Item ran an effect, but was not wrapped in act(...).
   it('confirm filter when dropdown hidden', () => {
-    const handleChange = jest.fn();
+    const handleChange = vi.fn();
     const { container } = render(
       createTable({
         columns: [
@@ -1069,7 +1070,7 @@ describe('Table.filter', () => {
 
   // https://github.com/ant-design/ant-design/issues/17833
   it('should not trigger onChange when blurring custom filterDropdown', () => {
-    const onChange = jest.fn();
+    const onChange = vi.fn();
     const filterDropdown = ({ setSelectedKeys }: FilterDropdownProps) => (
       <input onChange={(e) => setSelectedKeys([e.target.value])} />
     );
@@ -1093,7 +1094,7 @@ describe('Table.filter', () => {
   });
 
   it('should trigger onChange with correct params if defines custom filterDropdown', () => {
-    const onChange = jest.fn();
+    const onChange = vi.fn();
     const filterDropdown = ({ setSelectedKeys, confirm }: FilterDropdownProps) => (
       <div>
         <input onChange={(e) => setSelectedKeys([e.target.value])} />
@@ -1129,7 +1130,7 @@ describe('Table.filter', () => {
 
   it('should work as expected with complex custom filterDropdown', () => {
     let renderSelectedKeys = null;
-    const onChange = jest.fn();
+    const onChange = vi.fn();
 
     const filterDropdown = ({ setSelectedKeys, selectedKeys, confirm }: FilterDropdownProps) => {
       renderSelectedKeys = selectedKeys;
@@ -1213,7 +1214,7 @@ describe('Table.filter', () => {
 
   // https://github.com/ant-design/ant-design/issues/17089
   it('not crash when dynamic change filter', () => {
-    const onChange = jest.fn();
+    const onChange = vi.fn();
 
     const Test: React.FC<{ filters?: ColumnFilterItem[] }> = ({ filters }) => (
       <Table
@@ -1281,7 +1282,7 @@ describe('Table.filter', () => {
   });
 
   it('should support getPopupContainer', () => {
-    const getPopupContainer = jest.fn((node) => node.parentNode);
+    const getPopupContainer = vi.fn((node) => node.parentNode);
 
     render(
       createTable({
@@ -1298,7 +1299,7 @@ describe('Table.filter', () => {
   });
 
   it('should support getPopupContainer from ConfigProvider', () => {
-    const getPopupContainer = jest.fn((node) => node.parentNode);
+    const getPopupContainer = vi.fn((node) => node.parentNode);
 
     render(
       <ConfigProvider getPopupContainer={getPopupContainer}>
@@ -1316,7 +1317,7 @@ describe('Table.filter', () => {
   });
 
   it('pass visible prop to filterDropdown', () => {
-    const filterDropdownMock = jest.fn().mockReturnValue(<span>test</span>);
+    const filterDropdownMock = vi.fn().mockReturnValue(<span>test</span>);
     const filterDropdown = (...args: any[]) => filterDropdownMock(...args);
 
     const Test = () => (
@@ -1336,7 +1337,7 @@ describe('Table.filter', () => {
   });
 
   it('visible prop of filterDropdown changes on click', () => {
-    const filterDropdownMock = jest.fn().mockReturnValue(<span>test</span>);
+    const filterDropdownMock = vi.fn().mockReturnValue(<span>test</span>);
     const filterDropdown = (...args: any[]) => filterDropdownMock(...args);
 
     const Test: React.FC = () => (
@@ -1364,7 +1365,7 @@ describe('Table.filter', () => {
   });
 
   it('should reset pagination after filter', () => {
-    const handleChange = jest.fn();
+    const handleChange = vi.fn();
     const { container } = render(
       createTable({
         onChange: handleChange,
@@ -1397,7 +1398,7 @@ describe('Table.filter', () => {
   });
 
   it('should keep pagination current after filter', () => {
-    const handleChange = jest.fn();
+    const handleChange = vi.fn();
     const { container } = render(
       createTable({
         onChange: handleChange,
@@ -1446,7 +1447,7 @@ describe('Table.filter', () => {
 
   // https://github.com/ant-design/ant-design/issues/20854
   it('Not cache for onChange state', () => {
-    const onChange = jest.fn();
+    const onChange = vi.fn();
 
     const { container } = render(
       <Table<{ name?: string; gender?: string }>
@@ -1625,7 +1626,7 @@ describe('Table.filter', () => {
   });
 
   it('with onFilter', () => {
-    const onFilter = jest.fn((value, record) => record.key === value);
+    const onFilter = vi.fn((value, record) => record.key === value);
     const columns: TableProps['columns'] = [{ dataIndex: 'key', filteredValue: [5], onFilter }];
     const testData = [{ key: 1 }, { key: 3 }, { key: 5 }];
     const { container } = render(<Table columns={columns} dataSource={testData} />);
@@ -1681,7 +1682,7 @@ describe('Table.filter', () => {
   });
 
   it('should not trigger onChange when filters is empty', () => {
-    const onChange = jest.fn();
+    const onChange = vi.fn();
     const Test: React.FC<{ filters?: ColumnFilterItem[] }> = ({ filters }) => (
       <Table
         onChange={onChange}
@@ -1763,7 +1764,7 @@ describe('Table.filter', () => {
 
   //  Warning: An update to Item ran an effect, but was not wrapped in act(...).
   it('should pagination.current be 1 after filtering', () => {
-    const onChange = jest.fn();
+    const onChange = vi.fn();
     const columns = [
       {
         title: 'Name',
@@ -1823,7 +1824,7 @@ describe('Table.filter', () => {
 
   // https://github.com/ant-design/ant-design/issues/30454
   it('should not trigger onFilterDropdownOpenChange when call confirm({ closeDropdown: false })', () => {
-    const onFilterDropdownOpenChange = jest.fn();
+    const onFilterDropdownOpenChange = vi.fn();
     const { container } = render(
       createTable({
         columns: [
@@ -2121,7 +2122,7 @@ describe('Table.filter', () => {
 
   describe('filter tree mode', () => {
     it('supports filter tree', () => {
-      jest.spyOn(console, 'error').mockImplementation(() => undefined);
+      vi.spyOn(console, 'error').mockImplementation(() => undefined);
       const { container } = render(
         createTable({
           columns: [
@@ -2134,14 +2135,14 @@ describe('Table.filter', () => {
       );
       fireEvent.click(container.querySelector('span.ant-dropdown-trigger')!, nativeEvent);
       act(() => {
-        jest.runAllTimers();
+        vi.runAllTimers();
       });
       expect(container.querySelectorAll('.ant-table-filter-dropdown-tree').length).toBe(1);
       expect(container.querySelectorAll('.ant-tree-checkbox').length).toBe(5);
     });
 
     it('supports search input in filter tree', () => {
-      jest.spyOn(console, 'error').mockImplementation(() => undefined);
+      vi.spyOn(console, 'error').mockImplementation(() => undefined);
       const { container } = render(
         createTable({
           columns: [
@@ -2155,7 +2156,7 @@ describe('Table.filter', () => {
       );
       fireEvent.click(container.querySelector('span.ant-dropdown-trigger')!, nativeEvent);
       act(() => {
-        jest.runAllTimers();
+        vi.runAllTimers();
       });
       expect(container.querySelectorAll('.ant-table-filter-dropdown-tree').length).toBe(1);
       expect(container.querySelectorAll('.ant-input').length).toBe(1);
@@ -2163,7 +2164,7 @@ describe('Table.filter', () => {
     });
 
     it('renders empty element when search not found', () => {
-      const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => undefined);
+      const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => undefined);
       const { container, unmount } = render(
         createTable({
           columns: [
@@ -2190,7 +2191,7 @@ describe('Table.filter', () => {
       );
       fireEvent.click(container.querySelector('span.ant-dropdown-trigger')!, nativeEvent);
       act(() => {
-        jest.runAllTimers();
+        vi.runAllTimers();
       });
       expect(container.querySelectorAll('.ant-table-filter-dropdown-search').length).toBe(1);
       expect(container.querySelectorAll('.ant-input').length).toBe(1);
@@ -2202,7 +2203,7 @@ describe('Table.filter', () => {
     });
 
     it('supports search input in filter menu', () => {
-      jest.spyOn(console, 'error').mockImplementation(() => undefined);
+      vi.spyOn(console, 'error').mockImplementation(() => undefined);
       const { container } = render(
         createTable({
           columns: [{ ...column, filterSearch: true }],
@@ -2210,7 +2211,7 @@ describe('Table.filter', () => {
       );
       fireEvent.click(container.querySelector('span.ant-dropdown-trigger')!, nativeEvent);
       act(() => {
-        jest.runAllTimers();
+        vi.runAllTimers();
       });
       expect(container.querySelectorAll('.ant-table-filter-dropdown-search').length).toBe(1);
       expect(container.querySelectorAll('.ant-input').length).toBe(1);
@@ -2218,7 +2219,7 @@ describe('Table.filter', () => {
     });
 
     it('should skip search when filters[0].text is ReactNode', () => {
-      jest.spyOn(console, 'error').mockImplementation(() => undefined);
+      vi.spyOn(console, 'error').mockImplementation(() => undefined);
       const { container, unmount } = render(
         createTable({
           columns: [
@@ -2246,7 +2247,7 @@ describe('Table.filter', () => {
 
       fireEvent.click(container.querySelector('span.ant-dropdown-trigger')!, nativeEvent);
       act(() => {
-        jest.runAllTimers();
+        vi.runAllTimers();
       });
       expect(container.querySelectorAll('.ant-table-filter-dropdown-search').length).toBe(1);
       expect(container.querySelectorAll('.ant-input').length).toBe(1);
@@ -2258,7 +2259,7 @@ describe('Table.filter', () => {
     });
 
     it('should supports filterSearch has type of function', () => {
-      const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => undefined);
+      const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => undefined);
       const { container, unmount } = render(
         createTable({
           columns: [
@@ -2276,7 +2277,7 @@ describe('Table.filter', () => {
       );
       fireEvent.click(container.querySelector('span.ant-dropdown-trigger')!, nativeEvent);
       act(() => {
-        jest.runAllTimers();
+        vi.runAllTimers();
       });
       expect(container.querySelectorAll('.ant-table-filter-dropdown-search').length).toBe(1);
       expect(container.querySelectorAll('.ant-input').length).toBe(1);
@@ -2289,7 +2290,7 @@ describe('Table.filter', () => {
     });
 
     it('should supports filterSearch has type of function when filterMode is tree', () => {
-      jest.spyOn(console, 'error').mockImplementation(() => undefined);
+      vi.spyOn(console, 'error').mockImplementation(() => undefined);
       const { container } = render(
         createTable({
           columns: [
@@ -2308,7 +2309,7 @@ describe('Table.filter', () => {
       );
       fireEvent.click(container.querySelector('span.ant-dropdown-trigger')!, nativeEvent);
       act(() => {
-        jest.runAllTimers();
+        vi.runAllTimers();
       });
       expect(container.querySelectorAll('.ant-table-filter-dropdown-tree').length).toBe(1);
       expect(container.querySelectorAll('.ant-input').length).toBe(1);
@@ -2317,7 +2318,7 @@ describe('Table.filter', () => {
     });
 
     it('supports check all items', () => {
-      jest.spyOn(console, 'error').mockImplementation(() => undefined);
+      vi.spyOn(console, 'error').mockImplementation(() => undefined);
       const { container } = render(
         createTable({
           columns: [{ ...column, filterMode: 'tree', filterSearch: true }],
@@ -2325,7 +2326,7 @@ describe('Table.filter', () => {
       );
       fireEvent.click(container.querySelector('span.ant-dropdown-trigger')!, nativeEvent);
       act(() => {
-        jest.runAllTimers();
+        vi.runAllTimers();
       });
       expect(container.querySelectorAll('.ant-table-filter-dropdown-checkall').length).toBe(1);
       expect(container.querySelector('.ant-table-filter-dropdown-checkall')?.textContent).toBe(
@@ -2343,7 +2344,7 @@ describe('Table.filter', () => {
     });
 
     it('supports check item by selecting it', () => {
-      jest.spyOn(console, 'error').mockImplementation(() => undefined);
+      vi.spyOn(console, 'error').mockImplementation(() => undefined);
       const { container } = render(
         createTable({
           columns: [
@@ -2357,7 +2358,7 @@ describe('Table.filter', () => {
       );
       fireEvent.click(container.querySelector('span.ant-dropdown-trigger')!, nativeEvent);
       act(() => {
-        jest.runAllTimers();
+        vi.runAllTimers();
       });
       expect(container.querySelectorAll('.ant-table-filter-dropdown-checkall').length).toBe(1);
       expect(container.querySelector('.ant-table-filter-dropdown-checkall')?.textContent).toBe(
@@ -2378,7 +2379,7 @@ describe('Table.filter', () => {
     });
 
     it('select-all checkbox should change when all items are selected', () => {
-      jest.spyOn(console, 'error').mockImplementation(() => undefined);
+      vi.spyOn(console, 'error').mockImplementation(() => undefined);
       const { container } = render(
         createTable({
           columns: [
@@ -2395,7 +2396,7 @@ describe('Table.filter', () => {
       );
       fireEvent.click(container.querySelector('span.ant-dropdown-trigger')!, nativeEvent);
       act(() => {
-        jest.runAllTimers();
+        vi.runAllTimers();
       });
       fireEvent.click(container.querySelectorAll('.ant-tree-node-content-wrapper')[0]);
       fireEvent.click(container.querySelectorAll('.ant-tree-node-content-wrapper')[1]);
@@ -2409,7 +2410,7 @@ describe('Table.filter', () => {
   });
 
   it('filterMultiple is false - check item', () => {
-    jest.spyOn(console, 'error').mockImplementation(() => undefined);
+    vi.spyOn(console, 'error').mockImplementation(() => undefined);
     const { container } = render(
       createTable({
         columns: [{ ...column, filterMode: 'tree', filterMultiple: false }],
@@ -2418,7 +2419,7 @@ describe('Table.filter', () => {
 
     fireEvent.click(container.querySelector('span.ant-dropdown-trigger')!, nativeEvent);
     act(() => {
-      jest.runAllTimers();
+      vi.runAllTimers();
     });
     expect(container.querySelectorAll('.ant-tree-checkbox').length).toBe(5);
     expect(container.querySelector('.ant-table-filter-dropdown-checkall')).toBe(null);
@@ -2450,7 +2451,7 @@ describe('Table.filter', () => {
   });
 
   it('filterMultiple is false - select item', () => {
-    jest.spyOn(console, 'error').mockImplementation(() => undefined);
+    vi.spyOn(console, 'error').mockImplementation(() => undefined);
     const { container } = render(
       createTable({
         columns: [
@@ -2464,7 +2465,7 @@ describe('Table.filter', () => {
     );
     fireEvent.click(container.querySelector('span.ant-dropdown-trigger')!, nativeEvent);
     act(() => {
-      jest.runAllTimers();
+      vi.runAllTimers();
     });
 
     expect(container.querySelectorAll('.ant-tree-checkbox').length).toBe(5);
@@ -2496,7 +2497,7 @@ describe('Table.filter', () => {
   });
 
   it('should select children when select parent', () => {
-    jest.spyOn(console, 'error').mockImplementation(() => undefined);
+    vi.spyOn(console, 'error').mockImplementation(() => undefined);
     const { container } = render(
       createTable({
         columns: [
@@ -2521,7 +2522,7 @@ describe('Table.filter', () => {
     );
     fireEvent.click(container.querySelector('span.ant-dropdown-trigger')!, nativeEvent);
     act(() => {
-      jest.runAllTimers();
+      vi.runAllTimers();
     });
     // check parentnode
 
@@ -2552,7 +2553,7 @@ describe('Table.filter', () => {
 
     fireEvent.click(container.querySelector('span.ant-dropdown-trigger')!, nativeEvent);
     act(() => {
-      jest.runAllTimers();
+      vi.runAllTimers();
     });
 
     fireEvent.click(container.querySelectorAll('.ant-tree-checkbox-inner')[2]);
@@ -2565,7 +2566,7 @@ describe('Table.filter', () => {
 
     fireEvent.click(container.querySelector('span.ant-dropdown-trigger')!, nativeEvent);
     act(() => {
-      jest.runAllTimers();
+      vi.runAllTimers();
     });
 
     fireEvent.click(container.querySelectorAll('.ant-tree-node-content-wrapper')[2]);
@@ -2657,7 +2658,7 @@ describe('Table.filter', () => {
   });
 
   it('filterDropdown should support filterResetToDefaultFilteredValue', () => {
-    jest.spyOn(console, 'error').mockImplementation(() => undefined);
+    vi.spyOn(console, 'error').mockImplementation(() => undefined);
 
     const columnFilter: ColumnGroupType<any> | ColumnType<any> = {
       ...column,
@@ -2673,7 +2674,7 @@ describe('Table.filter', () => {
     );
     fireEvent.click(container.querySelector('span.ant-dropdown-trigger')!, nativeEvent);
     act(() => {
-      jest.runAllTimers();
+      vi.runAllTimers();
     });
     expect(container.querySelectorAll('.ant-tree-checkbox-checked').length).toBe(1);
 
@@ -2695,7 +2696,7 @@ describe('Table.filter', () => {
 
     fireEvent.click(container2.querySelector('span.ant-dropdown-trigger')!, nativeEvent);
     act(() => {
-      jest.runAllTimers();
+      vi.runAllTimers();
     });
     fireEvent.click(container2.querySelector('.ant-table-filter-dropdown-checkall')!);
     expect(container2.querySelectorAll('.ant-tree-checkbox-checked').length).toBe(5);
@@ -2705,7 +2706,7 @@ describe('Table.filter', () => {
   });
 
   it('filterDropdown should not override customize Menu selectable', () => {
-    const onSelect = jest.fn();
+    const onSelect = vi.fn();
 
     const { container } = render(
       createTable({
@@ -2733,7 +2734,7 @@ describe('Table.filter', () => {
     // Open Filter
     fireEvent.click(container.querySelector('span.ant-dropdown-trigger')!);
     act(() => {
-      jest.runAllTimers();
+      vi.runAllTimers();
     });
 
     // Click Item
@@ -2743,11 +2744,11 @@ describe('Table.filter', () => {
   });
 
   describe('filteredKeys should all be controlled or not controlled', () => {
-    let errorSpy: jest.SpyInstance;
+    let errorSpy: vi.SpyInstance;
 
     beforeEach(() => {
       resetWarned();
-      errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
       errorSpy.mockReset();
     });
 
@@ -2872,7 +2873,7 @@ describe('Table.filter', () => {
   });
 
   it('title render function support `filter`', () => {
-    const title = jest.fn(() => 'RenderTitle');
+    const title = vi.fn(() => 'RenderTitle');
     const { container } = render(
       createTable({
         columns: [
@@ -2893,8 +2894,8 @@ describe('Table.filter', () => {
     );
   });
   it('should be hidden and not commit when call close()', () => {
-    const onFilterDropdownOpenChange = jest.fn();
-    const onFilter = jest.fn();
+    const onFilterDropdownOpenChange = vi.fn();
+    const onFilter = vi.fn();
     const { container } = render(
       createTable({
         columns: [
@@ -3030,7 +3031,7 @@ describe('Table.filter', () => {
   });
 
   it('should not fire change event when dropdown dismisses if filterOnClose is false', () => {
-    const handleChange = jest.fn();
+    const handleChange = vi.fn();
     const { container } = render(
       createTable({
         onChange: handleChange,
@@ -3069,7 +3070,7 @@ describe('Table.filter', () => {
     );
 
     it('should return custom content', async () => {
-      const mockTableFilterRenderEmpty = jest.fn();
+      const mockTableFilterRenderEmpty = vi.fn();
 
       function renderEmpty(...args: any[]) {
         if (args[0] === 'Table.filter') {
@@ -3084,7 +3085,7 @@ describe('Table.filter', () => {
       // Open Filter
       fireEvent.click(container.querySelector('span.ant-dropdown-trigger')!);
       act(() => {
-        jest.runAllTimers();
+        vi.runAllTimers();
       });
 
       await waitFakeTimer();
@@ -3113,7 +3114,7 @@ describe('Table.filter', () => {
   // https://github.com/ant-design/ant-design/issues/51151#issuecomment-2419116749
   describe('should support filterDropdownProps', () => {
     it('dropdownRender', () => {
-      const dropdownRender = jest.fn((node) => (
+      const dropdownRender = vi.fn((node) => (
         <>
           {node}
           <span>Foo</span>

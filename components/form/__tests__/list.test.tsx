@@ -1,4 +1,5 @@
 import React from 'react';
+import { vi } from 'vitest';
 
 import type { FormListFieldData, FormListOperation } from '..';
 import Form from '..';
@@ -42,12 +43,12 @@ describe('Form.List', () => {
 
   beforeEach(() => {
     document.body.innerHTML = '';
-    jest.useFakeTimers();
+    vi.useFakeTimers();
   });
 
   afterAll(() => {
-    jest.clearAllTimers();
-    jest.useRealTimers();
+    vi.clearAllTimers();
+    vi.useRealTimers();
   });
 
   const testList = (
@@ -120,7 +121,7 @@ describe('Form.List', () => {
       fireEvent.click(wrapper.querySelector(className)!);
     }
 
-    const onFinish = jest.fn().mockImplementation(() => {});
+    const onFinish = vi.fn().mockImplementation(() => {});
 
     const { container } = render(
       <Form
@@ -216,7 +217,7 @@ describe('Form.List', () => {
   });
 
   it('no warning when reset in validate', async () => {
-    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
 
     const Demo = () => {
       const [form] = Form.useForm();
@@ -264,7 +265,7 @@ describe('Form.List', () => {
   });
 
   it('no warning when name is 0', () => {
-    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
 
     render(
       <Form>
@@ -286,7 +287,7 @@ describe('Form.List', () => {
   });
 
   it('warning when name is empty array', () => {
-    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
 
     render(
       <Form>
@@ -308,7 +309,7 @@ describe('Form.List', () => {
   });
 
   it('warning when name is null', () => {
-    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
 
     render(
       <Form>

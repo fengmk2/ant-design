@@ -2,6 +2,7 @@ import * as React from 'react';
 import { SmileOutlined } from '@ant-design/icons';
 import { warning } from '@rc-component/util';
 import KeyCode from '@rc-component/util/lib/KeyCode';
+import { vi } from 'vitest';
 
 import type { ModalFuncProps } from '..';
 import Modal from '..';
@@ -19,12 +20,13 @@ const { resetWarned } = warning;
 const { confirm } = Modal;
 
 // TODO: Remove this. Mock for React 19
-jest.mock('react-dom', () => {
-  const realReactDOM = jest.requireActual('react-dom');
+vi.mock('react-dom', async () => {
+  const realReactDOM = await vi.importActual<typeof import('react-dom')>('react-dom');
 
   if (realReactDOM.version.startsWith('19')) {
-    const realReactDOMClient = jest.requireActual('react-dom/client');
-    realReactDOM.createRoot = realReactDOMClient.createRoot;
+    const realReactDOMClient =
+      await vi.importActual<typeof import('react-dom/client')>('react-dom/client');
+    (realReactDOM as any).createRoot = realReactDOMClient.createRoot;
   }
 
   return realReactDOM;
@@ -33,8 +35,9 @@ jest.mock('react-dom', () => {
 (global as any).injectPromise = false;
 (global as any).rejectPromise = null;
 
-jest.mock('../../_util/ActionButton', () => {
-  const ActionButton = jest.requireActual('../../_util/ActionButton').default;
+vi.mock('../../_util/ActionButton', async () => {
+  const ActionButtonModule = await vi.importActual<any>('../../_util/ActionButton');
+  const ActionButton = ActionButtonModule.default;
   return (props: any) => {
     const { actionFn } = props;
     let mockActionFn: any = actionFn;
@@ -84,14 +87,14 @@ describe('Modal.confirm triggers callbacks correctly', () => {
   //   window.clearTimeout(id);
   // };
 
-  // jest.spyOn(window, 'requestAnimationFrame').mockImplementation(callback => {
+  // vi.spyOn(window, 'requestAnimationFrame').mockImplementation(callback => {
   //   const id = window.setTimeout(callback);
   //   console.log('Mock Raf:', id);
   //   return id;
   // });
-  // jest.spyOn(window, 'cancelAnimationFrame').mockImplementation(id => window.clearTimeout(id));
+  // vi.spyOn(window, 'cancelAnimationFrame').mockImplementation(id => window.clearTimeout(id));
 
-  const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+  const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
 
   // Hack error to remove act warning
   const originError = console.error;
@@ -108,7 +111,7 @@ describe('Modal.confirm triggers callbacks correctly', () => {
   };
 
   beforeEach(() => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
     (global as any).injectPromise = false;
     (global as any).rejectPromise = null;
   });
@@ -119,11 +122,11 @@ describe('Modal.confirm triggers callbacks correctly', () => {
 
     await waitFakeTimer();
     document.body.innerHTML = '';
-    jest.clearAllTimers();
+    vi.clearAllTimers();
   });
 
   afterAll(() => {
-    jest.useRealTimers();
+    vi.useRealTimers();
     errorSpy.mockRestore();
   });
 
@@ -151,8 +154,8 @@ describe('Modal.confirm triggers callbacks correctly', () => {
   });
 
   it('trigger onCancel once when click on cancel button', async () => {
-    const onCancel = jest.fn();
-    const onOk = jest.fn();
+    const onCancel = vi.fn();
+    const onOk = vi.fn();
     await open({
       onCancel,
       onOk,
@@ -164,8 +167,8 @@ describe('Modal.confirm triggers callbacks correctly', () => {
   });
 
   it('trigger onOk once when click on ok button', async () => {
-    const onCancel = jest.fn();
-    const onOk = jest.fn();
+    const onCancel = vi.fn();
+    const onOk = vi.fn();
     await open({
       onCancel,
       onOk,
@@ -193,7 +196,7 @@ describe('Modal.confirm triggers callbacks correctly', () => {
   });
 
   it('should close confirm modal when press ESC', async () => {
-    const onCancel = jest.fn();
+    const onCancel = vi.fn();
     Modal.confirm({
       title: 'title',
       content: 'content',
@@ -213,7 +216,7 @@ describe('Modal.confirm triggers callbacks correctly', () => {
 
   it('should not fire twice onOk when button is pressed twice', async () => {
     let resolveFn: VoidFunction;
-    const onOk = jest.fn(
+    const onOk = vi.fn(
       () =>
         new Promise<void>((resolve) => {
           resolveFn = resolve;
@@ -314,7 +317,7 @@ describe('Modal.confirm triggers callbacks correctly', () => {
   });
 
   it('should close confirm modal when click cancel button', async () => {
-    const onCancel = jest.fn();
+    const onCancel = vi.fn();
     Modal.confirm({
       open: true,
       title: 'title',
@@ -330,7 +333,7 @@ describe('Modal.confirm triggers callbacks correctly', () => {
   });
 
   it('should close confirm modal when click close button', async () => {
-    const onCancel = jest.fn();
+    const onCancel = vi.fn();
     Modal.confirm({
       title: 'title',
       content: 'content',
@@ -496,7 +499,7 @@ describe('Modal.confirm triggers callbacks correctly', () => {
 
       // Render modal
       act(() => {
-        jest.runAllTimers();
+        vi.runAllTimers();
       });
 
       instances.push(instance);
@@ -507,7 +510,7 @@ describe('Modal.confirm triggers callbacks correctly', () => {
 
       act(() => {
         instance.destroy();
-        jest.runAllTimers();
+        vi.runAllTimers();
       });
       expect(destroyFns.length).toBe(length - index - 1);
     });
@@ -535,7 +538,7 @@ describe('Modal.confirm triggers callbacks correctly', () => {
   });
 
   it('icon can be null to hide icon', async () => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
     confirm({
       title: 'some title',
       content: 'some descriptions',
@@ -550,11 +553,11 @@ describe('Modal.confirm triggers callbacks correctly', () => {
       document.querySelector('.ant-modal-confirm-body')!.querySelector('.anticon'),
     ).toBeFalsy();
 
-    jest.useRealTimers();
+    vi.useRealTimers();
   });
 
   it('ok button should trigger onOk once when click it many times quickly', async () => {
-    const onOk = jest.fn();
+    const onOk = vi.fn();
     await open({ onOk });
 
     $$('.ant-btn-primary')[0].click();
@@ -564,7 +567,7 @@ describe('Modal.confirm triggers callbacks correctly', () => {
 
   // https://github.com/ant-design/ant-design/issues/23358
   it('ok button should trigger onOk multiple times when onOk has close argument', async () => {
-    const onOk = jest.fn();
+    const onOk = vi.fn();
     await open({
       onOk(close?: any) {
         onOk();
@@ -631,7 +634,7 @@ describe('Modal.confirm triggers callbacks correctly', () => {
   });
 
   it('trigger afterClose once when click on cancel button', async () => {
-    const afterClose = jest.fn();
+    const afterClose = vi.fn();
     await open({
       afterClose,
     });
@@ -643,7 +646,7 @@ describe('Modal.confirm triggers callbacks correctly', () => {
   });
 
   it('trigger afterClose once when click on ok button', async () => {
-    const afterClose = jest.fn();
+    const afterClose = vi.fn();
     await open({
       afterClose,
     });
@@ -657,7 +660,7 @@ describe('Modal.confirm triggers callbacks correctly', () => {
 
   it('bodyStyle', async () => {
     resetWarned();
-    const spy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const spy = vi.spyOn(console, 'error').mockImplementation(() => {});
     await open({ bodyStyle: { width: 500 } });
 
     const { width } = $$('.ant-modal-body')[0].style;
@@ -679,7 +682,7 @@ describe('Modal.confirm triggers callbacks correctly', () => {
   describe('the callback close should be a method when onCancel has a close parameter', () => {
     (['confirm', 'info', 'success', 'warning', 'error'] as const).forEach((type) => {
       it(`click the close icon to trigger ${type} onCancel`, async () => {
-        const mock = jest.fn();
+        const mock = vi.fn();
 
         Modal[type]?.({
           closable: true,
@@ -700,7 +703,7 @@ describe('Modal.confirm triggers callbacks correctly', () => {
 
     (['confirm', 'info', 'success', 'warning', 'error'] as const).forEach((type) => {
       it(`press ESC to trigger ${type} onCancel`, async () => {
-        const mock = jest.fn();
+        const mock = vi.fn();
 
         Modal[type]?.({
           keyboard: true,
@@ -721,7 +724,7 @@ describe('Modal.confirm triggers callbacks correctly', () => {
 
     (['confirm', 'info', 'success', 'warning', 'error'] as const).forEach((type) => {
       it(`click the mask to trigger ${type} onCancel`, async () => {
-        const mock = jest.fn();
+        const mock = vi.fn();
 
         Modal[type]?.({
           maskClosable: true,
@@ -744,7 +747,7 @@ describe('Modal.confirm triggers callbacks correctly', () => {
   });
 
   it('confirm modal click Cancel button close callback is a function', async () => {
-    const mock = jest.fn();
+    const mock = vi.fn();
 
     Modal.confirm({
       onCancel: (close) => mock(close),
@@ -776,8 +779,8 @@ describe('Modal.confirm triggers callbacks correctly', () => {
   // https://github.com/ant-design/ant-design/issues/37461
   it('Update should closable', async () => {
     resetWarned();
-    jest.useFakeTimers();
-    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    vi.useFakeTimers();
+    const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
 
     const modal = Modal.confirm({});
 
@@ -794,7 +797,7 @@ describe('Modal.confirm triggers callbacks correctly', () => {
 
     expect($$('.ant-modal-confirm-confirm')).toHaveLength(0);
 
-    jest.useRealTimers();
+    vi.useRealTimers();
     errSpy.mockRestore();
   });
 
@@ -850,7 +853,7 @@ describe('Modal.confirm triggers callbacks correctly', () => {
 
   it('warning getContainer be false', async () => {
     resetWarned();
-    const warnSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const warnSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
 
     Modal.confirm({
       getContainer: false,

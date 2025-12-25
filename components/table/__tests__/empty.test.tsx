@@ -1,5 +1,6 @@
 import React from 'react';
 import { spyElementPrototypes } from '@rc-component/util/lib/test/domHook';
+import { vi } from 'vitest';
 
 import type { ColumnsType } from '..';
 import Table from '..';
@@ -65,11 +66,11 @@ describe('Table', () => {
     });
 
     beforeEach(() => {
-      jest.useFakeTimers();
+      vi.useFakeTimers();
     });
 
     afterEach(() => {
-      jest.useRealTimers();
+      vi.useRealTimers();
     });
 
     afterAll(() => {
