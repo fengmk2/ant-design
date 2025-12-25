@@ -10,14 +10,3 @@ exports[`Mentions > rtl render > component should be rendered correctly in RTL d
   />
 </div>
 `;
-
-exports[`Mentions rtl render component should be rendered correctly in RTL direction 1`] = `
-<div
-  class="ant-mentions ant-mentions-rtl ant-mentions-outlined ant-mentions css-var-root ant-mentions-css-var"
->
-  <textarea
-    class="rc-textarea"
-    rows="1"
-  />
-</div>
-`;

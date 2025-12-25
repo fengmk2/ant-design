@@ -12,16 +12,3 @@ exports[`Flex > rtl render > component should be rendered correctly in RTL direc
   </div>
 </div>
 `;
-
-exports[`Flex rtl render component should be rendered correctly in RTL direction 1`] = `
-<div
-  class="ant-flex css-var-root ant-flex-rtl"
->
-  <div>
-    test1
-  </div>
-  <div>
-    test2
-  </div>
-</div>
-`;
