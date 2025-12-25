@@ -1,6 +1,7 @@
 import React from 'react';
 import dayjs from 'dayjs';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
+import { vi } from 'vitest';
 
 import TimePicker from '..';
 import { resetWarned } from '../../_util/warning';
@@ -12,7 +13,7 @@ import { render } from '../../../tests/utils';
 dayjs.extend(customParseFormat);
 
 describe('TimePicker', () => {
-  const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+  const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
 
   afterEach(() => {
     errorSpy.mockReset();

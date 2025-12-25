@@ -3,6 +3,7 @@ import { CloseCircleFilled } from '@ant-design/icons';
 import { warning } from '@rc-component/util';
 import dayjs from 'dayjs';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
+import { vi } from 'vitest';
 
 import DatePicker from '..';
 import focusTest from '../../../tests/shared/focusTest';
@@ -153,7 +154,7 @@ describe('RangePicker', () => {
   it('legacy dropdownClassName & popupClassName', () => {
     resetWarned();
 
-    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
     const { container, rerender } = render(
       <DatePicker.RangePicker dropdownClassName="legacy" open />,
     );
@@ -174,7 +175,7 @@ describe('RangePicker', () => {
   it('legacy popupStyle', () => {
     resetWarned();
 
-    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
     const { container } = render(
       <DatePicker.RangePicker popupStyle={{ backgroundColor: 'red' }} open />,
     );

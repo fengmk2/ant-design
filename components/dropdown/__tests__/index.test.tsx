@@ -1,6 +1,7 @@
 import React from 'react';
 import { SaveOutlined } from '@ant-design/icons';
 import type { TriggerProps } from '@rc-component/trigger';
+import { vi } from 'vitest';
 
 import type { DropDownProps } from '..';
 import Dropdown from '..';
@@ -12,10 +13,10 @@ import ConfigProvider from '../../config-provider';
 
 let triggerProps: TriggerProps;
 
-jest.mock('@rc-component/trigger', () => {
-  let Trigger = jest.requireActual('@rc-component/trigger/lib/mock');
-  Trigger = Trigger.default || Trigger;
-  const h: typeof React = jest.requireActual('react');
+vi.mock('@rc-component/trigger', async () => {
+  const TriggerModule = await vi.importActual<any>('@rc-component/trigger/lib/mock');
+  const Trigger = TriggerModule.default || TriggerModule;
+  const h = await vi.importActual<typeof React>('react');
 
   return {
     default: h.forwardRef<HTMLElement, TriggerProps>((props, ref) => {
@@ -74,7 +75,7 @@ describe('Dropdown', () => {
   });
 
   it('support Menu expandIcon', async () => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
     const props: DropDownProps = {
       menu: {
         items: [
@@ -106,11 +107,11 @@ describe('Dropdown', () => {
     );
     await waitFakeTimer();
     expect(container.querySelectorAll('#customExpandIcon').length).toBe(1);
-    jest.useRealTimers();
+    vi.useRealTimers();
   });
 
   it('should warn if use topCenter or bottomCenter', () => {
-    const error = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const error = vi.spyOn(console, 'error').mockImplementation(() => {});
     render(
       <div>
         <Dropdown menu={{ items }} placement="bottomCenter">
@@ -155,7 +156,7 @@ describe('Dropdown', () => {
   });
 
   it('menu item with group', () => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
     const { container } = render(
       <Dropdown
         trigger={['click']}
@@ -181,7 +182,7 @@ describe('Dropdown', () => {
     // Open
     fireEvent.click(container.querySelector('a')!);
     act(() => {
-      jest.runAllTimers();
+      vi.runAllTimers();
     });
 
     // Close
@@ -190,7 +191,7 @@ describe('Dropdown', () => {
     // Force Motion move on
     for (let i = 0; i < 10; i += 1) {
       act(() => {
-        jest.runAllTimers();
+        vi.runAllTimers();
       });
     }
 
@@ -199,13 +200,13 @@ describe('Dropdown', () => {
 
     expect(container.querySelector('.ant-dropdown-hidden')).toBeTruthy();
 
-    jest.useRealTimers();
+    vi.useRealTimers();
   });
 
   it('legacy dropdownRender & legacy destroyPopupOnHide', () => {
     resetWarned();
-    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-    const dropdownRender = jest.fn((menu) => (
+    const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+    const dropdownRender = vi.fn((menu) => (
       <div className="custom-dropdown">
         {menu}
         <div className="extra-content">Extra Content</div>
@@ -258,7 +259,7 @@ describe('Dropdown', () => {
   });
 
   it('should trigger open event when click on item', () => {
-    const onOpenChange = jest.fn();
+    const onOpenChange = vi.fn();
     render(
       <Dropdown
         onOpenChange={onOpenChange}
@@ -281,7 +282,7 @@ describe('Dropdown', () => {
   });
 
   it('is still open after selection in multiple mode', () => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
     const { container } = render(
       <Dropdown
         trigger={['click']}
@@ -301,7 +302,7 @@ describe('Dropdown', () => {
     // Open
     fireEvent.click(container.querySelector('a')!);
     act(() => {
-      jest.runAllTimers();
+      vi.runAllTimers();
     });
 
     // Selecting item
@@ -310,11 +311,11 @@ describe('Dropdown', () => {
     // Force Motion move on
     for (let i = 0; i < 10; i += 1) {
       act(() => {
-        jest.runAllTimers();
+        vi.runAllTimers();
       });
     }
     expect(container.querySelector('.ant-dropdown-hidden')).toBeFalsy();
-    jest.useRealTimers();
+    vi.useRealTimers();
   });
 
   it('should respect trigger disabled prop', () => {
