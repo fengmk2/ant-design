@@ -1,7 +1,11 @@
-import util from 'util';
+import util, { TextDecoder as NodeTextDecoder, TextEncoder as NodeTextEncoder } from 'util';
 import React from 'react';
 import type { DOMWindow } from 'jsdom';
 import { vi } from 'vitest';
+
+// Polyfill TextEncoder/TextDecoder for react-router (needs it for encoding)
+global.TextEncoder = NodeTextEncoder as typeof TextEncoder;
+global.TextDecoder = NodeTextDecoder as typeof TextDecoder;
 
 console.log('Current React Version:', React.version);
 
