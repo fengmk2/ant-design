@@ -3,7 +3,8 @@ import * as React from 'react';
 import demoTest, { rootPropsTest } from '../../../tests/shared/demoTest';
 
 demoTest('tag', {
-  skip: ['component-token.tsx'],
+  // Skip animation.tsx: tween-one package has ESM import issues (relative imports without .js extension)
+  skip: ['component-token.tsx', 'animation.tsx'],
 });
 
 rootPropsTest('tag', (Tag, props) => <Tag.CheckableTagGroup {...props} />, {

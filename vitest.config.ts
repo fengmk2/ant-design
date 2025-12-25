@@ -8,6 +8,7 @@ import { demoPlugin, imagePlugin } from './scripts/vite-plugins/demoPlugin';
 const compileModules = [
   'react-sticky-box',
   'rc-tween-one',
+  'tween-one',
   '@babel',
   '@ant-design',
   'countup.js',
@@ -77,7 +78,7 @@ export default defineConfig({
     deps: {
       interopDefault: true,
       // Force inline these packages so they go through Vite's transform and use our aliases
-      inline: ['antd-style', '@ant-design/happy-work-theme'],
+      inline: ['antd-style', '@ant-design/happy-work-theme', '@ant-design/compatible'],
       optimizer: {
         web: {
           include: compileModules,
