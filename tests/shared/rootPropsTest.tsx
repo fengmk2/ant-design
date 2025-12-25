@@ -31,13 +31,16 @@ export default function rootPropsTest(
 ) {
   const componentNames = Array.isArray(component) ? component : [component];
   const [componentName, subComponentName] = componentNames;
-
-  // Use path.resolve for Vitest compatibility
-  const Component = require(`${process.cwd()}/components/${componentName}/index.tsx`).default;
   const name = options?.name ? `(${options.name})` : '';
 
   describe(`RootProps${name}`, () => {
     let passed = false;
+    let Component: React.ComponentType<any> & Record<string, any>;
+
+    beforeAll(async () => {
+      const module = await import(`${process.cwd()}/components/${componentName}/index.tsx`);
+      Component = module.default;
+    });
 
     beforeEach(() => {
       passed = false;

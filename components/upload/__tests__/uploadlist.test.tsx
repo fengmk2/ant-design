@@ -963,15 +963,15 @@ describe('Upload List', () => {
     unmount();
   });
 
-  it('extname should work correctly when url exists', (done) => {
+  it('extname should work correctly when url exists', async () => {
+    const onDownloadDone = vi.fn();
     const items = [{ status: 'done', uid: 'upload-list-item', url: '/example' }];
     const { container: wrapper, unmount } = render(
       <UploadList
         listType="picture"
         onDownload={(file) => {
           expect(file.url).toBe('/example');
-          unmount();
-          done();
+          onDownloadDone();
         }}
         items={items as UploadListProps['items']}
         locale={{ downloadFile: '' }}
@@ -979,6 +979,8 @@ describe('Upload List', () => {
       />,
     );
     fireEvent.click(wrapper.querySelector('div.ant-upload-list-item .anticon-download')!);
+    expect(onDownloadDone).toHaveBeenCalled();
+    unmount();
   });
 
   it('when picture-card is loading, icon should render correctly', () => {

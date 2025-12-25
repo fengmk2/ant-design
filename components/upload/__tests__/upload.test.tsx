@@ -147,7 +147,7 @@ describe('Upload', () => {
     expect(done).toHaveBeenCalled();
   });
 
-  it('should not stop upload when return value of beforeUpload is false', (done) => {
+  it('should not stop upload when return value of beforeUpload is false', async () => {
     const fileList = [
       {
         uid: 'bar',
@@ -158,6 +158,7 @@ describe('Upload', () => {
       type: 'image/png',
     });
     const data = vi.fn();
+    const onChangeDone = vi.fn();
     const props: UploadProps = {
       action: 'http://upload.com',
       fileList,
@@ -167,7 +168,7 @@ describe('Upload', () => {
         expect(file instanceof File).toBe(true);
         expect(updatedFileList.map((f) => f.name)).toEqual(['bar.png', 'foo.png']);
         expect(data).not.toHaveBeenCalled();
-        done();
+        onChangeDone();
       },
     };
 
@@ -180,17 +181,20 @@ describe('Upload', () => {
     fireEvent.change(wrapper.querySelector('input')!, {
       target: { files: [mockFile] },
     });
+    await waitFakeTimer();
+    expect(onChangeDone).toHaveBeenCalled();
   });
 
-  it('should not stop upload when return value of beforeUpload is not false', (done) => {
+  it('should not stop upload when return value of beforeUpload is not false', async () => {
     const data = vi.fn();
+    const onChangeDone = vi.fn();
     const props = {
       action: 'http://upload.com',
       beforeUpload() {},
       data,
       onChange: () => {
         expect(data).toHaveBeenCalled();
-        done();
+        onChangeDone();
       },
     };
 
@@ -205,6 +209,8 @@ describe('Upload', () => {
         files: [{ file: 'foo.png' }],
       },
     });
+    await waitFakeTimer();
+    expect(onChangeDone).toHaveBeenCalled();
   });
 
   // https://github.com/ant-design/ant-design/issues/14779

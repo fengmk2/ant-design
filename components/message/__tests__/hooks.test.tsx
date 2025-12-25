@@ -88,7 +88,8 @@ describe('message.hooks', () => {
     expect(document.querySelector('.hook-test-result')!.textContent).toEqual('bamboo');
   });
 
-  it('should work with onClose', (done) => {
+  it('should work with onClose', async () => {
+    const onClose = vi.fn();
     const Demo = () => {
       const [api, holder] = message.useMessage();
       return (
@@ -96,7 +97,7 @@ describe('message.hooks', () => {
           <button
             type="button"
             onClick={() => {
-              api.open({ content: 'amazing', duration: 1, onClose: done });
+              api.open({ content: 'amazing', duration: 1, onClose });
             }}
           >
             test
@@ -109,10 +110,12 @@ describe('message.hooks', () => {
     const { container } = render(<Demo />);
     fireEvent.click(container.querySelector('button')!);
 
-    triggerMotionEnd();
+    await triggerMotionEnd();
+    expect(onClose).toHaveBeenCalled();
   });
 
-  it('should work with close promise', (done) => {
+  it('should work with close promise', async () => {
+    const onResolve = vi.fn();
     const Demo = () => {
       const [api, holder] = message.useMessage();
       return (
@@ -121,7 +124,7 @@ describe('message.hooks', () => {
             type="button"
             onClick={() => {
               api.open({ content: 'good', duration: 1 }).then(() => {
-                done();
+                onResolve();
               });
             }}
           >
@@ -135,7 +138,8 @@ describe('message.hooks', () => {
     const { container } = render(<Demo />);
     fireEvent.click(container.querySelector('button')!);
 
-    triggerMotionEnd();
+    await triggerMotionEnd();
+    expect(onResolve).toHaveBeenCalled();
   });
 
   it('should work with hide', async () => {

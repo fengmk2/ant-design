@@ -1,5 +1,4 @@
 import '@testing-library/jest-dom/vitest';
-// import 'vitest-axe/extend-expect';
 
 import jsdom from 'jsdom';
 import format, { plugins } from 'pretty-format';
@@ -9,6 +8,26 @@ import { defaultConfig } from '../components/theme/internal';
 
 // Not use dynamic hashed for test env since version will change hash dynamically.
 defaultConfig.hashed = false;
+
+// Add custom matcher for axe accessibility testing
+declare module 'vitest' {
+  interface Assertion {
+    toHaveNoViolations: () => void;
+  }
+}
+
+expect.extend({
+  toHaveNoViolations(received: { violations: unknown[] }) {
+    const pass = received?.violations?.length === 0;
+    return {
+      pass,
+      message: () =>
+        pass
+          ? 'Expected to have accessibility violations, but found none'
+          : `Expected no accessibility violations, but found ${received?.violations?.length}`,
+    };
+  },
+});
 
 // Conditional mocking for dist/es builds is handled in separate setup files
 

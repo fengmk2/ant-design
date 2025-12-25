@@ -75,6 +75,8 @@ export default defineConfig({
     // Handle deps that need to be inlined for transformation
     deps: {
       interopDefault: true,
+      // Force inline these packages so they go through Vite's transform and use our aliases
+      inline: ['antd-style', '@ant-design/happy-work-theme'],
       optimizer: {
         web: {
           include: compileModules,

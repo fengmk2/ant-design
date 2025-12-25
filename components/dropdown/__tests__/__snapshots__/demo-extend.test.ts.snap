@@ -1,5 +1,255 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
+exports[`renders components/dropdown/demo/arrow.tsx extend context correctly 1`] = `
+<div
+  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
+>
+  <div
+    class="ant-space-item"
+  >
+    <div
+      class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
+      style="flex-wrap: wrap;"
+    >
+      <div
+        class="ant-space-item"
+      >
+        <button
+          class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-dropdown-trigger"
+          type="button"
+        >
+          <span>
+            bottomLeft
+          </span>
+        </button>
+      </div>
+      <div
+        class="ant-space-item"
+      >
+        <button
+          class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-dropdown-trigger"
+          type="button"
+        >
+          <span>
+            bottom
+          </span>
+        </button>
+      </div>
+      <div
+        class="ant-space-item"
+      >
+        <button
+          class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-dropdown-trigger"
+          type="button"
+        >
+          <span>
+            bottomRight
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <div
+      class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
+      style="flex-wrap: wrap;"
+    >
+      <div
+        class="ant-space-item"
+      >
+        <button
+          class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-dropdown-trigger"
+          type="button"
+        >
+          <span>
+            topLeft
+          </span>
+        </button>
+      </div>
+      <div
+        class="ant-space-item"
+      >
+        <button
+          class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-dropdown-trigger"
+          type="button"
+        >
+          <span>
+            top
+          </span>
+        </button>
+      </div>
+      <div
+        class="ant-space-item"
+      >
+        <button
+          class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-dropdown-trigger"
+          type="button"
+        >
+          <span>
+            topRight
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders components/dropdown/demo/arrow.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/dropdown/demo/arrow-center.tsx extend context correctly 1`] = `
+<div
+  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
+>
+  <div
+    class="ant-space-item"
+  >
+    <div
+      class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
+      style="flex-wrap: wrap;"
+    >
+      <div
+        class="ant-space-item"
+      >
+        <button
+          class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-dropdown-trigger"
+          type="button"
+        >
+          <span>
+            bottomLeft
+          </span>
+        </button>
+      </div>
+      <div
+        class="ant-space-item"
+      >
+        <button
+          class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-dropdown-trigger"
+          type="button"
+        >
+          <span>
+            bottom
+          </span>
+        </button>
+      </div>
+      <div
+        class="ant-space-item"
+      >
+        <button
+          class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-dropdown-trigger"
+          type="button"
+        >
+          <span>
+            bottomRight
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <div
+      class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
+      style="flex-wrap: wrap;"
+    >
+      <div
+        class="ant-space-item"
+      >
+        <button
+          class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-dropdown-trigger"
+          type="button"
+        >
+          <span>
+            topLeft
+          </span>
+        </button>
+      </div>
+      <div
+        class="ant-space-item"
+      >
+        <button
+          class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-dropdown-trigger"
+          type="button"
+        >
+          <span>
+            top
+          </span>
+        </button>
+      </div>
+      <div
+        class="ant-space-item"
+      >
+        <button
+          class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-dropdown-trigger"
+          type="button"
+        >
+          <span>
+            topRight
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders components/dropdown/demo/arrow-center.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/dropdown/demo/basic.tsx extend context correctly 1`] = `
+<a
+  class="ant-dropdown-trigger"
+>
+  <div
+    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
+  >
+    <div
+      class="ant-space-item"
+    >
+      Hover me
+    </div>
+    <div
+      class="ant-space-item"
+    >
+      <span
+        aria-label="down"
+        class="anticon anticon-down"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          data-icon="down"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+          />
+        </svg>
+      </span>
+    </div>
+  </div>
+</a>
+`;
+
+exports[`renders components/dropdown/demo/basic.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/dropdown/demo/context-menu.tsx extend context correctly 1`] = `
+<div
+  class="ant-dropdown-trigger"
+  style="color: rgba(0, 0, 0, 0.45); background: rgb(245, 245, 245); height: 200px; text-align: center; line-height: 200px;"
+>
+  Right Click on here
+</div>
+`;
+
+exports[`renders components/dropdown/demo/context-menu.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/dropdown/demo/custom-dropdown.tsx extend context correctly 1`] = `
 Array [
   <a
@@ -1782,3 +2032,963 @@ exports[`renders components/dropdown/demo/dropdown-button.tsx extend context cor
 `;
 
 exports[`renders components/dropdown/demo/dropdown-button.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/dropdown/demo/event.tsx extend context correctly 1`] = `
+<a
+  class="ant-dropdown-trigger"
+>
+  <div
+    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
+  >
+    <div
+      class="ant-space-item"
+    >
+      Hover me, Click menu item
+    </div>
+    <div
+      class="ant-space-item"
+    >
+      <span
+        aria-label="down"
+        class="anticon anticon-down"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          data-icon="down"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+          />
+        </svg>
+      </span>
+    </div>
+  </div>
+</a>
+`;
+
+exports[`renders components/dropdown/demo/event.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/dropdown/demo/extra.tsx extend context correctly 1`] = `
+<a
+  class="ant-dropdown-trigger"
+>
+  <div
+    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
+  >
+    <div
+      class="ant-space-item"
+    >
+      Hover me
+    </div>
+    <div
+      class="ant-space-item"
+    >
+      <span
+        aria-label="down"
+        class="anticon anticon-down"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          data-icon="down"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+          />
+        </svg>
+      </span>
+    </div>
+  </div>
+</a>
+`;
+
+exports[`renders components/dropdown/demo/extra.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/dropdown/demo/icon-debug.tsx extend context correctly 1`] = `
+<div
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
+>
+  <div
+    class="ant-space-item"
+  >
+    <div
+      class="ant-space-compact ant-space-compact-block ant-dropdown-button"
+    >
+      <button
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-compact-item ant-btn-compact-first-item"
+        type="button"
+      >
+        <span>
+          Submit
+        </span>
+      </button>
+      <button
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item ant-dropdown-trigger"
+        type="button"
+      >
+        <span
+          class="ant-btn-icon"
+        >
+          <span
+            aria-label="down"
+            class="anticon anticon-down"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="down"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+              />
+            </svg>
+          </span>
+        </span>
+      </button>
+    </div>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <div
+      class="ant-space-compact ant-space-compact-block ant-dropdown-button"
+    >
+      <button
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-compact-item ant-btn-compact-first-item"
+        type="button"
+      >
+        <span>
+          Submit
+        </span>
+      </button>
+      <button
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item ant-dropdown-trigger"
+        type="button"
+      >
+        <span
+          class="ant-btn-icon"
+        >
+          <span
+            aria-label="down"
+            class="anticon anticon-down"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="down"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+              />
+            </svg>
+          </span>
+        </span>
+      </button>
+    </div>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <div
+      class="ant-space-compact"
+    >
+      <button
+        class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-compact-item ant-btn-compact-first-item"
+        type="button"
+      >
+        <span>
+          Submit
+        </span>
+      </button>
+      <button
+        class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item ant-dropdown-trigger"
+        type="button"
+      >
+        <span
+          class="ant-btn-icon"
+        >
+          <span
+            aria-label="down"
+            class="anticon anticon-down"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="down"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+              />
+            </svg>
+          </span>
+        </span>
+      </button>
+    </div>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <div
+      class="ant-space-compact"
+    >
+      <button
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-compact-item ant-btn-compact-first-item"
+        type="button"
+      >
+        <span>
+          Submit
+        </span>
+      </button>
+      <button
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item ant-dropdown-trigger"
+        type="button"
+      >
+        <span
+          class="ant-btn-icon"
+        >
+          <span
+            aria-label="down"
+            class="anticon anticon-down"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="down"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+              />
+            </svg>
+          </span>
+        </span>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders components/dropdown/demo/icon-debug.tsx extend context correctly 2`] = `
+[
+  "Warning: [antd: Dropdown.Button] \`Dropdown.Button\` is deprecated. Please use \`Space.Compact + Dropdown + Button\` instead.",
+]
+`;
+
+exports[`renders components/dropdown/demo/item.tsx extend context correctly 1`] = `
+<a
+  class="ant-dropdown-trigger"
+>
+  <div
+    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
+  >
+    <div
+      class="ant-space-item"
+    >
+      Hover me
+    </div>
+    <div
+      class="ant-space-item"
+    >
+      <span
+        aria-label="down"
+        class="anticon anticon-down"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          data-icon="down"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+          />
+        </svg>
+      </span>
+    </div>
+  </div>
+</a>
+`;
+
+exports[`renders components/dropdown/demo/item.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/dropdown/demo/loading.tsx extend context correctly 1`] = `
+<div
+  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
+>
+  <div
+    class="ant-space-item"
+  >
+    <div
+      class="ant-space-compact"
+    >
+      <button
+        class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-loading ant-btn-compact-item ant-btn-compact-first-item"
+        type="button"
+      >
+        <span
+          class="ant-btn-icon ant-btn-loading-icon"
+        >
+          <span
+            aria-label="loading"
+            class="anticon anticon-loading anticon-spin"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="loading"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="0 0 1024 1024"
+              width="1em"
+            >
+              <path
+                d="M988 548c-19.9 0-36-16.1-36-36 0-59.4-11.6-117-34.6-171.3a440.45 440.45 0 00-94.3-139.9 437.71 437.71 0 00-139.9-94.3C629 83.6 571.4 72 512 72c-19.9 0-36-16.1-36-36s16.1-36 36-36c69.1 0 136.2 13.5 199.3 40.3C772.3 66 827 103 874 150c47 47 83.9 101.8 109.7 162.7 26.7 63.1 40.2 130.2 40.2 199.3.1 19.9-16 36-35.9 36z"
+              />
+            </svg>
+          </span>
+        </span>
+        <span>
+          Submit
+        </span>
+      </button>
+      <button
+        class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item ant-dropdown-trigger"
+        type="button"
+      >
+        <span
+          class="ant-btn-icon"
+        >
+          <span
+            aria-label="ellipsis"
+            class="anticon anticon-ellipsis"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="ellipsis"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+              />
+            </svg>
+          </span>
+        </span>
+      </button>
+    </div>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <div
+      class="ant-space-compact"
+    >
+      <button
+        class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-loading ant-btn-compact-item ant-btn-compact-first-item"
+        type="button"
+      >
+        <span
+          class="ant-btn-icon ant-btn-loading-icon"
+        >
+          <span
+            aria-label="loading"
+            class="anticon anticon-loading anticon-spin"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="loading"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="0 0 1024 1024"
+              width="1em"
+            >
+              <path
+                d="M988 548c-19.9 0-36-16.1-36-36 0-59.4-11.6-117-34.6-171.3a440.45 440.45 0 00-94.3-139.9 437.71 437.71 0 00-139.9-94.3C629 83.6 571.4 72 512 72c-19.9 0-36-16.1-36-36s16.1-36 36-36c69.1 0 136.2 13.5 199.3 40.3C772.3 66 827 103 874 150c47 47 83.9 101.8 109.7 162.7 26.7 63.1 40.2 130.2 40.2 199.3.1 19.9-16 36-35.9 36z"
+              />
+            </svg>
+          </span>
+        </span>
+        <span>
+          Submit
+        </span>
+      </button>
+      <button
+        class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item ant-dropdown-trigger"
+        type="button"
+      >
+        <span
+          class="ant-btn-icon"
+        >
+          <span
+            aria-label="ellipsis"
+            class="anticon anticon-ellipsis"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="ellipsis"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+              />
+            </svg>
+          </span>
+        </span>
+      </button>
+    </div>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <div
+      class="ant-space-compact"
+    >
+      <button
+        class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-compact-item ant-btn-compact-first-item"
+        type="button"
+      >
+        <span>
+          Submit
+        </span>
+      </button>
+      <button
+        class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item ant-dropdown-trigger"
+        type="button"
+      >
+        <span
+          class="ant-btn-icon"
+        >
+          <span
+            aria-label="ellipsis"
+            class="anticon anticon-ellipsis"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="ellipsis"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+              />
+            </svg>
+          </span>
+        </span>
+      </button>
+    </div>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <div
+      class="ant-space-compact"
+    >
+      <button
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-compact-item ant-btn-compact-first-item"
+        type="button"
+      >
+        <span>
+          Submit
+        </span>
+      </button>
+      <button
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item ant-dropdown-trigger"
+        type="button"
+      >
+        <span
+          class="ant-btn-icon"
+        >
+          <span
+            aria-label="down"
+            class="anticon anticon-down"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="down"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+              />
+            </svg>
+          </span>
+        </span>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders components/dropdown/demo/loading.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/dropdown/demo/menu-full.tsx extend context correctly 1`] = `
+<a
+  class="ant-dropdown-trigger"
+>
+  <div
+    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
+  >
+    <div
+      class="ant-space-item"
+    >
+      Hover to check menu style
+    </div>
+    <div
+      class="ant-space-item"
+    >
+      <span
+        aria-label="down"
+        class="anticon anticon-down"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          data-icon="down"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+          />
+        </svg>
+      </span>
+    </div>
+  </div>
+</a>
+`;
+
+exports[`renders components/dropdown/demo/menu-full.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/dropdown/demo/overlay-open.tsx extend context correctly 1`] = `
+<a
+  class="ant-dropdown-trigger"
+>
+  <div
+    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
+  >
+    <div
+      class="ant-space-item"
+    >
+      Hover me
+    </div>
+    <div
+      class="ant-space-item"
+    >
+      <span
+        aria-label="down"
+        class="anticon anticon-down"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          data-icon="down"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+          />
+        </svg>
+      </span>
+    </div>
+  </div>
+</a>
+`;
+
+exports[`renders components/dropdown/demo/overlay-open.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/dropdown/demo/placement.tsx extend context correctly 1`] = `
+<div
+  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
+>
+  <div
+    class="ant-space-item"
+  >
+    <div
+      class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
+      style="flex-wrap: wrap;"
+    >
+      <div
+        class="ant-space-item"
+      >
+        <button
+          class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-dropdown-trigger"
+          type="button"
+        >
+          <span>
+            bottomLeft
+          </span>
+        </button>
+      </div>
+      <div
+        class="ant-space-item"
+      >
+        <button
+          class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-dropdown-trigger"
+          type="button"
+        >
+          <span>
+            bottom
+          </span>
+        </button>
+      </div>
+      <div
+        class="ant-space-item"
+      >
+        <button
+          class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-dropdown-trigger"
+          type="button"
+        >
+          <span>
+            bottomRight
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <div
+      class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
+      style="flex-wrap: wrap;"
+    >
+      <div
+        class="ant-space-item"
+      >
+        <button
+          class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-dropdown-trigger"
+          type="button"
+        >
+          <span>
+            topLeft
+          </span>
+        </button>
+      </div>
+      <div
+        class="ant-space-item"
+      >
+        <button
+          class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-dropdown-trigger"
+          type="button"
+        >
+          <span>
+            top
+          </span>
+        </button>
+      </div>
+      <div
+        class="ant-space-item"
+      >
+        <button
+          class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-dropdown-trigger"
+          type="button"
+        >
+          <span>
+            topRight
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders components/dropdown/demo/placement.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/dropdown/demo/render-panel.tsx extend context correctly 1`] = `
+<div
+  style="padding-bottom: 0px; position: relative; min-width: 0;"
+>
+  <span
+    class="ant-dropdown-trigger ant-dropdown-open"
+  />
+  <div
+    class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-dropdown-css-var ant-dropdown-placement-bottomLeft"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+  >
+    <ul
+      class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light css-var-test-id ant-dropdown-css-var css-var-test-id ant-dropdown-menu-css-var"
+      data-menu-list="true"
+      role="menu"
+      tabindex="0"
+    >
+      <li
+        class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
+        data-menu-id="rc-menu-uuid-1"
+        role="menuitem"
+        tabindex="-1"
+      >
+        <span
+          class="ant-dropdown-menu-title-content"
+        >
+          <a
+            href="https://www.antgroup.com"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            1st menu item
+          </a>
+        </span>
+      </li>
+      <li
+        aria-disabled="true"
+        class="ant-dropdown-menu-item ant-dropdown-menu-item-disabled"
+        data-menu-id="rc-menu-uuid-2"
+        role="menuitem"
+      >
+        <span
+          aria-label="smile"
+          class="anticon anticon-smile ant-dropdown-menu-item-icon"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="smile"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M288 421a48 48 0 1096 0 48 48 0 10-96 0zm352 0a48 48 0 1096 0 48 48 0 10-96 0zM512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm263 711c-34.2 34.2-74 61-118.3 79.8C611 874.2 562.3 884 512 884c-50.3 0-99-9.8-144.8-29.2A370.4 370.4 0 01248.9 775c-34.2-34.2-61-74-79.8-118.3C149.8 611 140 562.3 140 512s9.8-99 29.2-144.8A370.4 370.4 0 01249 248.9c34.2-34.2 74-61 118.3-79.8C413 149.8 461.7 140 512 140c50.3 0 99 9.8 144.8 29.2A370.4 370.4 0 01775.1 249c34.2 34.2 61 74 79.8 118.3C874.2 413 884 461.7 884 512s-9.8 99-29.2 144.8A368.89 368.89 0 01775 775zM664 533h-48.1c-4.2 0-7.8 3.2-8.1 7.4C604 589.9 562.5 629 512 629s-92.1-39.1-95.8-88.6c-.3-4.2-3.9-7.4-8.1-7.4H360a8 8 0 00-8 8.4c4.4 84.3 74.5 151.6 160 151.6s155.6-67.3 160-151.6a8 8 0 00-8-8.4z"
+            />
+          </svg>
+        </span>
+        <span
+          class="ant-dropdown-menu-title-content"
+        >
+          <a
+            href="https://www.aliyun.com"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            2nd menu item (disabled)
+          </a>
+        </span>
+      </li>
+      <li
+        aria-disabled="true"
+        class="ant-dropdown-menu-item ant-dropdown-menu-item-disabled ant-dropdown-menu-item-only-child"
+        data-menu-id="rc-menu-uuid-3"
+        role="menuitem"
+      >
+        <span
+          class="ant-dropdown-menu-title-content"
+        >
+          <a
+            href="https://www.luohanacademy.com"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            3rd menu item (disabled)
+          </a>
+        </span>
+      </li>
+      <li
+        class="ant-dropdown-menu-item ant-dropdown-menu-item-danger ant-dropdown-menu-item-only-child"
+        data-menu-id="rc-menu-uuid-4"
+        role="menuitem"
+        tabindex="-1"
+      >
+        <span
+          class="ant-dropdown-menu-title-content"
+        >
+          a danger item
+        </span>
+      </li>
+    </ul>
+    <div
+      aria-hidden="true"
+      style="display: none;"
+    />
+  </div>
+</div>
+`;
+
+exports[`renders components/dropdown/demo/render-panel.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/dropdown/demo/selectable.tsx extend context correctly 1`] = `
+<a
+  class="ant-typography ant-dropdown-trigger css-var-test-id"
+>
+  <div
+    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
+  >
+    <div
+      class="ant-space-item"
+    >
+      Selectable
+    </div>
+    <div
+      class="ant-space-item"
+    >
+      <span
+        aria-label="down"
+        class="anticon anticon-down"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          data-icon="down"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+          />
+        </svg>
+      </span>
+    </div>
+  </div>
+</a>
+`;
+
+exports[`renders components/dropdown/demo/selectable.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/dropdown/demo/sub-menu.tsx extend context correctly 1`] = `
+<a
+  class="ant-dropdown-trigger"
+>
+  <div
+    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
+  >
+    <div
+      class="ant-space-item"
+    >
+      Cascading menu
+    </div>
+    <div
+      class="ant-space-item"
+    >
+      <span
+        aria-label="down"
+        class="anticon anticon-down"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          data-icon="down"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+          />
+        </svg>
+      </span>
+    </div>
+  </div>
+</a>
+`;
+
+exports[`renders components/dropdown/demo/sub-menu.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/dropdown/demo/trigger.tsx extend context correctly 1`] = `
+<a
+  class="ant-dropdown-trigger"
+>
+  <div
+    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
+  >
+    <div
+      class="ant-space-item"
+    >
+      Click me
+    </div>
+    <div
+      class="ant-space-item"
+    >
+      <span
+        aria-label="down"
+        class="anticon anticon-down"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          data-icon="down"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+          />
+        </svg>
+      </span>
+    </div>
+  </div>
+</a>
+`;
+
+exports[`renders components/dropdown/demo/trigger.tsx extend context correctly 2`] = `[]`;
