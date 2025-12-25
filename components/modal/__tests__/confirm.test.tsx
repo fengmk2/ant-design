@@ -540,7 +540,6 @@ describe('Modal.confirm triggers callbacks correctly', () => {
   });
 
   it('icon can be null to hide icon', async () => {
-    vi.useFakeTimers();
     confirm({
       title: 'some title',
       content: 'some descriptions',
@@ -554,8 +553,6 @@ describe('Modal.confirm triggers callbacks correctly', () => {
     expect(
       document.querySelector('.ant-modal-confirm-body')!.querySelector('.anticon'),
     ).toBeFalsy();
-
-    vi.useRealTimers();
   });
 
   it('ok button should trigger onOk once when click it many times quickly', async () => {
@@ -781,7 +778,6 @@ describe('Modal.confirm triggers callbacks correctly', () => {
   // https://github.com/ant-design/ant-design/issues/37461
   it('Update should closable', async () => {
     resetWarned();
-    vi.useFakeTimers();
     const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
 
     const modal = Modal.confirm({});
@@ -799,7 +795,6 @@ describe('Modal.confirm triggers callbacks correctly', () => {
 
     expect($$('.ant-modal-confirm-confirm')).toHaveLength(0);
 
-    vi.useRealTimers();
     errSpy.mockRestore();
   });
 

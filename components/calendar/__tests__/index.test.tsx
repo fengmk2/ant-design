@@ -207,21 +207,20 @@ describe('Calendar', () => {
     expect(onPanelChangeStub).toHaveBeenCalledTimes(0);
   });
 
-  it('Calendar should support locale', () => {
+  it('Calendar should support locale', async () => {
     MockDate.set(Dayjs('2018-10-19').valueOf());
 
-    const zhCN = require('../locale/zh_CN').default;
+    const zhCN = (await import('../locale/zh_CN')).default;
     const wrapper = render(<Calendar locale={zhCN} />);
     expect(wrapper.container.children[0]).toMatchSnapshot();
     MockDate.reset();
   });
 
-  it('Calendar locale support should override ConfigProvider locale', () => {
+  it('Calendar locale support should override ConfigProvider locale', async () => {
     MockDate.set(Dayjs('2018-10-19').valueOf());
 
-    const zhCN = require('../locale/zh_CN').default;
-
-    const enUs = require('../../locale/en_US').default;
+    const zhCN = (await import('../locale/zh_CN')).default;
+    const enUs = (await import('../../locale/en_US')).default;
     const wrapper = render(
       <ConfigProvider locale={enUs}>
         <Calendar locale={zhCN} />

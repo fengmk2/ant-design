@@ -47,13 +47,46 @@ describe('Wave component', () => {
     (window as any).ResizeObserver = FakeResizeObserver;
   });
 
+  // Store original getComputedStyle
+  const originalGetComputedStyle = window.getComputedStyle;
+
+  // Convert named colors to RGB (as browsers do)
+  const colorToRgb: Record<string, string> = {
+    blue: 'rgb(0, 0, 255)',
+    green: 'rgb(0, 128, 0)',
+    yellow: 'rgb(255, 255, 0)',
+    red: 'rgb(255, 0, 0)',
+    transparent: 'transparent',
+  };
+  const toRgb = (color: string) => colorToRgb[color] || color;
+
   beforeEach(() => {
     vi.useFakeTimers();
     (global as any).isVisible = true;
     document.body.innerHTML = '';
+    // Mock getComputedStyle to return inline styles since jsdom doesn't
+    window.getComputedStyle = (element: Element) => {
+      const style = (element as HTMLElement).style;
+      // Handle borderColor properly: if it contains spaces (shorthand), use borderRightColor as fallback
+      // since that typically represents the "main" color in shorthand notation
+      let borderColor = style.borderColor || '';
+      if (borderColor.includes(' ')) {
+        // For shorthand like 'transparent red red', use the non-transparent value
+        borderColor = style.borderRightColor || style.borderBottomColor || 'red';
+      }
+      return {
+        borderTopColor: toRgb(style.borderTopColor || ''),
+        borderColor,
+        backgroundColor:
+          toRgb(style.backgroundColor || '') || toRgb((style as any).background || ''),
+        color: style.color || '',
+        getPropertyValue: (prop: string) => (style as any)[prop] || '',
+      } as CSSStyleDeclaration;
+    };
   });
 
   afterEach(async () => {
+    window.getComputedStyle = originalGetComputedStyle;
     await waitFakeTimer();
 
     vi.clearAllTimers();

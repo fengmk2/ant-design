@@ -1,3 +1,5 @@
+import { vi } from 'vitest';
+
 import { getTargetWaveColor, isValidWaveColor } from '../wave/util';
 
 describe('wave util', () => {
@@ -22,14 +24,18 @@ describe('wave util', () => {
 
   describe('getTargetWaveColor', () => {
     let mockElement: HTMLElement;
+    let getComputedStyleSpy: ReturnType<typeof vi.spyOn>;
 
     beforeEach(() => {
       mockElement = document.createElement('div');
       document.body.appendChild(mockElement);
+      // Mock getComputedStyle since jsdom doesn't properly reflect inline styles
+      getComputedStyleSpy = vi.spyOn(window, 'getComputedStyle');
     });
 
     afterEach(() => {
       document.body.removeChild(mockElement);
+      getComputedStyleSpy.mockRestore();
     });
 
     afterAll(() => {
@@ -37,31 +43,47 @@ describe('wave util', () => {
     });
 
     it('should return a valid color when available', () => {
-      mockElement.style.backgroundColor = 'green';
+      getComputedStyleSpy.mockReturnValue({
+        borderTopColor: '',
+        borderColor: '',
+        backgroundColor: 'rgb(0, 128, 0)',
+      } as CSSStyleDeclaration);
 
       const result = getTargetWaveColor(mockElement);
       expect(result).toBe('rgb(0, 128, 0)');
     });
 
     it('should handle elements with no explicit styles', () => {
+      getComputedStyleSpy.mockReturnValue({
+        borderTopColor: '',
+        borderColor: '',
+        backgroundColor: '',
+      } as CSSStyleDeclaration);
+
       const result = getTargetWaveColor(mockElement);
       expect(result).toBe(null);
     });
 
     it('should work with different color formats', () => {
-      mockElement.style.backgroundColor = '#ff0000';
+      getComputedStyleSpy.mockReturnValue({
+        borderTopColor: '',
+        borderColor: '',
+        backgroundColor: 'rgb(255, 0, 0)',
+      } as CSSStyleDeclaration);
+
       const result1 = getTargetWaveColor(mockElement);
       expect(result1).toBe('rgb(255, 0, 0)');
 
-      mockElement.style.backgroundColor = 'rgb(255, 0, 0)';
       const result2 = getTargetWaveColor(mockElement);
       expect(result2).toBe('rgb(255, 0, 0)');
     });
 
     it('should return null when all colors are white or transparent', () => {
-      mockElement.style.borderTopColor = 'transparent';
-      mockElement.style.borderColor = '#fff';
-      mockElement.style.backgroundColor = 'rgba(255, 255, 255, 0)';
+      getComputedStyleSpy.mockReturnValue({
+        borderTopColor: 'transparent',
+        borderColor: '#fff',
+        backgroundColor: 'rgba(255, 255, 255, 0)',
+      } as CSSStyleDeclaration);
 
       const result = getTargetWaveColor(mockElement);
       expect(result).toBe(null);

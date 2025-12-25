@@ -118,6 +118,7 @@ describe('Alert', () => {
   });
 
   it('could be used with Tooltip', async () => {
+    const user = userEvent.setup({ advanceTimers: vi.advanceTimersByTime.bind(vi) });
     render(
       <Tooltip title="xxx" mouseEnterDelay={0}>
         <Alert
@@ -127,7 +128,7 @@ describe('Alert', () => {
       </Tooltip>,
     );
 
-    await userEvent.hover(screen.getByRole('alert'));
+    await user.hover(screen.getByRole('alert'));
 
     await waitFakeTimer();
 
@@ -135,6 +136,7 @@ describe('Alert', () => {
   });
 
   it('could be used with Popconfirm', async () => {
+    const user = userEvent.setup({ advanceTimers: vi.advanceTimersByTime.bind(vi) });
     render(
       <Popconfirm title="xxx">
         <Alert
@@ -143,7 +145,7 @@ describe('Alert', () => {
         />
       </Popconfirm>,
     );
-    await userEvent.click(screen.getByRole('alert'));
+    await user.click(screen.getByRole('alert'));
 
     act(() => {
       vi.runAllTimers();

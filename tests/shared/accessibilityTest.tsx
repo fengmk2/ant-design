@@ -102,13 +102,21 @@ export const accessibilityTest = (
   });
   describe(`accessibility`, () => {
     it(`component does not have any violations`, async () => {
+      // Store current timer state and use real timers for axe
+      const fakeTimersActive = vi.isFakeTimers();
       vi.useRealTimers();
+
       const { container } = render(<Component />);
 
       const rules = convertRulesToAxeFormat(disabledRules || []);
 
       const results = await runAxe(container, { rules });
       expect(results).toHaveNoViolations();
+
+      // Restore fake timers if they were active
+      if (fakeTimersActive) {
+        vi.useFakeTimers();
+      }
     }, 50000);
   });
 };
