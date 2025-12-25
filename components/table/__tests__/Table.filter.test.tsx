@@ -348,8 +348,8 @@ describe('Table.filter', () => {
 
     const { container, rerender } = render(createTable(tableProps));
 
-    const checkboxList = container
-      ?.querySelector('.ant-table-filter-dropdown')
+    const checkboxList = document.body
+      .querySelector('.ant-table-filter-dropdown')
       ?.querySelectorAll<HTMLInputElement>('input[type="checkbox"]');
     expect(checkboxList?.length).toBeTruthy();
     checkboxList?.forEach((checkbox) => {
@@ -357,13 +357,13 @@ describe('Table.filter', () => {
     });
 
     fireEvent.click(
-      container
+      document.body
         .querySelector('.ant-table-filter-dropdown')
         ?.querySelector('input[type="checkbox"]')!,
     );
     fireEvent.click(
-      container
-        ?.querySelector('.ant-table-filter-dropdown')
+      document.body
+        .querySelector('.ant-table-filter-dropdown')
         ?.querySelector(
           '.ant-table-filter-dropdown-btns .ant-btn-color-primary.ant-btn-variant-solid',
         )!,
@@ -512,8 +512,8 @@ describe('Table.filter', () => {
 
       fireEvent.click(container.querySelector('.ant-dropdown-trigger')!);
       expect(
-        container
-          ?.querySelector('.ant-table-filter-dropdown')
+        document.body
+          .querySelector('.ant-table-filter-dropdown')
           ?.querySelectorAll<HTMLInputElement>('.ant-checkbox-input')[0].checked,
       ).toBe(true);
     });
@@ -532,8 +532,8 @@ describe('Table.filter', () => {
     fireEvent.click(container.querySelector('.ant-dropdown-trigger')!);
 
     expect(
-      container
-        ?.querySelector('.ant-table-filter-dropdown')
+      document.body
+        .querySelector('.ant-table-filter-dropdown')
         ?.querySelectorAll<HTMLInputElement>('.ant-checkbox-input')[0]?.checked,
     ).toBe(false);
   });
@@ -737,6 +737,7 @@ describe('Table.filter', () => {
 
     // Open
     fireEvent.click(container.querySelector('.ant-table-filter-trigger')!);
+    refreshTimer();
 
     function getFilterMenu() {
       return document.body.querySelector('.ant-table-filter-dropdown');
@@ -816,8 +817,8 @@ describe('Table.filter', () => {
 
         await waitFor(() =>
           expect(
-            container
-              ?.querySelector('.ant-table-filter-dropdown')
+            document.body
+              .querySelector('.ant-table-filter-dropdown')
               ?.querySelectorAll<HTMLInputElement>('.ant-checkbox-input')[0].checked,
           ).toEqual(true),
         );
@@ -837,8 +838,8 @@ describe('Table.filter', () => {
         fireEvent.click(document.body.querySelectorAll('.ant-dropdown-menu-item')[0]);
 
         expect(
-          container
-            ?.querySelector('.ant-table-filter-dropdown')
+          document.body
+            .querySelector('.ant-table-filter-dropdown')
             ?.querySelectorAll<HTMLInputElement>('.ant-checkbox-input')[0].checked,
         ).toBe(false);
       });
@@ -2368,13 +2369,13 @@ describe('Table.filter', () => {
       fireEvent.click(document.body.querySelector('.ant-tree-node-content-wrapper')!);
 
       expect(
-        container
-          ?.querySelector('.ant-tree-checkbox')
+        document.body
+          .querySelector('.ant-tree-checkbox')
           ?.className.includes('ant-tree-checkbox-checked'),
       ).toBe(true);
       expect(
-        container
-          ?.querySelector('.ant-table-filter-dropdown-checkall .ant-checkbox')
+        document.body
+          .querySelector('.ant-table-filter-dropdown-checkall .ant-checkbox')
           ?.className.includes('ant-checkbox-indeterminate'),
       ).toBe(true);
     });
@@ -2403,8 +2404,8 @@ describe('Table.filter', () => {
       fireEvent.click(document.body.querySelectorAll('.ant-tree-node-content-wrapper')[1]);
 
       expect(
-        container
-          ?.querySelector('.ant-table-filter-dropdown-checkall .ant-checkbox')
+        document.body
+          .querySelector('.ant-table-filter-dropdown-checkall .ant-checkbox')
           ?.className.includes('ant-checkbox-checked'),
       ).toBe(true);
     });
@@ -2699,11 +2700,13 @@ describe('Table.filter', () => {
     act(() => {
       vi.runAllTimers();
     });
-    fireEvent.click(container2.querySelector('.ant-table-filter-dropdown-checkall')!);
-    expect(container2.querySelectorAll('.ant-tree-checkbox-checked').length).toBe(5);
-    fireEvent.click(container2.querySelector('button.ant-btn-link')!, nativeEvent);
-    expect(container2.querySelectorAll('.ant-tree-checkbox-checked').length).toBe(1);
-    expect(container2.querySelector('.ant-tree-checkbox-checked+span')?.textContent).toBe('Girl');
+    fireEvent.click(document.body.querySelector('.ant-table-filter-dropdown-checkall')!);
+    expect(document.body.querySelectorAll('.ant-tree-checkbox-checked').length).toBe(5);
+    fireEvent.click(document.body.querySelector('button.ant-btn-link')!, nativeEvent);
+    expect(document.body.querySelectorAll('.ant-tree-checkbox-checked').length).toBe(1);
+    expect(document.body.querySelector('.ant-tree-checkbox-checked+span')?.textContent).toBe(
+      'Girl',
+    );
   });
 
   it('filterDropdown should not override customize Menu selectable', () => {

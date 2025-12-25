@@ -231,12 +231,13 @@ describe('Tour', () => {
         </>
       );
     };
-    const { getByText, container, baseElement } = render(<App />);
+    const { getByText, baseElement } = render(<App />);
     expect(getByText('cover description.')).toBeTruthy();
-    expect(container.querySelector('.ant-tour-primary .ant-tour-panel')).toBeFalsy();
+    // Tour renders as portal to document.body
+    expect(document.body.querySelector('.ant-tour-primary .ant-tour-panel')).toBeFalsy();
     fireEvent.click(screen.getByRole('button', { name: 'Next' }));
     expect(getByText('primary description.')).toBeTruthy();
-    expect(container.querySelector('.ant-tour-primary .ant-tour-panel')).toBeTruthy();
+    expect(document.body.querySelector('.ant-tour-primary .ant-tour-panel')).toBeTruthy();
     expect(baseElement).toMatchSnapshot();
   });
 
@@ -303,7 +304,7 @@ describe('Tour', () => {
         </>
       );
     };
-    const { getByText, container, baseElement } = render(<App />);
+    const { getByText, baseElement } = render(<App />);
     fireEvent.click(screen.getByRole('button', { name: 'Show' }));
     expect(getByText('Show in Center')).toBeTruthy();
     fireEvent.click(screen.getByRole('button', { name: 'Next' }));
@@ -311,24 +312,27 @@ describe('Tour', () => {
     fireEvent.click(screen.getByRole('button', { name: 'Next' }));
     expect(getByText('Adjust Placement')).toBeTruthy();
     fireEvent.click(screen.getByRole('button', { name: 'Finish' }));
-    expect(container.querySelector('.ant-tour')).toBeFalsy();
+    // Tour renders as portal to document.body
+    expect(document.body.querySelector('.ant-tour')).toBeFalsy();
     expect(baseElement).toMatchSnapshot();
   });
 
   it('panelRender should correct render when total is undefined or null', () => {
     [undefined, null].forEach((total: any) => {
-      const { container } = render(<Tour open steps={[{ title: <div>test</div>, total }]} />);
+      render(<Tour open steps={[{ title: <div>test</div>, total }]} />);
+      // Tour renders as portal to document.body
       expect(
-        container.querySelector<HTMLDivElement>('.ant-tour-panel .ant-tour-indicators'),
+        document.body.querySelector<HTMLDivElement>('.ant-tour-panel .ant-tour-indicators'),
       ).toBeFalsy();
     });
   });
 
   it('panelRender should correct render when title is undefined or null', () => {
     [undefined, null].forEach((title) => {
-      const { container } = render(<Tour open steps={[{ title, total: 1 }]} />);
+      render(<Tour open steps={[{ title, total: 1 }]} />);
+      // Tour renders as portal to document.body
       expect(
-        container.querySelector<HTMLDivElement>('.ant-tour-panel .ant-tour-header'),
+        document.body.querySelector<HTMLDivElement>('.ant-tour-panel .ant-tour-header'),
       ).toBeFalsy();
     });
   });
@@ -397,8 +401,9 @@ describe('Tour', () => {
         )}
       />
     );
-    const { container } = render(<App />);
-    expect(container.querySelector<HTMLSpanElement>('.custom-indicator')).toBeTruthy();
+    render(<App />);
+    // Tour renders as portal to document.body
+    expect(document.body.querySelector<HTMLSpanElement>('.custom-indicator')).toBeTruthy();
   });
 
   it('controlled current', () => {
@@ -436,11 +441,12 @@ describe('Tour', () => {
         </>
       );
     };
-    const { getByText, container, baseElement } = render(<App />);
+    const { getByText, baseElement } = render(<App />);
 
     fireEvent.click(screen.getByRole('button', { name: 'SetCurrent' }));
     expect(getByText('Primary description.')).toBeTruthy();
-    expect(container.querySelector('.ant-tour-primary .ant-tour-panel')).toBeTruthy();
+    // Tour renders as portal to document.body
+    expect(document.body.querySelector('.ant-tour-primary .ant-tour-panel')).toBeTruthy();
     expect(baseElement).toMatchSnapshot();
   });
 
@@ -584,7 +590,7 @@ describe('Tour', () => {
   // https://github.com/ant-design/ant-design/issues/49117
   it('onClose current is correct', () => {
     const onClose = vi.fn();
-    const { container } = render(
+    render(
       <Tour
         onClose={onClose}
         open
@@ -601,8 +607,9 @@ describe('Tour', () => {
         ]}
       />,
     );
-    fireEvent.click(container.querySelector('.ant-tour-next-btn')!);
-    fireEvent.click(container.querySelector('.ant-tour-close-icon')!);
+    // Tour renders as portal to document.body
+    fireEvent.click(document.body.querySelector('.ant-tour-next-btn')!);
+    fireEvent.click(document.body.querySelector('.ant-tour-close-icon')!);
     expect(onClose).toHaveBeenLastCalledWith(1);
   });
 
@@ -807,15 +814,16 @@ describe('Tour', () => {
   });
 
   it('default aria-label', () => {
-    const { container } = render(<Tour open steps={[{ title: 'test', description: 'test' }]} />);
-    expect(container.querySelector<HTMLElement>('.ant-tour-close')).toHaveAttribute(
+    render(<Tour open steps={[{ title: 'test', description: 'test' }]} />);
+    // Tour renders as portal to document.body
+    expect(document.body.querySelector<HTMLElement>('.ant-tour-close')).toHaveAttribute(
       'aria-label',
       'Close',
     );
   });
 
   it('custom aria-label', () => {
-    const { container } = render(
+    render(
       <Tour
         open
         steps={[
@@ -823,7 +831,8 @@ describe('Tour', () => {
         ]}
       />,
     );
-    expect(container.querySelector<HTMLElement>('.ant-tour-close')).toHaveAttribute(
+    // Tour renders as portal to document.body
+    expect(document.body.querySelector<HTMLElement>('.ant-tour-close')).toHaveAttribute(
       'aria-label',
       'Custom Close Button',
     );
