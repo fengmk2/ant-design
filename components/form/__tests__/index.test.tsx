@@ -1599,7 +1599,8 @@ describe('Form', () => {
       fireEvent.mouseEnter(container.querySelector('.anticon-question-circle')!);
       await waitFakeTimer();
 
-      expect(container.querySelector('.ant-tooltip-container')).toHaveTextContent('Bamboo');
+      // Query document.body for portal-rendered tooltip content
+      expect(document.body.querySelector('.ant-tooltip-container')).toHaveTextContent('Bamboo');
     });
 
     it('config tooltip should show when hover on icon', async () => {
@@ -1615,7 +1616,8 @@ describe('Form', () => {
       fireEvent.click(container.querySelector('.anticon-question-circle')!);
       await waitFakeTimer();
 
-      expect(container.querySelector('.ant-tooltip-container')).toHaveTextContent('Bamboo');
+      // Query document.body for portal-rendered tooltip content
+      expect(document.body.querySelector('.ant-tooltip-container')).toHaveTextContent('Bamboo');
     });
   });
 

@@ -130,20 +130,21 @@ describe('Typography', () => {
             vi.advanceTimersByTime(10000);
           });
 
+          // Query document.body for portal-rendered tooltip content
           if (tooltips === undefined || tooltips === true) {
-            expect(container.querySelector('.ant-tooltip-container')?.textContent).toBe('Copy');
+            expect(document.body.querySelector('.ant-tooltip-container')?.textContent).toBe('Copy');
           } else if (tooltips === false) {
-            expect(container.querySelector('.ant-tooltip-container')).toBeFalsy();
+            expect(document.body.querySelector('.ant-tooltip-container')).toBeFalsy();
           } else if (tooltips[0] === '' && tooltips[1] === '') {
-            expect(container.querySelector('.ant-tooltip-container')).toBeFalsy();
+            expect(document.body.querySelector('.ant-tooltip-container')).toBeFalsy();
           } else if (tooltips[0] === '' && tooltips[1]) {
-            expect(container.querySelector('.ant-tooltip-container')).toBeFalsy();
+            expect(document.body.querySelector('.ant-tooltip-container')).toBeFalsy();
           } else if (tooltips[1] === '' && tooltips[0]) {
-            expect(container.querySelector('.ant-tooltip-container')?.textContent).toBe(
+            expect(document.body.querySelector('.ant-tooltip-container')?.textContent).toBe(
               tooltips[0],
             );
           } else {
-            expect(container.querySelector('.ant-tooltip-container')?.textContent).toBe(
+            expect(document.body.querySelector('.ant-tooltip-container')?.textContent).toBe(
               tooltips[0],
             );
           }
@@ -170,23 +171,26 @@ describe('Typography', () => {
           fireEvent.mouseEnter(container.querySelector('.ant-typography-copy')!);
           await waitFakeTimer(15, 10);
 
+          // Query document.body for portal-rendered tooltip content
           if (tooltips === undefined || tooltips === true) {
-            expect(container.querySelector('.ant-tooltip-container')?.textContent).toBe('Copied');
+            expect(document.body.querySelector('.ant-tooltip-container')?.textContent).toBe(
+              'Copied',
+            );
           } else if (tooltips === false) {
-            expect(container.querySelector('.ant-tooltip-container')).toBeFalsy();
+            expect(document.body.querySelector('.ant-tooltip-container')).toBeFalsy();
           } else if (tooltips[0] === '' && tooltips[1] === '') {
-            expect(container.querySelector('.ant-tooltip-container')).toBeFalsy();
+            expect(document.body.querySelector('.ant-tooltip-container')).toBeFalsy();
           } else if (tooltips[0] === '' && tooltips[1]) {
-            expect(container.querySelector('.ant-tooltip-container')?.textContent).toBe(
+            expect(document.body.querySelector('.ant-tooltip-container')?.textContent).toBe(
               tooltips[1],
             );
           } else if (tooltips[1] === '' && tooltips[0]) {
             // Tooltip will be hidden in this case, with content memoized
-            expect(container.querySelector('.ant-tooltip-container')?.textContent).toBe(
+            expect(document.body.querySelector('.ant-tooltip-container')?.textContent).toBe(
               tooltips[0],
             );
           } else {
-            expect(container.querySelector('.ant-tooltip-container')?.textContent).toBe(
+            expect(document.body.querySelector('.ant-tooltip-container')?.textContent).toBe(
               tooltips[1],
             );
           }
@@ -291,17 +295,22 @@ describe('Typography', () => {
               vi.runAllTimers();
             });
 
+            // Query document.body for portal-rendered tooltip content
             if (tooltip === undefined || tooltip === true) {
               await waitFor(() => {
-                expect(wrapper.querySelector('.ant-tooltip-container')?.textContent).toBe('Edit');
+                expect(document.body.querySelector('.ant-tooltip-container')?.textContent).toBe(
+                  'Edit',
+                );
               });
             } else if (tooltip === false) {
               await waitFor(() => {
-                expect(wrapper.querySelectorAll('.ant-tooltip-container').length).toBe(0);
+                expect(document.body.querySelectorAll('.ant-tooltip-container').length).toBe(0);
               });
             } else {
               await waitFor(() => {
-                expect(wrapper.querySelector('.ant-tooltip-container')?.textContent).toBe(tooltip);
+                expect(document.body.querySelector('.ant-tooltip-container')?.textContent).toBe(
+                  tooltip,
+                );
               });
             }
 

@@ -38,7 +38,8 @@ describe('ColorPicker.Semantic', () => {
       <ColorPicker defaultValue="red" open classNames={testClassNames} styles={testStyles} />,
     );
     const root = container.querySelector('.ant-color-picker-trigger');
-    const popup = container.querySelector('.ant-color-picker');
+    // Query document.body for portal-rendered popup content
+    const popup = document.body.querySelector('.ant-color-picker');
     expect(root).toHaveClass(testClassNames.root);
     expect(popup).toHaveClass(testClassNames.popup.root);
     expect(root).toHaveStyle(testStyles.root);

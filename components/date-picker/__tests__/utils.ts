@@ -14,7 +14,8 @@ export function closePicker(wrapper: ReturnType<typeof render>, index = 0) {
 
 export function selectCell(wrapper: ReturnType<typeof render>, text: string | number, index = 0) {
   let matchCell: HTMLTableCellElement | null = null;
-  const tds = wrapper.container?.querySelectorAll('table')?.[index]?.querySelectorAll('td');
+  // Query document.body for portal-rendered popup content
+  const tds = document.body.querySelectorAll('table')?.[index]?.querySelectorAll('td');
   tds.forEach((td) => {
     if (td.querySelector('div')?.innerHTML === String(text) && td.className.includes('-in-view')) {
       matchCell = td;

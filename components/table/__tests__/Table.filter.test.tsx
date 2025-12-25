@@ -128,7 +128,7 @@ describe('Table.filter', () => {
     const { container } = render(createTable());
     fireEvent.click(container.querySelector('span.ant-dropdown-trigger')!, nativeEvent);
     await waitFor(() =>
-      expect(container.querySelector('.ant-table-filter-dropdown')).toMatchSnapshot(),
+      expect(document.body.querySelector('.ant-table-filter-dropdown')).toMatchSnapshot(),
     );
   });
 
@@ -153,7 +153,8 @@ describe('Table.filter', () => {
       vi.runAllTimers();
     });
 
-    expect(container.querySelector('.ant-empty')).toBeTruthy();
+    // Query document.body for portal-rendered dropdown content
+    expect(document.body.querySelector('.ant-empty')).toBeTruthy();
     expect(errorSpy).not.toHaveBeenCalled();
     errorSpy.mockRestore();
   });
@@ -171,7 +172,7 @@ describe('Table.filter', () => {
     );
     fireEvent.click(container.querySelector('span.ant-dropdown-trigger')!, nativeEvent);
     await waitFor(() =>
-      expect(container.querySelector('.ant-table-filter-dropdown')).toMatchSnapshot(),
+      expect(document.body.querySelector('.ant-table-filter-dropdown')).toMatchSnapshot(),
     );
   });
 
@@ -190,7 +191,7 @@ describe('Table.filter', () => {
 
     fireEvent.click(container.querySelector('span.ant-dropdown-trigger')!, nativeEvent);
     await waitFor(() =>
-      expect(container.querySelector('.ant-table-filter-dropdown')).toMatchSnapshot(),
+      expect(document.body.querySelector('.ant-table-filter-dropdown')).toMatchSnapshot(),
     );
   });
 
@@ -214,7 +215,7 @@ describe('Table.filter', () => {
     // 首先点击打开筛选菜单
     fireEvent.click(container.querySelector('.ant-table-filter-trigger')!);
     // 检查是否正确选中了Boy选项
-    const boyMenuItem = container.querySelectorAll('.ant-dropdown-menu-item-selected')[0];
+    const boyMenuItem = document.body.querySelectorAll('.ant-dropdown-menu-item-selected')[0];
     expect(boyMenuItem.textContent).toBe('Boy');
   });
 
@@ -266,30 +267,30 @@ describe('Table.filter', () => {
 
     // check if renderer well
     fireEvent.click(container.querySelector('span.ant-dropdown-trigger')!);
-    expect(container.querySelector('#customFilter')).toMatchSnapshot();
+    expect(document.body.querySelector('#customFilter')).toMatchSnapshot();
 
     // try to use reset btn
     expect(renderSelectedKeys).toHaveLength(0);
-    fireEvent.click(container.querySelector('#setSelectedKeys')!);
-    fireEvent.click(container.querySelector('#confirm')!);
+    fireEvent.click(document.body.querySelector('#setSelectedKeys')!);
+    fireEvent.click(document.body.querySelector('#confirm')!);
     expect(renderSelectedKeys).toEqual([42]);
 
     // Reset
-    fireEvent.click(container.querySelector('#reset')!);
-    fireEvent.click(container.querySelector('#confirm')!);
+    fireEvent.click(document.body.querySelector('#reset')!);
+    fireEvent.click(document.body.querySelector('#confirm')!);
     expect(renderSelectedKeys).toHaveLength(0);
 
     // try to use confirm btn
     fireEvent.click(container.querySelector('span.ant-dropdown-trigger')!);
-    fireEvent.click(container.querySelector('#setSelectedKeys')!);
+    fireEvent.click(document.body.querySelector('#setSelectedKeys')!);
     expect(container.querySelector('.ant-dropdown-open')).toBeTruthy();
-    fireEvent.click(container.querySelector('#confirm')!);
+    fireEvent.click(document.body.querySelector('#confirm')!);
     expect(renderSelectedKeys).toEqual([42]);
     expect(container.querySelector('.ant-dropdown-open')).toBeFalsy();
 
     // Simulate onSelect, setSelectedKeys & confirm
     fireEvent.click(container.querySelector('span.ant-dropdown-trigger')!);
-    fireEvent.click(container.querySelector('#simulateOnSelect')!);
+    fireEvent.click(document.body.querySelector('#simulateOnSelect')!);
     expect(renderSelectedKeys).toEqual([43]);
   });
 
@@ -642,9 +643,9 @@ describe('Table.filter', () => {
     const handleChange = vi.fn();
     const { container } = render(createTable({ onChange: handleChange }));
     fireEvent.click(container.querySelector('.ant-dropdown-trigger')!);
-    fireEvent.click(container.querySelectorAll('.ant-dropdown-menu-item')[0]);
+    fireEvent.click(document.body.querySelectorAll('.ant-dropdown-menu-item')[0]);
     fireEvent.click(
-      container.querySelector(
+      document.body.querySelector(
         '.ant-table-filter-dropdown-btns .ant-btn-color-primary.ant-btn-variant-solid',
       )!,
     );
@@ -663,9 +664,9 @@ describe('Table.filter', () => {
     const onPaginationChange = vi.fn();
     const { container } = render(createTable({ pagination: { onChange: onPaginationChange } }));
     fireEvent.click(container.querySelector('.ant-dropdown-trigger')!);
-    fireEvent.click(container.querySelectorAll('.ant-dropdown-menu-item')[0]);
+    fireEvent.click(document.body.querySelectorAll('.ant-dropdown-menu-item')[0]);
     fireEvent.click(
-      container.querySelector(
+      document.body.querySelector(
         '.ant-table-filter-dropdown-btns .ant-btn-color-primary.ant-btn-variant-solid',
       )!,
     );
@@ -678,7 +679,7 @@ describe('Table.filter', () => {
 
     fireEvent.click(container.querySelector('.ant-dropdown-trigger')!);
     fireEvent.click(
-      container.querySelector(
+      document.body.querySelector(
         '.ant-table-filter-dropdown-btns .ant-btn-color-primary.ant-btn-variant-solid',
       )!,
     );
@@ -700,7 +701,7 @@ describe('Table.filter', () => {
     );
     fireEvent.click(container.querySelector('.ant-dropdown-trigger')!);
     fireEvent.click(
-      container.querySelector(
+      document.body.querySelector(
         '.ant-table-filter-dropdown-btns .ant-btn-color-primary.ant-btn-variant-solid',
       )!,
     );
@@ -738,7 +739,7 @@ describe('Table.filter', () => {
     fireEvent.click(container.querySelector('.ant-table-filter-trigger')!);
 
     function getFilterMenu() {
-      return container.querySelector('.ant-table-filter-dropdown');
+      return document.body.querySelector('.ant-table-filter-dropdown');
     }
 
     // Open Level2
@@ -804,11 +805,11 @@ describe('Table.filter', () => {
 
         fireEvent.click(container.querySelector('.ant-dropdown-trigger')!);
 
-        fireEvent.click(container.querySelectorAll('.ant-dropdown-menu-item')[0]);
+        fireEvent.click(document.body.querySelectorAll('.ant-dropdown-menu-item')[0]);
 
         // This test can be remove if refactor
         fireEvent.click(
-          container.querySelector(
+          document.body.querySelector(
             '.ant-table-filter-dropdown-btns .ant-btn-color-primary.ant-btn-variant-solid',
           )!,
         );
@@ -833,7 +834,7 @@ describe('Table.filter', () => {
         // https://github.com/ant-design/ant-design/issues/15593
         fireEvent.click(container.querySelector('.ant-dropdown-trigger')!);
 
-        fireEvent.click(container.querySelectorAll('.ant-dropdown-menu-item')[0]);
+        fireEvent.click(document.body.querySelectorAll('.ant-dropdown-menu-item')[0]);
 
         expect(
           container
@@ -873,9 +874,9 @@ describe('Table.filter', () => {
     fireEvent.click(container.querySelector('.ant-dropdown-trigger')!);
     expect(container.querySelector('.ant-dropdown-open')).toBeTruthy();
 
-    fireEvent.click(container.querySelectorAll('.ant-dropdown-menu-item')[0]);
+    fireEvent.click(document.body.querySelectorAll('.ant-dropdown-menu-item')[0]);
     fireEvent.click(
-      container.querySelector(
+      document.body.querySelector(
         '.ant-table-filter-dropdown-btns .ant-btn-color-primary.ant-btn-variant-solid',
       )!,
     );
@@ -883,13 +884,13 @@ describe('Table.filter', () => {
     expect(container.querySelector('.ant-dropdown-open')).toBeFalsy();
 
     fireEvent.click(container.querySelector('.ant-dropdown-trigger')!);
-    fireEvent.click(container.querySelector('.ant-table-filter-dropdown-btns .ant-btn-link')!);
+    fireEvent.click(document.body.querySelector('.ant-table-filter-dropdown-btns .ant-btn-link')!);
 
     expect(container.querySelector('.ant-dropdown-open')).toBeTruthy();
     expect(renderedNames(container)).toEqual(['Jack']);
 
     fireEvent.click(
-      container.querySelector(
+      document.body.querySelector(
         '.ant-table-filter-dropdown-btns .ant-btn-color-primary.ant-btn-variant-solid',
       )!,
     );
@@ -951,7 +952,7 @@ describe('Table.filter', () => {
       }),
     );
     fireEvent.click(container.querySelector('.ant-dropdown-trigger')!);
-    fireEvent.click(container.querySelector('.ant-dropdown-menu-item')!);
+    fireEvent.click(document.body.querySelector('.ant-dropdown-menu-item')!);
     fireEvent.click(container.querySelector('.ant-dropdown-trigger')!);
 
     expect(handleChange).toHaveBeenCalled();
@@ -973,7 +974,7 @@ describe('Table.filter', () => {
       }),
     );
     fireEvent.click(container.querySelector('.ant-dropdown-trigger')!);
-    fireEvent.click(container.querySelector('.ant-dropdown-menu-item')!);
+    fireEvent.click(document.body.querySelector('.ant-dropdown-menu-item')!);
     fireEvent.click(container.querySelector('.ant-dropdown-trigger')!);
     expect(container.querySelector('.customize-icon')).toMatchSnapshot();
   });
@@ -1061,11 +1062,11 @@ describe('Table.filter', () => {
 
     const { container } = render(<Demo />);
     fireEvent.click(container.querySelector('.ant-dropdown-trigger')!);
-    fireEvent.change(container.querySelector('.ant-input')!, { target: { value: 'test' } });
-    expect(container.querySelector<HTMLInputElement>('.ant-input')?.value).toBe('test');
-    fireEvent.click(container.querySelector('.ant-btn')!);
+    fireEvent.change(document.body.querySelector('.ant-input')!, { target: { value: 'test' } });
+    expect(document.body.querySelector<HTMLInputElement>('.ant-input')?.value).toBe('test');
+    fireEvent.click(document.body.querySelector('.ant-btn')!);
     fireEvent.click(container.querySelector('.ant-dropdown-trigger')!);
-    expect(container.querySelector<HTMLInputElement>('.ant-input')?.value).toBe('');
+    expect(document.body.querySelector<HTMLInputElement>('.ant-input')?.value).toBe('');
   });
 
   // https://github.com/ant-design/ant-design/issues/17833
@@ -1088,7 +1089,7 @@ describe('Table.filter', () => {
       }),
     );
     fireEvent.click(container.querySelector('.ant-dropdown-trigger')!);
-    fireEvent.change(container.querySelector('input')!, { target: { value: 'whatevervalue' } });
+    fireEvent.change(document.body.querySelector('input')!, { target: { value: 'whatevervalue' } });
     fireEvent.click(container.querySelector('.ant-dropdown-trigger')!);
     expect(onChange).not.toHaveBeenCalled();
   });
@@ -1118,8 +1119,8 @@ describe('Table.filter', () => {
     );
 
     fireEvent.click(container.querySelector('.ant-dropdown-trigger')!);
-    fireEvent.change(container.querySelector('input')!, { target: { value: 'test' } });
-    fireEvent.click(container.querySelector('.confirm-btn')!);
+    fireEvent.change(document.body.querySelector('input')!, { target: { value: 'test' } });
+    fireEvent.click(document.body.querySelector('.confirm-btn')!);
 
     expect(onChange).toHaveBeenCalled();
     onChange.mock.calls.forEach(([, currentFilters]) => {
@@ -1202,9 +1203,9 @@ describe('Table.filter', () => {
     expect(renderSelectedKeys).toEqual(filteredValue);
 
     fireEvent.click(container.querySelector('.ant-dropdown-trigger')!);
-    fireEvent.mouseDown(container.querySelector('.ant-select')!);
-    fireEvent.click(container.querySelector('.ant-select-item-option')!);
-    fireEvent.click(container.querySelector('.confirm-btn')!);
+    fireEvent.mouseDown(document.body.querySelector('.ant-select')!);
+    fireEvent.click(document.body.querySelector('.ant-select-item-option')!);
+    fireEvent.click(document.body.querySelector('.confirm-btn')!);
     expect(onChange).toHaveBeenCalled();
     onChange.mock.calls.forEach(([, currentFilters]) => {
       const [, val] = Object.entries(currentFilters)[0];
@@ -1251,9 +1252,9 @@ describe('Table.filter', () => {
 
     // Warning: An update to Item ran an effect, but was not wrapped in act(...).
     fireEvent.click(container.querySelector('.ant-dropdown-trigger')!);
-    fireEvent.click(container.querySelector('.ant-dropdown-menu-item')!);
+    fireEvent.click(document.body.querySelector('.ant-dropdown-menu-item')!);
     fireEvent.click(
-      container.querySelector(
+      document.body.querySelector(
         '.ant-table-filter-dropdown-btns .ant-btn-color-primary.ant-btn-variant-solid',
       )!,
     );
@@ -1272,9 +1273,9 @@ describe('Table.filter', () => {
     );
 
     fireEvent.click(container.querySelector('.ant-dropdown-trigger')!);
-    fireEvent.click(container.querySelector('.ant-dropdown-menu-item')!);
+    fireEvent.click(document.body.querySelector('.ant-dropdown-menu-item')!);
     fireEvent.click(
-      container.querySelector(
+      document.body.querySelector(
         '.ant-table-filter-dropdown-btns .ant-btn-color-primary.ant-btn-variant-solid',
       )!,
     );
@@ -1375,9 +1376,9 @@ describe('Table.filter', () => {
     );
     // Warning: An update to Item ran an effect, but was not wrapped in act(...).
     fireEvent.click(container.querySelector('.ant-dropdown-trigger')!);
-    fireEvent.click(container.querySelector('.ant-dropdown-menu-item')!);
+    fireEvent.click(document.body.querySelector('.ant-dropdown-menu-item')!);
     fireEvent.click(
-      container.querySelector(
+      document.body.querySelector(
         '.ant-table-filter-dropdown-btns .ant-btn-color-primary.ant-btn-variant-solid',
       )!,
     );
@@ -1412,9 +1413,9 @@ describe('Table.filter', () => {
     expect(container.querySelector('.ant-pagination-item-active')?.textContent).toBe('3');
     // Warning: An update to Item ran an effect, but was not wrapped in act(...).
     fireEvent.click(container.querySelector('.ant-dropdown-trigger')!);
-    fireEvent.click(container.querySelector('.ant-dropdown-menu-item')!);
+    fireEvent.click(document.body.querySelector('.ant-dropdown-menu-item')!);
     fireEvent.click(
-      container.querySelector(
+      document.body.querySelector(
         '.ant-table-filter-dropdown-btns .ant-btn-color-primary.ant-btn-variant-solid',
       )!,
     );
@@ -1493,9 +1494,9 @@ describe('Table.filter', () => {
     onChange.mockReset();
     // Warning: An update to Item ran an effect, but was not wrapped in act(...).
     fireEvent.click(container.querySelector('.ant-dropdown-trigger')!, nativeEvent);
-    fireEvent.click(container.querySelector('.ant-dropdown-menu-item')!);
+    fireEvent.click(document.body.querySelector('.ant-dropdown-menu-item')!);
     fireEvent.click(
-      container.querySelector(
+      document.body.querySelector(
         '.ant-table-filter-dropdown-btns .ant-btn-color-primary.ant-btn-variant-solid',
       )!,
     );
@@ -1520,7 +1521,7 @@ describe('Table.filter', () => {
   });
 
   it('locale should work', () => {
-    const { container } = render(
+    const { container: _ } = render(
       createTable({
         locale: { filterConfirm: 'Bamboo' },
         columns: [
@@ -1535,17 +1536,17 @@ describe('Table.filter', () => {
     );
 
     expect(
-      container.querySelector(
+      document.body.querySelector(
         '.ant-table-filter-dropdown-btns .ant-btn-color-primary.ant-btn-variant-solid',
       )?.textContent,
     ).toEqual('Bamboo');
     expect(
-      container.querySelector('.ant-table-filter-dropdown-btns .ant-btn-link')?.textContent,
+      document.body.querySelector('.ant-table-filter-dropdown-btns .ant-btn-link')?.textContent,
     ).toEqual('Reset');
-    expect(container.querySelector('.ant-table-filter-dropdown-checkall')?.textContent).toEqual(
+    expect(document.body.querySelector('.ant-table-filter-dropdown-checkall')?.textContent).toEqual(
       'Select all items',
     );
-    expect(container.querySelector('.ant-input')?.getAttribute('placeholder')).toEqual(
+    expect(document.body.querySelector('.ant-input')?.getAttribute('placeholder')).toEqual(
       'Search in filters',
     );
   });
@@ -1668,9 +1669,9 @@ describe('Table.filter', () => {
     };
     const { container } = render(createTable({ columns: [filterControlledColumn] }));
     fireEvent.click(container.querySelector('.ant-dropdown-trigger')!);
-    fireEvent.click(container.querySelector('.ant-dropdown-menu-item')!);
+    fireEvent.click(document.body.querySelector('.ant-dropdown-menu-item')!);
     fireEvent.click(
-      container.querySelector(
+      document.body.querySelector(
         '.ant-table-filter-dropdown-btns .ant-btn-color-primary.ant-btn-variant-solid',
       )!,
     ); // close dropdown
@@ -1694,7 +1695,7 @@ describe('Table.filter', () => {
     const { container, unmount } = render(<Test filters={[]} />);
     fireEvent.click(container.querySelector('.ant-dropdown-trigger')!);
     fireEvent.click(
-      container.querySelector(
+      document.body.querySelector(
         '.ant-table-filter-dropdown-btns .ant-btn-color-primary.ant-btn-variant-solid',
       )!,
     );
@@ -1803,9 +1804,9 @@ describe('Table.filter', () => {
       <Table onChange={onChange} rowKey="name" columns={columns} dataSource={dataSource} />,
     );
     fireEvent.click(container.querySelector('.ant-dropdown-trigger')!);
-    fireEvent.click(container.querySelector('.ant-dropdown-menu-item')!);
+    fireEvent.click(document.body.querySelector('.ant-dropdown-menu-item')!);
     fireEvent.click(
-      container.querySelector(
+      document.body.querySelector(
         '.ant-table-filter-dropdown-btns .ant-btn-color-primary.ant-btn-variant-solid',
       )!,
     );
@@ -1813,9 +1814,9 @@ describe('Table.filter', () => {
     expect(onChange.mock.calls[0][0].current).toBe(1);
 
     fireEvent.click(container.querySelector('.ant-dropdown-trigger')!);
-    fireEvent.click(container.querySelectorAll('.ant-dropdown-menu-item')[1]!);
+    fireEvent.click(document.body.querySelectorAll('.ant-dropdown-menu-item')[1]!);
     fireEvent.click(
-      container.querySelector(
+      document.body.querySelector(
         '.ant-table-filter-dropdown-btns .ant-btn-color-primary.ant-btn-variant-solid',
       )!,
     );
@@ -1856,10 +1857,10 @@ describe('Table.filter', () => {
     fireEvent.click(container.querySelector('.ant-dropdown-trigger')!);
     expect(onFilterDropdownOpenChange).toHaveBeenCalledTimes(1);
 
-    fireEvent.click(container.querySelector('#confirm-only')!);
+    fireEvent.click(document.body.querySelector('#confirm-only')!);
     expect(onFilterDropdownOpenChange).toHaveBeenCalledTimes(1);
 
-    fireEvent.click(container.querySelector('#confirm-and-close')!);
+    fireEvent.click(document.body.querySelector('#confirm-and-close')!);
     expect(onFilterDropdownOpenChange).toHaveBeenCalledTimes(2);
     expect(onFilterDropdownOpenChange).toHaveBeenLastCalledWith(false);
   });
@@ -1935,7 +1936,7 @@ describe('Table.filter', () => {
       `${32}`,
     );
     fireEvent.click(container.querySelector('.ant-dropdown-trigger.ant-table-filter-trigger')!);
-    fireEvent.click(container.querySelector('.ant-dropdown-menu-item')!);
+    fireEvent.click(document.body.querySelector('.ant-dropdown-menu-item')!);
     fireEvent.click(
       container.querySelector('.ant-btn.ant-btn-color-primary.ant-btn-variant-solid.ant-btn-sm')!,
     );
@@ -2101,7 +2102,7 @@ describe('Table.filter', () => {
     // Open
     fireEvent.click(container.querySelector('.ant-table-filter-trigger')!);
     function getFilterMenu() {
-      return container.querySelector('.ant-table-filter-dropdown');
+      return document.body.querySelector('.ant-table-filter-dropdown');
     }
 
     const items = getFilterMenu()?.querySelectorAll('li.ant-dropdown-menu-item');
@@ -2137,8 +2138,8 @@ describe('Table.filter', () => {
       act(() => {
         vi.runAllTimers();
       });
-      expect(container.querySelectorAll('.ant-table-filter-dropdown-tree').length).toBe(1);
-      expect(container.querySelectorAll('.ant-tree-checkbox').length).toBe(5);
+      expect(document.body.querySelectorAll('.ant-table-filter-dropdown-tree').length).toBe(1);
+      expect(document.body.querySelectorAll('.ant-tree-checkbox').length).toBe(5);
     });
 
     it('supports search input in filter tree', () => {
@@ -2158,9 +2159,9 @@ describe('Table.filter', () => {
       act(() => {
         vi.runAllTimers();
       });
-      expect(container.querySelectorAll('.ant-table-filter-dropdown-tree').length).toBe(1);
+      expect(document.body.querySelectorAll('.ant-table-filter-dropdown-tree').length).toBe(1);
       expect(container.querySelectorAll('.ant-input').length).toBe(1);
-      fireEvent.change(container.querySelector('.ant-input')!, { target: { value: '111' } });
+      fireEvent.change(document.body.querySelector('.ant-input')!, { target: { value: '111' } });
     });
 
     it('renders empty element when search not found', () => {
@@ -2193,9 +2194,9 @@ describe('Table.filter', () => {
       act(() => {
         vi.runAllTimers();
       });
-      expect(container.querySelectorAll('.ant-table-filter-dropdown-search').length).toBe(1);
+      expect(document.body.querySelectorAll('.ant-table-filter-dropdown-search').length).toBe(1);
       expect(container.querySelectorAll('.ant-input').length).toBe(1);
-      fireEvent.change(container.querySelector('.ant-input')!, { target: { value: '111' } });
+      fireEvent.change(document.body.querySelector('.ant-input')!, { target: { value: '111' } });
       expect(container.querySelector('.ant-empty')).toBeTruthy();
 
       unmount();
@@ -2213,9 +2214,9 @@ describe('Table.filter', () => {
       act(() => {
         vi.runAllTimers();
       });
-      expect(container.querySelectorAll('.ant-table-filter-dropdown-search').length).toBe(1);
+      expect(document.body.querySelectorAll('.ant-table-filter-dropdown-search').length).toBe(1);
       expect(container.querySelectorAll('.ant-input').length).toBe(1);
-      fireEvent.change(container.querySelector('.ant-input')!, { target: { value: '111' } });
+      fireEvent.change(document.body.querySelector('.ant-input')!, { target: { value: '111' } });
     });
 
     it('should skip search when filters[0].text is ReactNode', () => {
@@ -2249,11 +2250,11 @@ describe('Table.filter', () => {
       act(() => {
         vi.runAllTimers();
       });
-      expect(container.querySelectorAll('.ant-table-filter-dropdown-search').length).toBe(1);
+      expect(document.body.querySelectorAll('.ant-table-filter-dropdown-search').length).toBe(1);
       expect(container.querySelectorAll('.ant-input').length).toBe(1);
-      expect(container.querySelectorAll('li.ant-dropdown-menu-item').length).toBe(3);
-      fireEvent.change(container.querySelector('.ant-input')!, { target: { value: '123' } });
-      expect(container.querySelectorAll('li.ant-dropdown-menu-item').length).toBe(2);
+      expect(document.body.querySelectorAll('li.ant-dropdown-menu-item').length).toBe(3);
+      fireEvent.change(document.body.querySelector('.ant-input')!, { target: { value: '123' } });
+      expect(document.body.querySelectorAll('li.ant-dropdown-menu-item').length).toBe(2);
 
       unmount();
     });
@@ -2279,11 +2280,11 @@ describe('Table.filter', () => {
       act(() => {
         vi.runAllTimers();
       });
-      expect(container.querySelectorAll('.ant-table-filter-dropdown-search').length).toBe(1);
+      expect(document.body.querySelectorAll('.ant-table-filter-dropdown-search').length).toBe(1);
       expect(container.querySelectorAll('.ant-input').length).toBe(1);
-      expect(container.querySelectorAll('li.ant-dropdown-menu-item').length).toBe(3);
-      fireEvent.change(container.querySelector('.ant-input')!, { target: { value: '456' } });
-      expect(container.querySelectorAll('li.ant-dropdown-menu-item').length).toBe(2);
+      expect(document.body.querySelectorAll('li.ant-dropdown-menu-item').length).toBe(3);
+      fireEvent.change(document.body.querySelector('.ant-input')!, { target: { value: '456' } });
+      expect(document.body.querySelectorAll('li.ant-dropdown-menu-item').length).toBe(2);
 
       unmount();
       errorSpy.mockRestore();
@@ -2311,10 +2312,10 @@ describe('Table.filter', () => {
       act(() => {
         vi.runAllTimers();
       });
-      expect(container.querySelectorAll('.ant-table-filter-dropdown-tree').length).toBe(1);
+      expect(document.body.querySelectorAll('.ant-table-filter-dropdown-tree').length).toBe(1);
       expect(container.querySelectorAll('.ant-input').length).toBe(1);
-      fireEvent.change(container.querySelector('.ant-input')!, { target: { value: '节点二' } });
-      expect(container.querySelectorAll('.ant-tree-treenode.filter-node').length).toBe(1);
+      fireEvent.change(document.body.querySelector('.ant-input')!, { target: { value: '节点二' } });
+      expect(document.body.querySelectorAll('.ant-tree-treenode.filter-node').length).toBe(1);
     });
 
     it('supports check all items', () => {
@@ -2328,19 +2329,19 @@ describe('Table.filter', () => {
       act(() => {
         vi.runAllTimers();
       });
-      expect(container.querySelectorAll('.ant-table-filter-dropdown-checkall').length).toBe(1);
-      expect(container.querySelector('.ant-table-filter-dropdown-checkall')?.textContent).toBe(
+      expect(document.body.querySelectorAll('.ant-table-filter-dropdown-checkall').length).toBe(1);
+      expect(document.body.querySelector('.ant-table-filter-dropdown-checkall')?.textContent).toBe(
         'Select all items',
       );
-      expect(container.querySelectorAll('.ant-tree-checkbox-checked').length).toBe(0);
+      expect(document.body.querySelectorAll('.ant-tree-checkbox-checked').length).toBe(0);
 
-      // fireEvent.change(container.querySelector('.ant-table-filter-dropdown-checkall input'), { target: { checked: true } });
+      // fireEvent.change(document.body.querySelector('.ant-table-filter-dropdown-checkall input'), { target: { checked: true } });
       // 为什么 fireEvent.change 模拟 checkbox 触发会失败
-      fireEvent.click(container.querySelector('.ant-table-filter-dropdown-checkall')!);
-      expect(container.querySelectorAll('.ant-tree-checkbox-checked').length).toBe(5);
+      fireEvent.click(document.body.querySelector('.ant-table-filter-dropdown-checkall')!);
+      expect(document.body.querySelectorAll('.ant-tree-checkbox-checked').length).toBe(5);
 
-      fireEvent.click(container.querySelector('.ant-table-filter-dropdown-checkall')!);
-      expect(container.querySelectorAll('.ant-tree-checkbox-checked').length).toBe(0);
+      fireEvent.click(document.body.querySelector('.ant-table-filter-dropdown-checkall')!);
+      expect(document.body.querySelectorAll('.ant-tree-checkbox-checked').length).toBe(0);
     });
 
     it('supports check item by selecting it', () => {
@@ -2360,11 +2361,11 @@ describe('Table.filter', () => {
       act(() => {
         vi.runAllTimers();
       });
-      expect(container.querySelectorAll('.ant-table-filter-dropdown-checkall').length).toBe(1);
-      expect(container.querySelector('.ant-table-filter-dropdown-checkall')?.textContent).toBe(
+      expect(document.body.querySelectorAll('.ant-table-filter-dropdown-checkall').length).toBe(1);
+      expect(document.body.querySelector('.ant-table-filter-dropdown-checkall')?.textContent).toBe(
         'Select all items',
       );
-      fireEvent.click(container.querySelector('.ant-tree-node-content-wrapper')!);
+      fireEvent.click(document.body.querySelector('.ant-tree-node-content-wrapper')!);
 
       expect(
         container
@@ -2398,8 +2399,8 @@ describe('Table.filter', () => {
       act(() => {
         vi.runAllTimers();
       });
-      fireEvent.click(container.querySelectorAll('.ant-tree-node-content-wrapper')[0]);
-      fireEvent.click(container.querySelectorAll('.ant-tree-node-content-wrapper')[1]);
+      fireEvent.click(document.body.querySelectorAll('.ant-tree-node-content-wrapper')[0]);
+      fireEvent.click(document.body.querySelectorAll('.ant-tree-node-content-wrapper')[1]);
 
       expect(
         container
@@ -2421,33 +2422,33 @@ describe('Table.filter', () => {
     act(() => {
       vi.runAllTimers();
     });
-    expect(container.querySelectorAll('.ant-tree-checkbox').length).toBe(5);
-    expect(container.querySelector('.ant-table-filter-dropdown-checkall')).toBe(null);
-    expect(container.querySelectorAll('.ant-tree-checkbox-checked').length).toBe(0);
+    expect(document.body.querySelectorAll('.ant-tree-checkbox').length).toBe(5);
+    expect(document.body.querySelector('.ant-table-filter-dropdown-checkall')).toBe(null);
+    expect(document.body.querySelectorAll('.ant-tree-checkbox-checked').length).toBe(0);
 
-    fireEvent.click(container.querySelectorAll('.ant-tree-checkbox')[2]);
+    fireEvent.click(document.body.querySelectorAll('.ant-tree-checkbox')[2]);
     expect(
       container
         .querySelectorAll('.ant-tree-checkbox')[2]
         .className.includes('ant-tree-checkbox-checked'),
     ).toBe(true);
-    expect(container.querySelectorAll('.ant-tree-checkbox-checked').length).toBe(1);
+    expect(document.body.querySelectorAll('.ant-tree-checkbox-checked').length).toBe(1);
 
-    fireEvent.click(container.querySelectorAll('.ant-tree-checkbox')[1]);
+    fireEvent.click(document.body.querySelectorAll('.ant-tree-checkbox')[1]);
     expect(
       container
         .querySelectorAll('.ant-tree-checkbox')[1]
         .className.includes('ant-tree-checkbox-checked'),
     ).toBe(true);
-    expect(container.querySelectorAll('.ant-tree-checkbox-checked').length).toBe(1);
+    expect(document.body.querySelectorAll('.ant-tree-checkbox-checked').length).toBe(1);
 
-    fireEvent.click(container.querySelectorAll('.ant-tree-checkbox')[1]);
+    fireEvent.click(document.body.querySelectorAll('.ant-tree-checkbox')[1]);
     expect(
       container
         .querySelectorAll('.ant-tree-checkbox')[1]
         .className.includes('ant-tree-checkbox-checked'),
     ).toBe(false);
-    expect(container.querySelectorAll('.ant-tree-checkbox-checked').length).toBe(0);
+    expect(document.body.querySelectorAll('.ant-tree-checkbox-checked').length).toBe(0);
   });
 
   it('filterMultiple is false - select item', () => {
@@ -2468,32 +2469,32 @@ describe('Table.filter', () => {
       vi.runAllTimers();
     });
 
-    expect(container.querySelectorAll('.ant-tree-checkbox').length).toBe(5);
-    expect(container.querySelectorAll('.ant-tree-checkbox-checked').length).toBe(0);
+    expect(document.body.querySelectorAll('.ant-tree-checkbox').length).toBe(5);
+    expect(document.body.querySelectorAll('.ant-tree-checkbox-checked').length).toBe(0);
 
-    fireEvent.click(container.querySelectorAll('.ant-tree-node-content-wrapper')[2]);
+    fireEvent.click(document.body.querySelectorAll('.ant-tree-node-content-wrapper')[2]);
     expect(
       container
         .querySelectorAll('.ant-tree-checkbox')[2]
         .className.includes('ant-tree-checkbox-checked'),
     ).toBe(true);
-    expect(container.querySelectorAll('.ant-tree-checkbox-checked').length).toBe(1);
+    expect(document.body.querySelectorAll('.ant-tree-checkbox-checked').length).toBe(1);
 
-    fireEvent.click(container.querySelectorAll('.ant-tree-node-content-wrapper')[1]);
+    fireEvent.click(document.body.querySelectorAll('.ant-tree-node-content-wrapper')[1]);
     expect(
       container
         .querySelectorAll('.ant-tree-checkbox')[1]
         .className.includes('ant-tree-checkbox-checked'),
     ).toBe(true);
-    expect(container.querySelectorAll('.ant-tree-checkbox-checked').length).toBe(1);
+    expect(document.body.querySelectorAll('.ant-tree-checkbox-checked').length).toBe(1);
 
-    fireEvent.click(container.querySelectorAll('.ant-tree-node-content-wrapper')[1]);
+    fireEvent.click(document.body.querySelectorAll('.ant-tree-node-content-wrapper')[1]);
     expect(
       container
         .querySelectorAll('.ant-tree-checkbox')[1]
         .className.includes('ant-tree-checkbox-checked'),
     ).toBe(false);
-    expect(container.querySelectorAll('.ant-tree-checkbox-checked').length).toBe(0);
+    expect(document.body.querySelectorAll('.ant-tree-checkbox-checked').length).toBe(0);
   });
 
   it('should select children when select parent', () => {
@@ -2526,7 +2527,7 @@ describe('Table.filter', () => {
     });
     // check parentnode
 
-    fireEvent.click(container.querySelectorAll('.ant-tree-checkbox')[2]);
+    fireEvent.click(document.body.querySelectorAll('.ant-tree-checkbox')[2]);
 
     expect(
       container
@@ -2545,7 +2546,7 @@ describe('Table.filter', () => {
     ).toBe(true);
 
     fireEvent.click(
-      container.querySelector(
+      document.body.querySelector(
         '.ant-table-filter-dropdown-btns .ant-btn-color-primary.ant-btn-variant-solid',
       )!,
     );
@@ -2556,9 +2557,9 @@ describe('Table.filter', () => {
       vi.runAllTimers();
     });
 
-    fireEvent.click(container.querySelectorAll('.ant-tree-checkbox-inner')[2]);
+    fireEvent.click(document.body.querySelectorAll('.ant-tree-checkbox-inner')[2]);
     fireEvent.click(
-      container.querySelector(
+      document.body.querySelector(
         '.ant-table-filter-dropdown-btns .ant-btn-color-primary.ant-btn-variant-solid',
       )!,
     );
@@ -2569,9 +2570,9 @@ describe('Table.filter', () => {
       vi.runAllTimers();
     });
 
-    fireEvent.click(container.querySelectorAll('.ant-tree-node-content-wrapper')[2]);
+    fireEvent.click(document.body.querySelectorAll('.ant-tree-node-content-wrapper')[2]);
     fireEvent.click(
-      container.querySelector(
+      document.body.querySelector(
         '.ant-table-filter-dropdown-btns .ant-btn-color-primary.ant-btn-variant-solid',
       )!,
     );
@@ -2642,7 +2643,7 @@ describe('Table.filter', () => {
 
     // check if renderer well
     fireEvent.click(container.querySelector('span.ant-dropdown-trigger')!);
-    expect(container.querySelector('#customFilter')).toMatchSnapshot();
+    expect(document.body.querySelector('#customFilter')).toMatchSnapshot();
     expect(renderSelectedKeys).toHaveLength(0);
 
     filterConfig.forEach(([text, id, , matchNames, visible]) => {
@@ -2676,12 +2677,12 @@ describe('Table.filter', () => {
     act(() => {
       vi.runAllTimers();
     });
-    expect(container.querySelectorAll('.ant-tree-checkbox-checked').length).toBe(1);
+    expect(document.body.querySelectorAll('.ant-tree-checkbox-checked').length).toBe(1);
 
-    fireEvent.click(container.querySelector('.ant-table-filter-dropdown-checkall')!);
-    expect(container.querySelectorAll('.ant-tree-checkbox-checked').length).toBe(5);
-    fireEvent.click(container.querySelector('button.ant-btn-link')!, nativeEvent);
-    expect(container.querySelectorAll('.ant-tree-checkbox-checked').length).toBe(0);
+    fireEvent.click(document.body.querySelector('.ant-table-filter-dropdown-checkall')!);
+    expect(document.body.querySelectorAll('.ant-tree-checkbox-checked').length).toBe(5);
+    fireEvent.click(document.body.querySelector('button.ant-btn-link')!, nativeEvent);
+    expect(document.body.querySelectorAll('.ant-tree-checkbox-checked').length).toBe(0);
 
     const { container: container2 } = render(
       createTable({
@@ -2738,7 +2739,9 @@ describe('Table.filter', () => {
     });
 
     // Click Item
-    fireEvent.click(container.querySelector('.ant-table-filter-dropdown .ant-dropdown-menu-item')!);
+    fireEvent.click(
+      document.body.querySelector('.ant-table-filter-dropdown .ant-dropdown-menu-item')!,
+    );
 
     expect(onSelect).toHaveBeenCalled();
   });
@@ -2840,34 +2843,34 @@ describe('Table.filter', () => {
 
     fireEvent.click(container.querySelector('span.ant-dropdown-trigger')!);
     expect(
-      container.querySelector<HTMLLinkElement>('.ant-table-filter-dropdown-btns .ant-btn-link')
+      document.body.querySelector<HTMLLinkElement>('.ant-table-filter-dropdown-btns .ant-btn-link')
         ?.disabled,
     ).toBeTruthy();
-    expect(container.querySelectorAll('li.ant-dropdown-menu-item')[0].textContent).toBe('Jack');
-    expect(container.querySelectorAll('li.ant-dropdown-menu-item')[1].textContent).toBe('Lucy');
+    expect(document.body.querySelectorAll('li.ant-dropdown-menu-item')[0].textContent).toBe('Jack');
+    expect(document.body.querySelectorAll('li.ant-dropdown-menu-item')[1].textContent).toBe('Lucy');
 
     // deselect default
-    fireEvent.click(container.querySelectorAll('li.ant-dropdown-menu-item')[0]);
+    fireEvent.click(document.body.querySelectorAll('li.ant-dropdown-menu-item')[0]);
     expect(
-      container.querySelector<HTMLLinkElement>('.ant-table-filter-dropdown-btns .ant-btn-link')
+      document.body.querySelector<HTMLLinkElement>('.ant-table-filter-dropdown-btns .ant-btn-link')
         ?.disabled,
     ).toBeFalsy();
     // select other one
-    fireEvent.click(container.querySelectorAll('li.ant-dropdown-menu-item')[1]);
+    fireEvent.click(document.body.querySelectorAll('li.ant-dropdown-menu-item')[1]);
     expect(
-      container.querySelector<HTMLLinkElement>('.ant-table-filter-dropdown-btns .ant-btn-link')
+      document.body.querySelector<HTMLLinkElement>('.ant-table-filter-dropdown-btns .ant-btn-link')
         ?.disabled,
     ).toBeFalsy();
     // deselect other one
-    fireEvent.click(container.querySelectorAll('li.ant-dropdown-menu-item')[1]);
+    fireEvent.click(document.body.querySelectorAll('li.ant-dropdown-menu-item')[1]);
     expect(
-      container.querySelector<HTMLLinkElement>('.ant-table-filter-dropdown-btns .ant-btn-link')
+      document.body.querySelector<HTMLLinkElement>('.ant-table-filter-dropdown-btns .ant-btn-link')
         ?.disabled,
     ).toBeFalsy();
     // select default
-    fireEvent.click(container.querySelectorAll('li.ant-dropdown-menu-item')[0]);
+    fireEvent.click(document.body.querySelectorAll('li.ant-dropdown-menu-item')[0]);
     expect(
-      container.querySelector<HTMLLinkElement>('.ant-table-filter-dropdown-btns .ant-btn-link')
+      document.body.querySelector<HTMLLinkElement>('.ant-table-filter-dropdown-btns .ant-btn-link')
         ?.disabled,
     ).toBeTruthy();
   });
@@ -2919,7 +2922,7 @@ describe('Table.filter', () => {
     fireEvent.click(container.querySelector('.ant-dropdown-trigger')!);
     expect(onFilterDropdownOpenChange).toHaveBeenCalledTimes(1);
 
-    fireEvent.click(container.querySelector('#close-only')!);
+    fireEvent.click(document.body.querySelector('#close-only')!);
     expect(onFilterDropdownOpenChange).toHaveBeenCalledTimes(2);
     expect(onFilter).toHaveBeenCalledTimes(0);
   });
@@ -2957,9 +2960,9 @@ describe('Table.filter', () => {
     const { container } = render(<Table columns={columns} dataSource={testData} />);
 
     fireEvent.click(container.querySelector('.ant-dropdown-trigger')!);
-    fireEvent.click(container.querySelectorAll('.ant-dropdown-menu-item')[0]);
+    fireEvent.click(document.body.querySelectorAll('.ant-dropdown-menu-item')[0]);
     fireEvent.click(
-      container.querySelector(
+      document.body.querySelector(
         '.ant-table-filter-dropdown-btns .ant-btn-color-primary.ant-btn-variant-solid',
       )!,
     );
@@ -2989,25 +2992,25 @@ describe('Table.filter', () => {
     fireEvent.click(container.querySelector('.ant-dropdown-trigger.ant-table-filter-trigger')!);
 
     // There is one checkbox and it begins unchecked.
-    expect(container.querySelector<HTMLInputElement>('input[type="checkbox"]')!.checked).toEqual(
-      false,
-    );
+    expect(
+      document.body.querySelector<HTMLInputElement>('input[type="checkbox"]')!.checked,
+    ).toEqual(false);
 
     // User checks it.
-    fireEvent.click(container.querySelector('input[type="checkbox"]')!);
+    fireEvent.click(document.body.querySelector('input[type="checkbox"]')!);
 
     // The checkbox is now checked.
-    expect(container.querySelector<HTMLInputElement>('input[type="checkbox"]')!.checked).toEqual(
-      true,
-    );
-    fireEvent.click(container.querySelector('.ant-btn-primary')!);
+    expect(
+      document.body.querySelector<HTMLInputElement>('input[type="checkbox"]')!.checked,
+    ).toEqual(true);
+    fireEvent.click(document.body.querySelector('.ant-btn-primary')!);
     // Table data changes while the dropdown is open and a user is setting filters.
     rerender(createTable({ ...tableProps, dataSource: [{ name: 'Foo' }] }));
 
     // The checkbox is still checked.
-    expect(container.querySelector<HTMLInputElement>('input[type="checkbox"]')!.checked).toEqual(
-      true,
-    );
+    expect(
+      document.body.querySelector<HTMLInputElement>('input[type="checkbox"]')!.checked,
+    ).toEqual(true);
   });
 
   it('should not crash when filterDropdown is boolean', () => {
@@ -3044,7 +3047,7 @@ describe('Table.filter', () => {
       }),
     );
     fireEvent.click(container.querySelector('.ant-dropdown-trigger')!);
-    fireEvent.click(container.querySelectorAll('.ant-dropdown-menu-item')[0]);
+    fireEvent.click(document.body.querySelectorAll('.ant-dropdown-menu-item')[0]);
     fireEvent.click(container.querySelector('.ant-dropdown-trigger')!);
     expect(handleChange).not.toHaveBeenCalled();
   });
@@ -3090,7 +3093,7 @@ describe('Table.filter', () => {
 
       await waitFakeTimer();
 
-      expect(container.querySelector('.ant-table-filter-dropdown')).toHaveTextContent('foo');
+      expect(document.body.querySelector('.ant-table-filter-dropdown')).toHaveTextContent('foo');
 
       expect(mockTableFilterRenderEmpty).toHaveBeenCalled();
       expect(mockTableFilterRenderEmpty.mock.calls[0][0]).toEqual('Table.filter');
@@ -3106,8 +3109,8 @@ describe('Table.filter', () => {
 
       await waitFakeTimer();
 
-      expect(container.querySelector('.ant-table-filter-dropdown .ant-empty')).toBeNull();
-      expect(container.querySelector('.ant-table-filter-dropdown')!.childNodes).toHaveLength(1);
+      expect(document.body.querySelector('.ant-table-filter-dropdown .ant-empty')).toBeNull();
+      expect(document.body.querySelector('.ant-table-filter-dropdown')!.childNodes).toHaveLength(1);
     });
   });
 
@@ -3156,7 +3159,7 @@ describe('Table.filter', () => {
       );
 
       fireEvent.click(container.querySelector('.ant-dropdown-trigger')!);
-      expect(container.querySelector('.ant-dropdown-placement-topLeft')).toBeTruthy();
+      expect(document.body.querySelector('.ant-dropdown-placement-topLeft')).toBeTruthy();
     });
   });
 });

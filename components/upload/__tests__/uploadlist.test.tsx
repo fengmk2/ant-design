@@ -4,7 +4,7 @@ import { ConfigProvider } from 'antd';
 
 import type { UploadFile, UploadProps } from '..';
 import Upload from '..';
-import { act, fireEvent, render, waitFakeTimer, waitFor } from '../../../tests/utils';
+import { act, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 import type { FormInstance } from '../../form';
 import Form from '../../form';
 import type { UploadListProps, UploadLocale } from '../interface';
@@ -1047,9 +1047,8 @@ describe('Upload List', () => {
       />,
     );
 
-    await waitFor(() => {
-      expect(previewFunc).toHaveBeenCalled();
-    });
+    await waitFakeTimer();
+    expect(previewFunc).toHaveBeenCalled();
     await previewFunc(mockFile).then((dataUrl) => {
       expect(dataUrl).toEqual('data:image/png;base64,');
     });
@@ -1076,9 +1075,8 @@ describe('Upload List', () => {
       />,
     );
 
-    await waitFor(() => {
-      expect(previewFunc).toHaveBeenCalled();
-    });
+    await waitFakeTimer();
+    expect(previewFunc).toHaveBeenCalled();
     await previewFunc(mockFile).then((dataUrl) => {
       expect(dataUrl).toEqual('data:image/png;base64,');
     });
@@ -1101,9 +1099,8 @@ describe('Upload List', () => {
       />,
     );
 
-    await waitFor(() => {
-      expect(previewFunc).toHaveBeenCalled();
-    });
+    await waitFakeTimer();
+    expect(previewFunc).toHaveBeenCalled();
     await previewFunc(mockFile).then((dataUrl) => {
       expect(dataUrl).toEqual('data:image/gif;base64,');
     });
@@ -1125,9 +1122,8 @@ describe('Upload List', () => {
       />,
     );
 
-    await waitFor(() => {
-      expect(previewFunc).toHaveBeenCalled();
-    });
+    await waitFakeTimer();
+    expect(previewFunc).toHaveBeenCalled();
     await previewFunc(mockFile).then((dataUrl) => {
       expect(dataUrl).toBe('');
     });

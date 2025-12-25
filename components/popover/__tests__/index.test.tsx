@@ -24,18 +24,20 @@ describe('Popover', () => {
         <span>show me your code</span>
       </Popover>,
     );
-    expect(container.querySelector('.bamboo')).toBeFalsy();
+    // Query document.body for portal-rendered popover content
+    expect(document.body.querySelector('.bamboo')).toBeFalsy();
     fireEvent.click(container.querySelector('span')!);
-    expect(container.querySelector('.bamboo')).toBeTruthy();
+    expect(document.body.querySelector('.bamboo')).toBeTruthy();
   });
 
   it('should support defaultOpen', () => {
-    const { container } = render(
+    render(
       <Popover title="code" defaultOpen>
         <span>show me your code</span>
       </Popover>,
     );
-    expect(container.querySelector('.ant-popover')).toBeTruthy();
+    // Query document.body for portal-rendered popover content
+    expect(document.body.querySelector('.ant-popover')).toBeTruthy();
   });
 
   it('shows content for render functions', () => {
@@ -159,7 +161,8 @@ describe('Popover', () => {
       );
     };
     const { container } = render(<TooltipTestComponent />);
-    const getTooltipArrow = () => container.querySelector('.ant-popover-arrow');
+    // Query document.body for portal-rendered popover content
+    const getTooltipArrow = () => document.body.querySelector('.ant-popover-arrow');
     const configbtn = container.querySelector('.configArrow');
 
     expect(getTooltipArrow()).not.toBeNull();
@@ -188,7 +191,8 @@ describe('Popover', () => {
 
     const { container } = render(<TooltipTestComponent />);
 
-    const getTooltipArrow = () => container.querySelector('.ant-popover-arrow');
+    // Query document.body for portal-rendered popover content
+    const getTooltipArrow = () => document.body.querySelector('.ant-popover-arrow');
 
     const toggleArrowBtn = container.querySelector('.toggleArrow');
 

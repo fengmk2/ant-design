@@ -426,11 +426,12 @@ describe('DatePicker', () => {
     resetWarned();
 
     const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
-    const { container } = render(<DatePicker popupStyle={{ backgroundColor: 'red' }} open />);
+    render(<DatePicker popupStyle={{ backgroundColor: 'red' }} open />);
     expect(errSpy).toHaveBeenCalledWith(
       'Warning: [antd: DatePicker] `popupStyle` is deprecated. Please use `styles.popup.root` instead.',
     );
-    expect(container.querySelector('.ant-picker-dropdown')).toHaveStyle(
+    // Query document.body for portal-rendered popup content
+    expect(document.body.querySelector('.ant-picker-dropdown')).toHaveStyle(
       'background-color: rgb(255, 0, 0)',
     );
 

@@ -50,9 +50,10 @@ describe('AutoComplete.Semantic', () => {
     expect(container.querySelector(`.${classNames.placeholder}`)).toHaveStyle(styles.placeholder);
     expect(container.querySelector(`.${classNames.content}`)).toHaveStyle(styles.content);
     expect(container.querySelector(`.${classNames.input}`)).toHaveStyle(styles.input);
-    expect(container.querySelector(`.${classNames.popup.root}`)).toHaveStyle(styles.popup.root);
-    expect(container.querySelector(`.${classNames.popup.list}`)).toHaveStyle(styles.popup.list);
-    expect(container.querySelector(`.${classNames.popup.listItem}`)).toHaveStyle(
+    // Query document.body for portal-rendered popup content
+    expect(document.body.querySelector(`.${classNames.popup.root}`)).toHaveStyle(styles.popup.root);
+    expect(document.body.querySelector(`.${classNames.popup.list}`)).toHaveStyle(styles.popup.list);
+    expect(document.body.querySelector(`.${classNames.popup.listItem}`)).toHaveStyle(
       styles.popup.listItem,
     );
   });

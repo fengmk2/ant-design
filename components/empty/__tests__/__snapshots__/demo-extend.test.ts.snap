@@ -701,51 +701,6 @@ exports[`renders components/empty/demo/config-provider.tsx extend context correc
 ]
 `;
 
-exports[`renders components/empty/demo/customize.tsx extend context correctly 1`] = `
-<div
-  class="css-var-test-id ant-empty"
->
-  <div
-    class="ant-empty-image"
-    style="height: 60px;"
-  >
-    <img
-      alt="empty"
-      draggable="false"
-      src="https://gw.alipayobjects.com/zos/antfincdn/ZHrcdLPrvN/empty.svg"
-    />
-  </div>
-  <div
-    class="ant-empty-description"
-  >
-    <span
-      class="ant-typography css-var-test-id"
-    >
-      Customize 
-      <a
-        href="#API"
-      >
-        Description
-      </a>
-    </span>
-  </div>
-  <div
-    class="ant-empty-footer"
-  >
-    <button
-      class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
-      type="button"
-    >
-      <span>
-        Create Now
-      </span>
-    </button>
-  </div>
-</div>
-`;
-
-exports[`renders components/empty/demo/customize.tsx extend context correctly 2`] = `[]`;
-
 exports[`renders components/empty/demo/description.tsx extend context correctly 1`] = `
 <div
   class="css-var-test-id ant-empty"

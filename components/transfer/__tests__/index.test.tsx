@@ -878,6 +878,7 @@ describe('Transfer', () => {
     errSpy.mockRestore();
   });
   it('it checks correctly after changing the dataSource', async () => {
+    vi.useFakeTimers();
     const mockData = Array.from({ length: 10 }).map((_, i) => ({
       key: i.toString(),
       title: `content${i + 1}`,
@@ -940,6 +941,8 @@ describe('Transfer', () => {
           ?.querySelector('input[type="checkbox"]')!,
       ).toBeChecked();
     });
+
+    vi.useRealTimers();
   });
 
   it('showSearch with single object', () => {

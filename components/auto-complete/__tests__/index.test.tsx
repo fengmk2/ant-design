@@ -103,7 +103,7 @@ describe('AutoComplete', () => {
     resetWarned();
 
     const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
-    const { container } = render(
+    const { container: _ } = render(
       <AutoComplete
         popupClassName="legacy"
         open
@@ -114,7 +114,8 @@ describe('AutoComplete', () => {
     expect(errSpy).toHaveBeenCalledWith(
       'Warning: [antd: AutoComplete] `popupClassName` is deprecated. Please use `classNames.popup.root` instead.',
     );
-    expect(container.querySelector('.legacy')).toBeTruthy();
+    // Query document.body for portal-rendered dropdown content
+    expect(document.body.querySelector('.legacy')).toBeTruthy();
 
     errSpy.mockRestore();
   });

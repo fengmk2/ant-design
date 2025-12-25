@@ -435,7 +435,7 @@ describe('Table.rowSelection', () => {
       vi.runAllTimers();
     });
 
-    fireEvent.click(container.querySelectorAll('.ant-dropdown-menu-item')[0]);
+    fireEvent.click(document.body.querySelectorAll('.ant-dropdown-menu-item')[0]);
 
     expect(handleChange.mock.calls[0][0]).toEqual([0, 1, 2, 3]);
   });
@@ -479,7 +479,7 @@ describe('Table.rowSelection', () => {
       vi.runAllTimers();
     });
 
-    fireEvent.click(container.querySelectorAll('li.ant-dropdown-menu-item')[1]);
+    fireEvent.click(document.body.querySelectorAll('li.ant-dropdown-menu-item')[1]);
 
     expect(handleSelectInvert).toHaveBeenCalledWith([1, 2, 3]);
     expect(order).toEqual(['onChange', 'onSelectInvert', 'onChange']);
@@ -509,7 +509,7 @@ describe('Table.rowSelection', () => {
     act(() => {
       vi.runAllTimers();
     });
-    const dropdownMenuItems = container.querySelectorAll('.ant-dropdown-menu-item');
+    const dropdownMenuItems = document.body.querySelectorAll('.ant-dropdown-menu-item');
     fireEvent.click(dropdownMenuItems[dropdownMenuItems.length - 1]);
 
     expect(handleSelectNone).toHaveBeenCalled();
@@ -544,7 +544,7 @@ describe('Table.rowSelection', () => {
       vi.runAllTimers();
     });
 
-    const dropdownMenuItems = container.querySelectorAll('.ant-dropdown-menu-item');
+    const dropdownMenuItems = document.body.querySelectorAll('.ant-dropdown-menu-item');
 
     expect(dropdownMenuItems.length).toBe(4);
 
@@ -585,7 +585,7 @@ describe('Table.rowSelection', () => {
         vi.runAllTimers();
       });
 
-      fireEvent.click(container.querySelector('li.ant-dropdown-menu-item')!);
+      fireEvent.click(document.body.querySelector('li.ant-dropdown-menu-item')!);
       expect(onChange).toHaveBeenCalledWith([0, 2], expect.anything(), { type: 'all' });
     });
 
@@ -610,7 +610,7 @@ describe('Table.rowSelection', () => {
         vi.runAllTimers();
       });
 
-      fireEvent.click(container.querySelector('li.ant-dropdown-menu-item')!);
+      fireEvent.click(document.body.querySelector('li.ant-dropdown-menu-item')!);
 
       expect(onChange).toHaveBeenCalledWith([0], expect.anything(), { type: 'invert' });
     });
@@ -636,7 +636,7 @@ describe('Table.rowSelection', () => {
         vi.runAllTimers();
       });
 
-      fireEvent.click(container.querySelector('li.ant-dropdown-menu-item')!);
+      fireEvent.click(document.body.querySelector('li.ant-dropdown-menu-item')!);
 
       expect(onChange).toHaveBeenCalledWith([1], expect.anything(), { type: 'none' });
     });
@@ -676,7 +676,7 @@ describe('Table.rowSelection', () => {
       vi.runAllTimers();
     });
 
-    const dropdownMenuItems = container.querySelectorAll('li.ant-dropdown-menu-item');
+    const dropdownMenuItems = document.body.querySelectorAll('li.ant-dropdown-menu-item');
     expect(dropdownMenuItems.length).toBe(2);
 
     fireEvent.click(dropdownMenuItems[0]);

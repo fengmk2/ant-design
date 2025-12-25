@@ -42,31 +42,34 @@ describe('TreeSelect', () => {
     });
 
     it('should `treeIcon` work', () => {
-      const { container } = render(
+      const { container: _c1 } = render(
         <TreeSelect treeIcon open>
           <TreeNode value="parent 1" title="parent 1" icon={<span className="bamboo" />} />
         </TreeSelect>,
       );
 
-      expect(container.querySelector('.ant-select-tree-treenode .bamboo')).toBeTruthy();
+      // Query document.body for portal-rendered dropdown content
+      expect(document.body.querySelector('.ant-select-tree-treenode .bamboo')).toBeTruthy();
     });
   });
 
   it('should support notFoundContent', () => {
     const content = 'notFoundContent';
-    const { container } = render(<TreeSelect treeIcon open notFoundContent={content} />);
-    expect(container.querySelector('.ant-select-empty')?.innerHTML).toBe(content);
+    render(<TreeSelect treeIcon open notFoundContent={content} />);
+    // Query document.body for portal-rendered dropdown content
+    expect(document.body.querySelector('.ant-select-empty')?.innerHTML).toBe(content);
   });
 
   it('legacy popupClassName', () => {
     resetWarned();
 
     const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
-    const { container } = render(<TreeSelect popupClassName="legacy" open />);
+    const { container: _ } = render(<TreeSelect popupClassName="legacy" open />);
     expect(errSpy).toHaveBeenCalledWith(
       'Warning: [antd: TreeSelect] `popupClassName` is deprecated. Please use `classNames.popup.root` instead.',
     );
-    expect(container.querySelector('.legacy')).toBeTruthy();
+    // Query document.body for portal-rendered dropdown content
+    expect(document.body.querySelector('.legacy')).toBeTruthy();
 
     errSpy.mockRestore();
   });
@@ -75,11 +78,12 @@ describe('TreeSelect', () => {
     resetWarned();
 
     const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
-    const { container } = render(<TreeSelect dropdownClassName="legacy" open />);
+    render(<TreeSelect dropdownClassName="legacy" open />);
     expect(errSpy).toHaveBeenCalledWith(
       'Warning: [antd: TreeSelect] `dropdownClassName` is deprecated. Please use `classNames.popup.root` instead.',
     );
-    expect(container.querySelector('.legacy')).toBeTruthy();
+    // Query document.body for portal-rendered dropdown content
+    expect(document.body.querySelector('.legacy')).toBeTruthy();
 
     errSpy.mockRestore();
   });
@@ -100,11 +104,12 @@ describe('TreeSelect', () => {
     resetWarned();
 
     const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
-    const { container } = render(<TreeSelect dropdownStyle={{ color: 'red' }} open />);
+    render(<TreeSelect dropdownStyle={{ color: 'red' }} open />);
     expect(errSpy).toHaveBeenCalledWith(
       'Warning: [antd: TreeSelect] `dropdownStyle` is deprecated. Please use `styles.popup.root` instead.',
     );
-    expect(container.querySelector('.ant-select-dropdown')).toBeTruthy();
+    // Query document.body for portal-rendered dropdown content
+    expect(document.body.querySelector('.ant-select-dropdown')).toBeTruthy();
 
     errSpy.mockRestore();
   });
@@ -113,13 +118,14 @@ describe('TreeSelect', () => {
     resetWarned();
 
     const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
-    const { container } = render(
+    render(
       <TreeSelect dropdownRender={(menu) => <div className="custom-dropdown">{menu}</div>} open />,
     );
     expect(errSpy).toHaveBeenCalledWith(
       'Warning: [antd: TreeSelect] `dropdownRender` is deprecated. Please use `popupRender` instead.',
     );
-    expect(container.querySelector('.custom-dropdown')).toBeTruthy();
+    // Query document.body for portal-rendered dropdown content
+    expect(document.body.querySelector('.custom-dropdown')).toBeTruthy();
 
     errSpy.mockRestore();
   });
@@ -143,14 +149,17 @@ describe('TreeSelect', () => {
   });
 
   it('support aria-*', async () => {
-    const { container } = render(
+    render(
       <TreeSelect
         open
         treeData={[{ value: 'parent 1', title: 'parnet 1', 'aria-label': 'label' }]}
       />,
     );
+    // Query document.body for portal-rendered dropdown content
     expect(
-      container.querySelector('.ant-select-tree-treenode-leaf-last')?.getAttribute('aria-label'),
+      document.body
+        .querySelector('.ant-select-tree-treenode-leaf-last')
+        ?.getAttribute('aria-label'),
     ).toBe('label');
   });
 
@@ -309,8 +318,9 @@ describe('TreeSelect', () => {
     const selectedItem = container.querySelector('.ant-select-selection-item');
     const itemContent = container.querySelector('.ant-select-selection-item-content');
     const itemRemove = container.querySelector('.ant-select-selection-item-remove');
-    const popup = container.querySelector('.ant-tree-select-dropdown');
-    const itemTitle = container.querySelector('.ant-select-tree-title');
+    // Query document.body for portal-rendered dropdown content
+    const popup = document.body.querySelector('.ant-tree-select-dropdown');
+    const itemTitle = document.body.querySelector('.ant-select-tree-title');
 
     expect(selectedItem).toHaveClass(customClassNames.item);
     expect(itemContent).toHaveClass(customClassNames.itemContent);
@@ -324,8 +334,8 @@ describe('TreeSelect', () => {
     expect(popup).toHaveStyle(customStyles.popup.root);
     expect(itemTitle).toHaveStyle(customStyles.popup.itemTitle);
 
-    // Test popup item if it exists
-    const popupItem = container.querySelector(`.${customClassNames.popup.item}`);
+    // Test popup item if it exists - query document.body for portal-rendered content
+    const popupItem = document.body.querySelector(`.${customClassNames.popup.item}`);
     if (popupItem) {
       expect(popupItem).toHaveStyle(customStyles.popup.item);
     }

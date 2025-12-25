@@ -33,37 +33,6 @@ exports[`renders components/modal/demo/button-props.tsx correctly 1`] = `
 </button>
 `;
 
-exports[`renders components/modal/demo/classNames.tsx correctly 1`] = `
-<div
-  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
->
-  <div
-    class="ant-space-item"
-  >
-    <button
-      class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
-      type="button"
-    >
-      <span>
-        Open Modal
-      </span>
-    </button>
-  </div>
-  <div
-    class="ant-space-item"
-  >
-    <button
-      class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
-      type="button"
-    >
-      <span>
-        ConfigProvider
-      </span>
-    </button>
-  </div>
-</div>
-`;
-
 exports[`renders components/modal/demo/component-token.tsx correctly 1`] = `
 <div
   style="display:flex;flex-direction:column;row-gap:16px"
@@ -1227,29 +1196,6 @@ exports[`renders components/modal/demo/static-info.tsx correctly 1`] = `
       </span>
     </button>
   </div>
-</div>
-`;
-
-exports[`renders components/modal/demo/style-class.tsx correctly 1`] = `
-<div
-  class="ant-flex css-var-test-id ant-flex-gap-middle"
->
-  <button
-    class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
-    type="button"
-  >
-    <span>
-      Open Style Modal
-    </span>
-  </button>
-  <button
-    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
-    type="button"
-  >
-    <span>
-      Open Function Modal
-    </span>
-  </button>
 </div>
 `;
 

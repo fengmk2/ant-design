@@ -16,12 +16,16 @@ function tooltipProps(): TooltipProps {
 
 vi.mock('../../tooltip', async () => {
   const ReactReal: typeof React = await vi.importActual('react');
-  const Tooltip = await vi.importActual('../../tooltip');
+  const Tooltip = await vi.importActual<typeof import('../../tooltip')>('../../tooltip');
   const TooltipComponent = Tooltip.default;
-  return ReactReal.forwardRef<TooltipRef, TooltipProps>((props, ref) => {
+  const MockedTooltip = ReactReal.forwardRef<TooltipRef, TooltipProps>((props, ref) => {
     (global as any).tooltipProps = props;
     return <TooltipComponent {...props} ref={ref} />;
   });
+  return {
+    ...Tooltip,
+    default: MockedTooltip,
+  };
 });
 
 describe('Slider', () => {
@@ -70,24 +74,29 @@ describe('Slider', () => {
 
   it('when tooltip.open is true, tooltip should show always, or should never show', () => {
     const { container: container1 } = render(<Slider defaultValue={30} tooltip={{ open: true }} />);
+    // Query document.body for portal-rendered tooltip content
     expect(
-      container1.querySelector('.ant-tooltip-container')!.className.includes('ant-tooltip-hidden'),
+      document.body
+        .querySelector('.ant-tooltip-container')!
+        .className.includes('ant-tooltip-hidden'),
     ).toBeFalsy();
 
     fireEvent.mouseEnter(container1.querySelector('.ant-slider-handle')!);
     expect(
-      container1.querySelector('.ant-tooltip-container')!.className.includes('ant-tooltip-hidden'),
+      document.body
+        .querySelector('.ant-tooltip-container')!
+        .className.includes('ant-tooltip-hidden'),
     ).toBeFalsy();
 
     fireEvent.click(container1.querySelector('.ant-slider-handle')!);
     expect(
-      container1.querySelector('.ant-tooltip-container')!.className.includes('ant-tooltip-hidden'),
+      document.body
+        .querySelector('.ant-tooltip-container')!
+        .className.includes('ant-tooltip-hidden'),
     ).toBeFalsy();
 
-    const { container: container2 } = render(
-      <Slider defaultValue={30} tooltip={{ open: false }} />,
-    );
-    expect(container2.querySelector('.ant-tooltip-container')!).toBeNull();
+    render(<Slider defaultValue={30} tooltip={{ open: false }} />);
+    expect(document.body.querySelectorAll('.ant-tooltip-container').length).toBe(1);
   });
 
   it('when step is null, thumb can only be slid to the specific mark', () => {

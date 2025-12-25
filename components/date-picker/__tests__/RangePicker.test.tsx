@@ -155,19 +155,19 @@ describe('RangePicker', () => {
     resetWarned();
 
     const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
-    const { container, rerender } = render(
-      <DatePicker.RangePicker dropdownClassName="legacy" open />,
-    );
+    const { rerender } = render(<DatePicker.RangePicker dropdownClassName="legacy" open />);
     expect(errSpy).toHaveBeenCalledWith(
       'Warning: [antd: DatePicker.RangePicker] `dropdownClassName` is deprecated. Please use `classNames.popup.root` instead.',
     );
-    expect(container.querySelector('.legacy')).toBeTruthy();
+    // Query document.body for portal-rendered popup content
+    expect(document.body.querySelector('.legacy')).toBeTruthy();
 
     rerender(<DatePicker.RangePicker popupClassName="legacy" open />);
     expect(errSpy).toHaveBeenCalledWith(
       'Warning: [antd: DatePicker.RangePicker] `popupClassName` is deprecated. Please use `classNames.popup.root` instead.',
     );
-    expect(container.querySelector('.legacy')).toBeTruthy();
+    // Query document.body for portal-rendered popup content
+    expect(document.body.querySelector('.legacy')).toBeTruthy();
 
     errSpy.mockRestore();
   });
@@ -176,13 +176,12 @@ describe('RangePicker', () => {
     resetWarned();
 
     const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
-    const { container } = render(
-      <DatePicker.RangePicker popupStyle={{ backgroundColor: 'red' }} open />,
-    );
+    render(<DatePicker.RangePicker popupStyle={{ backgroundColor: 'red' }} open />);
     expect(errSpy).toHaveBeenCalledWith(
       'Warning: [antd: DatePicker.RangePicker] `popupStyle` is deprecated. Please use `styles.popup.root` instead.',
     );
-    expect(container.querySelector('.ant-picker-dropdown')).toHaveStyle(
+    // Query document.body for portal-rendered popup content
+    expect(document.body.querySelector('.ant-picker-dropdown')).toHaveStyle(
       'background-color: rgb(255, 0, 0)',
     );
 

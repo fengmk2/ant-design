@@ -79,11 +79,12 @@ describe('Cascader.Semantic', () => {
     expect(container.querySelector(`.${classNames.prefix}`)).toHaveStyle(styles.prefix);
     expect(container.querySelector(`.${classNames.suffix}`)).toHaveStyle(styles.suffix);
     expect(container.querySelector(`.${classNames.input}`)).toHaveStyle(styles.input);
-    expect(container.querySelector(`.${classNames.popup.list}`)).toHaveStyle(styles.popup.list);
-    expect(container.querySelector(`.${classNames.popup.listItem}`)).toHaveStyle(
+    // Query document.body for portal-rendered popup content
+    expect(document.body.querySelector(`.${classNames.popup.list}`)).toHaveStyle(styles.popup.list);
+    expect(document.body.querySelector(`.${classNames.popup.listItem}`)).toHaveStyle(
       styles.popup.listItem,
     );
-    expect(container.querySelector(`.${classNames.popup.root}`)).toHaveStyle(styles.popup.root);
+    expect(document.body.querySelector(`.${classNames.popup.root}`)).toHaveStyle(styles.popup.root);
   });
 
   it('support placeholder classNames and styles', () => {
@@ -163,11 +164,12 @@ describe('Cascader.Semantic', () => {
     expect(container.querySelector(`.${classNames.item}`)).toHaveStyle(styles.item);
     expect(container.querySelector(`.${classNames.itemContent}`)).toHaveStyle(styles.itemContent);
     expect(container.querySelector(`.${classNames.itemRemove}`)).toHaveStyle(styles.itemRemove);
-    expect(container.querySelector(`.${classNames.popup.list}`)).toHaveStyle(styles.popup.list);
-    expect(container.querySelector(`.${classNames.popup.listItem}`)).toHaveStyle(
+    // Query document.body for portal-rendered popup content
+    expect(document.body.querySelector(`.${classNames.popup.list}`)).toHaveStyle(styles.popup.list);
+    expect(document.body.querySelector(`.${classNames.popup.listItem}`)).toHaveStyle(
       styles.popup.listItem,
     );
-    expect(container.querySelector(`.${classNames.popup.root}`)).toHaveStyle(styles.popup.root);
+    expect(document.body.querySelector(`.${classNames.popup.root}`)).toHaveStyle(styles.popup.root);
   });
 
   it('should support function-based classNames and styles', () => {

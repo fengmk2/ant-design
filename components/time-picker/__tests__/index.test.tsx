@@ -34,8 +34,9 @@ describe('TimePicker', () => {
         OK
       </button>
     );
-    const { container } = render(<TimePicker addon={addon} open />);
-    expect(container.querySelectorAll('.my-btn').length).toBeTruthy();
+    render(<TimePicker addon={addon} open />);
+    // Query document.body for portal-rendered dropdown content
+    expect(document.body.querySelectorAll('.my-btn').length).toBeTruthy();
     expect(errorSpy).toHaveBeenCalledWith(
       'Warning: [antd: TimePicker] `addon` is deprecated. Please use `renderExtraFooter` instead.',
     );
@@ -68,26 +69,28 @@ describe('TimePicker', () => {
 
   it('should pass popupClassName prop to Picker as dropdownClassName prop', () => {
     const popupClassName = 'myCustomClassName';
-    const { container } = render(
+    render(
       <TimePicker
         open
         defaultOpenValue={dayjs('00:00:00', 'HH:mm:ss')}
         popupClassName={popupClassName}
       />,
     );
-    expect(container.querySelector(`.${popupClassName}`)).toBeTruthy();
+    // Query document.body for portal-rendered dropdown content
+    expect(document.body.querySelector(`.${popupClassName}`)).toBeTruthy();
   });
 
   it('should pass popupClassName prop to RangePicker as dropdownClassName prop', () => {
     const popupClassName = 'myCustomClassName';
-    const { container } = render(
+    render(
       <TimePicker.RangePicker
         open
         defaultOpenValue={dayjs('00:00:00', 'HH:mm:ss')}
         popupClassName={popupClassName}
       />,
     );
-    expect(container.querySelector(`.${popupClassName}`)).toBeTruthy();
+    // Query document.body for portal-rendered dropdown content
+    expect(document.body.querySelector(`.${popupClassName}`)).toBeTruthy();
   });
 
   it('should support bordered', () => {
@@ -134,12 +137,12 @@ describe('TimePicker', () => {
     };
 
     const checkElement = (
-      container: HTMLElement,
+      root: HTMLElement | Document,
       selector: string,
       className: string,
       style: React.CSSProperties,
     ): void => {
-      const element = container.querySelector(selector);
+      const element = root.querySelector(selector);
       expect(element).toHaveClass(className);
       const styleString = Object.entries(style)
         .map(([key, value]) => `${key}: ${value}`)
@@ -176,8 +179,9 @@ describe('TimePicker', () => {
     testSelectors.forEach(({ key, selector }) => {
       checkElement(container, selector, testClassNames[key], testStyles[key]);
     });
+    // Query document.body for portal-rendered dropdown content
     testPopupSelectors.forEach(({ key, selector }) => {
-      checkElement(container, selector, testPopupClassNames[key], testPopupStyles[key]);
+      checkElement(document.body, selector, testPopupClassNames[key], testPopupStyles[key]);
     });
 
     // Test TimePicker.RangePicker
@@ -193,8 +197,9 @@ describe('TimePicker', () => {
     testSelectors.forEach(({ key, selector }) => {
       checkElement(rangePickerContainer, selector, testClassNames[key], testStyles[key]);
     });
+    // Query document.body for portal-rendered dropdown content
     testPopupSelectors.forEach(({ key, selector }) => {
-      checkElement(rangePickerContainer, selector, testPopupClassNames[key], testPopupStyles[key]);
+      checkElement(document.body, selector, testPopupClassNames[key], testPopupStyles[key]);
     });
   });
 

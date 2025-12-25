@@ -5,7 +5,7 @@ import { render } from '../../../tests/utils';
 
 describe('Popover.Semantic', () => {
   it('should support static classNames and styles', () => {
-    const { container } = render(
+    render(
       <Popover
         open
         title="Test"
@@ -17,8 +17,9 @@ describe('Popover.Semantic', () => {
       </Popover>,
     );
 
-    const popoverElement = container.querySelector('.ant-popover');
-    const contentElement = container.querySelector('.ant-popover-container');
+    // Query document.body for portal-rendered popover content
+    const popoverElement = document.body.querySelector('.ant-popover');
+    const contentElement = document.body.querySelector('.ant-popover-container');
 
     expect(popoverElement).toHaveClass('custom-root');
     expect(contentElement).toHaveClass('custom-container');
@@ -27,7 +28,7 @@ describe('Popover.Semantic', () => {
   });
 
   it('should support function-based classNames and styles', () => {
-    const { container } = render(
+    render(
       <Popover
         open
         title="Test"
@@ -46,8 +47,9 @@ describe('Popover.Semantic', () => {
       </Popover>,
     );
 
-    const popoverElement = container.querySelector('.ant-popover');
-    const contentElement = container.querySelector('.ant-popover-container');
+    // Query document.body for portal-rendered popover content
+    const popoverElement = document.body.querySelector('.ant-popover');
+    const contentElement = document.body.querySelector('.ant-popover-container');
 
     expect(popoverElement).toHaveClass('top-root');
     expect(contentElement).toHaveClass('custom-container');

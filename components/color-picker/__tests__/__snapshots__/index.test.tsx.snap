@@ -12,6 +12,32 @@ exports[`ColorPicker > Should disabled work 1`] = `
 </div>
 `;
 
+exports[`ColorPicker > Should panelRender with components work 1`] = `
+<div>
+  <div
+    aria-describedby="test-id"
+    class="ant-color-picker-trigger css-var-root ant-color-picker-css-var ant-popover-open ant-color-picker-trigger-active"
+  >
+    <div
+      class="ant-color-picker-clear"
+    />
+  </div>
+</div>
+`;
+
+exports[`ColorPicker > Should panelRender work 1`] = `
+<div>
+  <div
+    aria-describedby="test-id"
+    class="ant-color-picker-trigger css-var-root ant-color-picker-css-var ant-popover-open ant-color-picker-trigger-active"
+  >
+    <div
+      class="ant-color-picker-clear"
+    />
+  </div>
+</div>
+`;
+
 exports[`ColorPicker > Should render trigger work 1`] = `
 <div>
   <div

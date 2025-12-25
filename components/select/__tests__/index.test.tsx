@@ -35,14 +35,16 @@ describe('Select', () => {
   it('should have default notFoundContent', () => {
     const { container } = render(<Select mode="multiple" />);
     toggleOpen(container);
-    expect(container.querySelectorAll('.ant-select-item-option').length).toBe(0);
-    expect(container.querySelectorAll('.ant-empty').length).toBeTruthy();
+    // Query document.body for portal-rendered dropdown content
+    expect(document.body.querySelectorAll('.ant-select-item-option').length).toBe(0);
+    expect(document.body.querySelectorAll('.ant-empty').length).toBeTruthy();
   });
 
   it('should support set notFoundContent to null', () => {
     const { container } = render(<Select mode="multiple" notFoundContent={null} />);
     toggleOpen(container);
-    expect(container.querySelectorAll('.ant-empty').length).toBe(0);
+    // Query document.body for portal-rendered dropdown content
+    expect(document.body.querySelectorAll('.ant-empty').length).toBe(0);
   });
 
   it('should not have default notFoundContent when mode is combobox', () => {
@@ -50,7 +52,8 @@ describe('Select', () => {
       <Select mode={Select.SECRET_COMBOBOX_MODE_DO_NOT_USE as SelectProps['mode']} />,
     );
     toggleOpen(container);
-    expect(container.querySelector('.ant-empty')).toBeFalsy();
+    // Query document.body for portal-rendered dropdown content
+    expect(document.body.querySelector('.ant-empty')).toBeFalsy();
   });
 
   it('should not have notFoundContent when mode is combobox and notFoundContent is set', () => {
@@ -61,8 +64,9 @@ describe('Select', () => {
       />,
     );
     toggleOpen(container);
-    expect(container.querySelector('.ant-select-item-option')).toBeFalsy();
-    expect(container.querySelector('.ant-select-item-empty')).toHaveTextContent('not at all');
+    // Query document.body for portal-rendered dropdown content
+    expect(document.body.querySelector('.ant-select-item-option')).toBeFalsy();
+    expect(document.body.querySelector('.ant-select-item-empty')).toHaveTextContent('not at all');
   });
 
   it('should be controlled by open prop', () => {
@@ -78,9 +82,10 @@ describe('Select', () => {
       );
     };
     const { container } = render(<TestComponent />);
-    expect(container.querySelector('.ant-select-dropdown')).toBeFalsy();
+    // Query document.body for portal-rendered dropdown content
+    expect(document.body.querySelector('.ant-select-dropdown')).toBeFalsy();
     toggleOpen(container);
-    expect(container.querySelectorAll('.ant-select-dropdown').length).toBe(1);
+    expect(document.body.querySelectorAll('.ant-select-dropdown').length).toBe(1);
     expect(onOpenChange).toHaveBeenLastCalledWith(true);
   });
 
@@ -177,11 +182,12 @@ describe('Select', () => {
       resetWarned();
 
       const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
-      const { container } = render(<Select popupClassName="legacy" open />);
+      render(<Select popupClassName="legacy" open />);
       expect(errSpy).toHaveBeenCalledWith(
         'Warning: [antd: Select] `popupClassName` is deprecated. Please use `classNames.popup.root` instead.',
       );
-      expect(container.querySelector('.legacy')).toBeTruthy();
+      // Query document.body for portal-rendered dropdown content
+      expect(document.body.querySelector('.legacy')).toBeTruthy();
 
       errSpy.mockRestore();
     });
@@ -190,11 +196,12 @@ describe('Select', () => {
       resetWarned();
 
       const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
-      const { container } = render(<Select dropdownClassName="legacy" open />);
+      render(<Select dropdownClassName="legacy" open />);
       expect(errSpy).toHaveBeenCalledWith(
         'Warning: [antd: Select] `dropdownClassName` is deprecated. Please use `classNames.popup.root` instead.',
       );
-      expect(container.querySelector('.legacy')).toBeTruthy();
+      // Query document.body for portal-rendered dropdown content
+      expect(document.body.querySelector('.legacy')).toBeTruthy();
 
       errSpy.mockRestore();
     });
@@ -202,11 +209,12 @@ describe('Select', () => {
     it('legacy dropdownStyle', () => {
       resetWarned();
       const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
-      const { container } = render(<Select dropdownStyle={{ background: 'red' }} open />);
+      render(<Select dropdownStyle={{ background: 'red' }} open />);
       expect(errSpy).toHaveBeenCalledWith(
         'Warning: [antd: Select] `dropdownStyle` is deprecated. Please use `styles.popup.root` instead.',
       );
-      const dropdown = container.querySelector('.ant-select-dropdown');
+      // Query document.body for portal-rendered dropdown content
+      const dropdown = document.body.querySelector('.ant-select-dropdown');
       expect(dropdown?.getAttribute('style')).toMatch(/background:\s*red/);
       errSpy.mockRestore();
     });
@@ -214,7 +222,7 @@ describe('Select', () => {
     it('legacy dropdownRender', () => {
       resetWarned();
       const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
-      const { container } = render(
+      render(
         <Select
           open
           dropdownRender={(menu) => <div className="custom-dropdown">{menu} custom render</div>}
@@ -224,7 +232,8 @@ describe('Select', () => {
       expect(errSpy).toHaveBeenCalledWith(
         'Warning: [antd: Select] `dropdownRender` is deprecated. Please use `popupRender` instead.',
       );
-      const customDropdown = container.querySelector('.custom-dropdown');
+      // Query document.body for portal-rendered dropdown content
+      const customDropdown = document.body.querySelector('.custom-dropdown');
       expect(customDropdown).toBeTruthy();
       expect(customDropdown?.textContent).toContain('custom render');
       errSpy.mockRestore();

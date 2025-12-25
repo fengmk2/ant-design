@@ -233,7 +233,8 @@ describe('Layout', () => {
     act(() => {
       vi.runAllTimers();
     });
-    expect(container.querySelector('.ant-tooltip-container')).toBeFalsy();
+    // Query document.body for portal-rendered tooltip content
+    expect(document.body.querySelector('.ant-tooltip-container')).toBeFalsy();
     rerender(
       <Sider collapsible collapsed>
         <Menu mode="inline">
@@ -248,7 +249,8 @@ describe('Layout', () => {
     act(() => {
       vi.runAllTimers();
     });
-    expect(container.querySelector('.ant-tooltip-container')).toBeTruthy();
+    // Query document.body for portal-rendered tooltip content
+    expect(document.body.querySelector('.ant-tooltip-container')).toBeTruthy();
 
     vi.useRealTimers();
   });
@@ -257,7 +259,13 @@ describe('Layout', () => {
 describe('Sider', () => {
   const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
 
+  beforeEach(() => {
+    vi.useFakeTimers();
+  });
+
   afterEach(() => {
+    vi.clearAllTimers();
+    vi.useRealTimers();
     errorSpy.mockReset();
   });
 

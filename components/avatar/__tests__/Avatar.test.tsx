@@ -246,8 +246,8 @@ describe('Avatar Render', () => {
     /* check count */
     expect(avatars.length).toBe(3);
 
-    /* check popover */
-    const popover = container.querySelector('.ant-avatar-group-popover');
+    /* check popover - query document.body for portal-rendered content */
+    const popover = document.body.querySelector('.ant-avatar-group-popover');
     expect(popover).toBeTruthy();
     expect(popover).toHaveClass('ant-popover-placement-bottom');
 
@@ -291,12 +291,12 @@ describe('Avatar Render', () => {
     /* check count */
     expect(container.querySelectorAll('.ant-avatar-group .ant-avatar')).toHaveLength(3);
 
-    /* check popover */
-    const popover = container.querySelector('.ant-avatar-group-popover');
+    /* check popover - query document.body for portal-rendered content */
+    const popover = document.body.querySelector('.ant-avatar-group-popover');
     expect(popover).toBeTruthy();
     expect(popover).toHaveStyle('background: red');
     expect(popover).toHaveClass('wanpan-111 ant-popover-placement-bottomRight');
-    expect(container.querySelector('.ant-popover-container')).toHaveTextContent('Avatar.Group');
+    expect(document.body.querySelector('.ant-popover-container')).toHaveTextContent('Avatar.Group');
 
     /* check style */
     expect(container.querySelector('.ant-popover-open')).toHaveStyle('color: rgb(0, 0, 255)');

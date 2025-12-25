@@ -208,11 +208,11 @@ describe('Table.sorter', () => {
     );
 
     // don't trigger ascend
-    fireEvent.keyDown(container.querySelector('.ant-table-filter-dropdown')!, { keyCode: 13 });
+    fireEvent.keyDown(document.body.querySelector('.ant-table-filter-dropdown')!, { keyCode: 13 });
     expect(renderedNames(container)).toEqual(['Jack', 'Lucy', 'Tom', 'Jerry']);
 
     // don't trigger descend
-    fireEvent.keyDown(container.querySelector('.ant-table-filter-dropdown')!, { keyCode: 13 });
+    fireEvent.keyDown(document.body.querySelector('.ant-table-filter-dropdown')!, { keyCode: 13 });
     expect(renderedNames(container)).toEqual(['Jack', 'Lucy', 'Tom', 'Jerry']);
   });
 

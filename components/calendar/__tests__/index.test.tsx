@@ -61,8 +61,9 @@ describe('Calendar', () => {
     fireEvent.mouseDown(target);
   }
 
-  function findSelectItem(wrapper: HTMLElement) {
-    return wrapper.querySelectorAll('.ant-select-item-option')!;
+  function findSelectItem(_wrapper: HTMLElement) {
+    // Query document.body for portal-rendered dropdown content
+    return document.body.querySelectorAll('.ant-select-item-option')!;
   }
 
   function clickSelectItem(wrapper: HTMLElement, index = 0) {
@@ -154,8 +155,8 @@ describe('Calendar', () => {
     openSelect(container, '.ant-picker-calendar-year-select');
     clickSelectItem(container);
     openSelect(container, '.ant-picker-calendar-month-select');
-    // 2 years and 11 months
-    expect(container.querySelectorAll('.ant-select-item-option').length).toBe(13);
+    // 2 years and 11 months - query document.body for portal-rendered dropdown content
+    expect(document.body.querySelectorAll('.ant-select-item-option').length).toBe(13);
   });
 
   it('getDateRange should returns a disabledDate function', () => {
@@ -327,7 +328,10 @@ describe('Calendar', () => {
       />,
     );
     openSelect(container, '.ant-picker-calendar-year-select');
-    const elements = Array.from(container.querySelectorAll<HTMLElement>('.ant-select-item-option'));
+    // Query document.body for portal-rendered dropdown content
+    const elements = Array.from(
+      document.body.querySelectorAll<HTMLElement>('.ant-select-item-option'),
+    );
     const lastIndex = elements.length - 1;
     fireEvent.click(elements[lastIndex]);
     expect(onValueChange).toHaveBeenCalledWith(value.year(2019).month(2), 'year');

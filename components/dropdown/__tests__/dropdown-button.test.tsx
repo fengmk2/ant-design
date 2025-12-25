@@ -111,7 +111,7 @@ describe('DropdownButton', () => {
 
   it('should support overlayClassName and overlayStyle', () => {
     const items = [{ label: 'foo', key: '1' }];
-    const { container } = render(
+    render(
       <DropdownButton
         overlayClassName="test-className"
         overlayStyle={{ padding: 20 }}
@@ -119,8 +119,11 @@ describe('DropdownButton', () => {
         open
       />,
     );
-    expect(container.querySelector<HTMLElement>('.ant-dropdown')).toHaveClass('test-className');
-    expect(container.querySelector<HTMLElement>('.ant-dropdown')).toHaveStyle({ padding: '20px' });
+    // Query document.body for portal-rendered dropdown content
+    expect(document.body.querySelector<HTMLElement>('.ant-dropdown')).toHaveClass('test-className');
+    expect(document.body.querySelector<HTMLElement>('.ant-dropdown')).toHaveStyle({
+      padding: '20px',
+    });
   });
 
   it('should support loading', () => {
@@ -158,9 +161,10 @@ describe('DropdownButton', () => {
         key: '1',
       },
     ];
-    const { container } = render(<DropdownButton open autoFocus menu={{ items }} />);
+    render(<DropdownButton open autoFocus menu={{ items }} />);
     await waitFakeTimer();
-    expect(container.querySelector('.ant-dropdown-menu-item-active')).toBeTruthy();
+    // Query document.body for portal-rendered dropdown content
+    expect(document.body.querySelector('.ant-dropdown-menu-item-active')).toBeTruthy();
     vi.useRealTimers();
   });
 

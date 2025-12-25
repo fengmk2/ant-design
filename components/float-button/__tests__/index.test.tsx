@@ -73,7 +73,8 @@ describe('FloatButton', () => {
       const { container } = render(<FloatButton tooltip={0} />);
       fireEvent.mouseEnter(container.querySelector<HTMLDivElement>('.ant-float-btn')!);
       await waitFakeTimer();
-      const element = container
+      // Query document.body for portal-rendered tooltip content
+      const element = document.body
         .querySelector('.ant-tooltip')
         ?.querySelector('.ant-tooltip-container');
       expect(element?.textContent).toBe('0');
@@ -85,7 +86,8 @@ describe('FloatButton', () => {
       const { container } = render(<FloatButton tooltip={{ title: 'hi' }} />);
       fireEvent.mouseEnter(container.querySelector<HTMLDivElement>('.ant-float-btn')!);
       await waitFakeTimer();
-      const element = container
+      // Query document.body for portal-rendered tooltip content
+      const element = document.body
         .querySelector('.ant-tooltip')
         ?.querySelector('.ant-tooltip-container');
       expect(element?.textContent).toBe('hi');

@@ -38,11 +38,11 @@ function simulateInput(wrapper: ReturnType<typeof render>, text: string, keyEven
 }
 
 describe('Mentions', () => {
-  beforeAll(() => {
+  beforeEach(() => {
     vi.useFakeTimers();
   });
 
-  afterAll(() => {
+  afterEach(() => {
     vi.useRealTimers();
   });
 
@@ -77,15 +77,17 @@ describe('Mentions', () => {
   it('loading', () => {
     const wrapper = render(<Mentions loading />);
     simulateInput(wrapper, '@');
-    expect(wrapper.container.querySelectorAll('li.ant-mentions-dropdown-menu-item').length).toBe(1);
-    expect(wrapper.container.querySelectorAll('.ant-spin').length).toBeTruthy();
+    // Query document.body for portal-rendered dropdown content
+    expect(document.body.querySelectorAll('li.ant-mentions-dropdown-menu-item').length).toBe(1);
+    expect(document.body.querySelectorAll('.ant-spin').length).toBeTruthy();
   });
 
   it('notFoundContent', () => {
     const wrapper = render(<Mentions notFoundContent={<span className="bamboo-light" />} />);
     simulateInput(wrapper, '@');
-    expect(wrapper.container.querySelectorAll('li.ant-mentions-dropdown-menu-item').length).toBe(1);
-    expect(wrapper.container.querySelectorAll('.bamboo-light').length).toBeTruthy();
+    // Query document.body for portal-rendered dropdown content
+    expect(document.body.querySelectorAll('li.ant-mentions-dropdown-menu-item').length).toBe(1);
+    expect(document.body.querySelectorAll('.bamboo-light').length).toBeTruthy();
   });
 
   it('allowClear', () => {
@@ -125,13 +127,16 @@ describe('Mentions', () => {
     );
     simulateInput(wrapper, '@');
     const { container } = wrapper;
-    fireEvent.mouseEnter(container.querySelector('li.ant-mentions-dropdown-menu-item:last-child')!);
+    // Query document.body for portal-rendered dropdown content
+    fireEvent.mouseEnter(
+      document.body.querySelector('li.ant-mentions-dropdown-menu-item:last-child')!,
+    );
     fireEvent.focus(container.querySelector('textarea')!);
     act(() => {
       vi.runAllTimers();
     });
     expect(
-      wrapper.container.querySelector('.ant-mentions-dropdown-menu-item-active')?.textContent,
+      document.body.querySelector('.ant-mentions-dropdown-menu-item-active')?.textContent,
     ).toBe('Yesmeck');
   });
 
@@ -176,15 +181,17 @@ describe('Mentions', () => {
       );
       simulateInput(wrapper, '@');
       const { container } = wrapper;
+      // Query document.body for portal-rendered dropdown content
       fireEvent.mouseEnter(
-        container.querySelector('li.ant-mentions-dropdown-menu-item:last-child')!,
+        document.body.querySelector('li.ant-mentions-dropdown-menu-item:last-child')!,
       );
       fireEvent.focus(container.querySelector('textarea')!);
       act(() => {
         vi.runAllTimers();
       });
       const root = container.querySelector('.ant-mentions');
-      const popup = container.querySelector('.ant-mentions-dropdown');
+      // Query document.body for portal-rendered dropdown content
+      const popup = document.body.querySelector('.ant-mentions-dropdown');
       const textarea = container.querySelector('.rc-textarea');
       expect(root).toHaveClass(customClassNames.root);
       expect(popup).toHaveClass(customClassNames.popup);

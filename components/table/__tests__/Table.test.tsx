@@ -430,7 +430,8 @@ describe('Table', () => {
 
     fireEvent.click(container.querySelector('.ant-table-filter-trigger')!);
     await waitFakeTimer();
-    expect(container.querySelector('.ant-dropdown')).toBeTruthy();
+    // Query document.body for portal-rendered dropdown content
+    expect(document.body.querySelector('.ant-dropdown')).toBeTruthy();
   });
 
   it('support reference', () => {

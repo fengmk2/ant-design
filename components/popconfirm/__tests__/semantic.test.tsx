@@ -26,7 +26,7 @@ describe('Popconfirm.semantic', () => {
     vi.useRealTimers();
   });
   it('should support static classNames and styles', () => {
-    const { container } = render(
+    render(
       <Popconfirm
         title="Test"
         description="Content"
@@ -38,8 +38,9 @@ describe('Popconfirm.semantic', () => {
       </Popconfirm>,
     );
 
-    const popconfirmElement = container.querySelector('.ant-popover');
-    const contentElement = container.querySelector('.ant-popover-container');
+    // Query document.body for portal-rendered popconfirm content
+    const popconfirmElement = document.body.querySelector('.ant-popover');
+    const contentElement = document.body.querySelector('.ant-popover-container');
 
     expect(popconfirmElement).toHaveClass('custom-root');
     expect(contentElement).toHaveClass('custom-container');
@@ -48,7 +49,7 @@ describe('Popconfirm.semantic', () => {
   });
 
   it('should support function-based classNames and styles', () => {
-    const { container } = render(
+    render(
       <Popconfirm
         title="Test"
         description="Content"
@@ -67,8 +68,9 @@ describe('Popconfirm.semantic', () => {
       </Popconfirm>,
     );
 
-    const popconfirmElement = container.querySelector('.ant-popover');
-    const contentElement = container.querySelector('.ant-popover-container');
+    // Query document.body for portal-rendered popconfirm content
+    const popconfirmElement = document.body.querySelector('.ant-popover');
+    const contentElement = document.body.querySelector('.ant-popover-container');
 
     expect(popconfirmElement).toHaveClass('top-root');
     expect(contentElement).toHaveClass('custom-container');

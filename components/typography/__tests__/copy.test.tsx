@@ -58,9 +58,10 @@ describe('Typography copy', () => {
           fireEvent.mouseEnter(container.querySelectorAll('.ant-typography-copy')[0]);
           await waitFakeTimer();
 
+          // Query document.body for portal-rendered tooltip content
           if (tooltipTexts[0] !== undefined) {
             await waitFor(() => {
-              expect(container.querySelector('.ant-tooltip-container')?.textContent).toBe(
+              expect(document.body.querySelector('.ant-tooltip-container')?.textContent).toBe(
                 tooltipTexts[0],
               );
             });
@@ -68,7 +69,7 @@ describe('Typography copy', () => {
 
           if (tooltipLength !== undefined) {
             await waitFor(() => {
-              expect(container.querySelectorAll('.ant-tooltip-container').length).toBe(
+              expect(document.body.querySelectorAll('.ant-tooltip-container').length).toBe(
                 tooltipLength,
               );
             });
@@ -85,10 +86,11 @@ describe('Typography copy', () => {
 
           fireEvent.mouseEnter(container.querySelectorAll('.ant-typography-copy')[0]);
 
+          // Query document.body for portal-rendered tooltip content
           if (tooltipTexts[1] !== undefined) {
             const expectedInner = tooltipTexts[1] === '' ? tooltipTexts[0] : tooltipTexts[1];
             await waitFor(() => {
-              expect(container.querySelector('.ant-tooltip-container')?.textContent).toBe(
+              expect(document.body.querySelector('.ant-tooltip-container')?.textContent).toBe(
                 expectedInner,
               );
             });
@@ -362,11 +364,12 @@ describe('Typography copy', () => {
     );
     fireEvent.mouseEnter(container.querySelectorAll('.ant-typography-copy')[0]);
     await waitFakeTimer(1000, 1000);
-    expect(container.querySelector('.ant-tooltip-container')?.textContent).toBe('Copy');
+    // Query document.body for portal-rendered tooltip content
+    expect(document.body.querySelector('.ant-tooltip-container')?.textContent).toBe('Copy');
 
     fireEvent.click(container.querySelectorAll('.ant-typography-copy')[0]);
     await sleep(0);
-    expect(container.querySelector('.ant-tooltip-container')?.textContent).toBe('Copied');
+    expect(document.body.querySelector('.ant-tooltip-container')?.textContent).toBe('Copied');
   });
 
   it('copy array children', () => {
