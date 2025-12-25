@@ -4,11 +4,12 @@ import message, { actWrapper } from '..';
 import { act, render } from '../../../tests/utils';
 import { awaitPromise, triggerMotionEnd } from './util';
 vi.mock('react-dom', async () => {
-  const realReactDOM = await vi.importActual('react-dom');
+  const realReactDOM = await vi.importActual<typeof import('react-dom')>('react-dom');
 
   if (realReactDOM.version.startsWith('19')) {
-    const realReactDOMClient = await vi.importActual('react-dom/client');
-    realReactDOM.createRoot = realReactDOMClient.createRoot;
+    const realReactDOMClient =
+      await vi.importActual<typeof import('react-dom/client')>('react-dom/client');
+    return { ...realReactDOM, createRoot: realReactDOMClient.createRoot };
   }
 
   return realReactDOM;
