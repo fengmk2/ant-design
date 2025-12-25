@@ -19,9 +19,10 @@ const listProps = {
 };
 
 describe('Transfer.Dropdown', () => {
-  function clickItem(container: HTMLElement, index: number) {
+  function clickItem(_container: HTMLElement, index: number) {
+    // Dropdown menu renders as portal to document.body
     const items = Array.from(
-      container
+      document.body
         // Menu
         .querySelector('.ant-dropdown-menu')!
         // Items
