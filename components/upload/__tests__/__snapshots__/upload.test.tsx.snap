@@ -1,4 +1,28 @@
-// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Upload > rtl render > component should be rendered correctly in RTL direction 1`] = `
+<span
+  class="ant-upload-wrapper css-var-root ant-upload-rtl"
+>
+  <div
+    class="ant-upload ant-upload-select ant-upload-hidden"
+  >
+    <span
+      class="ant-upload"
+    >
+      <input
+        accept=""
+        name="file"
+        style="display: none;"
+        type="file"
+      />
+    </span>
+  </div>
+  <div
+    class="ant-upload-list ant-upload-list-text"
+  />
+</span>
+`;
 
 exports[`Upload rtl render component should be rendered correctly in RTL direction 1`] = `
 <span

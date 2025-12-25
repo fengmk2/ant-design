@@ -38,37 +38,39 @@ vi.mock('react-dom', async () => {
 vi.mock('../../_util/ActionButton', async () => {
   const ActionButtonModule = await vi.importActual<any>('../../_util/ActionButton');
   const ActionButton = ActionButtonModule.default;
-  return (props: any) => {
-    const { actionFn } = props;
-    let mockActionFn: any = actionFn;
-    if (actionFn && (global as any).injectPromise) {
-      mockActionFn = (...args: any) => {
-        let ret = actionFn(...args);
+  return {
+    default: (props: any) => {
+      const { actionFn } = props;
+      let mockActionFn: any = actionFn;
+      if (actionFn && (global as any).injectPromise) {
+        mockActionFn = (...args: any) => {
+          let ret = actionFn(...args);
 
-        if (ret.then) {
-          let resolveFn: any;
-          let rejectFn: any;
+          if (ret.then) {
+            let resolveFn: any;
+            let rejectFn: any;
 
-          ret = ret.then(
-            (v: any) => {
-              resolveFn?.(v);
-            },
-            (e: any) => {
-              rejectFn?.(e)?.catch((err: Error) => {
-                (global as any).rejectPromise = err;
-              });
-            },
-          );
-          ret.then = (resolve: any, reject: any) => {
-            resolveFn = resolve;
-            rejectFn = reject;
-          };
-        }
+            ret = ret.then(
+              (v: any) => {
+                resolveFn?.(v);
+              },
+              (e: any) => {
+                rejectFn?.(e)?.catch((err: Error) => {
+                  (global as any).rejectPromise = err;
+                });
+              },
+            );
+            ret.then = (resolve: any, reject: any) => {
+              resolveFn = resolve;
+              rejectFn = reject;
+            };
+          }
 
-        return ret;
-      };
-    }
-    return <ActionButton {...props} actionFn={mockActionFn} />;
+          return ret;
+        };
+      }
+      return <ActionButton {...props} actionFn={mockActionFn} />;
+    },
   };
 });
 

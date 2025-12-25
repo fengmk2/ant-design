@@ -29,11 +29,13 @@ const ref: {
 } = {};
 
 vi.mock('../Header', async () => {
-  const HeaderModule = await vi.importActual('../Header');
+  const HeaderModule = await vi.importActual<any>('../Header');
   const HeaderComponent = HeaderModule.default;
-  return (props: CalendarHeaderProps<any>) => {
-    ref.calendarHeaderProps = props;
-    return <HeaderComponent {...props} />;
+  return {
+    default: (props: CalendarHeaderProps<any>) => {
+      ref.calendarHeaderProps = props;
+      return <HeaderComponent {...props} />;
+    },
   };
 });
 

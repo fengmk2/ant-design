@@ -1,19 +1,22 @@
 import * as React from 'react';
+import { vi } from 'vitest';
 
 import { extendTest } from '../../../tests/shared/demoTest';
 
 vi.mock('@rc-component/drawer', async () => {
-  const Drawer = await vi.importActual('@rc-component/drawer');
+  const Drawer = await vi.importActual<any>('@rc-component/drawer');
   const MockDrawer = Drawer.default;
-  return (props: any) => {
-    const newProps = {
-      ...props,
-      open: true,
-      getContainer: false,
-      maskMotion: null,
-      motion: null,
-    };
-    return <MockDrawer {...newProps} />;
+  return {
+    default: (props: any) => {
+      const newProps = {
+        ...props,
+        open: true,
+        getContainer: false,
+        maskMotion: null,
+        motion: null,
+      };
+      return <MockDrawer {...newProps} />;
+    },
   };
 });
 

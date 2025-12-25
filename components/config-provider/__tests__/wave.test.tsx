@@ -5,7 +5,7 @@ import ConfigProvider from '..';
 import { fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 import Button from '../../button';
 
-vi.mock('@rc-component/util/lib/Dom/isVisible', () => () => true);
+vi.mock('@rc-component/util/lib/Dom/isVisible', () => ({ default: () => true }));
 
 describe('ConfigProvider.Wave', () => {
   beforeEach(() => {

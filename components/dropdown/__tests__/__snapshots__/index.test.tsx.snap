@@ -1,4 +1,32 @@
-// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Dropdown > rtl render > component should be rendered correctly in RTL direction 1`] = `
+<span
+  class="ant-dropdown-trigger ant-dropdown-rtl"
+/>
+`;
+
+exports[`Dropdown > should render custom dropdown correctly 1`] = `
+Array [
+  <button
+    class="ant-dropdown-trigger ant-dropdown-open"
+    type="button"
+  >
+    button
+  </button>,
+]
+`;
+
+exports[`Dropdown > support custom transitionName 1`] = `
+Array [
+  <button
+    class="ant-dropdown-trigger ant-dropdown-open"
+    type="button"
+  >
+    button
+  </button>,
+]
+`;
 
 exports[`Dropdown rtl render component should be rendered correctly in RTL direction 1`] = `
 <span

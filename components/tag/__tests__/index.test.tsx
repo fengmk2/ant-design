@@ -12,10 +12,9 @@ import ConfigProvider from '../../config-provider';
 
 (global as any).isVisible = true;
 
-vi.mock('@rc-component/util/lib/Dom/isVisible', () => {
-  const mockFn = () => (global as any).isVisible;
-  return mockFn;
-});
+vi.mock('@rc-component/util/lib/Dom/isVisible', () => ({
+  default: () => (global as any).isVisible,
+}));
 
 function waitRaf() {
   act(() => {

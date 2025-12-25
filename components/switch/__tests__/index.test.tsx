@@ -7,10 +7,9 @@ import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { act, fireEvent, render } from '../../../tests/utils';
 
-vi.mock('@rc-component/util/lib/Dom/isVisible', async () => {
-  const mockFn = () => true;
-  return mockFn;
-});
+vi.mock('@rc-component/util/lib/Dom/isVisible', () => ({
+  default: () => true,
+}));
 
 // TODO: Remove this. Mock for React 19
 vi.mock('react-dom', async () => {
