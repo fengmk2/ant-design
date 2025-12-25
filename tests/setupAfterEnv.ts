@@ -1,6 +1,6 @@
 import '@testing-library/jest-dom/vitest';
+// import 'vitest-axe/extend-expect';
 
-import { toHaveNoViolations } from 'jest-axe';
 import jsdom from 'jsdom';
 import format, { plugins } from 'pretty-format';
 import { expect } from 'vitest';
@@ -98,5 +98,3 @@ expect.addSnapshotSerializer({
     return formatHTML(children.length > 1 ? children : children[0]);
   },
 });
-
-expect.extend(toHaveNoViolations);

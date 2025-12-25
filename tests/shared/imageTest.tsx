@@ -36,7 +36,7 @@ interface ImageTestOptions {
   mobile?: boolean;
 }
 
-// eslint-disable-next-line vitest/no-export
+// eslint-disable-next-line jest/no-export
 export default function imageTest(
   component: React.ReactElement<any>,
   identifier: string,
@@ -284,7 +284,7 @@ type Options = {
   mobile?: string[];
 };
 
-// eslint-disable-next-line vitest/no-export
+// eslint-disable-next-line jest/no-export
 export function imageDemoTest(component: string, options: Options = {}) {
   let describeMethod = options.skip === true ? describe.skip : describe;
   const files = options.only
@@ -311,7 +311,7 @@ export function imageDemoTest(component: string, options: Options = {}) {
     }
 
     describeMethod(`Test ${file} image`, () => {
-      let Demo = require(`../../${file}`).default;
+      let Demo = require(`${process.cwd()}/${file}`).default;
       if (typeof Demo === 'function') {
         Demo = <Demo />;
       }

@@ -16,6 +16,8 @@ const compileModules = [
   '@rc-component',
   'parse5',
   'jsdom',
+  'jest-axe',
+  'axe-core',
 ];
 
 export default defineConfig({
@@ -72,6 +74,7 @@ export default defineConfig({
     reporters: ['default'],
     // Handle deps that need to be inlined for transformation
     deps: {
+      interopDefault: true,
       optimizer: {
         web: {
           include: compileModules,

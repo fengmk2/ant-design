@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react';
+import { vi } from 'vitest';
 
 import Affix from '..';
 import { accessibilityTest } from '../../../tests/shared/accessibilityTest';
@@ -21,7 +22,7 @@ const AffixMounter: React.FC<AffixProps> = (props) => {
   const container = useRef<HTMLDivElement>(null);
   useEffect(() => {
     if (container.current) {
-      container.current.addEventListener = jest
+      container.current.addEventListener = vi
         .fn()
         .mockImplementation((event: keyof HTMLElementEventMap, cb: (ev: Event) => void) => {
           (events as any)[event] = cb;

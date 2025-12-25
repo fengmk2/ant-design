@@ -1,4 +1,4 @@
-/* eslint-disable vitest/no-export */
+/* eslint-disable jest/no-export */
 import React from 'react';
 import { vi } from 'vitest';
 
@@ -32,7 +32,8 @@ export default function rootPropsTest(
   const componentNames = Array.isArray(component) ? component : [component];
   const [componentName, subComponentName] = componentNames;
 
-  const Component = require(`../../components/${componentName}`).default;
+  // Use path.resolve for Vitest compatibility
+  const Component = require(`${process.cwd()}/components/${componentName}/index.tsx`).default;
   const name = options?.name ? `(${options.name})` : '';
 
   describe(`RootProps${name}`, () => {

@@ -35,7 +35,7 @@ describe('node', () => {
       );
 
       // Use mock to get config
-      require(`../../${componentTestFile}`);
+      require(`${process.cwd()}/${componentTestFile}`);
       const option = (global as any).testConfig?.[componentName];
 
       demoList.forEach((demoFile) => {
@@ -43,7 +43,7 @@ describe('node', () => {
         const test = skip.some((skipMarkdown) => demoFile.includes(skipMarkdown)) ? it.skip : it;
 
         test(demoFile, () => {
-          const Demo = require(`../../${demoFile}`).default;
+          const Demo = require(`${process.cwd()}/${demoFile}`).default;
           expect(() => {
             renderToString(<Demo />);
           }).not.toThrow();

@@ -1,3 +1,4 @@
+import { createRequire } from 'module';
 import path from 'path';
 import * as React from 'react';
 import { createCache, StyleProvider } from '@ant-design/cssinjs';
@@ -15,6 +16,7 @@ import rootPropsTest from './rootPropsTest';
 
 export { rootPropsTest };
 
+const require = createRequire(import.meta.url);
 require('isomorphic-fetch');
 
 export type Options = {
@@ -51,7 +53,7 @@ function baseTest(doInject: boolean, component: string, options: Options = {}) {
         Date.now = vi.fn(() => new Date('2016-11-22').getTime());
         vi.useFakeTimers().setSystemTime(new Date('2016-11-22'));
 
-        let Demo = require(`../../${file}`).default;
+        let Demo = require(`${process.cwd()}/${file}`).default;
         // Inject Trigger status unless skipped
         Demo = typeof Demo === 'function' ? <Demo /> : Demo;
         if (doInject) {
@@ -123,7 +125,9 @@ export default function demoTest(component: string, options: Options = {}) {
 
     // Path should exist
 
-    const Component: React.ComponentType<any> = require(`../../components/${kebabName}`).default;
+    const Component: React.ComponentType<any> = require(
+      `${process.cwd()}/components/${kebabName}/index.tsx`,
+    ).default;
 
     if (options.nameCheckPathOnly !== true && Component.displayName) {
       expect(kebabCase(Component.displayName).replace(/^deprecated-/, '')).toBe(kebabName);
