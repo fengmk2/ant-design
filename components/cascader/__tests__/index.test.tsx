@@ -1,4 +1,5 @@
 import React from 'react';
+import { vi } from 'vitest';
 import type { SingleValueType } from '@rc-component/cascader/lib/Cascader';
 import { Button, Input, Space } from 'antd';
 
@@ -98,7 +99,7 @@ describe('Cascader', () => {
   });
 
   it('popup correctly when panel is open', () => {
-    const onOpenChange = jest.fn();
+    const onOpenChange = vi.fn();
     const { container } = render(<Cascader options={options} onOpenChange={onOpenChange} />);
     toggleOpen(container);
     expect(isOpen(container)).toBeTruthy();
@@ -120,7 +121,7 @@ describe('Cascader', () => {
   });
 
   it('can be selected', () => {
-    const onChange = jest.fn();
+    const onChange = vi.fn();
     const { container } = render(<Cascader open options={options} onChange={onChange} />);
 
     clickOption(container, 0, 0);
@@ -282,7 +283,7 @@ describe('Cascader', () => {
       },
     ];
 
-    const onChange = jest.fn();
+    const onChange = vi.fn();
 
     const { container } = render(
       <Cascader
@@ -318,7 +319,7 @@ describe('Cascader', () => {
   });
 
   describe('limit filtered item count', () => {
-    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
 
     afterAll(() => {
       errorSpy.mockRestore();
@@ -353,7 +354,7 @@ describe('Cascader', () => {
   // FIXME: Move to `@rc-component/tree-select` instead
   // eslint-disable-next-line jest/no-disabled-tests
   it.skip('should warning if not find `value` in `options`', () => {
-    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
     render(<Cascader options={[{ label: 'a', value: 'a', children: [{ label: 'b' }] }]} />);
     expect(errorSpy).toHaveBeenCalledWith(
       'Warning: [antd: Cascader] Not found `value` in `options`.',
@@ -456,7 +457,7 @@ describe('Cascader', () => {
         ],
       },
     ];
-    const onChange = jest.fn();
+    const onChange = vi.fn();
     const { container } = render(
       <ConfigProvider direction="rtl">
         <Cascader
@@ -492,7 +493,7 @@ describe('Cascader', () => {
   });
 
   it('can be selected when showSearch', () => {
-    const onChange = jest.fn();
+    const onChange = vi.fn();
     const { container } = render(<Cascader options={options} onChange={onChange} showSearch />);
     fireEvent.change(container.querySelector('input')!, { target: { value: 'Zh' } });
 
@@ -513,7 +514,7 @@ describe('Cascader', () => {
   });
 
   it('onChange works correctly when the label of fieldNames is the same as value', () => {
-    const onChange = jest.fn();
+    const onChange = vi.fn();
     const sameNames = { label: 'label', value: 'label' } as const;
     const { container } = render(
       <Cascader options={options} onChange={onChange} showSearch fieldNames={sameNames} />,
@@ -535,7 +536,7 @@ describe('Cascader', () => {
     it('legacy dropdownClassName', () => {
       resetWarned();
 
-      const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
       const { container } = render(<Cascader dropdownClassName="legacy" open />);
       expect(errSpy).toHaveBeenCalledWith(
         'Warning: [antd: Cascader] `dropdownClassName` is deprecated. Please use `classNames.popup.root` instead.',
@@ -548,7 +549,7 @@ describe('Cascader', () => {
     it('legacy dropdownStyle', () => {
       resetWarned();
 
-      const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
 
       const { container } = render(<Cascader dropdownStyle={{ padding: 10 }} open />);
       expect(errSpy).toHaveBeenCalledWith(
@@ -564,7 +565,7 @@ describe('Cascader', () => {
     it('legacy dropdownRender', () => {
       resetWarned();
 
-      const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
       const customContent = <div className="custom-dropdown-content">Custom Content</div>;
       const dropdownRender = (menu: React.ReactElement) => (
         <>
@@ -585,7 +586,7 @@ describe('Cascader', () => {
     it('legacy dropdownMenuColumnStyle', () => {
       resetWarned();
 
-      const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
 
       const { getByRole } = render(
         <Cascader
@@ -606,8 +607,8 @@ describe('Cascader', () => {
     it('legacy onDropdownVisibleChange', () => {
       resetWarned();
 
-      const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-      const onDropdownVisibleChange = jest.fn();
+      const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+      const onDropdownVisibleChange = vi.fn();
       const { container } = render(<Cascader onDropdownVisibleChange={onDropdownVisibleChange} />);
       expect(errSpy).toHaveBeenCalledWith(
         'Warning: [antd: Cascader] `onDropdownVisibleChange` is deprecated. Please use `onOpenChange` instead.',
@@ -786,7 +787,7 @@ describe('Cascader', () => {
   it('deprecate showArrow', () => {
     resetWarned();
 
-    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
     const { container } = render(<Cascader showArrow />);
     expect(errSpy).toHaveBeenCalledWith(
       'Warning: [antd: Cascader] `showArrow` is deprecated which will be removed in next major version. It will be a default behavior, you can hide it by setting `suffixIcon` to null.',

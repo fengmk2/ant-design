@@ -1,4 +1,5 @@
 import React from 'react';
+import { vi } from 'vitest';
 import { SmileOutlined } from '@ant-design/icons';
 import { Button, ConfigProvider, Input, Space } from 'antd';
 import type { TreeNodeProps } from 'antd';
@@ -60,7 +61,7 @@ describe('TreeSelect', () => {
   it('legacy popupClassName', () => {
     resetWarned();
 
-    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
     const { container } = render(<TreeSelect popupClassName="legacy" open />);
     expect(errSpy).toHaveBeenCalledWith(
       'Warning: [antd: TreeSelect] `popupClassName` is deprecated. Please use `classNames.popup.root` instead.',
@@ -73,7 +74,7 @@ describe('TreeSelect', () => {
   it('legacy dropdownClassName', () => {
     resetWarned();
 
-    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
     const { container } = render(<TreeSelect dropdownClassName="legacy" open />);
     expect(errSpy).toHaveBeenCalledWith(
       'Warning: [antd: TreeSelect] `dropdownClassName` is deprecated. Please use `classNames.popup.root` instead.',
@@ -86,7 +87,7 @@ describe('TreeSelect', () => {
   it('legacy dropdownMatchSelectWidth', () => {
     resetWarned();
 
-    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
     render(<TreeSelect dropdownMatchSelectWidth open />);
     expect(errSpy).toHaveBeenCalledWith(
       'Warning: [antd: TreeSelect] `dropdownMatchSelectWidth` is deprecated. Please use `popupMatchSelectWidth` instead.',
@@ -98,7 +99,7 @@ describe('TreeSelect', () => {
   it('legacy dropdownStyle', () => {
     resetWarned();
 
-    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
     const { container } = render(<TreeSelect dropdownStyle={{ color: 'red' }} open />);
     expect(errSpy).toHaveBeenCalledWith(
       'Warning: [antd: TreeSelect] `dropdownStyle` is deprecated. Please use `styles.popup.root` instead.',
@@ -111,7 +112,7 @@ describe('TreeSelect', () => {
   it('legacy dropdownRender', () => {
     resetWarned();
 
-    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
     const { container } = render(
       <TreeSelect dropdownRender={(menu) => <div className="custom-dropdown">{menu}</div>} open />,
     );
@@ -126,8 +127,8 @@ describe('TreeSelect', () => {
   it('legacy onDropdownVisibleChange', () => {
     resetWarned();
 
-    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-    const onDropdownVisibleChange = jest.fn();
+    const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+    const onDropdownVisibleChange = vi.fn();
 
     const { container } = render(<TreeSelect onDropdownVisibleChange={onDropdownVisibleChange} />);
 
@@ -156,7 +157,7 @@ describe('TreeSelect', () => {
   it('deprecate showArrow', () => {
     resetWarned();
 
-    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
     const { container } = render(<TreeSelect showArrow />);
     expect(errSpy).toHaveBeenCalledWith(
       'Warning: [antd: TreeSelect] `showArrow` is deprecated which will be removed in next major version. It will be a default behavior, you can hide it by setting `suffixIcon` to null.',

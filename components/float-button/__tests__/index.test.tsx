@@ -1,4 +1,5 @@
 import React from 'react';
+import { vi } from 'vitest';
 
 import FloatButton from '..';
 import mountTest from '../../../tests/shared/mountTest';
@@ -40,9 +41,9 @@ describe('FloatButton', () => {
     expect(container.querySelector(`.ant-float-btn-${squareShape}`)).toBeTruthy();
   });
   it('support onClick & onMouseEnter & onMouseLeave', () => {
-    const onClick = jest.fn();
-    const onMouseEnter = jest.fn();
-    const onMouseLeave = jest.fn();
+    const onClick = vi.fn();
+    const onMouseEnter = vi.fn();
+    const onMouseLeave = vi.fn();
     const { container } = render(
       <FloatButton onClick={onClick} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave} />,
     );
@@ -55,7 +56,7 @@ describe('FloatButton', () => {
     expect(onMouseLeave).toHaveBeenCalled();
   });
   it('should console Error', () => {
-    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
     render(<FloatButton description="test" shape="circle" />);
     expect(errSpy).toHaveBeenCalledWith(
       'Warning: [antd: FloatButton] supported only when `shape` is `square`. Due to narrow space for text, short sentence is recommended.',
@@ -68,7 +69,7 @@ describe('FloatButton', () => {
 
   describe('tooltip', () => {
     it('tooltip should support number `0`', async () => {
-      jest.useFakeTimers();
+      vi.useFakeTimers();
       const { container } = render(<FloatButton tooltip={0} />);
       fireEvent.mouseEnter(container.querySelector<HTMLDivElement>('.ant-float-btn')!);
       await waitFakeTimer();
@@ -76,11 +77,11 @@ describe('FloatButton', () => {
         .querySelector('.ant-tooltip')
         ?.querySelector('.ant-tooltip-container');
       expect(element?.textContent).toBe('0');
-      jest.clearAllTimers();
-      jest.useRealTimers();
+      vi.clearAllTimers();
+      vi.useRealTimers();
     });
     it('tooltip should support tooltipProps', async () => {
-      jest.useFakeTimers();
+      vi.useFakeTimers();
       const { container } = render(<FloatButton tooltip={{ title: 'hi' }} />);
       fireEvent.mouseEnter(container.querySelector<HTMLDivElement>('.ant-float-btn')!);
       await waitFakeTimer();
@@ -88,8 +89,8 @@ describe('FloatButton', () => {
         .querySelector('.ant-tooltip')
         ?.querySelector('.ant-tooltip-container');
       expect(element?.textContent).toBe('hi');
-      jest.clearAllTimers();
-      jest.useRealTimers();
+      vi.clearAllTimers();
+      vi.useRealTimers();
     });
   });
 

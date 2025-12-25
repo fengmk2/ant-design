@@ -1,17 +1,18 @@
 import React from 'react';
+import { vi } from 'vitest';
 import { render } from '@testing-library/react';
 
 import { devUseWarning as useWarning } from '../warning';
 
 describe('Test warning', () => {
-  let spy: jest.SpyInstance;
+  let spy: ReturnType<typeof vi.spyOn>;
 
   beforeAll(() => {
-    spy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    spy = vi.spyOn(console, 'error').mockImplementation(() => {});
   });
 
   beforeEach(() => {
-    jest.resetModules();
+    vi.resetModules();
   });
 
   afterEach(() => {

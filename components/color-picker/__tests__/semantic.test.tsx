@@ -1,4 +1,5 @@
 import React from 'react';
+import { vi } from 'vitest';
 import { render } from '@testing-library/react';
 
 import { resetWarned } from '../../_util/warning';
@@ -9,15 +10,15 @@ import ColorPicker from '../ColorPicker';
 describe('ColorPicker.Semantic', () => {
   mountTest(ColorPicker);
   rtlTest(ColorPicker);
-  const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+  const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
   beforeEach(() => {
     resetWarned();
-    jest.useFakeTimers();
+    vi.useFakeTimers();
   });
 
   afterEach(() => {
     errorSpy.mockReset();
-    jest.useRealTimers();
+    vi.useRealTimers();
   });
 
   it('support classNames and styles', () => {

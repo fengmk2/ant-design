@@ -1,4 +1,5 @@
 import React from 'react';
+import { vi } from 'vitest';
 
 import FloatButton from '..';
 import type { FloatButtonGroupProps } from '..';
@@ -36,7 +37,7 @@ describe('FloatButtonGroup', () => {
     expect(container.querySelectorAll(`.ant-float-btn-${squareShape}`)).toHaveLength(3);
   });
   it('support onOpenChange for click', () => {
-    const onOpenChange = jest.fn();
+    const onOpenChange = vi.fn();
     const { container } = render(
       <FloatButton.Group trigger="click" onOpenChange={onOpenChange}>
         <FloatButton />
@@ -48,7 +49,7 @@ describe('FloatButtonGroup', () => {
     expect(onOpenChange).toHaveBeenCalled();
   });
   it('support onOpenChange for hover', () => {
-    const onOpenChange = jest.fn();
+    const onOpenChange = vi.fn();
     const { container } = render(
       <FloatButton.Group trigger="hover" onOpenChange={onOpenChange}>
         <FloatButton />
@@ -61,7 +62,7 @@ describe('FloatButtonGroup', () => {
     expect(onOpenChange).toHaveBeenCalled();
   });
   it('support click floatButtonGroup not close', () => {
-    const onOpenChange = jest.fn();
+    const onOpenChange = vi.fn();
     const { container } = render(
       <FloatButton.Group trigger="click" onOpenChange={onOpenChange}>
         <FloatButton />
@@ -74,7 +75,7 @@ describe('FloatButtonGroup', () => {
     expect(onOpenChange).toHaveBeenCalledTimes(1);
   });
   it('support click out auto close', () => {
-    const onOpenChange = jest.fn();
+    const onOpenChange = vi.fn();
     const { container } = render(
       <FloatButton.Group trigger="click" onOpenChange={onOpenChange}>
         <FloatButton />
@@ -88,7 +89,7 @@ describe('FloatButtonGroup', () => {
   });
 
   it('support onClick for floatButtonGroup', () => {
-    const onClick = jest.fn();
+    const onClick = vi.fn();
     const { container } = render(
       <FloatButton.Group trigger="click" onClick={onClick}>
         <FloatButton />
@@ -104,8 +105,8 @@ describe('FloatButtonGroup', () => {
     expect(onClick).toHaveBeenCalled();
   });
   it('support click floatButtonGroup when children has onClick', () => {
-    const onClick = jest.fn();
-    const onClick2 = jest.fn();
+    const onClick = vi.fn();
+    const onClick2 = vi.fn();
     const { container } = render(
       <FloatButton.Group trigger="click" onClick={onClick}>
         <FloatButton onClick={onClick2} />
@@ -120,7 +121,7 @@ describe('FloatButtonGroup', () => {
   });
 
   it('warning if set `open` but not set `trigger`', () => {
-    const warnSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const warnSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
 
     render(
       <FloatButton.Group open trigger="click">

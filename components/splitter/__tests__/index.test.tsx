@@ -1,4 +1,5 @@
 import React from 'react';
+import { vi } from 'vitest';
 import { CaretLeftOutlined, CaretRightOutlined, ColumnWidthOutlined } from '@ant-design/icons';
 import { spyElementPrototypes } from '@rc-component/util/lib/test/domHook';
 import type { GetProps, SplitterProps } from 'antd';
@@ -35,7 +36,7 @@ const SplitterDemo: React.FC<Readonly<{ items?: PanelProps[] } & SplitterProps>>
 );
 
 describe('Splitter', () => {
-  const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+  const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
 
   let containerSize = 100;
 
@@ -54,12 +55,12 @@ describe('Splitter', () => {
     containerSize = 100;
     errSpy.mockReset();
     resetWarned();
-    jest.useFakeTimers();
+    vi.useFakeTimers();
   });
 
   afterEach(() => {
-    jest.clearAllTimers();
-    jest.useRealTimers();
+    vi.clearAllTimers();
+    vi.useRealTimers();
   });
 
   it('should correct render', () => {
@@ -152,8 +153,8 @@ describe('Splitter', () => {
     }
 
     it('The mousemove should work fine', async () => {
-      const onResize = jest.fn();
-      const onResizeEnd = jest.fn();
+      const onResize = vi.fn();
+      const onResizeEnd = vi.fn();
 
       const { container } = render(
         <SplitterDemo items={[{}, {}]} onResize={onResize} onResizeEnd={onResizeEnd} />,
@@ -177,8 +178,8 @@ describe('Splitter', () => {
     });
 
     it('The touchMove should work fine', async () => {
-      const onResize = jest.fn();
-      const onResizeEnd = jest.fn();
+      const onResize = vi.fn();
+      const onResizeEnd = vi.fn();
 
       const { container } = render(
         <SplitterDemo items={[{}, {}]} onResize={onResize} onResizeEnd={onResizeEnd} />,
@@ -199,8 +200,8 @@ describe('Splitter', () => {
     });
 
     it('with min', async () => {
-      const onResize = jest.fn();
-      const onResizeEnd = jest.fn();
+      const onResize = vi.fn();
+      const onResizeEnd = vi.fn();
 
       const { container } = render(
         <SplitterDemo items={[{ min: 10 }, {}]} onResize={onResize} onResizeEnd={onResizeEnd} />,
@@ -214,8 +215,8 @@ describe('Splitter', () => {
     });
 
     it('with max', async () => {
-      const onResize = jest.fn();
-      const onResizeEnd = jest.fn();
+      const onResize = vi.fn();
+      const onResizeEnd = vi.fn();
 
       const { container } = render(
         <SplitterDemo items={[{ max: 90 }, {}]} onResize={onResize} onResizeEnd={onResizeEnd} />,
@@ -230,8 +231,8 @@ describe('Splitter', () => {
     });
 
     it('both panel has min and max', async () => {
-      const onResize = jest.fn();
-      const onResizeEnd = jest.fn();
+      const onResize = vi.fn();
+      const onResizeEnd = vi.fn();
 
       const { container } = render(
         <SplitterDemo
@@ -256,8 +257,8 @@ describe('Splitter', () => {
     });
 
     it('rtl', async () => {
-      const onResize = jest.fn();
-      const onResizeEnd = jest.fn();
+      const onResize = vi.fn();
+      const onResizeEnd = vi.fn();
 
       const { container } = render(
         <ConfigProvider direction="rtl">
@@ -273,8 +274,8 @@ describe('Splitter', () => {
     });
 
     it('[true, 0, true] can be move left', async () => {
-      const onResize = jest.fn();
-      const onResizeEnd = jest.fn();
+      const onResize = vi.fn();
+      const onResizeEnd = vi.fn();
 
       const { container } = render(
         <SplitterDemo
@@ -292,8 +293,8 @@ describe('Splitter', () => {
     });
 
     it('[false, 0, true] can not be move left', async () => {
-      const onResize = jest.fn();
-      const onResizeEnd = jest.fn();
+      const onResize = vi.fn();
+      const onResizeEnd = vi.fn();
 
       const { container } = render(
         <SplitterDemo
@@ -369,8 +370,8 @@ describe('Splitter', () => {
     });
 
     it('collapsible - true', async () => {
-      const onResize = jest.fn();
-      const onResizeEnd = jest.fn();
+      const onResize = vi.fn();
+      const onResizeEnd = vi.fn();
 
       const { container } = render(
         <SplitterDemo
@@ -394,8 +395,8 @@ describe('Splitter', () => {
     });
 
     it('collapsible - start:true', async () => {
-      const onResize = jest.fn();
-      const onResizeEnd = jest.fn();
+      const onResize = vi.fn();
+      const onResizeEnd = vi.fn();
 
       const { container } = render(
         <SplitterDemo
@@ -425,8 +426,8 @@ describe('Splitter', () => {
     });
 
     it('collapsible - end:true', async () => {
-      const onResize = jest.fn();
-      const onResizeEnd = jest.fn();
+      const onResize = vi.fn();
+      const onResizeEnd = vi.fn();
 
       const { container } = render(
         <SplitterDemo
@@ -668,8 +669,8 @@ describe('Splitter', () => {
     });
 
     it('both collapsible', async () => {
-      const onResize = jest.fn();
-      const onResizeEnd = jest.fn();
+      const onResize = vi.fn();
+      const onResizeEnd = vi.fn();
 
       const { container } = render(
         <SplitterDemo
@@ -704,8 +705,8 @@ describe('Splitter', () => {
     });
 
     it('collapsible with cache', async () => {
-      const onResize = jest.fn();
-      const onResizeEnd = jest.fn();
+      const onResize = vi.fn();
+      const onResizeEnd = vi.fn();
 
       const { container } = render(
         <SplitterDemo
@@ -751,8 +752,8 @@ describe('Splitter', () => {
     });
 
     it('collapsible with fallback', async () => {
-      const onResize = jest.fn();
-      const onResizeEnd = jest.fn();
+      const onResize = vi.fn();
+      const onResizeEnd = vi.fn();
 
       containerSize = 500;
 
@@ -796,8 +797,8 @@ describe('Splitter', () => {
     });
 
     it('collapsible with min', async () => {
-      const onResize = jest.fn();
-      const onResizeEnd = jest.fn();
+      const onResize = vi.fn();
+      const onResizeEnd = vi.fn();
 
       containerSize = 440;
 
@@ -841,7 +842,7 @@ describe('Splitter', () => {
     });
 
     it('should trigger onCollapse when collapse button clicked', async () => {
-      const onCollapse = jest.fn();
+      const onCollapse = vi.fn();
       const { container } = render(
         <SplitterDemo
           items={[{ collapsible: true }, { collapsible: true }]}
@@ -864,7 +865,7 @@ describe('Splitter', () => {
   it('auto resize', async () => {
     containerSize = 200;
 
-    const onResize = jest.fn();
+    const onResize = vi.fn();
     const { container } = render(
       <SplitterDemo
         items={[

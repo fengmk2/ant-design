@@ -18,7 +18,7 @@ vi.mock('react-dom', async () => {
   return realReactDOM;
 });
 
-vi.mock('@rc-component/util/lib/Dom/isVisible', () => {
+vi.mock('@rc-component/util/lib/Dom/isVisible', async () => {
   const mockFn = () => true;
   return { default: mockFn };
 });

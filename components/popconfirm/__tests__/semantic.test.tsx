@@ -1,4 +1,5 @@
 import React from 'react';
+import { vi } from 'vitest';
 import { spyElementPrototype } from '@rc-component/util/lib/test/domHook';
 
 import Popconfirm from '..';
@@ -17,12 +18,12 @@ describe('Popconfirm.semantic', () => {
   });
 
   beforeEach(() => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
   });
 
   afterEach(() => {
-    jest.clearAllTimers();
-    jest.useRealTimers();
+    vi.clearAllTimers();
+    vi.useRealTimers();
   });
   it('should support static classNames and styles', () => {
     const { container } = render(

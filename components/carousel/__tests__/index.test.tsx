@@ -1,4 +1,5 @@
 import React from 'react';
+import { vi } from 'vitest';
 
 import type { CarouselRef, DotPlacement } from '..';
 import Carousel from '..';
@@ -12,11 +13,11 @@ describe('Carousel', () => {
   rtlTest(Carousel);
 
   beforeEach(() => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
   });
 
   afterEach(() => {
-    jest.useRealTimers();
+    vi.useRealTimers();
   });
 
   it('should has innerSlider', () => {
@@ -76,7 +77,7 @@ describe('Carousel', () => {
         <div>3</div>
       </Carousel>,
     );
-    const spy = jest.spyOn(ref.current?.innerSlider, 'autoPlay');
+    const spy = vi.spyOn(ref.current?.innerSlider, 'autoPlay');
     window.resizeTo(1000, window.outerHeight);
     expect(spy).not.toHaveBeenCalled();
     await waitFakeTimer();
@@ -91,7 +92,7 @@ describe('Carousel', () => {
         <div>3</div>
       </Carousel>,
     );
-    const spy = jest.spyOn(window, 'removeEventListener');
+    const spy = vi.spyOn(window, 'removeEventListener');
     unmount();
     expect(spy).toHaveBeenCalled();
   });
@@ -180,7 +181,7 @@ describe('Carousel', () => {
   });
 
   it('no dom recognize warning', async () => {
-    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
     render(
       <Carousel arrows>
         <div>1</div>
@@ -232,10 +233,10 @@ describe('Carousel', () => {
   });
 
   describe('Carousel dot placement', () => {
-    let consoleSpy: jest.SpyInstance;
+    let consoleSpy: ReturnType<typeof vi.spyOn>;
 
     beforeEach(() => {
-      consoleSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      consoleSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
     });
 
     afterEach(() => {
@@ -291,19 +292,19 @@ describe('Carousel', () => {
         { placement: 'end', expectedVertical: true },
         { placement: 'top', expectedVertical: false },
         { placement: 'bottom', expectedVertical: false },
-      ])(
-        'should set vertical=$expectedVertical for $placement',
-        ({ placement, expectedVertical }) => {
-          const { container } = render(<Demo dotPlacement={placement} />);
-          const carousel = container.querySelector('.ant-carousel-vertical');
+      ])('should set vertical=$expectedVertical for $placement', ({
+        placement,
+        expectedVertical,
+      }) => {
+        const { container } = render(<Demo dotPlacement={placement} />);
+        const carousel = container.querySelector('.ant-carousel-vertical');
 
-          if (expectedVertical) {
-            expect(carousel).toBeTruthy();
-          } else {
-            expect(carousel).toBeFalsy();
-          }
-        },
-      );
+        if (expectedVertical) {
+          expect(carousel).toBeTruthy();
+        } else {
+          expect(carousel).toBeFalsy();
+        }
+      });
     });
   });
   describe('RTL Direction', () => {

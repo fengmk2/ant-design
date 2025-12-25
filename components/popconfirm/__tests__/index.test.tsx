@@ -1,4 +1,5 @@
 import React from 'react';
+import { vi } from 'vitest';
 import { spyElementPrototype } from '@rc-component/util/lib/test/domHook';
 
 import Popconfirm from '..';
@@ -9,11 +10,11 @@ import Button from '../../button';
 import ConfigProvider from '../../config-provider';
 
 // TODO: Remove this. Mock for React 19
-jest.mock('react-dom', () => {
-  const realReactDOM = jest.requireActual('react-dom');
+vi.mock('react-dom', async () => {
+  const realReactDOM = await vi.importActual('react-dom');
 
   if (realReactDOM.version.startsWith('19')) {
-    const realReactDOMClient = jest.requireActual('react-dom/client');
+    const realReactDOMClient = await vi.importActual('react-dom/client');
     realReactDOM.createRoot = realReactDOMClient.createRoot;
   }
 
@@ -36,16 +37,16 @@ describe('Popconfirm', () => {
   });
 
   beforeEach(() => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
   });
 
   afterEach(() => {
-    jest.clearAllTimers();
-    jest.useRealTimers();
+    vi.clearAllTimers();
+    vi.useRealTimers();
   });
 
   it('should popup Popconfirm dialog', () => {
-    const onOpenChange = jest.fn();
+    const onOpenChange = vi.fn();
 
     const wrapper = render(
       <Popconfirm
@@ -111,7 +112,7 @@ describe('Popconfirm', () => {
   });
 
   it('should be controlled by open', () => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
     const popconfirm = render(
       <Popconfirm title="code">
         <span>show me your code</span>
@@ -136,16 +137,16 @@ describe('Popconfirm', () => {
       </Popconfirm>,
     );
     act(() => {
-      jest.runAllTimers();
+      vi.runAllTimers();
     });
     expect(popconfirm.container.querySelector('.ant-popover')).not.toBe(null);
-    jest.useRealTimers();
+    vi.useRealTimers();
   });
 
   it('should trigger onConfirm and onCancel', async () => {
-    const confirm = jest.fn();
-    const cancel = jest.fn();
-    const onOpenChange = jest.fn((_, e) => {
+    const confirm = vi.fn();
+    const cancel = vi.fn();
+    const onOpenChange = vi.fn((_, e) => {
       e?.persist?.();
     });
     const popconfirm = render(
@@ -174,7 +175,7 @@ describe('Popconfirm', () => {
       new Promise((res) => {
         setTimeout(res, 300);
       });
-    const onOpenChange = jest.fn((_, e) => {
+    const onOpenChange = vi.fn((_, e) => {
       e?.persist?.();
     });
     const popconfirm = render(
@@ -243,7 +244,7 @@ describe('Popconfirm', () => {
   });
 
   it('should be closed by pressing ESC', () => {
-    const onOpenChange = jest.fn((_, e) => {
+    const onOpenChange = vi.fn((_, e) => {
       e?.persist?.();
     });
     const wrapper = render(
@@ -259,7 +260,7 @@ describe('Popconfirm', () => {
   });
 
   it('should not warn memory leaking if setState in async callback', async () => {
-    const error = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const error = vi.spyOn(console, 'error').mockImplementation(() => {});
 
     const Test = () => {
       const [show, setShow] = React.useState(true);
@@ -301,7 +302,7 @@ describe('Popconfirm', () => {
   });
 
   it('should trigger onPopupClick', async () => {
-    const onPopupClick = jest.fn();
+    const onPopupClick = vi.fn();
 
     const popconfirm = render(
       <Popconfirm title={<div className="bamboo" />} onPopupClick={onPopupClick}>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { vi } from 'vitest';
 import { clsx } from 'clsx';
 
 import mountTest from '../../../tests/shared/mountTest';
@@ -10,21 +11,20 @@ import { TARGET_CLS } from '../wave/interface';
 (global as any).isVisible = true;
 
 // TODO: Remove this. Mock for React 19
-jest.mock('react-dom', () => {
-  const realReactDOM = jest.requireActual('react-dom');
+vi.mock('react-dom', async () => {
+  const realReactDOM = await vi.importActual('react-dom');
 
   if (realReactDOM.version.startsWith('19')) {
-    const realReactDOMClient = jest.requireActual('react-dom/client');
+    const realReactDOMClient = await vi.importActual('react-dom/client');
     realReactDOM.createRoot = realReactDOMClient.createRoot;
   }
 
   return realReactDOM;
 });
 
-jest.mock('@rc-component/util/lib/Dom/isVisible', () => {
-  const mockFn = () => (global as any).isVisible;
-  return mockFn;
-});
+vi.mock('@rc-component/util/lib/Dom/isVisible', () => ({
+  default: () => (global as any).isVisible,
+}));
 
 describe('Wave component', () => {
   mountTest(Wave);
@@ -47,7 +47,7 @@ describe('Wave component', () => {
   });
 
   beforeEach(() => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
     (global as any).isVisible = true;
     document.body.innerHTML = '';
   });
@@ -55,7 +55,7 @@ describe('Wave component', () => {
   afterEach(async () => {
     await waitFakeTimer();
 
-    jest.clearAllTimers();
+    vi.clearAllTimers();
     const styles = document.getElementsByTagName('style');
     for (let i = 0; i < styles.length; i += 1) {
       styles[i].remove();
@@ -63,7 +63,7 @@ describe('Wave component', () => {
   });
 
   afterAll(() => {
-    jest.useRealTimers();
+    vi.useRealTimers();
     expect(obCnt).not.toBe(0);
     expect(disCnt).not.toBe(0);
   });
@@ -83,15 +83,15 @@ describe('Wave component', () => {
 
   function waitRaf() {
     act(() => {
-      jest.advanceTimersByTime(100);
+      vi.advanceTimersByTime(100);
     });
     act(() => {
-      jest.advanceTimersByTime(100);
+      vi.advanceTimersByTime(100);
     });
   }
 
   it('work', async () => {
-    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
     const { container, unmount } = render(
       <Wave>
         <button type="button">button</button>
@@ -351,7 +351,7 @@ describe('Wave component', () => {
   });
 
   it('Checkbox with uncheck should not trigger wave', () => {
-    const onChange = jest.fn();
+    const onChange = vi.fn();
     const { container } = render(<Checkbox defaultChecked onChange={onChange} />);
 
     // Click

@@ -1,4 +1,5 @@
 import React from 'react';
+import { vi } from 'vitest';
 
 import Spin from '..';
 import mountTest from '../../../tests/shared/mountTest';
@@ -8,12 +9,12 @@ import ConfigProvider from '../../config-provider';
 
 describe('Spin', () => {
   beforeEach(() => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
   });
 
   afterEach(() => {
-    jest.clearAllTimers();
-    jest.useRealTimers();
+    vi.clearAllTimers();
+    vi.useRealTimers();
   });
 
   mountTest(Spin);
@@ -45,14 +46,14 @@ describe('Spin', () => {
   });
 
   it('should be controlled by spinning', async () => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
     const { container, rerender } = render(<Spin spinning={false} />);
     expect(container.querySelector('.ant-spin-spinning')).toBeFalsy();
     rerender(<Spin spinning />);
     await waitFakeTimer();
     expect(container.querySelector('.ant-spin-spinning')).toBeTruthy();
-    jest.clearAllTimers();
-    jest.useRealTimers();
+    vi.clearAllTimers();
+    vi.useRealTimers();
   });
 
   it('if indicator set null should not be render default indicator', () => {
@@ -73,7 +74,7 @@ describe('Spin', () => {
   });
 
   it('warning tip without nest', () => {
-    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
 
     const { container } = render(<Spin tip="Not Show" />);
     expect(container.querySelector('.ant-spin-text')).toBeFalsy();
@@ -86,7 +87,7 @@ describe('Spin', () => {
   });
 
   it('should not warn tip with fullscreen', () => {
-    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
 
     const { container } = render(<Spin fullscreen tip="Fullscreen" />);
     expect(container.querySelector('.ant-spin-fullscreen')).toBeTruthy();
@@ -116,7 +117,7 @@ describe('Spin', () => {
       const { container } = render(<Spin percent="auto" />);
 
       act(() => {
-        jest.advanceTimersByTime(100000);
+        vi.advanceTimersByTime(100000);
       });
 
       const nowPTG = Number(

@@ -1,4 +1,5 @@
 import React from 'react';
+import { vi } from 'vitest';
 
 import { resetWarned } from '../../_util/warning';
 import { act, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
@@ -7,13 +8,13 @@ import ConfigProvider from '../../config-provider';
 describe('Collapse', () => {
   const Collapse = require('..').default;
 
-  const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+  const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
 
   // fix React concurrent
   function triggerAllTimer() {
     for (let i = 0; i < 10; i += 1) {
       act(() => {
-        jest.runAllTimers();
+        vi.runAllTimers();
       });
     }
   }
@@ -74,7 +75,7 @@ describe('Collapse', () => {
   });
 
   it('could be expand and collapse', async () => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
     const { container } = render(
       <Collapse>
         <Collapse.Panel header="This is panel header 1" key="1">
@@ -88,7 +89,7 @@ describe('Collapse', () => {
     fireEvent.click(container.querySelector('.ant-collapse-header')!);
     await waitFakeTimer();
     expect(container.querySelector('.ant-collapse-item')).toHaveClass('ant-collapse-item-active');
-    jest.useRealTimers();
+    vi.useRealTimers();
   });
 
   it('could override default openMotion', () => {
@@ -132,7 +133,7 @@ describe('Collapse', () => {
   });
 
   it('should end motion when set activeKey while hiding', async () => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
     const spiedRAF = jest
       .spyOn(window, 'requestAnimationFrame')
       .mockImplementation((cb) => setTimeout(cb, 1000 / 60));
@@ -164,7 +165,7 @@ describe('Collapse', () => {
     expect(container.querySelectorAll('.ant-motion-collapse').length).toBe(0);
 
     spiedRAF.mockRestore();
-    jest.useRealTimers();
+    vi.useRealTimers();
   });
 
   it('ref should work', () => {
@@ -283,10 +284,10 @@ describe('Collapse', () => {
   });
 
   describe('expandIconPlacement and expandIconPosition behavior', () => {
-    let consoleErrorSpy: jest.SpyInstance;
+    let consoleErrorSpy: ReturnType<typeof vi.spyOn>;
 
     beforeEach(() => {
-      consoleErrorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      consoleErrorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
     });
 
     afterEach(() => {

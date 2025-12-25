@@ -8,11 +8,11 @@ import { triggerMotionEnd } from './util';
 
 describe('message.hooks', () => {
   beforeEach(() => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
   });
 
   afterEach(() => {
-    jest.useRealTimers();
+    vi.useRealTimers();
   });
 
   it('should work', () => {
@@ -230,7 +230,7 @@ describe('message.hooks', () => {
   });
 
   it('warning if user call update in render', () => {
-    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
 
     const Demo = () => {
       const [api, holder] = message.useMessage();
@@ -338,12 +338,12 @@ describe('message.hooks', () => {
   describe('Message component with pauseOnHover', () => {
     beforeEach(() => {
       message.destroy();
-      jest.spyOn(global, 'clearTimeout');
-      jest.spyOn(global, 'setTimeout');
+      vi.spyOn(global, 'clearTimeout');
+      vi.spyOn(global, 'setTimeout');
     });
 
     afterEach(() => {
-      jest.restoreAllMocks();
+      vi.restoreAllMocks();
     });
     const Demo = ({ pauseOnHover }: { pauseOnHover: boolean }) => {
       const [api, holder] = message.useMessage();
@@ -372,7 +372,7 @@ describe('message.hooks', () => {
       fireEvent.mouseEnter(document.querySelector('.ant-message-notice-content')!);
       fireEvent.mouseLeave(document.querySelector('.ant-message-notice-content')!);
       await act(() => {
-        jest.runAllTimers();
+        vi.runAllTimers();
       });
       // component is destroyed and hovers the component,clearTimeout calls exceeding 1
       expect(clearTimeout).toHaveBeenCalledTimes(3);
@@ -385,7 +385,7 @@ describe('message.hooks', () => {
       fireEvent.mouseEnter(document.querySelector('.ant-message-notice-content')!);
       fireEvent.mouseLeave(document.querySelector('.ant-message-notice-content')!);
       await act(() => {
-        jest.runAllTimers();
+        vi.runAllTimers();
       });
       // when component is destroyed, clearTimeout calls only 1
       expect(clearTimeout).toHaveBeenCalledTimes(1);

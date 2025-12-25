@@ -15,12 +15,12 @@ describe('App', () => {
   rtlTest(App);
 
   beforeEach(() => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
   });
 
   afterEach(() => {
-    jest.clearAllTimers();
-    jest.useRealTimers();
+    vi.clearAllTimers();
+    vi.useRealTimers();
   });
 
   it('single', () => {
@@ -216,7 +216,7 @@ describe('App', () => {
   });
 
   describe('component', () => {
-    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
 
     afterEach(() => {
       errorSpy.mockReset();

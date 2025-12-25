@@ -12,7 +12,7 @@ const { defaultAlgorithm, darkAlgorithm, compactAlgorithm } = theme;
 
 describe('ConfigProvider.Theme', () => {
   it('ConfigProvider.config should work', async () => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
 
     ConfigProvider.config({
       theme: {

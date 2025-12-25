@@ -1,4 +1,5 @@
 import React from 'react';
+import { vi } from 'vitest';
 
 import message, { actDestroy, actWrapper } from '..';
 import { act } from '../../../tests/utils';
@@ -7,11 +8,11 @@ import ConfigProvider, { defaultPrefixCls } from '../../config-provider';
 import { awaitPromise, triggerMotionEnd } from './util';
 
 // TODO: Remove this. Mock for React 19
-jest.mock('react-dom', () => {
-  const realReactDOM = jest.requireActual('react-dom');
+vi.mock('react-dom', async () => {
+  const realReactDOM = await vi.importActual('react-dom');
 
   if (realReactDOM.version.startsWith('19')) {
-    const realReactDOMClient = jest.requireActual('react-dom/client');
+    const realReactDOMClient = await vi.importActual('react-dom/client');
     realReactDOM.createRoot = realReactDOMClient.createRoot;
   }
 
@@ -24,7 +25,7 @@ describe('message.config', () => {
   });
 
   beforeEach(() => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
   });
 
   afterEach(async () => {
@@ -32,7 +33,7 @@ describe('message.config', () => {
     message.destroy();
     await triggerMotionEnd();
 
-    jest.useRealTimers();
+    vi.useRealTimers();
 
     await awaitPromise();
   });
@@ -130,13 +131,13 @@ describe('message.config', () => {
     expect(document.querySelectorAll('.ant-message-notice')).toHaveLength(1);
 
     act(() => {
-      jest.advanceTimersByTime(4000);
+      vi.advanceTimersByTime(4000);
     });
 
     expect(document.querySelectorAll('.ant-message-notice')).toHaveLength(1);
 
     act(() => {
-      jest.advanceTimersByTime(2000);
+      vi.advanceTimersByTime(2000);
     });
 
     await triggerMotionEnd('.ant-message-notice-wrapper');

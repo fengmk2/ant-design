@@ -54,15 +54,15 @@ function doMouseMove(
 describe('ColorPicker', () => {
   mountTest(ColorPicker);
   rtlTest(ColorPicker);
-  const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+  const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
   beforeEach(() => {
     resetWarned();
-    jest.useFakeTimers();
+    vi.useFakeTimers();
   });
 
   afterEach(() => {
     errorSpy.mockReset();
-    jest.useRealTimers();
+    vi.useRealTimers();
   });
 
   it('Should component render correct', () => {
@@ -128,7 +128,7 @@ describe('ColorPicker', () => {
   });
 
   it('Should allowClear and onClear work', async () => {
-    const onClear = jest.fn();
+    const onClear = vi.fn();
     const { container } = render(
       <ColorPicker defaultValue="#1677ff" allowClear onClear={onClear} />,
     );
@@ -171,7 +171,7 @@ describe('ColorPicker', () => {
   });
 
   it('Should preset color work', async () => {
-    const handleColorChange = jest.fn();
+    const handleColorChange = vi.fn();
 
     const { container } = render(
       <ColorPicker
@@ -338,7 +338,7 @@ describe('ColorPicker', () => {
   });
 
   it('Should not trigger onChange when click clear after clearing', async () => {
-    const onChange = jest.fn();
+    const onChange = vi.fn();
     const { container } = render(
       <ColorPicker defaultValue="#1677ff" allowClear onChange={onChange} />,
     );
@@ -526,7 +526,7 @@ describe('ColorPicker', () => {
       }),
     });
 
-    const handleChangeComplete = jest.fn();
+    const handleChangeComplete = vi.fn();
     const { container } = render(
       <ColorPicker open onChangeComplete={handleChangeComplete} allowClear />,
     );
@@ -817,7 +817,7 @@ describe('ColorPicker', () => {
     });
 
     it('init with hue', async () => {
-      const onChange = jest.fn();
+      const onChange = vi.fn();
       const { container } = render(<ColorPicker defaultValue={null} open onChange={onChange} />);
       doMouseMove(container, 0, 50, 'ant-color-picker-slider-handle');
 
@@ -829,7 +829,7 @@ describe('ColorPicker', () => {
     });
 
     it('init with alpha', async () => {
-      const onChange = jest.fn();
+      const onChange = vi.fn();
       const { container } = render(<ColorPicker defaultValue={null} open onChange={onChange} />);
       doMouseMove(
         container,
@@ -856,7 +856,7 @@ describe('ColorPicker', () => {
       }),
     });
 
-    const handleChangeComplete = jest.fn();
+    const handleChangeComplete = vi.fn();
     const { container } = render(<ColorPicker open onChangeComplete={handleChangeComplete} />);
 
     // Move
@@ -893,8 +893,8 @@ describe('ColorPicker', () => {
     });
 
     it('lock value', async () => {
-      const onChange = jest.fn();
-      const onChangeComplete = jest.fn();
+      const onChange = vi.fn();
+      const onChangeComplete = vi.fn();
       const { container } = render(
         <ColorPicker value="#F00" open onChange={onChange} onChangeComplete={onChangeComplete} />,
       );
@@ -929,7 +929,7 @@ describe('ColorPicker', () => {
   });
 
   it('input precision', async () => {
-    const onChange = jest.fn();
+    const onChange = vi.fn();
     const { container } = render(<ColorPicker open onChange={onChange} />);
 
     fireEvent.change(container.querySelector('.ant-color-picker-hex-input input')!, {
@@ -941,7 +941,7 @@ describe('ColorPicker', () => {
   });
 
   it('test the same key', () => {
-    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
     render(
       <ColorPicker
         open

@@ -1,4 +1,5 @@
 import React from 'react';
+import { vi } from 'vitest';
 import { render } from '@testing-library/react';
 import { Flex, Space, Switch } from 'antd';
 import type { SwitchProps } from 'antd';
@@ -118,7 +119,7 @@ describe('Switch style-class demo', () => {
   });
 
   it('should call classNames function with correct parameters', () => {
-    const mockClassNamesFn = jest.fn().mockReturnValue({ content: 'test-class' });
+    const mockClassNamesFn = vi.fn().mockReturnValue({ content: 'test-class' });
 
     render(
       <Switch

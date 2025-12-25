@@ -13,11 +13,11 @@ import Pagination from '../../pagination';
 import TimePicker from '../../time-picker';
 
 // TODO: Remove this. Mock for React 19
-jest.mock('react-dom', () => {
-  const realReactDOM = jest.requireActual('react-dom');
+vi.mock('react-dom', async () => {
+  const realReactDOM = await vi.importActual('react-dom');
 
   if (realReactDOM.version.startsWith('19')) {
-    const realReactDOMClient = jest.requireActual('react-dom/client');
+    const realReactDOMClient = await vi.importActual('react-dom/client');
     realReactDOM.createRoot = realReactDOMClient.createRoot;
   }
 
@@ -46,12 +46,12 @@ describe('ConfigProvider.Locale', () => {
         setShowButton(true);
       }, []);
       const openConfirm = () => {
-        jest.useFakeTimers();
+        vi.useFakeTimers();
         Modal.confirm({ title: 'title', content: 'Some descriptions' });
         act(() => {
-          jest.runAllTimers();
+          vi.runAllTimers();
         });
-        jest.useRealTimers();
+        vi.useRealTimers();
       };
       return (
         <ConfigProvider locale={zhCN}>

@@ -41,7 +41,7 @@ describe('Affix Render', () => {
   rtlTest(() => <Affix>test</Affix>);
   accessibilityTest(() => <Affix>test</Affix>);
 
-  const domMock = jest.spyOn(HTMLElement.prototype, 'getBoundingClientRect');
+  const domMock = vi.spyOn(HTMLElement.prototype, 'getBoundingClientRect');
 
   const classRect: Record<string, DOMRect> = { container: { top: 0, bottom: 100 } as DOMRect };
 
@@ -52,12 +52,12 @@ describe('Affix Render', () => {
   });
 
   beforeEach(() => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
   });
 
   afterEach(() => {
-    jest.useRealTimers();
-    jest.clearAllTimers();
+    vi.useRealTimers();
+    vi.clearAllTimers();
   });
 
   afterAll(() => {
@@ -108,7 +108,7 @@ describe('Affix Render', () => {
   });
 
   it('updatePosition when offsetTop changed', async () => {
-    const onChange = jest.fn();
+    const onChange = vi.fn();
 
     const { container, rerender } = render(<AffixMounter offsetTop={0} onChange={onChange} />);
     await waitFakeTimer();
@@ -186,7 +186,7 @@ describe('Affix Render', () => {
     // Trigger inner and outer element for the two <ResizeObserver>s.
     ['.ant-btn', '.placeholder'].forEach((selector) => {
       it(`trigger listener when size change: ${selector}`, async () => {
-        const updateCalled = jest.fn();
+        const updateCalled = vi.fn();
         const { container } = render(
           <AffixMounter offsetBottom={0} onTestUpdatePosition={updateCalled} />,
           { container: document.getElementById('mounter')! },

@@ -1,4 +1,5 @@
 import React from 'react';
+import { vi } from 'vitest';
 
 import { render } from '../../../tests/utils';
 import useResponsiveObserver from '../responsiveObserver';
@@ -12,7 +13,7 @@ describe('Test ResponsiveObserve', () => {
       return null;
     };
     render(<Demo />);
-    const subscribeFunc = jest.fn();
+    const subscribeFunc = vi.fn();
     const token = responsiveRef.subscribe(subscribeFunc);
     expect(responsiveRef.matchHandlers[responsiveRef.responsiveMap.xs].mql.matches).toBeTruthy();
     expect(subscribeFunc).toHaveBeenCalledTimes(1);

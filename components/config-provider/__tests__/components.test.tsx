@@ -1,4 +1,5 @@
 import React from 'react';
+import { vi } from 'vitest';
 import dayjs from 'dayjs';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
 
@@ -60,7 +61,7 @@ import Upload from '../../upload';
 
 dayjs.extend(customParseFormat);
 
-jest.mock('@rc-component/util/lib/Portal');
+vi.mock('@rc-component/util/lib/Portal');
 
 describe('ConfigProvider', () => {
   describe('components', () => {

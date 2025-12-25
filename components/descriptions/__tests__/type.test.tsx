@@ -1,10 +1,11 @@
 import React from 'react';
+import { vi } from 'vitest';
 import { render } from '../../../tests/utils';
 import Descriptions from '..';
 import { resetWarned } from '../../_util/warning';
 
 describe('Descriptions.Item span property types', () => {
-  const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+  const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
 
   afterEach(() => {
     errorSpy.mockReset();

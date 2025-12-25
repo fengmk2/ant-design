@@ -1,4 +1,5 @@
 import React from 'react';
+import { vi } from 'vitest';
 
 import { accessibilityTest } from '../../../tests/shared/accessibilityTest';
 import mountTest from '../../../tests/shared/mountTest';
@@ -13,7 +14,7 @@ describe('Breadcrumb', () => {
   rtlTest(Breadcrumb);
   accessibilityTest(Breadcrumb);
 
-  const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+  const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
 
   afterEach(() => {
     errorSpy.mockReset();
@@ -265,14 +266,14 @@ describe('Breadcrumb', () => {
   });
 
   it('should not console Error when `overlay` not in props', () => {
-    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
     render(<Breadcrumb items={[{ path: '/', title: 'Test' }]} />);
     expect(errSpy).not.toHaveBeenCalled();
     errSpy.mockRestore();
   });
 
   it('should use `onClick`', async () => {
-    const onClick = jest.fn();
+    const onClick = vi.fn();
     const wrapper = render(<Breadcrumb items={[{ title: 'test', onClick }]} />);
     const item = await wrapper.findByText('test');
     item.click();

@@ -1,4 +1,5 @@
 import React from 'react';
+import { vi } from 'vitest';
 
 import type { KeyWiseTransferItem } from '..';
 import { fireEvent, render } from '../../../tests/utils';
@@ -100,7 +101,7 @@ describe('Transfer.List', () => {
   });
 
   it('onItemSelect should be called correctly', () => {
-    const onItemSelect = jest.fn();
+    const onItemSelect = vi.fn();
     const { container } = render(
       <Section
         {...listCommonProps}

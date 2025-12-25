@@ -7,7 +7,7 @@ import { fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 import useBreakpoint from '../../grid/hooks/useBreakpoint';
 
-jest.mock('../../grid/hooks/useBreakpoint');
+vi.mock('../../grid/hooks/useBreakpoint');
 
 describe('Avatar Render', () => {
   mountTest(Avatar);
@@ -122,7 +122,7 @@ describe('Avatar Render', () => {
   });
 
   it('should warning when pass a string as icon props', () => {
-    const warnSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const warnSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
     render(<Avatar size={64} icon="aa" />);
     expect(warnSpy).not.toHaveBeenCalled();
 
@@ -147,7 +147,7 @@ describe('Avatar Render', () => {
   });
 
   it('support onMouseEnter', () => {
-    const onMouseEnter = jest.fn();
+    const onMouseEnter = vi.fn();
     const { container } = render(<Avatar {...{ onMouseEnter }}>TestString</Avatar>);
     fireEvent.mouseEnter(container.firstChild!);
     expect(onMouseEnter).toHaveBeenCalled();
@@ -186,7 +186,7 @@ describe('Avatar Render', () => {
   });
 
   it('clickable', () => {
-    const onClick = jest.fn();
+    const onClick = vi.fn();
     const { container } = render(<Avatar onClick={onClick}>TestString</Avatar>);
     fireEvent.click(container.querySelector('.ant-avatar-string')!);
     expect(onClick).toHaveBeenCalled();
@@ -224,8 +224,8 @@ describe('Avatar Render', () => {
   });
 
   it('Avatar.Group support max series props and prompt to deprecated', async () => {
-    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-    jest.useFakeTimers();
+    const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+    vi.useFakeTimers();
     const { container } = render(
       <Avatar.Group maxCount={2} maxStyle={{ color: 'blue' }} maxPopoverPlacement="bottom">
         <Avatar>A</Avatar>

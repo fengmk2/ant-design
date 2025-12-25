@@ -1,4 +1,5 @@
 import React from 'react';
+import { vi } from 'vitest';
 
 import Switch from '..';
 import focusTest from '../../../tests/shared/focusTest';
@@ -6,17 +7,17 @@ import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { act, fireEvent, render } from '../../../tests/utils';
 
-jest.mock('@rc-component/util/lib/Dom/isVisible', () => {
+vi.mock('@rc-component/util/lib/Dom/isVisible', async () => {
   const mockFn = () => true;
   return mockFn;
 });
 
 // TODO: Remove this. Mock for React 19
-jest.mock('react-dom', () => {
-  const realReactDOM = jest.requireActual('react-dom');
+vi.mock('react-dom', async () => {
+  const realReactDOM = await vi.importActual('react-dom');
 
   if (realReactDOM.version.startsWith('19')) {
-    const realReactDOMClient = jest.requireActual('react-dom/client');
+    const realReactDOMClient = await vi.importActual('react-dom/client');
     realReactDOM.createRoot = realReactDOMClient.createRoot;
   }
 
@@ -29,24 +30,24 @@ describe('Switch', () => {
   rtlTest(Switch);
 
   it('should has click wave effect', () => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
     const { container } = render(<Switch />);
     fireEvent.click(container.querySelector('.ant-switch')!);
     act(() => {
-      jest.advanceTimersByTime(100);
+      vi.advanceTimersByTime(100);
     });
 
     // Second time for raf to render wave effect
     act(() => {
-      jest.advanceTimersByTime(100);
+      vi.advanceTimersByTime(100);
     });
     expect(document.querySelector('.ant-wave')).toBeTruthy();
-    jest.clearAllTimers();
-    jest.useRealTimers();
+    vi.clearAllTimers();
+    vi.useRealTimers();
   });
 
   it('should be controlled by value', () => {
-    const mockChangeHandler = jest.fn();
+    const mockChangeHandler = vi.fn();
 
     const { getByRole } = render(<Switch value onChange={mockChangeHandler} />);
 
@@ -62,7 +63,7 @@ describe('Switch', () => {
   });
 
   it('should be uncontrolled by defaultValue', () => {
-    const mockChangeHandler = jest.fn();
+    const mockChangeHandler = vi.fn();
 
     const { getByRole } = render(<Switch defaultValue onChange={mockChangeHandler} />);
 

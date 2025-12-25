@@ -1,4 +1,5 @@
 import React from 'react';
+import { vi } from 'vitest';
 
 import Result from '..';
 import mountTest from '../../../tests/shared/mountTest';
@@ -56,7 +57,7 @@ describe('Result', () => {
   });
 
   it('should warning when pass a string as icon props', () => {
-    const warnSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const warnSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
 
     render(<Result title="404" icon="ab" />);
     expect(warnSpy).not.toHaveBeenCalled();

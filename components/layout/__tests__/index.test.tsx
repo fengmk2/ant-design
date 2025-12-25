@@ -135,7 +135,7 @@ describe('Layout', () => {
 
     describe('should collapsible', () => {
       it('uncontrolled', () => {
-        const onCollapse = jest.fn();
+        const onCollapse = vi.fn();
 
         const { container } = render(
           <Layout>
@@ -217,7 +217,7 @@ describe('Layout', () => {
   });
 
   it('render correct with Tooltip', () => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
     const { container, rerender } = render(
       <Sider collapsible collapsed={false}>
         <Menu mode="inline">
@@ -231,7 +231,7 @@ describe('Layout', () => {
 
     fireEvent.mouseEnter(container.querySelector('.ant-menu-item')!);
     act(() => {
-      jest.runAllTimers();
+      vi.runAllTimers();
     });
     expect(container.querySelector('.ant-tooltip-container')).toBeFalsy();
     rerender(
@@ -246,16 +246,16 @@ describe('Layout', () => {
     );
     fireEvent.mouseEnter(container.querySelector('.ant-menu-item')!);
     act(() => {
-      jest.runAllTimers();
+      vi.runAllTimers();
     });
     expect(container.querySelector('.ant-tooltip-container')).toBeTruthy();
 
-    jest.useRealTimers();
+    vi.useRealTimers();
   });
 });
 
 describe('Sider', () => {
-  const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+  const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
 
   afterEach(() => {
     errorSpy.mockReset();
@@ -266,7 +266,7 @@ describe('Sider', () => {
   });
 
   it('should trigger onBreakpoint', async () => {
-    const onBreakpoint = jest.fn();
+    const onBreakpoint = vi.fn();
 
     render(
       <Sider breakpoint="md" onBreakpoint={onBreakpoint}>
@@ -316,7 +316,7 @@ describe('Sider', () => {
     fireEvent.click(button);
 
     act(() => {
-      jest.runAllTimers();
+      vi.runAllTimers();
     });
 
     expect(menu).toHaveClass('ant-menu-inline-collapsed');
@@ -364,7 +364,7 @@ describe('Sider', () => {
 
     it(`should get ${tag} element from ref`, () => {
       const ref = React.createRef<HTMLDivElement>();
-      const onSelect = jest.fn();
+      const onSelect = vi.fn();
       const Component = ComponentMap[tag];
       render(
         <Component onSelect={onSelect} ref={ref}>

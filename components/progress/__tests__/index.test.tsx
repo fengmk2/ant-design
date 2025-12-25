@@ -88,7 +88,7 @@ describe('Progress', () => {
   });
 
   it('render trailColor progress', () => {
-    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
 
     const { container: wrapper } = render(<Progress status="normal" trailColor="#ffffff" />);
     expect(wrapper.firstChild).toMatchSnapshot();
@@ -168,7 +168,7 @@ describe('Progress', () => {
 
   // https://github.com/ant-design/ant-design/pull/15951#discussion_r273062969
   it('should show success status when status is invalid', () => {
-    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
     const { container: wrapper } = render(
       <Progress percent={100} status={'invalid' as ProgressProps['status']} />,
     );
@@ -221,7 +221,7 @@ describe('Progress', () => {
   });
 
   it('should warnning if use `width` prop', () => {
-    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
     render(<Progress percent={60} width={100} />);
     expect(errorSpy).toHaveBeenCalledWith(
       'Warning: [antd: Progress] `width` is deprecated. Please use `size` instead.',
@@ -229,7 +229,7 @@ describe('Progress', () => {
   });
 
   it('should warnning if use `strokeWidth` prop in type Line', () => {
-    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
     render(<Progress percent={60} strokeWidth={10} />);
     expect(errorSpy).toHaveBeenCalledWith(
       'Warning: [antd: Progress] `strokeWidth` is deprecated. Please use `size` instead.',
@@ -237,7 +237,7 @@ describe('Progress', () => {
   });
 
   it('should warnning if pass number[] into `size` in type Circle', () => {
-    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
     render(<Progress size={[60, 20]} type="circle" />);
     expect(errorSpy).toHaveBeenCalledWith(
       'Warning: [antd: Progress] Type "circle" and "dashboard" do not accept array as `size`, please use number or preset size instead.',
@@ -245,21 +245,21 @@ describe('Progress', () => {
   });
 
   it('should not warning if not pass the `size` prop in type Circle', () => {
-    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
     errorSpy.mockClear();
     render(<Progress type="circle" />);
     expect(errorSpy).not.toHaveBeenCalled();
   });
 
   it('should warnning if pass number[] into `size` in type dashboard', () => {
-    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
     render(<Progress size={[60, 20]} type="dashboard" />);
     expect(errorSpy).toHaveBeenCalledWith(
       'Warning: [antd: Progress] Type "circle" and "dashboard" do not accept array as `size`, please use number or preset size instead.',
     );
   });
   it('should warnning if pass object into `size` in type dashboard', () => {
-    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
     render(<Progress size={{ width: 60, height: 20 }} type="dashboard" />);
     expect(errorSpy).toHaveBeenCalledWith(
       'Warning: [antd: Progress] Type "circle" and "dashboard" do not accept object as `size`, please use number or preset size instead.',
@@ -368,7 +368,7 @@ describe('Progress', () => {
   });
 
   it('no strict warning', () => {
-    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
     const { rerender } = render(
       <Tooltip title="当前已使用60%">
         <Progress percent={60} type="circle" />

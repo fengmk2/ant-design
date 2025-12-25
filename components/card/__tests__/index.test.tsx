@@ -1,6 +1,7 @@
 import '@testing-library/jest-dom';
 
 import React from 'react';
+import { vi } from 'vitest';
 import type { TabBarExtraContent } from '@rc-component/tabs/lib/interface';
 import userEvent from '@testing-library/user-event';
 
@@ -16,11 +17,11 @@ describe('Card', () => {
   rtlTest(Card);
 
   beforeAll(() => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
   });
 
   afterAll(() => {
-    jest.useRealTimers();
+    vi.useRealTimers();
   });
 
   it('should still have padding when card which set padding to 0 is loading', () => {
@@ -52,7 +53,7 @@ describe('Card', () => {
         tab: 'tab2',
       },
     ];
-    const onTabChange = jest.fn();
+    const onTabChange = vi.fn();
     render(
       <Card onTabChange={onTabChange} tabList={tabList}>
         xxx

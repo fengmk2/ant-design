@@ -73,8 +73,8 @@ describe('Tour', () => {
   });
 
   it('steps props indicatorsRender', () => {
-    const onClickMock = jest.fn();
-    const indicatorsRenderMock = jest.fn();
+    const onClickMock = vi.fn();
+    const indicatorsRenderMock = vi.fn();
     const App: React.FC = () => {
       const coverBtnRef = useRef<HTMLButtonElement>(null);
       return (
@@ -583,7 +583,7 @@ describe('Tour', () => {
 
   // https://github.com/ant-design/ant-design/issues/49117
   it('onClose current is correct', () => {
-    const onClose = jest.fn();
+    const onClose = vi.fn();
     const { container } = render(
       <Tour
         onClose={onClose}

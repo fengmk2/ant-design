@@ -1,4 +1,5 @@
 import React from 'react';
+import { vi } from 'vitest';
 
 import Popover from '..';
 import mountTest from '../../../tests/shared/mountTest';
@@ -79,9 +80,9 @@ describe('Popover', () => {
   });
 
   it('props#overlay do not warn anymore', () => {
-    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
 
-    const overlay = jest.fn();
+    const overlay = vi.fn();
     render(
       <Popover content="console.log('hello world')" title="code" trigger="click">
         <span>show me your code</span>
@@ -110,7 +111,7 @@ describe('Popover', () => {
   });
 
   it('should be closed by pressing ESC', () => {
-    const onOpenChange = jest.fn((_, e) => {
+    const onOpenChange = vi.fn((_, e) => {
       e?.persist?.();
     });
     const wrapper = render(

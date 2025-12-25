@@ -1,4 +1,5 @@
 import React from 'react';
+import { vi } from 'vitest';
 import { spyElementPrototypes } from '@rc-component/util/lib/test/domHook';
 import { render } from '@testing-library/react';
 
@@ -8,7 +9,7 @@ import { AggregationColor } from '../color';
 import ColorPicker from '../ColorPicker';
 
 describe('ColorPicker.gradient', () => {
-  const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+  const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
 
   beforeAll(() => {
     spyElementPrototypes(HTMLElement, {
@@ -25,12 +26,12 @@ describe('ColorPicker.gradient', () => {
 
   beforeEach(() => {
     resetWarned();
-    jest.useFakeTimers();
+    vi.useFakeTimers();
   });
 
   afterEach(() => {
     errorSpy.mockReset();
-    jest.useRealTimers();
+    vi.useRealTimers();
   });
 
   function doMouseDown(
@@ -44,7 +45,7 @@ describe('ColorPicker.gradient', () => {
     Object.defineProperty(mouseDown, 'pageX', { value: start });
     Object.defineProperty(mouseDown, 'pageY', { value: start });
 
-    const preventDefault = jest.fn();
+    const preventDefault = vi.fn();
 
     Object.defineProperties(mouseDown, {
       clientX: { get: () => start },
@@ -87,7 +88,7 @@ describe('ColorPicker.gradient', () => {
   }
 
   it('switch', async () => {
-    const onChange = jest.fn();
+    const onChange = vi.fn();
 
     const { container } = render(
       <ColorPicker mode={['single', 'gradient']} defaultValue="#123456" open onChange={onChange} />,
@@ -103,7 +104,7 @@ describe('ColorPicker.gradient', () => {
   });
 
   it('change color position', async () => {
-    const onChange = jest.fn();
+    const onChange = vi.fn();
 
     const { container } = render(
       <ColorPicker
@@ -133,7 +134,7 @@ describe('ColorPicker.gradient', () => {
   });
 
   it('change color hex', async () => {
-    const onChange = jest.fn();
+    const onChange = vi.fn();
 
     const { container } = render(
       <ColorPicker
@@ -171,7 +172,7 @@ describe('ColorPicker.gradient', () => {
   });
 
   it('new color', async () => {
-    const onChange = jest.fn();
+    const onChange = vi.fn();
 
     const { container } = render(
       <ColorPicker
@@ -205,7 +206,7 @@ describe('ColorPicker.gradient', () => {
   });
 
   it('remove color', async () => {
-    const onChange = jest.fn();
+    const onChange = vi.fn();
 
     const { container } = render(
       <ColorPicker
@@ -263,7 +264,7 @@ describe('ColorPicker.gradient', () => {
   });
 
   it('change to single', async () => {
-    const onChange = jest.fn();
+    const onChange = vi.fn();
 
     const { container } = render(
       <ColorPicker
@@ -342,7 +343,7 @@ describe('ColorPicker.gradient', () => {
   });
 
   it('preset color', () => {
-    const onChange = jest.fn();
+    const onChange = vi.fn();
 
     render(
       <ColorPicker

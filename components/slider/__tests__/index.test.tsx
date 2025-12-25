@@ -1,4 +1,5 @@
 import React from 'react';
+import { vi } from 'vitest';
 
 import Slider from '..';
 import focusTest from '../../../tests/shared/focusTest';
@@ -13,9 +14,9 @@ function tooltipProps(): TooltipProps {
   return (global as any).tooltipProps;
 }
 
-jest.mock('../../tooltip', () => {
-  const ReactReal: typeof React = jest.requireActual('react');
-  const Tooltip = jest.requireActual('../../tooltip');
+vi.mock('../../tooltip', async () => {
+  const ReactReal: typeof React = await vi.importActual('react');
+  const Tooltip = await vi.importActual('../../tooltip');
   const TooltipComponent = Tooltip.default;
   return ReactReal.forwardRef<TooltipRef, TooltipProps>((props, ref) => {
     (global as any).tooltipProps = props;
@@ -29,12 +30,12 @@ describe('Slider', () => {
   focusTest(Slider);
 
   beforeEach(() => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
   });
 
   afterEach(() => {
-    jest.clearAllTimers();
-    jest.useRealTimers();
+    vi.clearAllTimers();
+    vi.useRealTimers();
   });
 
   it('should show tooltip when hovering slider handler', async () => {
@@ -146,9 +147,9 @@ describe('Slider', () => {
   it('should keepAlign by calling forceAlign', async () => {
     const ref = React.createRef<any>();
     render(<SliderTooltip title="30" open ref={ref} />);
-    ref.current.forceAlign = jest.fn();
+    ref.current.forceAlign = vi.fn();
     act(() => {
-      jest.runAllTimers();
+      vi.runAllTimers();
     });
     expect(ref.current.forceAlign).toHaveBeenCalled();
   });
