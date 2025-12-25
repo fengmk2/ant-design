@@ -309,61 +309,63 @@ describe('Progress', () => {
   });
 
   describe('progress size', () => {
-    const App = (props: { size: ProgressProps['size'] }) => (
-      <>
-        <Progress size={props.size} />
-        <Progress size={props.size} steps={3} />
-        <Progress type="circle" size={props.size} />
-        <Progress type="dashboard" size={props.size} />
-      </>
-    );
+    it('should apply different sizes correctly', () => {
+      const App = (props: { size: ProgressProps['size'] }) => (
+        <>
+          <Progress size={props.size} />
+          <Progress size={props.size} steps={3} />
+          <Progress type="circle" size={props.size} />
+          <Progress type="dashboard" size={props.size} />
+        </>
+      );
 
-    const { container, rerender } = render(<App size={30} />);
-    expect(container.querySelector('.ant-progress-steps .ant-progress-steps-item')).toHaveStyle({
-      width: '30px',
-      height: '30px',
-    });
-    expect(container.querySelectorAll('.ant-progress-circle .ant-progress-body')[0]).toHaveStyle({
-      width: '30px',
-      height: '30px',
-    });
-    expect(container.querySelectorAll('.ant-progress-circle .ant-progress-body')[1]).toHaveStyle({
-      width: '30px',
-      height: '30px',
-    });
+      const { container, rerender } = render(<App size={30} />);
+      expect(container.querySelector('.ant-progress-steps .ant-progress-steps-item')).toHaveStyle({
+        width: '30px',
+        height: '30px',
+      });
+      expect(container.querySelectorAll('.ant-progress-circle .ant-progress-body')[0]).toHaveStyle({
+        width: '30px',
+        height: '30px',
+      });
+      expect(container.querySelectorAll('.ant-progress-circle .ant-progress-body')[1]).toHaveStyle({
+        width: '30px',
+        height: '30px',
+      });
 
-    rerender(<App size={[60, 20]} />);
+      rerender(<App size={[60, 20]} />);
 
-    expect(container.querySelector('.ant-progress-line .ant-progress-body')).toHaveStyle({
-      width: '60px',
-    });
-    expect(container.querySelector('.ant-progress-line .ant-progress-rail')).toHaveStyle({
-      height: '20px',
-    });
-    expect(container.querySelector('.ant-progress-steps .ant-progress-steps-item')).toHaveStyle({
-      width: '60px',
-      height: '20px',
-    });
-    expect(container.querySelectorAll('.ant-progress-circle .ant-progress-body')[0]).toHaveStyle({
-      width: '60px',
-      height: '60px',
-    });
-    expect(container.querySelectorAll('.ant-progress-circle .ant-progress-body')[1]).toHaveStyle({
-      width: '60px',
-      height: '60px',
-    });
+      expect(container.querySelector('.ant-progress-line .ant-progress-body')).toHaveStyle({
+        width: '60px',
+      });
+      expect(container.querySelector('.ant-progress-line .ant-progress-rail')).toHaveStyle({
+        height: '20px',
+      });
+      expect(container.querySelector('.ant-progress-steps .ant-progress-steps-item')).toHaveStyle({
+        width: '60px',
+        height: '20px',
+      });
+      expect(container.querySelectorAll('.ant-progress-circle .ant-progress-body')[0]).toHaveStyle({
+        width: '60px',
+        height: '60px',
+      });
+      expect(container.querySelectorAll('.ant-progress-circle .ant-progress-body')[1]).toHaveStyle({
+        width: '60px',
+        height: '60px',
+      });
 
-    rerender(<App size={{ width: 60, height: 20 }} />);
+      rerender(<App size={{ width: 60, height: 20 }} />);
 
-    expect(container.querySelector('.ant-progress-line .ant-progress-body')).toHaveStyle({
-      width: '60px',
-    });
-    expect(container.querySelector('.ant-progress-line .ant-progress-rail')).toHaveStyle({
-      height: '20px',
-    });
-    expect(container.querySelector('.ant-progress-steps .ant-progress-steps-item')).toHaveStyle({
-      width: '60px',
-      height: '20px',
+      expect(container.querySelector('.ant-progress-line .ant-progress-body')).toHaveStyle({
+        width: '60px',
+      });
+      expect(container.querySelector('.ant-progress-line .ant-progress-rail')).toHaveStyle({
+        height: '20px',
+      });
+      expect(container.querySelector('.ant-progress-steps .ant-progress-steps-item')).toHaveStyle({
+        width: '60px',
+        height: '20px',
+      });
     });
   });
 
