@@ -23,12 +23,13 @@ const compileModules = [
 export default defineConfig({
   plugins: [react(), demoPlugin(), imagePlugin()],
   resolve: {
-    alias: {
-      antd: resolve(__dirname, './components/index'),
-      'antd/es': resolve(__dirname, './components'),
-      'antd/lib': resolve(__dirname, './components'),
-      'antd/locale': resolve(__dirname, './components/locale'),
-    },
+    alias: [
+      // Handle antd/es/* and antd/lib/* imports (must be before antd to match first)
+      { find: /^antd\/es\/(.*)$/, replacement: resolve(__dirname, './components/$1') },
+      { find: /^antd\/lib\/(.*)$/, replacement: resolve(__dirname, './components/$1') },
+      { find: /^antd\/locale\/(.*)$/, replacement: resolve(__dirname, './components/locale/$1') },
+      { find: 'antd', replacement: resolve(__dirname, './components/index') },
+    ],
   },
   test: {
     globals: true,

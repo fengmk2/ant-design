@@ -1,13 +1,12 @@
 import React from 'react';
 import { vi } from 'vitest';
 
+import Collapse from '..';
 import { resetWarned } from '../../_util/warning';
 import { act, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 
 describe('Collapse', () => {
-  const Collapse = require('..').default;
-
   const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
 
   // fix React concurrent
