@@ -1,6 +1,4 @@
-// @vitest-environment node
-// Skip: react-router-dom requires TextEncoder which jsdom doesn't provide during module init
-// This test file requires a node environment to properly initialize react-router
+// Skip: react-router-dom imports cause issues in test environment
 import React from 'react';
 import { vi } from 'vitest';
 
