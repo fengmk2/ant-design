@@ -495,11 +495,9 @@ describe('Table.filter', () => {
     expect(container.querySelectorAll('tbody tr').length).toBe(4);
   });
 
-  // Warning: An update to Item ran an effect, but was not wrapped in act(...).
-  // Skip: Complex portal query issues with filter dropdown
-  it.skip('render checked of checkbox correctly controlled by filteredValue', () => {
-    ['Lucy', 23, false].forEach((val) => {
-      const { container } = render(
+  it('render checked of checkbox correctly controlled by filteredValue', async () => {
+    for (const val of ['Lucy', 23, false]) {
+      const { container, unmount } = render(
         createTable({
           columns: [
             {
@@ -512,12 +510,15 @@ describe('Table.filter', () => {
       );
 
       fireEvent.click(container.querySelector('.ant-dropdown-trigger')!);
-      expect(
-        document.body
-          .querySelector('.ant-table-filter-dropdown')
-          ?.querySelectorAll<HTMLInputElement>('.ant-checkbox-input')[0].checked,
-      ).toBe(true);
-    });
+      await waitFor(() => {
+        expect(
+          document.body
+            .querySelector('.ant-table-filter-dropdown')
+            ?.querySelectorAll<HTMLInputElement>('.ant-checkbox-input')[0].checked,
+        ).toBe(true);
+      });
+      unmount();
+    }
 
     const { container } = render(
       createTable({
@@ -532,11 +533,13 @@ describe('Table.filter', () => {
     );
     fireEvent.click(container.querySelector('.ant-dropdown-trigger')!);
 
-    expect(
-      document.body
-        .querySelector('.ant-table-filter-dropdown')
-        ?.querySelectorAll<HTMLInputElement>('.ant-checkbox-input')[0]?.checked,
-    ).toBe(false);
+    await waitFor(() => {
+      expect(
+        document.body
+          .querySelector('.ant-table-filter-dropdown')
+          ?.querySelectorAll<HTMLInputElement>('.ant-checkbox-input')[0]?.checked,
+      ).toBe(false);
+    });
   });
 
   it('can read defaults from defaultFilteredValue', () => {
@@ -709,8 +712,7 @@ describe('Table.filter', () => {
     await waitFor(() => expect(handleChange).not.toHaveBeenCalled());
   });
 
-  // Skip: Complex portal query issues with nested filter dropdown
-  it.skip('three levels menu', () => {
+  it('three levels menu', async () => {
     const onChange = vi.fn();
     const filters = [
       { text: 'Upper', value: 'Upper' },
@@ -745,21 +747,36 @@ describe('Table.filter', () => {
       return document.body.querySelector('.ant-table-filter-dropdown');
     }
 
-    // Open Level2
-    fireEvent.mouseEnter(
-      getFilterMenu()?.querySelectorAll('div.ant-dropdown-menu-submenu-title')[0]!,
-    );
+    await waitFor(() => {
+      expect(getFilterMenu()).toBeTruthy();
+    });
+
+    // Open Level2 - mouseEnter on the submenu title
+    const submenuTitles = document.body.querySelectorAll('div.ant-dropdown-menu-submenu-title');
+    fireEvent.mouseEnter(submenuTitles[0]!);
     refreshTimer();
+
+    // Wait for the level2 submenu popup to appear (contains another submenu title)
+    await waitFor(() => {
+      expect(
+        document.body.querySelectorAll('div.ant-dropdown-menu-submenu-title').length,
+      ).toBeGreaterThanOrEqual(2);
+    });
 
     // Open Level3
-    fireEvent.mouseEnter(
-      getFilterMenu()?.querySelectorAll('div.ant-dropdown-menu-submenu-title')[1]!,
-    );
+    const allSubmenuTitles = document.body.querySelectorAll('div.ant-dropdown-menu-submenu-title');
+    fireEvent.mouseEnter(allSubmenuTitles[1]!);
     refreshTimer();
 
-    // Select Level3 value
-    const items = getFilterMenu()?.querySelectorAll('li.ant-dropdown-menu-item');
-    fireEvent.click(items?.[items.length - 1]!);
+    // Wait for level3 items to appear
+    await waitFor(() => {
+      const items = document.body.querySelectorAll('li.ant-dropdown-menu-item');
+      expect(items?.length).toBeGreaterThan(0);
+    });
+
+    // Select Level3 value (Jack is the last item)
+    const items = document.body.querySelectorAll('li.ant-dropdown-menu-item');
+    fireEvent.click(items[items.length - 1]!);
     fireEvent.click(
       getFilterMenu()?.querySelector(
         '.ant-table-filter-dropdown-btns .ant-btn-color-primary.ant-btn-variant-solid',
@@ -767,7 +784,9 @@ describe('Table.filter', () => {
     );
     refreshTimer();
 
-    expect(onChange).toHaveBeenCalled();
+    await waitFor(() => {
+      expect(onChange).toHaveBeenCalled();
+    });
     onChange.mock.calls.forEach(([, currentFilters]) => {
       const [, val] = Object.entries(currentFilters)[0];
       expect(val).toEqual(['Jack']);
@@ -776,8 +795,8 @@ describe('Table.filter', () => {
     expect(renderedNames(container)).toEqual(['Jack']);
 
     // What's this? Is that a coverage case? Or check a crash?
-    const latestItems = getFilterMenu()?.querySelectorAll('li.ant-dropdown-menu-item');
-    fireEvent.click(latestItems?.[latestItems?.length - 1]!);
+    const latestItems = document.body.querySelectorAll('li.ant-dropdown-menu-item');
+    fireEvent.click(latestItems[latestItems.length - 1]!);
   });
 
   describe('should support value types', () => {
@@ -1659,8 +1678,7 @@ describe('Table.filter', () => {
     expect(container.querySelector('tbody tr td')?.textContent).toEqual('Jack');
   });
 
-  // Skip: Complex portal query issues with filter dropdown
-  it.skip(`shouldn't keep status when controlled filteredValue isn't change`, () => {
+  it(`shouldn't keep status when controlled filteredValue isn't change`, async () => {
     const filterControlledColumn = {
       title: 'Name',
       dataIndex: 'name',
@@ -1673,6 +1691,9 @@ describe('Table.filter', () => {
     };
     const { container } = render(createTable({ columns: [filterControlledColumn] }));
     fireEvent.click(container.querySelector('.ant-dropdown-trigger')!);
+    await waitFor(() => {
+      expect(document.body.querySelector('.ant-dropdown-menu-item')).toBeTruthy();
+    });
     fireEvent.click(document.body.querySelector('.ant-dropdown-menu-item')!);
     fireEvent.click(
       document.body.querySelector(
@@ -1680,10 +1701,12 @@ describe('Table.filter', () => {
       )!,
     ); // close dropdown
     fireEvent.click(container.querySelector('.ant-dropdown-trigger')!); // reopen
-    const checkbox = container
-      ?.querySelector('.ant-dropdown-menu-item')
-      ?.querySelector<HTMLInputElement>('input[type=checkbox]');
-    expect(checkbox?.checked).toBe(false);
+    await waitFor(() => {
+      const checkbox = document.body
+        ?.querySelector('.ant-dropdown-menu-item')
+        ?.querySelector<HTMLInputElement>('input[type=checkbox]');
+      expect(checkbox?.checked).toBe(false);
+    });
   });
 
   it('should not trigger onChange when filters is empty', () => {
@@ -1869,9 +1892,7 @@ describe('Table.filter', () => {
     expect(onFilterDropdownOpenChange).toHaveBeenLastCalledWith(false);
   });
 
-  // Warning: An update to Item ran an effect, but was not wrapped in act(...).
-  // Skip: Complex portal query issues with nested filter dropdown
-  it.skip('Column with filter and children filters properly.', () => {
+  it('Column with filter and children filters properly.', async () => {
     const App: React.FC = () => {
       const [filteredInfo, setFilteredInfo] = useState<Record<string, FilterValue | null>>({});
       const [sortedInfo, setSortedInfo] = useState<SorterResult<any> | SorterResult<any>[]>({});
@@ -1941,13 +1962,20 @@ describe('Table.filter', () => {
       `${32}`,
     );
     fireEvent.click(container.querySelector('.ant-dropdown-trigger.ant-table-filter-trigger')!);
+    await waitFor(() => {
+      expect(document.body.querySelector('.ant-dropdown-menu-item')).toBeTruthy();
+    });
     fireEvent.click(document.body.querySelector('.ant-dropdown-menu-item')!);
     fireEvent.click(
-      container.querySelector('.ant-btn.ant-btn-color-primary.ant-btn-variant-solid.ant-btn-sm')!,
+      document.body.querySelector(
+        '.ant-btn.ant-btn-color-primary.ant-btn-variant-solid.ant-btn-sm',
+      )!,
     );
-    expect(container.querySelector('.ant-table-tbody .ant-table-cell')?.textContent).toEqual(
-      `${66}`,
-    );
+    await waitFor(() => {
+      expect(container.querySelector('.ant-table-tbody .ant-table-cell')?.textContent).toEqual(
+        `${66}`,
+      );
+    });
   });
 
   it('Columns with filters should filter correctly after reset it.', () => {
@@ -2147,8 +2175,7 @@ describe('Table.filter', () => {
       expect(document.body.querySelectorAll('.ant-tree-checkbox').length).toBe(5);
     });
 
-    // Skip: Complex portal query issues with filter tree dropdown
-    it.skip('supports search input in filter tree', () => {
+    it('supports search input in filter tree', async () => {
       vi.spyOn(console, 'error').mockImplementation(() => undefined);
       const { container } = render(
         createTable({
@@ -2165,13 +2192,14 @@ describe('Table.filter', () => {
       act(() => {
         vi.runAllTimers();
       });
-      expect(document.body.querySelectorAll('.ant-table-filter-dropdown-tree').length).toBe(1);
-      expect(container.querySelectorAll('.ant-input').length).toBe(1);
+      await waitFor(() => {
+        expect(document.body.querySelectorAll('.ant-table-filter-dropdown-tree').length).toBe(1);
+      });
+      expect(document.body.querySelectorAll('.ant-input').length).toBe(1);
       fireEvent.change(document.body.querySelector('.ant-input')!, { target: { value: '111' } });
     });
 
-    // Skip: Complex portal query issues with filter tree dropdown
-    it.skip('renders empty element when search not found', () => {
+    it('renders empty element when search not found', async () => {
       const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => undefined);
       const { container, unmount } = render(
         createTable({
@@ -2201,17 +2229,20 @@ describe('Table.filter', () => {
       act(() => {
         vi.runAllTimers();
       });
-      expect(document.body.querySelectorAll('.ant-table-filter-dropdown-search').length).toBe(1);
-      expect(container.querySelectorAll('.ant-input').length).toBe(1);
+      await waitFor(() => {
+        expect(document.body.querySelectorAll('.ant-table-filter-dropdown-search').length).toBe(1);
+      });
+      expect(document.body.querySelectorAll('.ant-input').length).toBe(1);
       fireEvent.change(document.body.querySelector('.ant-input')!, { target: { value: '111' } });
-      expect(container.querySelector('.ant-empty')).toBeTruthy();
+      await waitFor(() => {
+        expect(document.body.querySelector('.ant-empty')).toBeTruthy();
+      });
 
       unmount();
       errorSpy.mockRestore();
     });
 
-    // Skip: Complex portal query issues with filter menu dropdown
-    it.skip('supports search input in filter menu', () => {
+    it('supports search input in filter menu', async () => {
       vi.spyOn(console, 'error').mockImplementation(() => undefined);
       const { container } = render(
         createTable({
@@ -2222,13 +2253,14 @@ describe('Table.filter', () => {
       act(() => {
         vi.runAllTimers();
       });
-      expect(document.body.querySelectorAll('.ant-table-filter-dropdown-search').length).toBe(1);
-      expect(container.querySelectorAll('.ant-input').length).toBe(1);
+      await waitFor(() => {
+        expect(document.body.querySelectorAll('.ant-table-filter-dropdown-search').length).toBe(1);
+      });
+      expect(document.body.querySelectorAll('.ant-input').length).toBe(1);
       fireEvent.change(document.body.querySelector('.ant-input')!, { target: { value: '111' } });
     });
 
-    // Skip: Complex portal query issues with filter dropdown
-    it.skip('should skip search when filters[0].text is ReactNode', () => {
+    it('should skip search when filters[0].text is ReactNode', async () => {
       vi.spyOn(console, 'error').mockImplementation(() => undefined);
       const { container, unmount } = render(
         createTable({
@@ -2259,17 +2291,20 @@ describe('Table.filter', () => {
       act(() => {
         vi.runAllTimers();
       });
-      expect(document.body.querySelectorAll('.ant-table-filter-dropdown-search').length).toBe(1);
-      expect(container.querySelectorAll('.ant-input').length).toBe(1);
+      await waitFor(() => {
+        expect(document.body.querySelectorAll('.ant-table-filter-dropdown-search').length).toBe(1);
+      });
+      expect(document.body.querySelectorAll('.ant-input').length).toBe(1);
       expect(document.body.querySelectorAll('li.ant-dropdown-menu-item').length).toBe(3);
       fireEvent.change(document.body.querySelector('.ant-input')!, { target: { value: '123' } });
-      expect(document.body.querySelectorAll('li.ant-dropdown-menu-item').length).toBe(2);
+      await waitFor(() => {
+        expect(document.body.querySelectorAll('li.ant-dropdown-menu-item').length).toBe(2);
+      });
 
       unmount();
     });
 
-    // Skip: Complex portal query issues with filter dropdown
-    it.skip('should supports filterSearch has type of function', () => {
+    it('should supports filterSearch has type of function', async () => {
       const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => undefined);
       const { container, unmount } = render(
         createTable({
@@ -2290,18 +2325,21 @@ describe('Table.filter', () => {
       act(() => {
         vi.runAllTimers();
       });
-      expect(document.body.querySelectorAll('.ant-table-filter-dropdown-search').length).toBe(1);
-      expect(container.querySelectorAll('.ant-input').length).toBe(1);
+      await waitFor(() => {
+        expect(document.body.querySelectorAll('.ant-table-filter-dropdown-search').length).toBe(1);
+      });
+      expect(document.body.querySelectorAll('.ant-input').length).toBe(1);
       expect(document.body.querySelectorAll('li.ant-dropdown-menu-item').length).toBe(3);
       fireEvent.change(document.body.querySelector('.ant-input')!, { target: { value: '456' } });
-      expect(document.body.querySelectorAll('li.ant-dropdown-menu-item').length).toBe(2);
+      await waitFor(() => {
+        expect(document.body.querySelectorAll('li.ant-dropdown-menu-item').length).toBe(2);
+      });
 
       unmount();
       errorSpy.mockRestore();
     });
 
-    // Skip: Complex portal query issues with filter tree dropdown
-    it.skip('should supports filterSearch has type of function when filterMode is tree', () => {
+    it('should supports filterSearch has type of function when filterMode is tree', async () => {
       vi.spyOn(console, 'error').mockImplementation(() => undefined);
       const { container } = render(
         createTable({
@@ -2323,10 +2361,14 @@ describe('Table.filter', () => {
       act(() => {
         vi.runAllTimers();
       });
-      expect(document.body.querySelectorAll('.ant-table-filter-dropdown-tree').length).toBe(1);
-      expect(container.querySelectorAll('.ant-input').length).toBe(1);
+      await waitFor(() => {
+        expect(document.body.querySelectorAll('.ant-table-filter-dropdown-tree').length).toBe(1);
+      });
+      expect(document.body.querySelectorAll('.ant-input').length).toBe(1);
       fireEvent.change(document.body.querySelector('.ant-input')!, { target: { value: '节点二' } });
-      expect(document.body.querySelectorAll('.ant-tree-treenode.filter-node').length).toBe(1);
+      await waitFor(() => {
+        expect(document.body.querySelectorAll('.ant-tree-treenode.filter-node').length).toBe(1);
+      });
     });
 
     it('supports check all items', () => {
@@ -2421,8 +2463,7 @@ describe('Table.filter', () => {
     });
   });
 
-  // Skip: Complex portal query issues with filter dropdown
-  it.skip('filterMultiple is false - check item', () => {
+  it('filterMultiple is false - check item', async () => {
     vi.spyOn(console, 'error').mockImplementation(() => undefined);
     const { container } = render(
       createTable({
@@ -2434,37 +2475,44 @@ describe('Table.filter', () => {
     act(() => {
       vi.runAllTimers();
     });
-    expect(document.body.querySelectorAll('.ant-tree-checkbox').length).toBe(5);
+    await waitFor(() => {
+      expect(document.body.querySelectorAll('.ant-tree-checkbox').length).toBe(5);
+    });
     expect(document.body.querySelector('.ant-table-filter-dropdown-checkall')).toBe(null);
     expect(document.body.querySelectorAll('.ant-tree-checkbox-checked').length).toBe(0);
 
     fireEvent.click(document.body.querySelectorAll('.ant-tree-checkbox')[2]);
-    expect(
-      container
-        .querySelectorAll('.ant-tree-checkbox')[2]
-        .className.includes('ant-tree-checkbox-checked'),
-    ).toBe(true);
+    await waitFor(() => {
+      expect(
+        document.body
+          .querySelectorAll('.ant-tree-checkbox')[2]
+          .className.includes('ant-tree-checkbox-checked'),
+      ).toBe(true);
+    });
     expect(document.body.querySelectorAll('.ant-tree-checkbox-checked').length).toBe(1);
 
     fireEvent.click(document.body.querySelectorAll('.ant-tree-checkbox')[1]);
-    expect(
-      container
-        .querySelectorAll('.ant-tree-checkbox')[1]
-        .className.includes('ant-tree-checkbox-checked'),
-    ).toBe(true);
+    await waitFor(() => {
+      expect(
+        document.body
+          .querySelectorAll('.ant-tree-checkbox')[1]
+          .className.includes('ant-tree-checkbox-checked'),
+      ).toBe(true);
+    });
     expect(document.body.querySelectorAll('.ant-tree-checkbox-checked').length).toBe(1);
 
     fireEvent.click(document.body.querySelectorAll('.ant-tree-checkbox')[1]);
-    expect(
-      container
-        .querySelectorAll('.ant-tree-checkbox')[1]
-        .className.includes('ant-tree-checkbox-checked'),
-    ).toBe(false);
+    await waitFor(() => {
+      expect(
+        document.body
+          .querySelectorAll('.ant-tree-checkbox')[1]
+          .className.includes('ant-tree-checkbox-checked'),
+      ).toBe(false);
+    });
     expect(document.body.querySelectorAll('.ant-tree-checkbox-checked').length).toBe(0);
   });
 
-  // Skip: Complex portal query issues with filter dropdown
-  it.skip('filterMultiple is false - select item', () => {
+  it('filterMultiple is false - select item', async () => {
     vi.spyOn(console, 'error').mockImplementation(() => undefined);
     const { container } = render(
       createTable({
@@ -2482,36 +2530,43 @@ describe('Table.filter', () => {
       vi.runAllTimers();
     });
 
-    expect(document.body.querySelectorAll('.ant-tree-checkbox').length).toBe(5);
+    await waitFor(() => {
+      expect(document.body.querySelectorAll('.ant-tree-checkbox').length).toBe(5);
+    });
     expect(document.body.querySelectorAll('.ant-tree-checkbox-checked').length).toBe(0);
 
     fireEvent.click(document.body.querySelectorAll('.ant-tree-node-content-wrapper')[2]);
-    expect(
-      container
-        .querySelectorAll('.ant-tree-checkbox')[2]
-        .className.includes('ant-tree-checkbox-checked'),
-    ).toBe(true);
+    await waitFor(() => {
+      expect(
+        document.body
+          .querySelectorAll('.ant-tree-checkbox')[2]
+          .className.includes('ant-tree-checkbox-checked'),
+      ).toBe(true);
+    });
     expect(document.body.querySelectorAll('.ant-tree-checkbox-checked').length).toBe(1);
 
     fireEvent.click(document.body.querySelectorAll('.ant-tree-node-content-wrapper')[1]);
-    expect(
-      container
-        .querySelectorAll('.ant-tree-checkbox')[1]
-        .className.includes('ant-tree-checkbox-checked'),
-    ).toBe(true);
+    await waitFor(() => {
+      expect(
+        document.body
+          .querySelectorAll('.ant-tree-checkbox')[1]
+          .className.includes('ant-tree-checkbox-checked'),
+      ).toBe(true);
+    });
     expect(document.body.querySelectorAll('.ant-tree-checkbox-checked').length).toBe(1);
 
     fireEvent.click(document.body.querySelectorAll('.ant-tree-node-content-wrapper')[1]);
-    expect(
-      container
-        .querySelectorAll('.ant-tree-checkbox')[1]
-        .className.includes('ant-tree-checkbox-checked'),
-    ).toBe(false);
+    await waitFor(() => {
+      expect(
+        document.body
+          .querySelectorAll('.ant-tree-checkbox')[1]
+          .className.includes('ant-tree-checkbox-checked'),
+      ).toBe(false);
+    });
     expect(document.body.querySelectorAll('.ant-tree-checkbox-checked').length).toBe(0);
   });
 
-  // Skip: Complex portal query issues with filter dropdown
-  it.skip('should select children when select parent', () => {
+  it('should select children when select parent', async () => {
     vi.spyOn(console, 'error').mockImplementation(() => undefined);
     const { container } = render(
       createTable({
@@ -2540,21 +2595,26 @@ describe('Table.filter', () => {
       vi.runAllTimers();
     });
     // check parentnode
+    await waitFor(() => {
+      expect(document.body.querySelectorAll('.ant-tree-checkbox').length).toBeGreaterThan(2);
+    });
 
     fireEvent.click(document.body.querySelectorAll('.ant-tree-checkbox')[2]);
 
+    await waitFor(() => {
+      expect(
+        document.body
+          .querySelectorAll('.ant-tree-checkbox')[2]
+          .className.includes('ant-tree-checkbox-checked'),
+      ).toBe(true);
+    });
     expect(
-      container
-        .querySelectorAll('.ant-tree-checkbox')[2]
-        .className.includes('ant-tree-checkbox-checked'),
-    ).toBe(true);
-    expect(
-      container
+      document.body
         .querySelectorAll('.ant-tree-checkbox')[3]
         .className.includes('ant-tree-checkbox-checked'),
     ).toBe(true);
     expect(
-      container
+      document.body
         .querySelectorAll('.ant-tree-checkbox')[4]
         .className.includes('ant-tree-checkbox-checked'),
     ).toBe(true);
@@ -2564,37 +2624,50 @@ describe('Table.filter', () => {
         '.ant-table-filter-dropdown-btns .ant-btn-color-primary.ant-btn-variant-solid',
       )!,
     );
-    expect(renderedNames(container)).toEqual(['Jack']);
+    await waitFor(() => {
+      expect(renderedNames(container)).toEqual(['Jack']);
+    });
 
     fireEvent.click(container.querySelector('span.ant-dropdown-trigger')!, nativeEvent);
     act(() => {
       vi.runAllTimers();
     });
 
+    await waitFor(() => {
+      expect(document.body.querySelectorAll('.ant-tree-checkbox-inner').length).toBeGreaterThan(2);
+    });
     fireEvent.click(document.body.querySelectorAll('.ant-tree-checkbox-inner')[2]);
     fireEvent.click(
       document.body.querySelector(
         '.ant-table-filter-dropdown-btns .ant-btn-color-primary.ant-btn-variant-solid',
       )!,
     );
-    expect(renderedNames(container)).toEqual(['Jack', 'Lucy', 'Tom', 'Jerry']);
+    await waitFor(() => {
+      expect(renderedNames(container)).toEqual(['Jack', 'Lucy', 'Tom', 'Jerry']);
+    });
 
     fireEvent.click(container.querySelector('span.ant-dropdown-trigger')!, nativeEvent);
     act(() => {
       vi.runAllTimers();
     });
 
+    await waitFor(() => {
+      expect(
+        document.body.querySelectorAll('.ant-tree-node-content-wrapper').length,
+      ).toBeGreaterThan(2);
+    });
     fireEvent.click(document.body.querySelectorAll('.ant-tree-node-content-wrapper')[2]);
     fireEvent.click(
       document.body.querySelector(
         '.ant-table-filter-dropdown-btns .ant-btn-color-primary.ant-btn-variant-solid',
       )!,
     );
-    expect(renderedNames(container)).toEqual(['Jack']);
+    await waitFor(() => {
+      expect(renderedNames(container)).toEqual(['Jack']);
+    });
   });
 
-  // Skip: Complex portal query issues with filter dropdown
-  it.skip('clearFilters should support params', () => {
+  it('clearFilters should support params', async () => {
     const filterConfig = [
       ['Jack', 'NoParams', {}, ['Jack'], true],
       ['Lucy', 'Confirm', { confirm: true }, ['Jack', 'Lucy', 'Tom', 'Jerry'], true],
@@ -2658,23 +2731,32 @@ describe('Table.filter', () => {
 
     // check if renderer well
     fireEvent.click(container.querySelector('span.ant-dropdown-trigger')!);
+    await waitFor(() => {
+      expect(document.body.querySelector('#customFilter')).toBeTruthy();
+    });
     expect(document.body.querySelector('#customFilter')).toMatchSnapshot();
     expect(renderSelectedKeys).toHaveLength(0);
 
-    filterConfig.forEach(([text, id, , matchNames, visible]) => {
-      fireEvent.click(container.querySelector(`#set${id}`)!);
-      expect(renderedNames(container)).toEqual([text]);
+    for (const [text, id, , matchNames, visible] of filterConfig) {
+      fireEvent.click(document.body.querySelector(`#set${id}`)!);
+      await waitFor(() => {
+        expect(renderedNames(container)).toEqual([text]);
+      });
 
       fireEvent.click(container.querySelector('span.ant-dropdown-trigger')!);
-      fireEvent.click(container.querySelector(`#reset${id}`)!);
-      expect(renderedNames(container)).toEqual(matchNames);
+      await waitFor(() => {
+        expect(document.body.querySelector(`#reset${id}`)).toBeTruthy();
+      });
+      fireEvent.click(document.body.querySelector(`#reset${id}`)!);
+      await waitFor(() => {
+        expect(renderedNames(container)).toEqual(matchNames);
+      });
 
       expect(container.querySelector('.ant-dropdown-open'))[visible ? 'toBeTruthy' : 'toBeFalsy']();
-    });
+    }
   });
 
-  // Skip: Complex portal query issues with filter dropdown
-  it.skip('filterDropdown should support filterResetToDefaultFilteredValue', () => {
+  it('filterDropdown should support filterResetToDefaultFilteredValue', async () => {
     vi.spyOn(console, 'error').mockImplementation(() => undefined);
 
     const columnFilter: ColumnGroupType<any> | ColumnType<any> = {
@@ -2684,7 +2766,7 @@ describe('Table.filter', () => {
       defaultFilteredValue: ['girl'],
     };
 
-    const { container } = render(
+    const { container, unmount } = render(
       createTable({
         columns: [columnFilter],
       }),
@@ -2693,12 +2775,20 @@ describe('Table.filter', () => {
     act(() => {
       vi.runAllTimers();
     });
-    expect(document.body.querySelectorAll('.ant-tree-checkbox-checked').length).toBe(1);
+    await waitFor(() => {
+      expect(document.body.querySelectorAll('.ant-tree-checkbox-checked').length).toBe(1);
+    });
 
     fireEvent.click(document.body.querySelector('.ant-table-filter-dropdown-checkall')!);
-    expect(document.body.querySelectorAll('.ant-tree-checkbox-checked').length).toBe(5);
+    await waitFor(() => {
+      expect(document.body.querySelectorAll('.ant-tree-checkbox-checked').length).toBe(5);
+    });
     fireEvent.click(document.body.querySelector('button.ant-btn-link')!, nativeEvent);
-    expect(document.body.querySelectorAll('.ant-tree-checkbox-checked').length).toBe(0);
+    await waitFor(() => {
+      expect(document.body.querySelectorAll('.ant-tree-checkbox-checked').length).toBe(0);
+    });
+
+    unmount();
 
     const { container: container2 } = render(
       createTable({
@@ -2715,10 +2805,17 @@ describe('Table.filter', () => {
     act(() => {
       vi.runAllTimers();
     });
+    await waitFor(() => {
+      expect(document.body.querySelector('.ant-table-filter-dropdown-checkall')).toBeTruthy();
+    });
     fireEvent.click(document.body.querySelector('.ant-table-filter-dropdown-checkall')!);
-    expect(document.body.querySelectorAll('.ant-tree-checkbox-checked').length).toBe(5);
+    await waitFor(() => {
+      expect(document.body.querySelectorAll('.ant-tree-checkbox-checked').length).toBe(5);
+    });
     fireEvent.click(document.body.querySelector('button.ant-btn-link')!, nativeEvent);
-    expect(document.body.querySelectorAll('.ant-tree-checkbox-checked').length).toBe(1);
+    await waitFor(() => {
+      expect(document.body.querySelectorAll('.ant-tree-checkbox-checked').length).toBe(1);
+    });
     expect(document.body.querySelector('.ant-tree-checkbox-checked+span')?.textContent).toBe(
       'Girl',
     );
