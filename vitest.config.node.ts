@@ -31,10 +31,12 @@ export default defineConfig({
   },
   test: {
     globals: true,
-    environment: 'node',
+    // Use jsdom for SSR tests because node environment doesn't properly resolve
+    // TypeScript imports without extensions
+    environment: 'jsdom',
     include: ['components/**/__tests__/**/node.test.{ts,tsx}'],
     exclude: ['**/node_modules/**', '**/_site/**'],
-    setupFiles: ['./tests/setup.ts'],
+    setupFiles: ['./tests/setup.ts', './tests/setupAfterEnv.ts', 'vitest-canvas-mock'],
     testTimeout: 30000,
     hookTimeout: 30000,
     reporters: ['default'],
