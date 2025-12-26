@@ -17,6 +17,7 @@
       "antd/locale/*": ["components/locale/*"]
     },
     "resolvePackageJsonExports": true,
+    "types": ["vitest/globals", "node"],
     "strict": true,
     "strictNullChecks": true,
     "noImplicitAny": true,

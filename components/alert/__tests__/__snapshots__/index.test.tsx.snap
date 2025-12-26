@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Alert custom action 1`] = `
+exports[`Alert > custom action 1`] = `
 <div
   class="ant-alert ant-alert-success css-var-root"
   data-show="true"
@@ -75,7 +75,7 @@ exports[`Alert custom action 1`] = `
 </div>
 `;
 
-exports[`Alert rtl render component should be rendered correctly in RTL direction 1`] = `
+exports[`Alert > rtl render > component should be rendered correctly in RTL direction 1`] = `
 <div
   class="ant-alert ant-alert-info ant-alert-no-icon ant-alert-rtl css-var-root"
   data-show="true"

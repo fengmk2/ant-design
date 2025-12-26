@@ -1,4 +1,5 @@
 import React from 'react';
+import { vi } from 'vitest';
 import { spyElementPrototypes } from '@rc-component/util/lib/test/domHook';
 
 import Watermark from '..';
@@ -12,7 +13,7 @@ describe('Watermark', () => {
   mountTest(Watermark);
   rtlTest(Watermark);
 
-  const mockSrcSet = jest.spyOn(Image.prototype, 'src', 'set');
+  const mockSrcSet = vi.spyOn(Image.prototype, 'src', 'set');
 
   beforeAll(() => {
     mockSrcSet.mockImplementation(function fn() {
@@ -22,11 +23,11 @@ describe('Watermark', () => {
   });
 
   beforeEach(() => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
   });
 
   afterEach(() => {
-    jest.useRealTimers();
+    vi.useRealTimers();
   });
 
   afterAll(() => {
@@ -183,7 +184,7 @@ describe('Watermark', () => {
   });
 
   it('should not crash if content is empty string', async () => {
-    const spy = jest.spyOn(CanvasRenderingContext2D.prototype, 'drawImage');
+    const spy = vi.spyOn(CanvasRenderingContext2D.prototype, 'drawImage');
     render(<Watermark content="" className="watermark" />);
     await waitFakeTimer();
     expect(spy).not.toHaveBeenCalledWith(expect.anything(), 0, 0);
@@ -194,7 +195,7 @@ describe('Watermark', () => {
   });
 
   it('should call onRemove when watermark is hard removed', async () => {
-    const onRemove = jest.fn();
+    const onRemove = vi.fn();
     const { container } = render(<Watermark content="Ant" onRemove={onRemove} />);
     await waitFakeTimer();
 
@@ -206,7 +207,7 @@ describe('Watermark', () => {
   });
 
   it('should not call onRemove when unmount', async () => {
-    const onRemove = jest.fn();
+    const onRemove = vi.fn();
     const { unmount } = render(<Watermark content="Ant" onRemove={onRemove} />);
     await waitFakeTimer();
     unmount();

@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`mount rtl render component should be rendered correctly in RTL direction 1`] = `
+exports[`mount > rtl render > component should be rendered correctly in RTL direction 1`] = `
 <div
   class="ant-picker ant-picker-rtl ant-picker-outlined css-var-root ant-picker-css-var"
 >
@@ -41,7 +41,7 @@ exports[`mount rtl render component should be rendered correctly in RTL directio
 </div>
 `;
 
-exports[`mount rtl render component should be rendered correctly in RTL direction 2`] = `
+exports[`mount > rtl render > component should be rendered correctly in RTL direction 2`] = `
 <div
   class="ant-picker ant-picker-rtl ant-picker-outlined css-var-root ant-picker-css-var"
 >
@@ -82,7 +82,7 @@ exports[`mount rtl render component should be rendered correctly in RTL directio
 </div>
 `;
 
-exports[`mount rtl render component should be rendered correctly in RTL direction 3`] = `
+exports[`mount > rtl render > component should be rendered correctly in RTL direction 3`] = `
 <div
   class="ant-picker ant-picker-rtl ant-picker-outlined css-var-root ant-picker-css-var"
 >
@@ -123,7 +123,7 @@ exports[`mount rtl render component should be rendered correctly in RTL directio
 </div>
 `;
 
-exports[`mount rtl render component should be rendered correctly in RTL direction 4`] = `
+exports[`mount > rtl render > component should be rendered correctly in RTL direction 4`] = `
 <div
   class="ant-picker ant-picker-range ant-picker-rtl ant-picker-outlined css-var-root ant-picker-css-var"
 >

@@ -1,4 +1,5 @@
 import React from 'react';
+import { vi } from 'vitest';
 
 import Tabs from '..';
 import type { TabsRef } from '..';
@@ -23,13 +24,13 @@ describe('Tabs', () => {
   ));
 
   describe('editable-card', () => {
-    let handleEdit: jest.Mock;
+    let handleEdit: ReturnType<typeof vi.fn>;
     let wrapper: ReturnType<typeof render>['container'];
 
     beforeEach(() => {
-      handleEdit = jest.fn();
+      handleEdit = vi.fn();
       const { container } = render(
-        <Tabs type="editable-card" onEdit={handleEdit}>
+        <Tabs type="editable-card" onEdit={handleEdit as any}>
           <TabPane tab="foo" key="1">
             foo
           </TabPane>
@@ -83,7 +84,7 @@ describe('Tabs', () => {
   });
 
   it('warning for onNextClick', () => {
-    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
     const onNextClick = { onNextClick() {} } as any;
     render(<Tabs {...onNextClick} />);
     expect(errorSpy).toHaveBeenCalledWith(
@@ -113,7 +114,7 @@ describe('Tabs', () => {
 
   it('deprecated warning', () => {
     resetWarned();
-    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
 
     const { container } = render(
       <Tabs>
@@ -144,7 +145,7 @@ describe('Tabs', () => {
   });
 
   it('warning for indicatorSize', () => {
-    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
     render(<Tabs indicatorSize={10} />);
     expect(errorSpy).toHaveBeenCalledWith(
       'Warning: [antd: Tabs] `indicatorSize` has been deprecated. Please use `indicator={{ size: ... }}` instead.',
@@ -199,10 +200,10 @@ describe('Tabs', () => {
     expect(content).toHaveStyle({ color: customStyles.content.color });
   });
   describe('Tabs placement transformation', () => {
-    let consoleErrorSpy: jest.SpyInstance;
+    let consoleErrorSpy: ReturnType<typeof vi.spyOn>;
 
     beforeAll(() => {
-      consoleErrorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      consoleErrorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
     });
 
     afterEach(() => {

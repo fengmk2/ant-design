@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`antd exports modules correctly 1`] = `
+exports[`antd > exports modules correctly 1`] = `
 [
   "Affix",
   "Alert",
@@ -39,7 +39,9 @@ exports[`antd exports modules correctly 1`] = `
   "Masonry",
   "Mentions",
   "Menu",
+  "message",
   "Modal",
+  "notification",
   "Pagination",
   "Popconfirm",
   "Popover",
@@ -62,6 +64,7 @@ exports[`antd exports modules correctly 1`] = `
   "Table",
   "Tabs",
   "Tag",
+  "theme",
   "TimePicker",
   "Timeline",
   "Tooltip",
@@ -71,11 +74,8 @@ exports[`antd exports modules correctly 1`] = `
   "TreeSelect",
   "Typography",
   "Upload",
-  "Watermark",
-  "message",
-  "notification",
-  "theme",
-  "unstableSetRender",
   "version",
+  "Watermark",
+  "unstableSetRender",
 ]
 `;

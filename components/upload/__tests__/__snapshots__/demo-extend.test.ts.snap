@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`renders components/upload/demo/avatar.tsx extend context correctly 1`] = `
 <div
@@ -370,7 +370,6 @@ exports[`renders components/upload/demo/component-token.tsx extend context corre
       class="ant-upload-list-item-container"
     >
       <div
-        aria-describedby="test-id"
         class="ant-upload-list-item ant-upload-list-item-error"
       >
         <div
@@ -439,26 +438,6 @@ exports[`renders components/upload/demo/component-token.tsx extend context corre
             </span>
           </button>
         </span>
-      </div>
-      <div
-        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-      >
-        <div
-          class="ant-tooltip-arrow"
-          style="position: absolute; bottom: 0px; left: 0px;"
-        >
-          <span
-            class="ant-tooltip-arrow-content"
-          />
-        </div>
-        <div
-          class="ant-tooltip-container"
-          id="test-id"
-          role="tooltip"
-        >
-          Server Error 500
-        </div>
       </div>
     </div>
   </div>
@@ -765,7 +744,6 @@ exports[`renders components/upload/demo/debug-disabled.tsx extend context correc
           class="ant-upload-list-item-container"
         >
           <div
-            aria-describedby="test-id"
             class="ant-upload-list-item ant-upload-list-item-error"
           >
             <div
@@ -817,26 +795,6 @@ exports[`renders components/upload/demo/debug-disabled.tsx extend context correc
             <span
               class="ant-upload-list-item-actions"
             />
-          </div>
-          <div
-            class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
-            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-          >
-            <div
-              class="ant-tooltip-arrow"
-              style="position: absolute; bottom: 0px; left: 0px;"
-            >
-              <span
-                class="ant-tooltip-arrow-content"
-              />
-            </div>
-            <div
-              class="ant-tooltip-container"
-              id="test-id"
-              role="tooltip"
-            >
-              Upload error
-            </div>
           </div>
         </div>
         <div
@@ -1042,7 +1000,6 @@ exports[`renders components/upload/demo/debug-disabled.tsx extend context correc
           class="ant-upload-list-item-container"
         >
           <div
-            aria-describedby="test-id"
             class="ant-upload-list-item ant-upload-list-item-error"
           >
             <div
@@ -1094,26 +1051,6 @@ exports[`renders components/upload/demo/debug-disabled.tsx extend context correc
             <span
               class="ant-upload-list-item-actions"
             />
-          </div>
-          <div
-            class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
-            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-          >
-            <div
-              class="ant-tooltip-arrow"
-              style="position: absolute; bottom: 0px; left: 0px;"
-            >
-              <span
-                class="ant-tooltip-arrow-content"
-              />
-            </div>
-            <div
-              class="ant-tooltip-container"
-              id="test-id"
-              role="tooltip"
-            >
-              Upload error
-            </div>
           </div>
         </div>
         <div
@@ -1439,7 +1376,6 @@ exports[`renders components/upload/demo/defaultFileList.tsx extend context corre
       class="ant-upload-list-item-container"
     >
       <div
-        aria-describedby="test-id"
         class="ant-upload-list-item ant-upload-list-item-error"
       >
         <div
@@ -1508,26 +1444,6 @@ exports[`renders components/upload/demo/defaultFileList.tsx extend context corre
             </span>
           </button>
         </span>
-      </div>
-      <div
-        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-      >
-        <div
-          class="ant-tooltip-arrow"
-          style="position: absolute; bottom: 0px; left: 0px;"
-        >
-          <span
-            class="ant-tooltip-arrow-content"
-          />
-        </div>
-        <div
-          class="ant-tooltip-container"
-          id="test-id"
-          role="tooltip"
-        >
-          Server Error 500
-        </div>
       </div>
     </div>
   </div>
@@ -2415,7 +2331,6 @@ exports[`renders components/upload/demo/file-type.tsx extend context correctly 1
       class="ant-upload-list-item-container"
     >
       <div
-        aria-describedby="test-id"
         class="ant-upload-list-item ant-upload-list-item-error"
       >
         <div
@@ -2499,32 +2414,11 @@ exports[`renders components/upload/demo/file-type.tsx extend context correctly 1
           </button>
         </span>
       </div>
-      <div
-        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-      >
-        <div
-          class="ant-tooltip-arrow"
-          style="position: absolute; bottom: 0px; left: 0px;"
-        >
-          <span
-            class="ant-tooltip-arrow-content"
-          />
-        </div>
-        <div
-          class="ant-tooltip-container"
-          id="test-id"
-          role="tooltip"
-        >
-          Upload error
-        </div>
-      </div>
     </div>
     <div
       class="ant-upload-list-item-container"
     >
       <div
-        aria-describedby="test-id"
         class="ant-upload-list-item ant-upload-list-item-error"
       >
         <div
@@ -2608,32 +2502,11 @@ exports[`renders components/upload/demo/file-type.tsx extend context correctly 1
           </button>
         </span>
       </div>
-      <div
-        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-      >
-        <div
-          class="ant-tooltip-arrow"
-          style="position: absolute; bottom: 0px; left: 0px;"
-        >
-          <span
-            class="ant-tooltip-arrow-content"
-          />
-        </div>
-        <div
-          class="ant-tooltip-container"
-          id="test-id"
-          role="tooltip"
-        >
-          Upload error
-        </div>
-      </div>
     </div>
     <div
       class="ant-upload-list-item-container"
     >
       <div
-        aria-describedby="test-id"
         class="ant-upload-list-item ant-upload-list-item-error"
       >
         <div
@@ -2708,26 +2581,6 @@ exports[`renders components/upload/demo/file-type.tsx extend context correctly 1
             </span>
           </button>
         </span>
-      </div>
-      <div
-        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-      >
-        <div
-          class="ant-tooltip-arrow"
-          style="position: absolute; bottom: 0px; left: 0px;"
-        >
-          <span
-            class="ant-tooltip-arrow-content"
-          />
-        </div>
-        <div
-          class="ant-tooltip-container"
-          id="test-id"
-          role="tooltip"
-        >
-          Upload error
-        </div>
       </div>
     </div>
     <div
@@ -3484,7 +3337,6 @@ exports[`renders components/upload/demo/picture-card.tsx extend context correctl
       class="ant-upload-list-item-container"
     >
       <div
-        aria-describedby="test-id"
         class="ant-upload-list-item ant-upload-list-item-error"
       >
         <div
@@ -3567,26 +3419,6 @@ exports[`renders components/upload/demo/picture-card.tsx extend context correctl
             </span>
           </button>
         </span>
-      </div>
-      <div
-        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-      >
-        <div
-          class="ant-tooltip-arrow"
-          style="position: absolute; bottom: 0px; left: 0px;"
-        >
-          <span
-            class="ant-tooltip-arrow-content"
-          />
-        </div>
-        <div
-          class="ant-tooltip-container"
-          id="test-id"
-          role="tooltip"
-        >
-          Upload error
-        </div>
       </div>
     </div>
     <div
@@ -3763,7 +3595,6 @@ exports[`renders components/upload/demo/picture-circle.tsx extend context correc
       class="ant-upload-list-item-container"
     >
       <div
-        aria-describedby="test-id"
         class="ant-upload-list-item ant-upload-list-item-error"
       >
         <div
@@ -3846,26 +3677,6 @@ exports[`renders components/upload/demo/picture-circle.tsx extend context correc
             </span>
           </button>
         </span>
-      </div>
-      <div
-        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-      >
-        <div
-          class="ant-tooltip-arrow"
-          style="position: absolute; bottom: 0px; left: 0px;"
-        >
-          <span
-            class="ant-tooltip-arrow-content"
-          />
-        </div>
-        <div
-          class="ant-tooltip-container"
-          id="test-id"
-          role="tooltip"
-        >
-          Upload error
-        </div>
       </div>
     </div>
     <div
@@ -4110,7 +3921,6 @@ exports[`renders components/upload/demo/picture-style.tsx extend context correct
       class="ant-upload-list-item-container"
     >
       <div
-        aria-describedby="test-id"
         class="ant-upload-list-item ant-upload-list-item-error"
       >
         <div
@@ -4193,26 +4003,6 @@ exports[`renders components/upload/demo/picture-style.tsx extend context correct
             </span>
           </button>
         </span>
-      </div>
-      <div
-        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-      >
-        <div
-          class="ant-tooltip-arrow"
-          style="position: absolute; bottom: 0px; left: 0px;"
-        >
-          <span
-            class="ant-tooltip-arrow-content"
-          />
-        </div>
-        <div
-          class="ant-tooltip-container"
-          id="test-id"
-          role="tooltip"
-        >
-          Upload error
-        </div>
       </div>
     </div>
   </div>
@@ -5184,7 +4974,6 @@ exports[`renders components/upload/demo/upload-custom-action-icon.tsx extend con
       class="ant-upload-list-item-container"
     >
       <div
-        aria-describedby="test-id"
         class="ant-upload-list-item ant-upload-list-item-error"
       >
         <div
@@ -5262,26 +5051,6 @@ exports[`renders components/upload/demo/upload-custom-action-icon.tsx extend con
             </span>
           </button>
         </span>
-      </div>
-      <div
-        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-      >
-        <div
-          class="ant-tooltip-arrow"
-          style="position: absolute; bottom: 0px; left: 0px;"
-        >
-          <span
-            class="ant-tooltip-arrow-content"
-          />
-        </div>
-        <div
-          class="ant-tooltip-container"
-          id="test-id"
-          role="tooltip"
-        >
-          Server Error 500
-        </div>
       </div>
     </div>
   </div>

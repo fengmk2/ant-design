@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`CheckboxGroup passes prefixCls down to checkbox 1`] = `
+exports[`CheckboxGroup > passes prefixCls down to checkbox 1`] = `
 <div
   class="my-checkbox-group css-var-root my-checkbox-css-var"
 >
@@ -50,7 +50,7 @@ exports[`CheckboxGroup passes prefixCls down to checkbox 1`] = `
 </div>
 `;
 
-exports[`CheckboxGroup rtl render component should be rendered correctly in RTL direction 1`] = `
+exports[`CheckboxGroup > rtl render > component should be rendered correctly in RTL direction 1`] = `
 <div
   class="ant-checkbox-group ant-checkbox-group-rtl css-var-root ant-checkbox-css-var"
 />

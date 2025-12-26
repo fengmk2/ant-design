@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Calendar Calendar MonthSelect should display correct label 1`] = `
+exports[`Calendar > Calendar MonthSelect should display correct label 1`] = `
 <div
   class="ant-picker-calendar ant-picker-calendar-full css-var-root"
 >
@@ -930,7 +930,7 @@ exports[`Calendar Calendar MonthSelect should display correct label 1`] = `
 </div>
 `;
 
-exports[`Calendar Calendar should support locale 1`] = `
+exports[`Calendar > Calendar should support locale 1`] = `
 <div
   class="ant-picker-calendar ant-picker-calendar-full css-var-root"
 >
@@ -1860,7 +1860,7 @@ exports[`Calendar Calendar should support locale 1`] = `
 </div>
 `;
 
-exports[`Calendar rtl render component should be rendered correctly in RTL direction 1`] = `
+exports[`Calendar > rtl render > component should be rendered correctly in RTL direction 1`] = `
 <div
   class="ant-picker-calendar ant-picker-calendar-full ant-picker-calendar-rtl css-var-root"
 >
@@ -2790,7 +2790,7 @@ exports[`Calendar rtl render component should be rendered correctly in RTL direc
 </div>
 `;
 
-exports[`Calendar support Calendar.generateCalendar 1`] = `
+exports[`Calendar > support Calendar.generateCalendar 1`] = `
 <div
   class="ant-picker-calendar ant-picker-calendar-full css-var-root"
 >

@@ -1,6 +1,26 @@
-// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`TextArea allowClear classNames and styles should work 1`] = `
+exports[`TextArea > maxLength > should support maxLength 1`] = `
+<textarea
+  class="ant-input ant-input-outlined css-var-root ant-input-css-var"
+  maxlength="10"
+/>
+`;
+
+exports[`TextArea > should support disabled 1`] = `
+<textarea
+  class="ant-input ant-input-outlined css-var-root ant-input-css-var ant-input-disabled"
+  disabled=""
+/>
+`;
+
+exports[`TextArea > should support size 1`] = `
+<textarea
+  class="ant-input ant-input-lg ant-input-outlined css-var-root ant-input-css-var"
+/>
+`;
+
+exports[`TextArea allowClear > classNames and styles should work 1`] = `
 <div>
   <textarea
     class="ant-input custom-textarea ant-input-outlined css-var-root ant-input-css-var custom-class custom-root"
@@ -29,7 +49,7 @@ exports[`TextArea allowClear classNames and styles should work 1`] = `
 </div>
 `;
 
-exports[`TextArea allowClear should change type when click 1`] = `
+exports[`TextArea allowClear > should change type when click 1`] = `
 <span
   class="ant-input-affix-wrapper ant-input-textarea-affix-wrapper ant-input-textarea-allow-clear ant-input-outlined css-var-root ant-input-css-var"
 >
@@ -71,7 +91,7 @@ exports[`TextArea allowClear should change type when click 1`] = `
 </span>
 `;
 
-exports[`TextArea allowClear should change type when click 2`] = `
+exports[`TextArea allowClear > should change type when click 2`] = `
 <span
   class="ant-input-affix-wrapper ant-input-affix-wrapper-focused ant-input-textarea-affix-wrapper ant-input-textarea-allow-clear ant-input-outlined css-var-root ant-input-css-var"
 >
@@ -111,7 +131,7 @@ exports[`TextArea allowClear should change type when click 2`] = `
 </span>
 `;
 
-exports[`TextArea allowClear should not show icon if defaultValue is undefined, null or empty string 1`] = `
+exports[`TextArea allowClear > should not show icon if defaultValue is undefined, null or empty string 1`] = `
 <span
   class="ant-input-affix-wrapper ant-input-textarea-affix-wrapper ant-input-textarea-allow-clear ant-input-outlined css-var-root ant-input-css-var"
 >
@@ -151,7 +171,7 @@ exports[`TextArea allowClear should not show icon if defaultValue is undefined, 
 </span>
 `;
 
-exports[`TextArea allowClear should not show icon if defaultValue is undefined, null or empty string 2`] = `
+exports[`TextArea allowClear > should not show icon if defaultValue is undefined, null or empty string 2`] = `
 <span
   class="ant-input-affix-wrapper ant-input-textarea-affix-wrapper ant-input-textarea-allow-clear ant-input-outlined css-var-root ant-input-css-var"
 >
@@ -191,7 +211,7 @@ exports[`TextArea allowClear should not show icon if defaultValue is undefined, 
 </span>
 `;
 
-exports[`TextArea allowClear should not show icon if defaultValue is undefined, null or empty string 3`] = `
+exports[`TextArea allowClear > should not show icon if defaultValue is undefined, null or empty string 3`] = `
 <span
   class="ant-input-affix-wrapper ant-input-textarea-affix-wrapper ant-input-textarea-allow-clear ant-input-outlined css-var-root ant-input-css-var"
 >
@@ -231,7 +251,7 @@ exports[`TextArea allowClear should not show icon if defaultValue is undefined, 
 </span>
 `;
 
-exports[`TextArea allowClear should not show icon if value is undefined, null or empty string 1`] = `
+exports[`TextArea allowClear > should not show icon if value is undefined, null or empty string 1`] = `
 <span
   class="ant-input-affix-wrapper ant-input-textarea-affix-wrapper ant-input-textarea-allow-clear ant-input-outlined css-var-root ant-input-css-var"
 >
@@ -271,7 +291,7 @@ exports[`TextArea allowClear should not show icon if value is undefined, null or
 </span>
 `;
 
-exports[`TextArea allowClear should not show icon if value is undefined, null or empty string 2`] = `
+exports[`TextArea allowClear > should not show icon if value is undefined, null or empty string 2`] = `
 <span
   class="ant-input-affix-wrapper ant-input-textarea-affix-wrapper ant-input-textarea-allow-clear ant-input-outlined css-var-root ant-input-css-var"
 >
@@ -311,7 +331,7 @@ exports[`TextArea allowClear should not show icon if value is undefined, null or
 </span>
 `;
 
-exports[`TextArea allowClear should not show icon if value is undefined, null or empty string 3`] = `
+exports[`TextArea allowClear > should not show icon if value is undefined, null or empty string 3`] = `
 <span
   class="ant-input-affix-wrapper ant-input-textarea-affix-wrapper ant-input-textarea-allow-clear ant-input-outlined css-var-root ant-input-css-var"
 >
@@ -349,24 +369,4 @@ exports[`TextArea allowClear should not show icon if value is undefined, null or
     </button>
   </span>
 </span>
-`;
-
-exports[`TextArea maxLength should support maxLength 1`] = `
-<textarea
-  class="ant-input ant-input-outlined css-var-root ant-input-css-var"
-  maxlength="10"
-/>
-`;
-
-exports[`TextArea should support disabled 1`] = `
-<textarea
-  class="ant-input ant-input-outlined css-var-root ant-input-css-var ant-input-disabled"
-  disabled=""
-/>
-`;
-
-exports[`TextArea should support size 1`] = `
-<textarea
-  class="ant-input ant-input-lg ant-input-outlined css-var-root ant-input-css-var"
-/>
 `;

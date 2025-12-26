@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Tabs.Semantic rtl render component should be rendered correctly in RTL direction 1`] = `
+exports[`Tabs.Semantic > rtl render > component should be rendered correctly in RTL direction 1`] = `
 <div
   class="ant-tabs ant-tabs-top ant-tabs-rtl css-var-root ant-tabs-css-var"
 >

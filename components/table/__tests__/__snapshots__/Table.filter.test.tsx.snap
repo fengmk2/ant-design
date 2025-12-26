@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Table.filter clearFilters should support params 1`] = `
+exports[`Table.filter > clearFilters should support params 1`] = `
 <div
   class="ant-dropdown-custom-view"
   id="customFilter"
@@ -56,7 +56,7 @@ exports[`Table.filter clearFilters should support params 1`] = `
 </div>
 `;
 
-exports[`Table.filter override custom filter correctly 1`] = `
+exports[`Table.filter > override custom filter correctly 1`] = `
 <div
   class="ant-dropdown-custom-view"
   id="customFilter"
@@ -84,7 +84,7 @@ exports[`Table.filter override custom filter correctly 1`] = `
 </div>
 `;
 
-exports[`Table.filter renders custom content correctly 1`] = `
+exports[`Table.filter > renders custom content correctly 1`] = `
 <div
   class="ant-table-filter-dropdown"
 >
@@ -96,7 +96,7 @@ exports[`Table.filter renders custom content correctly 1`] = `
 </div>
 `;
 
-exports[`Table.filter renders custom filter icon as ReactNode 1`] = `
+exports[`Table.filter > renders custom filter icon as ReactNode 1`] = `
 <div
   class="css-var-root ant-table-css-var ant-table-wrapper"
 >
@@ -200,7 +200,7 @@ exports[`Table.filter renders custom filter icon as ReactNode 1`] = `
 </div>
 `;
 
-exports[`Table.filter renders custom filter icon as string correctly 1`] = `
+exports[`Table.filter > renders custom filter icon as string correctly 1`] = `
 <div
   class="css-var-root ant-table-css-var ant-table-wrapper"
 >
@@ -302,7 +302,7 @@ exports[`Table.filter renders custom filter icon as string correctly 1`] = `
 </div>
 `;
 
-exports[`Table.filter renders custom filter icon correctly 1`] = `
+exports[`Table.filter > renders custom filter icon correctly 1`] = `
 <span
   class="customize-icon"
 >
@@ -310,7 +310,7 @@ exports[`Table.filter renders custom filter icon correctly 1`] = `
 </span>
 `;
 
-exports[`Table.filter renders custom filter icon with right Tooltip title 1`] = `
+exports[`Table.filter > renders custom filter icon with right Tooltip title 1`] = `
 <div
   class="css-var-root ant-table-css-var ant-table-wrapper"
 >
@@ -359,26 +359,6 @@ exports[`Table.filter renders custom filter icon with right Tooltip title 1`] = 
                         >
                           Tooltip
                         </span>
-                        <div
-                          class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-root ant-tooltip-placement-top"
-                          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-                        >
-                          <div
-                            class="ant-tooltip-arrow"
-                            style="position: absolute; bottom: 0px; left: 0px;"
-                          >
-                            <span
-                              class="ant-tooltip-arrow-content"
-                            />
-                          </div>
-                          <div
-                            class="ant-tooltip-container"
-                            id="test-id"
-                            role="tooltip"
-                          >
-                            title
-                          </div>
-                        </div>
                       </span>
                     </div>
                   </th>
@@ -437,7 +417,7 @@ exports[`Table.filter renders custom filter icon with right Tooltip title 1`] = 
 </div>
 `;
 
-exports[`Table.filter renders filter correctly 1`] = `
+exports[`Table.filter > renders filter correctly 1`] = `
 <div
   class="css-var-root ant-table-css-var ant-table-wrapper"
 >
@@ -557,7 +537,7 @@ exports[`Table.filter renders filter correctly 1`] = `
 </div>
 `;
 
-exports[`Table.filter renders menu correctly 1`] = `
+exports[`Table.filter > renders menu correctly 1`] = `
 <div
   class="ant-table-filter-dropdown"
 >
@@ -697,7 +677,7 @@ exports[`Table.filter renders menu correctly 1`] = `
 </div>
 `;
 
-exports[`Table.filter renders radio filter correctly 1`] = `
+exports[`Table.filter > renders radio filter correctly 1`] = `
 <div
   class="ant-table-filter-dropdown"
 >

@@ -1,4 +1,5 @@
 import React from 'react';
+import { vi } from 'vitest';
 import { spyElementPrototypes } from '@rc-component/util/lib/test/domHook';
 import { render } from '@testing-library/react';
 
@@ -8,7 +9,7 @@ import { AggregationColor } from '../color';
 import ColorPicker from '../ColorPicker';
 
 describe('ColorPicker.gradient', () => {
-  const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+  const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
 
   beforeAll(() => {
     spyElementPrototypes(HTMLElement, {
@@ -25,26 +26,27 @@ describe('ColorPicker.gradient', () => {
 
   beforeEach(() => {
     resetWarned();
-    jest.useFakeTimers();
+    vi.useFakeTimers();
   });
 
   afterEach(() => {
     errorSpy.mockReset();
-    jest.useRealTimers();
+    vi.useRealTimers();
   });
 
   function doMouseDown(
-    container: HTMLElement,
+    _container: HTMLElement | Document,
     start: number,
     query: string | HTMLElement = '.ant-slider-handle',
     skipEventCheck = false,
   ) {
-    const ele = typeof query === 'object' ? query : container.querySelector(query)!;
+    // Query document.body for portal-rendered popup content
+    const ele = typeof query === 'object' ? query : document.body.querySelector(query)!;
     const mouseDown = createEvent.mouseDown(ele);
     Object.defineProperty(mouseDown, 'pageX', { value: start });
     Object.defineProperty(mouseDown, 'pageY', { value: start });
 
-    const preventDefault = jest.fn();
+    const preventDefault = vi.fn();
 
     Object.defineProperties(mouseDown, {
       clientX: { get: () => start },
@@ -71,7 +73,7 @@ describe('ColorPicker.gradient', () => {
   }
 
   function doDrag(
-    container: HTMLElement,
+    container: HTMLElement | Document,
     start: number,
     end: number,
     query: string | HTMLElement = '.ant-slider-handle',
@@ -82,19 +84,19 @@ describe('ColorPicker.gradient', () => {
     // Drag
     doMouseMove(end);
 
-    // Up
-    fireEvent.mouseUp(typeof query === 'object' ? query : container.querySelector(query)!);
+    // Up - Query document.body for portal-rendered popup content
+    fireEvent.mouseUp(typeof query === 'object' ? query : document.body.querySelector(query)!);
   }
 
   it('switch', async () => {
-    const onChange = jest.fn();
+    const onChange = vi.fn();
 
-    const { container } = render(
+    render(
       <ColorPicker mode={['single', 'gradient']} defaultValue="#123456" open onChange={onChange} />,
     );
 
-    // Switch to gradient
-    fireEvent.click(container.querySelectorAll(`.ant-segmented-item-input`)[1]);
+    // Switch to gradient - Query document.body for portal-rendered popup content
+    fireEvent.click(document.body.querySelectorAll(`.ant-segmented-item-input`)[1]);
 
     expect(onChange).toHaveBeenCalledWith(
       expect.anything(),
@@ -103,9 +105,9 @@ describe('ColorPicker.gradient', () => {
   });
 
   it('change color position', async () => {
-    const onChange = jest.fn();
+    const onChange = vi.fn();
 
-    const { container } = render(
+    render(
       <ColorPicker
         mode={['single', 'gradient']}
         defaultValue={[
@@ -123,8 +125,8 @@ describe('ColorPicker.gradient', () => {
       />,
     );
 
-    // Move
-    doDrag(container, 0, 80);
+    // Move - Use document.body for portal-rendered popup content
+    doDrag(document.body, 0, 80);
 
     expect(onChange).toHaveBeenCalledWith(
       expect.anything(),
@@ -133,9 +135,9 @@ describe('ColorPicker.gradient', () => {
   });
 
   it('change color hex', async () => {
-    const onChange = jest.fn();
+    const onChange = vi.fn();
 
-    const { container } = render(
+    render(
       <ColorPicker
         mode={['single', 'gradient']}
         defaultValue={[
@@ -153,12 +155,12 @@ describe('ColorPicker.gradient', () => {
       />,
     );
 
-    // Move
+    // Move - Query document.body for portal-rendered popup content
     doDrag(
-      container,
+      document.body,
       0,
       80,
-      container.querySelector<HTMLElement>(
+      document.body.querySelector<HTMLElement>(
         '.ant-color-picker-slider-container .ant-slider-handle',
       )!,
       true,
@@ -171,9 +173,9 @@ describe('ColorPicker.gradient', () => {
   });
 
   it('new color', async () => {
-    const onChange = jest.fn();
+    const onChange = vi.fn();
 
-    const { container } = render(
+    render(
       <ColorPicker
         mode={['single', 'gradient']}
         defaultValue={[
@@ -191,8 +193,8 @@ describe('ColorPicker.gradient', () => {
       />,
     );
 
-    // Move
-    doDrag(container, 20, 30, '.ant-slider', true);
+    // Move - Use document.body for portal-rendered popup content
+    doDrag(document.body, 20, 30, '.ant-slider', true);
 
     expect(onChange).toHaveBeenCalledWith(
       expect.anything(),
@@ -205,9 +207,9 @@ describe('ColorPicker.gradient', () => {
   });
 
   it('remove color', async () => {
-    const onChange = jest.fn();
+    const onChange = vi.fn();
 
-    const { container } = render(
+    render(
       <ColorPicker
         mode={['single', 'gradient']}
         defaultValue={[
@@ -233,8 +235,8 @@ describe('ColorPicker.gradient', () => {
       />,
     );
 
-    // Delete remove first
-    fireEvent.keyDown(container.querySelector<HTMLElement>('.ant-slider-handle-1')!, {
+    // Delete remove first - Query document.body for portal-rendered popup content
+    fireEvent.keyDown(document.body.querySelector<HTMLElement>('.ant-slider-handle-1')!, {
       key: 'Delete',
     });
     expect(onChange).toHaveBeenCalledWith(
@@ -242,13 +244,13 @@ describe('ColorPicker.gradient', () => {
       'linear-gradient(90deg, rgb(0,255,0) 50%, rgb(0,15,240) 80%, rgb(0,0,255) 100%)',
     );
 
-    // Drag remove last
+    // Drag remove last - Query document.body for portal-rendered popup content
     onChange.mockReset();
     doDrag(
-      container,
+      document.body,
       0,
       9999999,
-      container.querySelector<HTMLElement>('.ant-slider-handle-3')!,
+      document.body.querySelector<HTMLElement>('.ant-slider-handle-3')!,
       true,
     );
 
@@ -263,9 +265,9 @@ describe('ColorPicker.gradient', () => {
   });
 
   it('change to single', async () => {
-    const onChange = jest.fn();
+    const onChange = vi.fn();
 
-    const { container } = render(
+    render(
       <ColorPicker
         mode={['single', 'gradient']}
         defaultValue={[
@@ -283,8 +285,8 @@ describe('ColorPicker.gradient', () => {
       />,
     );
 
-    // Switch to gradient
-    fireEvent.click(container.querySelector(`.ant-segmented-item-input`)!);
+    // Switch to gradient - Query document.body for portal-rendered popup content
+    fireEvent.click(document.body.querySelector(`.ant-segmented-item-input`)!);
 
     expect(onChange).toHaveBeenCalledWith(expect.anything(), 'rgb(255,0,0)');
   });
@@ -302,15 +304,16 @@ describe('ColorPicker.gradient', () => {
   });
 
   it('mode fallback', () => {
-    const { container } = render(<ColorPicker mode={['gradient']} defaultValue="#F00" open />);
+    render(<ColorPicker mode={['gradient']} defaultValue="#F00" open />);
 
-    expect(container.querySelector('.ant-color-picker-gradient-slider')).toBeTruthy();
+    // Query document.body for portal-rendered popup content
+    expect(document.body.querySelector('.ant-color-picker-gradient-slider')).toBeTruthy();
   });
 
   // This test case may easily break by jsdom update
   // https://github.com/ant-design/ant-design/issues/51159
   it('change color 2 should not be color 1', () => {
-    const { container } = render(
+    render(
       <ColorPicker
         mode={['gradient']}
         open
@@ -327,12 +330,12 @@ describe('ColorPicker.gradient', () => {
       />,
     );
 
-    // Select second one
-    const handle2 = container.querySelector<HTMLElement>('.ant-slider-handle-2')!;
-    doDrag(container, 0, 0, handle2, true);
+    // Select second one - Query document.body for portal-rendered popup content
+    const handle2 = document.body.querySelector<HTMLElement>('.ant-slider-handle-2')!;
+    doDrag(document.body, 0, 0, handle2, true);
 
-    // Drag in the color panel
-    const panelHandle = container.querySelector('.ant-color-picker-saturation')!;
+    // Drag in the color panel - Query document.body for portal-rendered popup content
+    const panelHandle = document.body.querySelector('.ant-color-picker-saturation')!;
     const mouseDown = createEvent.mouseDown(panelHandle);
     fireEvent(panelHandle, mouseDown);
 
@@ -342,7 +345,7 @@ describe('ColorPicker.gradient', () => {
   });
 
   it('preset color', () => {
-    const onChange = jest.fn();
+    const onChange = vi.fn();
 
     render(
       <ColorPicker

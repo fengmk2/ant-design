@@ -1,4 +1,5 @@
 import React from 'react';
+import { vi } from 'vitest';
 import { SmileOutlined } from '@ant-design/icons';
 
 import notification, { actWrapper } from '..';
@@ -8,12 +9,13 @@ import { awaitPromise, triggerMotionEnd } from './util';
 import type { ArgsProps as NotificationArgsProps } from '../interface';
 
 // TODO: Remove this. Mock for React 19
-jest.mock('react-dom', () => {
-  const realReactDOM = jest.requireActual('react-dom');
+vi.mock('react-dom', async () => {
+  const realReactDOM = await vi.importActual<typeof import('react-dom')>('react-dom');
 
   if (realReactDOM.version.startsWith('19')) {
-    const realReactDOMClient = jest.requireActual('react-dom/client');
-    realReactDOM.createRoot = realReactDOMClient.createRoot;
+    const realReactDOMClient =
+      await vi.importActual<typeof import('react-dom/client')>('react-dom/client');
+    return { ...realReactDOM, createRoot: realReactDOMClient.createRoot };
   }
 
   return realReactDOM;
@@ -25,7 +27,7 @@ describe('notification semantic styles and classNames', () => {
   });
 
   beforeEach(() => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
   });
 
   afterEach(async () => {
@@ -38,7 +40,7 @@ describe('notification semantic styles and classNames', () => {
       getContainer: undefined,
     });
 
-    jest.useRealTimers();
+    vi.useRealTimers();
 
     await awaitPromise();
   });

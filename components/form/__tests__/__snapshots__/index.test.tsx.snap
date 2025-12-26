@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Form Form item hidden noStyle should not work when hidden 1`] = `
+exports[`Form > Form item hidden > noStyle should not work when hidden 1`] = `
 <form
   class="ant-form ant-form-horizontal css-var-root ant-form-css-var"
 >
@@ -33,7 +33,7 @@ exports[`Form Form item hidden noStyle should not work when hidden 1`] = `
 </form>
 `;
 
-exports[`Form Form item hidden should work 1`] = `
+exports[`Form > Form item hidden > should work 1`] = `
 <form
   class="ant-form ant-form-horizontal css-var-root ant-form-css-var"
 >
@@ -66,7 +66,7 @@ exports[`Form Form item hidden should work 1`] = `
 </form>
 `;
 
-exports[`Form Form.Item should support data-*、aria-* and custom attribute 1`] = `
+exports[`Form > Form.Item should support data-*、aria-* and custom attribute 1`] = `
 <form
   class="ant-form ant-form-horizontal css-var-root ant-form-css-var"
 >
@@ -97,7 +97,7 @@ exports[`Form Form.Item should support data-*、aria-* and custom attribute 1`] 
 </form>
 `;
 
-exports[`Form form should support disabled 1`] = `
+exports[`Form > form should support disabled 1`] = `
 <form
   class="ant-form ant-form-horizontal css-var-root ant-form-css-var"
 >
@@ -1059,7 +1059,7 @@ exports[`Form form should support disabled 1`] = `
 </form>
 `;
 
-exports[`Form form.item should support layout 1`] = `
+exports[`Form > form.item should support layout 1`] = `
 <form
   class="ant-form ant-form-horizontal css-var-root ant-form-css-var"
 >
@@ -1206,6 +1206,98 @@ exports[`Form form.item should support layout 1`] = `
               type="text"
               value=""
             />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+`;
+
+exports[`Form > rtl render > component should be rendered correctly in RTL direction 1`] = `
+<form
+  class="ant-form ant-form-horizontal ant-form-rtl css-var-root ant-form-css-var"
+/>
+`;
+
+exports[`Form > rtl render > component should be rendered correctly in RTL direction 2`] = `
+<div
+  class="ant-form-item css-var-root ant-form-css-var ant-form-item-horizontal"
+>
+  <div
+    class="ant-row ant-row-rtl ant-form-item-row css-var-root"
+  >
+    <div
+      class="ant-col ant-form-item-control ant-col-rtl css-var-root"
+    >
+      <div
+        class="ant-form-item-control-input"
+      >
+        <div
+          class="ant-form-item-control-input-content"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Form Form item hidden noStyle should not work when hidden 1`] = `
+<form
+  class="ant-form ant-form-horizontal css-var-root ant-form-css-var"
+>
+  <div
+    class="ant-form-item css-var-root ant-form-css-var ant-form-item-hidden ant-form-item-horizontal"
+  >
+    <div
+      class="ant-row ant-form-item-row css-var-root"
+    >
+      <div
+        class="ant-col ant-form-item-control css-var-root"
+      >
+        <div
+          class="ant-form-item-control-input"
+        >
+          <div
+            class="ant-form-item-control-input-content"
+          >
+            <input
+              class="ant-input ant-input-outlined css-var-root ant-input-css-var"
+              id="light"
+              type="text"
+              value=""
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+`;
+
+exports[`Form Form.Item should support data-*、aria-* and custom attribute 1`] = `
+<form
+  class="ant-form ant-form-horizontal css-var-root ant-form-css-var"
+>
+  <div
+    class="ant-form-item css-var-root ant-form-css-var ant-form-item-horizontal"
+  >
+    <div
+      aria-hidden="true"
+      cccc="bbbb"
+      class="ant-row ant-form-item-row css-var-root"
+      data-text="123"
+    >
+      <div
+        class="ant-col ant-form-item-control css-var-root"
+      >
+        <div
+          class="ant-form-item-control-input"
+        >
+          <div
+            class="ant-form-item-control-input-content"
+          >
+            text
           </div>
         </div>
       </div>

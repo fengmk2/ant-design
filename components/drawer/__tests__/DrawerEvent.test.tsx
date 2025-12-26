@@ -1,4 +1,5 @@
 import React from 'react';
+import { vi } from 'vitest';
 
 import type { DrawerProps } from '..';
 import Drawer from '..';
@@ -12,16 +13,16 @@ const DrawerTest: React.FC<DrawerProps> = (props) => (
 
 describe('Drawer', () => {
   beforeEach(() => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
   });
 
   afterEach(() => {
-    jest.useRealTimers();
+    vi.useRealTimers();
   });
 
   function triggerMotion() {
     act(() => {
-      jest.runAllTimers();
+      vi.runAllTimers();
     });
 
     const mask = document.querySelector('.ant-drawer-mask');
@@ -40,7 +41,7 @@ describe('Drawer', () => {
     }
 
     act(() => {
-      jest.runAllTimers();
+      vi.runAllTimers();
     });
   }
 
@@ -58,7 +59,7 @@ describe('Drawer', () => {
   });
 
   it('mask trigger onClose', () => {
-    const onClose = jest.fn();
+    const onClose = vi.fn();
     const { container } = render(<DrawerTest onClose={onClose} />);
 
     fireEvent.click(container.querySelector('.ant-drawer-mask')!);
@@ -66,7 +67,7 @@ describe('Drawer', () => {
   });
 
   it('close button trigger onClose', () => {
-    const onClose = jest.fn();
+    const onClose = vi.fn();
     const { container } = render(<DrawerTest onClose={onClose} />);
 
     fireEvent.click(container.querySelector('.ant-drawer-close')!);
@@ -74,7 +75,7 @@ describe('Drawer', () => {
   });
 
   it('maskClosable no trigger onClose', () => {
-    const onClose = jest.fn();
+    const onClose = vi.fn();
     const { container } = render(<DrawerTest onClose={onClose} maskClosable={false} />);
 
     fireEvent.click(container.querySelector('.ant-drawer-mask')!);
@@ -87,7 +88,7 @@ describe('Drawer', () => {
 
     rerender(<DrawerTest destroyOnHidden open={false} />);
     act(() => {
-      jest.runAllTimers();
+      vi.runAllTimers();
     });
 
     expect(container.querySelector('.ant-drawer')).toBeFalsy();
@@ -99,7 +100,7 @@ describe('Drawer', () => {
 
     rerender(<DrawerTest open={false} />);
     act(() => {
-      jest.runAllTimers();
+      vi.runAllTimers();
     });
     fireEvent.animationEnd(container.querySelector('.ant-drawer-section')!);
 
@@ -127,7 +128,7 @@ describe('Drawer', () => {
   });
 
   it('test afterOpenChange', async () => {
-    const afterOpenChange = jest.fn();
+    const afterOpenChange = vi.fn();
     const { rerender } = render(<DrawerTest open afterOpenChange={afterOpenChange} />);
     rerender(<DrawerTest open={false} afterOpenChange={afterOpenChange} />);
 
@@ -137,7 +138,7 @@ describe('Drawer', () => {
   });
 
   it('should support children ref', () => {
-    const fn = jest.fn();
+    const fn = vi.fn();
 
     const refCallback = (ref: HTMLDivElement | null) => {
       expect(typeof ref).toBe('object');

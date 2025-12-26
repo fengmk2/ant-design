@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { vi } from 'vitest';
 
 import type { ModalProps } from '..';
 import Modal from '..';
@@ -8,7 +9,7 @@ import rtlTest from '../../../tests/shared/rtlTest';
 import { act, createEvent, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 
-jest.mock('@rc-component/util/lib/Portal');
+vi.mock('@rc-component/util/lib/Portal');
 
 const ModalTester: React.FC<ModalProps> = (props) => {
   const [open, setOpen] = React.useState(false);
@@ -58,14 +59,14 @@ describe('Modal', () => {
   });
 
   it('onCancel should be called', () => {
-    const onCancel = jest.fn();
+    const onCancel = vi.fn();
     render(<Modal open onCancel={onCancel} />);
     fireEvent.click(document.body.querySelectorAll('.ant-btn')[0]);
     expect(onCancel).toHaveBeenCalled();
   });
 
   it('onOk should be called', () => {
-    const onOk = jest.fn();
+    const onOk = vi.fn();
     render(<Modal open onOk={onOk} />);
     const btns = document.body.querySelectorAll('.ant-btn');
     fireEvent.click(btns[btns.length - 1]);
@@ -135,7 +136,7 @@ describe('Modal', () => {
   });
 
   it('should custom footer function second param work', () => {
-    const footerFn = jest.fn();
+    const footerFn = vi.fn();
     render(<Modal open footer={footerFn} />);
 
     expect(footerFn).toHaveBeenCalled();
@@ -258,7 +259,7 @@ describe('Modal', () => {
   });
 
   it('should not close modal when confirmLoading is loading', async () => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
 
     const Demo: React.FC<ModalProps> = ({ onCancel = () => {}, onOk = () => {} }) => {
       const [loading, setLoading] = React.useState<boolean>(false);
@@ -276,8 +277,8 @@ describe('Modal', () => {
       return <Modal open confirmLoading={loading} onCancel={onCancel} onOk={handleOk} />;
     };
 
-    const onCancel = jest.fn();
-    const onOk = jest.fn();
+    const onCancel = vi.fn();
+    const onOk = vi.fn();
 
     render(<Demo onCancel={onCancel} onOk={onOk} />);
 
@@ -307,7 +308,7 @@ describe('Modal', () => {
     expect(onCancel).toHaveBeenCalled();
     expect(onOk).toHaveBeenCalled();
 
-    jest.useRealTimers();
+    vi.useRealTimers();
   });
 
   it('closable have aria', () => {
@@ -318,12 +319,12 @@ describe('Modal', () => {
 
   describe('closable onClose and afterClose ', () => {
     const mockFn = {
-      afterClose: jest.fn(),
-      closableAfterClose: jest.fn(),
-      onClose: jest.fn(),
+      afterClose: vi.fn(),
+      closableAfterClose: vi.fn(),
+      onClose: vi.fn(),
     };
 
-    beforeEach(() => jest.clearAllMocks());
+    beforeEach(() => vi.clearAllMocks());
 
     const ModalTester: React.FC<ModalProps> = (props) => {
       const [open, setOpen] = React.useState(true);
@@ -378,28 +379,27 @@ describe('Modal', () => {
       [{ blur: true, enabled: false }, { enabled: true, blur: false }, true, false],
     ];
 
-    it.each(testCases)(
-      'modalMask = %s configMask = %s ,mask blur = %s',
-      (modalMask, configMask, expectedBlurClass, openMask) => {
-        render(
-          <ConfigProvider modal={configMask ? { mask: configMask } : undefined}>
-            <Modal open mask={modalMask} />
-          </ConfigProvider>,
-        );
+    it.each(
+      testCases,
+    )('modalMask = %s configMask = %s ,mask blur = %s', (modalMask, configMask, expectedBlurClass, openMask) => {
+      render(
+        <ConfigProvider modal={configMask ? { mask: configMask } : undefined}>
+          <Modal open mask={modalMask} />
+        </ConfigProvider>,
+      );
 
-        const maskElement = document.querySelector('.ant-modal-mask');
-        if (!openMask) {
-          expect(maskElement).toBeNull();
-          return;
-        }
+      const maskElement = document.querySelector('.ant-modal-mask');
+      if (!openMask) {
+        expect(maskElement).toBeNull();
+        return;
+      }
 
-        expect(maskElement).toBeInTheDocument();
-        if (expectedBlurClass) {
-          expect(maskElement!.className).toContain('ant-modal-mask-blur');
-        } else {
-          expect(maskElement!.className).not.toContain('ant-modal-mask-blur');
-        }
-      },
-    );
+      expect(maskElement).toBeInTheDocument();
+      if (expectedBlurClass) {
+        expect(maskElement!.className).toContain('ant-modal-mask-blur');
+      } else {
+        expect(maskElement!.className).not.toContain('ant-modal-mask-blur');
+      }
+    });
   });
 });

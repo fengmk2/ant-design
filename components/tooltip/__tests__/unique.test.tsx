@@ -1,4 +1,5 @@
 import React from 'react';
+import { vi } from 'vitest';
 import { spyElementPrototype } from '@rc-component/util/lib/test/domHook';
 
 import Tooltip from '..';
@@ -14,12 +15,12 @@ describe('Tooltip.Unique', () => {
   });
 
   beforeEach(() => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
   });
 
   afterEach(() => {
-    jest.useRealTimers();
-    jest.clearAllTimers();
+    vi.useRealTimers();
+    vi.clearAllTimers();
   });
 
   it('render MotionContent', async () => {

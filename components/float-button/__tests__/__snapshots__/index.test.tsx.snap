@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`FloatButton rtl render component should be rendered correctly in RTL direction 1`] = `
+exports[`FloatButton > rtl render > component should be rendered correctly in RTL direction 1`] = `
 <button
   class="ant-btn css-var-root ant-btn-circle ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-lg ant-btn-rtl css-var-root ant-float-btn-css-var ant-float-btn ant-float-btn-default ant-float-btn-circle ant-float-btn-rtl ant-float-btn-individual ant-float-btn-icon-only"
   type="button"
@@ -31,7 +31,7 @@ exports[`FloatButton rtl render component should be rendered correctly in RTL di
 </button>
 `;
 
-exports[`FloatButton should correct render 1`] = `
+exports[`FloatButton > should correct render 1`] = `
 <button
   class="ant-btn css-var-root ant-btn-circle ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-lg css-var-root ant-float-btn-css-var ant-float-btn ant-float-btn-default ant-float-btn-circle ant-float-btn-individual ant-float-btn-icon-only"
   type="button"

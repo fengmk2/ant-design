@@ -1,49 +1,53 @@
 import React from 'react';
 import userEvent from '@testing-library/user-event';
+import { vi } from 'vitest';
 
 import Button from '..';
 import { act, fireEvent, render } from '../../../tests/utils';
 
 // TODO: Remove this. Mock for React 19
-jest.mock('react-dom', () => {
-  const realReactDOM = jest.requireActual('react-dom');
+vi.mock('react-dom', async () => {
+  const realReactDOM = await vi.importActual<typeof import('react-dom')>('react-dom');
 
   if (realReactDOM.version.startsWith('19')) {
-    const realReactDOMClient = jest.requireActual('react-dom/client');
-    realReactDOM.createRoot = realReactDOMClient.createRoot;
+    const realReactDOMClient =
+      await vi.importActual<typeof import('react-dom/client')>('react-dom/client');
+    (realReactDOM as any).createRoot = realReactDOMClient.createRoot;
   }
 
   return realReactDOM;
 });
 
-jest.mock('@rc-component/util/lib/Dom/isVisible', () => {
+vi.mock('@rc-component/util/lib/Dom/isVisible', async () => {
   const mockFn = () => true;
-  return mockFn;
+  return { default: mockFn };
 });
 
 describe('click wave effect', () => {
   beforeEach(() => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
   });
 
   afterEach(() => {
-    jest.clearAllTimers();
-    jest.useRealTimers();
+    vi.clearAllTimers();
+    vi.useRealTimers();
     document.body.innerHTML = '';
   });
 
   async function clickButton(container: HTMLElement) {
     const element = container.firstChild;
     // https://github.com/testing-library/user-event/issues/833
-    await userEvent.setup({ advanceTimers: jest.advanceTimersByTime }).click(element as Element);
+    await userEvent
+      .setup({ advanceTimers: vi.advanceTimersByTime.bind(vi) })
+      .click(element as Element);
 
     act(() => {
-      jest.advanceTimersByTime(100);
+      vi.advanceTimersByTime(100);
     });
 
     // Second time will render wave element
     act(() => {
-      jest.advanceTimersByTime(100);
+      vi.advanceTimersByTime(100);
     });
 
     fireEvent(element!, new Event('transitionstart'));

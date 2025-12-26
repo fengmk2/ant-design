@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Anchor Render render items and ignore jsx children 1`] = `
+exports[`Anchor Render > render items and ignore jsx children 1`] = `
 <div
   class=""
 >
@@ -34,7 +34,7 @@ exports[`Anchor Render render items and ignore jsx children 1`] = `
 </div>
 `;
 
-exports[`Anchor Render renders items correctly 1`] = `
+exports[`Anchor Render > renders items correctly 1`] = `
 <div
   class=""
 >
@@ -112,7 +112,7 @@ exports[`Anchor Render renders items correctly 1`] = `
 </div>
 `;
 
-exports[`Anchor Render renders items correctly#horizontal 1`] = `
+exports[`Anchor Render > renders items correctly#horizontal 1`] = `
 <div
   class=""
 >

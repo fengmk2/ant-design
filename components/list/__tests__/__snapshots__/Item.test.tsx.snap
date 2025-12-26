@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`List Item Layout horizontal itemLayout List should accept extra node 1`] = `
+exports[`List Item Layout > horizontal itemLayout List should accept extra node 1`] = `
 <div
   class="ant-list ant-list-split css-var-root"
 >
@@ -57,7 +57,7 @@ exports[`List Item Layout horizontal itemLayout List should accept extra node 1`
 </div>
 `;
 
-exports[`List Item Layout rowKey could be function 1`] = `
+exports[`List Item Layout > rowKey could be function 1`] = `
 <div
   class="ant-list ant-list-split css-var-root"
 >
@@ -91,7 +91,7 @@ exports[`List Item Layout rowKey could be function 1`] = `
 </div>
 `;
 
-exports[`List Item Layout rowKey could be string 1`] = `
+exports[`List Item Layout > rowKey could be string 1`] = `
 <div
   class="ant-list ant-list-split css-var-root"
 >
@@ -125,7 +125,7 @@ exports[`List Item Layout rowKey could be string 1`] = `
 </div>
 `;
 
-exports[`List Item Layout should render in RTL direction 1`] = `
+exports[`List Item Layout > should render in RTL direction 1`] = `
 <div
   class="ant-list ant-list-split ant-list-rtl css-var-root"
 >

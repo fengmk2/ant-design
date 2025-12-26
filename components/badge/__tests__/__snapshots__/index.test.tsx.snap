@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Badge render Badge status/color when contains children 1`] = `
+exports[`Badge > render Badge status/color when contains children 1`] = `
 <div>
   <span
     class="ant-badge css-var-root"
@@ -75,7 +75,7 @@ exports[`Badge render Badge status/color when contains children 1`] = `
 </div>
 `;
 
-exports[`Badge render correct with negative number 1`] = `
+exports[`Badge > render correct with negative number 1`] = `
 <div>
   <span
     class="ant-badge ant-badge-not-a-wrapper css-var-root"
@@ -164,13 +164,13 @@ exports[`Badge render correct with negative number 1`] = `
 </div>
 `;
 
-exports[`Badge rtl render component should be rendered correctly in RTL direction 1`] = `
+exports[`Badge > rtl render > component should be rendered correctly in RTL direction 1`] = `
 <span
   class="ant-badge ant-badge-not-a-wrapper ant-badge-rtl css-var-root"
 />
 `;
 
-exports[`Badge rtl render component should be rendered correctly in RTL direction 2`] = `
+exports[`Badge > rtl render > component should be rendered correctly in RTL direction 2`] = `
 <span
   class="ant-badge ant-badge-rtl css-var-root"
 >
@@ -202,7 +202,7 @@ exports[`Badge rtl render component should be rendered correctly in RTL directio
 </span>
 `;
 
-exports[`Badge should be compatible with borderColor style 1`] = `
+exports[`Badge > should be compatible with borderColor style 1`] = `
 <span
   class="ant-badge ant-badge-not-a-wrapper css-var-root"
 >
@@ -228,7 +228,7 @@ exports[`Badge should be compatible with borderColor style 1`] = `
 </span>
 `;
 
-exports[`Badge should display custom color and number is 0 1`] = `
+exports[`Badge > should display custom color and number is 0 1`] = `
 <div>
   <span
     class="ant-badge ant-badge-not-a-wrapper css-var-root"
@@ -279,7 +279,7 @@ exports[`Badge should display custom color and number is 0 1`] = `
 </div>
 `;
 
-exports[`Badge should render when count is changed 1`] = `
+exports[`Badge > should render when count is changed 1`] = `
 <span
   class="ant-badge ant-badge-not-a-wrapper css-var-root"
 >
@@ -320,7 +320,7 @@ exports[`Badge should render when count is changed 1`] = `
 </span>
 `;
 
-exports[`Badge should render when count is changed 2`] = `
+exports[`Badge > should render when count is changed 2`] = `
 <span
   class="ant-badge ant-badge-not-a-wrapper css-var-root"
 >
@@ -361,7 +361,7 @@ exports[`Badge should render when count is changed 2`] = `
 </span>
 `;
 
-exports[`Badge should render when count is changed 3`] = `
+exports[`Badge > should render when count is changed 3`] = `
 <span
   class="ant-badge ant-badge-not-a-wrapper css-var-root"
 >
@@ -396,7 +396,7 @@ exports[`Badge should render when count is changed 3`] = `
 </span>
 `;
 
-exports[`Badge should render when count is changed 4`] = `
+exports[`Badge > should render when count is changed 4`] = `
 <span
   class="ant-badge ant-badge-not-a-wrapper css-var-root"
 >
@@ -410,7 +410,7 @@ exports[`Badge should render when count is changed 4`] = `
 </span>
 `;
 
-exports[`Badge should render when count is changed 5`] = `
+exports[`Badge > should render when count is changed 5`] = `
 <span
   class="ant-badge ant-badge-not-a-wrapper css-var-root"
 >
@@ -445,7 +445,7 @@ exports[`Badge should render when count is changed 5`] = `
 </span>
 `;
 
-exports[`Badge should render when count is changed 6`] = `
+exports[`Badge > should render when count is changed 6`] = `
 <span
   class="ant-badge ant-badge-not-a-wrapper css-var-root"
 >
@@ -476,7 +476,7 @@ exports[`Badge should render when count is changed 6`] = `
 </span>
 `;
 
-exports[`Badge should support offset when count is a ReactNode 1`] = `
+exports[`Badge > should support offset when count is a ReactNode 1`] = `
 <span
   class="ant-badge css-var-root"
 >

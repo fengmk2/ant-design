@@ -1,4 +1,5 @@
 import React from 'react';
+import { vi } from 'vitest';
 
 import Popover from '..';
 import mountTest from '../../../tests/shared/mountTest';
@@ -23,18 +24,20 @@ describe('Popover', () => {
         <span>show me your code</span>
       </Popover>,
     );
-    expect(container.querySelector('.bamboo')).toBeFalsy();
+    // Query document.body for portal-rendered popover content
+    expect(document.body.querySelector('.bamboo')).toBeFalsy();
     fireEvent.click(container.querySelector('span')!);
-    expect(container.querySelector('.bamboo')).toBeTruthy();
+    expect(document.body.querySelector('.bamboo')).toBeTruthy();
   });
 
   it('should support defaultOpen', () => {
-    const { container } = render(
+    render(
       <Popover title="code" defaultOpen>
         <span>show me your code</span>
       </Popover>,
     );
-    expect(container.querySelector('.ant-popover')).toBeTruthy();
+    // Query document.body for portal-rendered popover content
+    expect(document.body.querySelector('.ant-popover')).toBeTruthy();
   });
 
   it('shows content for render functions', () => {
@@ -79,9 +82,9 @@ describe('Popover', () => {
   });
 
   it('props#overlay do not warn anymore', () => {
-    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
 
-    const overlay = jest.fn();
+    const overlay = vi.fn();
     render(
       <Popover content="console.log('hello world')" title="code" trigger="click">
         <span>show me your code</span>
@@ -110,7 +113,7 @@ describe('Popover', () => {
   });
 
   it('should be closed by pressing ESC', () => {
-    const onOpenChange = jest.fn((_, e) => {
+    const onOpenChange = vi.fn((_, e) => {
       e?.persist?.();
     });
     const wrapper = render(
@@ -158,7 +161,8 @@ describe('Popover', () => {
       );
     };
     const { container } = render(<TooltipTestComponent />);
-    const getTooltipArrow = () => container.querySelector('.ant-popover-arrow');
+    // Query document.body for portal-rendered popover content
+    const getTooltipArrow = () => document.body.querySelector('.ant-popover-arrow');
     const configbtn = container.querySelector('.configArrow');
 
     expect(getTooltipArrow()).not.toBeNull();
@@ -187,7 +191,8 @@ describe('Popover', () => {
 
     const { container } = render(<TooltipTestComponent />);
 
-    const getTooltipArrow = () => container.querySelector('.ant-popover-arrow');
+    // Query document.body for portal-rendered popover content
+    const getTooltipArrow = () => document.body.querySelector('.ant-popover-arrow');
 
     const toggleArrowBtn = container.querySelector('.toggleArrow');
 

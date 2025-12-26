@@ -1,4 +1,5 @@
 import React from 'react';
+import { vi } from 'vitest';
 import { ArrowDownOutlined, ArrowUpOutlined } from '@ant-design/icons';
 
 import InputNumber from '..';
@@ -15,14 +16,14 @@ describe('InputNumber', () => {
 
   // https://github.com/ant-design/ant-design/issues/13896
   it('should return null when blur a empty input number', () => {
-    const onChange = jest.fn();
+    const onChange = vi.fn();
     const { container } = render(<InputNumber defaultValue="1" onChange={onChange} />);
     fireEvent.change(container.querySelector('input')!, { target: { value: '' } });
     expect(onChange).toHaveBeenLastCalledWith(null);
   });
 
   it('should call onStep when press up or down button', () => {
-    const onStep = jest.fn();
+    const onStep = vi.fn();
     const { container } = render(<InputNumber defaultValue={1} onStep={onStep} />);
     fireEvent.mouseDown(container.querySelector('.ant-input-number-action-up')!);
     expect(onStep).toHaveBeenCalledTimes(1);
@@ -113,7 +114,7 @@ describe('InputNumber', () => {
   });
 
   it('Deprecation and usage tips', () => {
-    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
     const { container } = render(<InputNumber bordered={false} type="number" changeOnWheel />);
     expect(errorSpy).toHaveBeenNthCalledWith(
       1,

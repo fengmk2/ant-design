@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Table renders empty table 1`] = `
+exports[`Table > renders empty table 1`] = `
 <div
   class="css-var-root ant-table-css-var ant-table-wrapper"
 >
@@ -146,7 +146,7 @@ exports[`Table renders empty table 1`] = `
 </div>
 `;
 
-exports[`Table renders empty table when emptyText is null 1`] = `
+exports[`Table > renders empty table when emptyText is null 1`] = `
 <div
   class="css-var-root ant-table-css-var ant-table-wrapper"
 >
@@ -243,7 +243,7 @@ exports[`Table renders empty table when emptyText is null 1`] = `
 </div>
 `;
 
-exports[`Table renders empty table with custom emptyText 1`] = `
+exports[`Table > renders empty table with custom emptyText 1`] = `
 <div
   class="css-var-root ant-table-css-var ant-table-wrapper"
 >
@@ -342,7 +342,7 @@ exports[`Table renders empty table with custom emptyText 1`] = `
 </div>
 `;
 
-exports[`Table renders empty table with fixed columns should work 1`] = `
+exports[`Table > renders empty table with fixed columns > should work 1`] = `
 <div
   class="css-var-root ant-table-css-var ant-table-wrapper"
 >
@@ -639,7 +639,7 @@ exports[`Table renders empty table with fixed columns should work 1`] = `
 </div>
 `;
 
-exports[`Table renders empty table without emptyText when loading 1`] = `
+exports[`Table > renders empty table without emptyText when loading 1`] = `
 <div
   class="css-var-root ant-table-css-var ant-table-wrapper"
 >
@@ -813,7 +813,7 @@ exports[`Table renders empty table without emptyText when loading 1`] = `
 </div>
 `;
 
-exports[`Table should not render empty when loading 1`] = `
+exports[`Table > should not render empty when loading 1`] = `
 <div
   class="css-var-root ant-table-css-var ant-table-wrapper"
 >

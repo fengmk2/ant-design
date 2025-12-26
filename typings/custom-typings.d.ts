@@ -35,3 +35,24 @@ declare module '@microflash/rehype-figure';
 declare module 'dekko';
 
 declare module 'csstree-validator';
+
+// Vite import.meta.glob
+interface ImportMeta {
+  glob: <T = unknown>(
+    pattern: string,
+    options?: { eager?: boolean; import?: string },
+  ) => Record<string, () => Promise<T>>;
+}
+
+// Google Analytics gtag
+interface Window {
+  gtag?: (command: string, action: string, params?: Record<string, any>) => void;
+}
+
+// Jest-Puppeteer globals for image tests (not yet migrated to Playwright)
+declare const page: import('puppeteer').Page;
+declare const jestPuppeteer: {
+  debug: () => Promise<void>;
+  resetPage: () => Promise<void>;
+  resetBrowser: () => Promise<void>;
+};

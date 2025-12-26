@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`renderEmpty should render Cascader empty 1`] = `
+exports[`renderEmpty > should render Cascader empty 1`] = `
 <div
   class="css-var-root ant-empty ant-empty-normal ant-empty-small"
 >
@@ -51,7 +51,7 @@ exports[`renderEmpty should render Cascader empty 1`] = `
 </div>
 `;
 
-exports[`renderEmpty should render List empty 1`] = `
+exports[`renderEmpty > should render List empty 1`] = `
 <div
   class="css-var-root ant-empty ant-empty-normal"
 >
@@ -102,7 +102,7 @@ exports[`renderEmpty should render List empty 1`] = `
 </div>
 `;
 
-exports[`renderEmpty should render Mentions empty 1`] = `
+exports[`renderEmpty > should render Mentions empty 1`] = `
 <div
   class="css-var-root ant-empty ant-empty-normal ant-empty-small"
 >
@@ -153,7 +153,7 @@ exports[`renderEmpty should render Mentions empty 1`] = `
 </div>
 `;
 
-exports[`renderEmpty should render Select empty 1`] = `
+exports[`renderEmpty > should render Select empty 1`] = `
 <div
   class="css-var-root ant-empty ant-empty-normal ant-empty-small"
 >
@@ -204,7 +204,7 @@ exports[`renderEmpty should render Select empty 1`] = `
 </div>
 `;
 
-exports[`renderEmpty should render Table empty 1`] = `
+exports[`renderEmpty > should render Table empty 1`] = `
 <div
   class="css-var-root ant-empty ant-empty-normal"
 >
@@ -255,9 +255,9 @@ exports[`renderEmpty should render Table empty 1`] = `
 </div>
 `;
 
-exports[`renderEmpty should render Table.filter empty 1`] = `null`;
+exports[`renderEmpty > should render Table.filter empty 1`] = `null`;
 
-exports[`renderEmpty should render Transfer empty 1`] = `
+exports[`renderEmpty > should render Transfer empty 1`] = `
 <div
   class="css-var-root ant-empty ant-empty-normal ant-empty-small"
 >
@@ -308,7 +308,7 @@ exports[`renderEmpty should render Transfer empty 1`] = `
 </div>
 `;
 
-exports[`renderEmpty should render TreeSelect empty 1`] = `
+exports[`renderEmpty > should render TreeSelect empty 1`] = `
 <div
   class="css-var-root ant-empty ant-empty-normal ant-empty-small"
 >
@@ -359,7 +359,7 @@ exports[`renderEmpty should render TreeSelect empty 1`] = `
 </div>
 `;
 
-exports[`renderEmpty should return empty when componentName is not matched 1`] = `
+exports[`renderEmpty > should return empty when componentName is not matched 1`] = `
 <div
   class="css-var-root ant-empty"
 >

@@ -1,8 +1,8 @@
-// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Space rtl render component should be rendered correctly in RTL direction 1`] = `null`;
+exports[`Space > rtl render > component should be rendered correctly in RTL direction 1`] = `null`;
 
-exports[`Space separator 1`] = `
+exports[`Space > separator 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-root"
 >
@@ -36,7 +36,7 @@ exports[`Space separator 1`] = `
 </div>
 `;
 
-exports[`Space should render correct with children 1`] = `
+exports[`Space > should render correct with children 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-root"
 >
@@ -60,7 +60,7 @@ exports[`Space should render correct with children 1`] = `
 </div>
 `;
 
-exports[`Space should render width ConfigProvider 1`] = `
+exports[`Space > should render width ConfigProvider 1`] = `
 Array [
   <div
     class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-large ant-space-gap-col-large css-var-root"
@@ -119,7 +119,7 @@ Array [
 ]
 `;
 
-exports[`Space should render width rtl 1`] = `
+exports[`Space > should render width rtl 1`] = `
 Array [
   <div
     class="ant-space ant-space-horizontal ant-space-rtl ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-root"

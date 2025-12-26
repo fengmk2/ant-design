@@ -4,12 +4,13 @@ import type { ArgsProps, GlobalConfigProps } from '../interface';
 import { awaitPromise, triggerMotionEnd } from './util';
 
 // TODO: Remove this. Mock for React 19
-jest.mock('react-dom', () => {
-  const realReactDOM = jest.requireActual('react-dom');
+vi.mock('react-dom', async () => {
+  const realReactDOM = await vi.importActual<typeof import('react-dom')>('react-dom');
 
   if (realReactDOM.version.startsWith('19')) {
-    const realReactDOMClient = jest.requireActual('react-dom/client');
-    realReactDOM.createRoot = realReactDOMClient.createRoot;
+    const realReactDOMClient =
+      await vi.importActual<typeof import('react-dom/client')>('react-dom/client');
+    return { ...realReactDOM, createRoot: realReactDOMClient.createRoot };
   }
 
   return realReactDOM;
@@ -39,7 +40,7 @@ describe('Notification.placement', () => {
   });
 
   beforeEach(() => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
   });
 
   afterEach(async () => {
@@ -52,7 +53,7 @@ describe('Notification.placement', () => {
       getContainer: undefined,
     });
 
-    jest.useRealTimers();
+    vi.useRealTimers();
 
     await awaitPromise();
   });
@@ -162,7 +163,7 @@ describe('Notification.placement', () => {
 
       // Leave motion
       act(() => {
-        jest.runAllTimers();
+        vi.runAllTimers();
       });
       document.querySelectorAll('.ant-notification-notice-wrapper').forEach((ele) => {
         fireEvent.animationEnd(ele);

@@ -1,7 +1,7 @@
 import React from 'react';
 import { SearchOutlined } from '@ant-design/icons';
-import Button from 'antd/es/button';
 
+import Button from '../../button';
 import ConfigProvider from '..';
 import { render } from '../../../tests/utils';
 

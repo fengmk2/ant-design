@@ -54,16 +54,17 @@ describe('Dropdown.Semantic', () => {
       itemContent: { color: 'rgb(255, 255, 0)' },
       itemIcon: { fontSize: '20px' },
     };
-    const { container } = render(
+    render(
       <Dropdown menu={{ items }} open classNames={testClassNames} styles={testStyles}>
         <button type="button">button</button>
       </Dropdown>,
     );
-    const root = container.querySelector('.ant-dropdown');
-    const item = container.querySelector('.ant-dropdown-menu-item');
-    const itemIcon = container.querySelector('.ant-dropdown-menu-item-icon');
-    const itemContent = container.querySelector('.ant-dropdown-menu-title-content');
-    const itemTitle = container.querySelector('.ant-dropdown-menu-item-group-title');
+    // Query document.body for portal-rendered dropdown content
+    const root = document.body.querySelector('.ant-dropdown');
+    const item = document.body.querySelector('.ant-dropdown-menu-item');
+    const itemIcon = document.body.querySelector('.ant-dropdown-menu-item-icon');
+    const itemContent = document.body.querySelector('.ant-dropdown-menu-title-content');
+    const itemTitle = document.body.querySelector('.ant-dropdown-menu-item-group-title');
 
     expect(root).toHaveClass(testClassNames.root);
     expect(root).toHaveStyle(testStyles.root);

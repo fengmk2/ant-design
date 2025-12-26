@@ -21,15 +21,15 @@ describe('Upload', () => {
   rtlTest(Upload);
 
   beforeAll(() => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
   });
   beforeEach(() => setup());
   afterEach(() => {
-    jest.clearAllTimers();
+    vi.clearAllTimers();
     return teardown();
   });
   afterAll(() => {
-    jest.useRealTimers();
+    vi.useRealTimers();
   });
 
   // Mock for rc-component/util raf
@@ -56,8 +56,8 @@ describe('Upload', () => {
   });
 
   it('return promise in beforeUpload', async () => {
-    const data = jest.fn();
-    const done = jest.fn();
+    const data = vi.fn();
+    const done = vi.fn();
     const props: UploadProps = {
       action: 'http://upload.com',
       beforeUpload: () =>
@@ -86,7 +86,7 @@ describe('Upload', () => {
   });
 
   it('beforeUpload can be falsy', async () => {
-    const done = jest.fn();
+    const done = vi.fn();
     const props: UploadProps = {
       action: 'http://upload.com',
       beforeUpload: () => false,
@@ -111,8 +111,8 @@ describe('Upload', () => {
   });
 
   it('upload promise return file in beforeUpload', async () => {
-    const done = jest.fn();
-    const data = jest.fn();
+    const done = vi.fn();
+    const data = vi.fn();
     const props: UploadProps = {
       action: 'http://upload.com',
       beforeUpload: (file) =>
@@ -147,7 +147,7 @@ describe('Upload', () => {
     expect(done).toHaveBeenCalled();
   });
 
-  it('should not stop upload when return value of beforeUpload is false', (done) => {
+  it('should not stop upload when return value of beforeUpload is false', async () => {
     const fileList = [
       {
         uid: 'bar',
@@ -157,7 +157,8 @@ describe('Upload', () => {
     const mockFile = new File(['foo'], 'foo.png', {
       type: 'image/png',
     });
-    const data = jest.fn();
+    const data = vi.fn();
+    const onChangeDone = vi.fn();
     const props: UploadProps = {
       action: 'http://upload.com',
       fileList,
@@ -167,7 +168,7 @@ describe('Upload', () => {
         expect(file instanceof File).toBe(true);
         expect(updatedFileList.map((f) => f.name)).toEqual(['bar.png', 'foo.png']);
         expect(data).not.toHaveBeenCalled();
-        done();
+        onChangeDone();
       },
     };
 
@@ -180,17 +181,20 @@ describe('Upload', () => {
     fireEvent.change(wrapper.querySelector('input')!, {
       target: { files: [mockFile] },
     });
+    await waitFakeTimer();
+    expect(onChangeDone).toHaveBeenCalled();
   });
 
-  it('should not stop upload when return value of beforeUpload is not false', (done) => {
-    const data = jest.fn();
+  it('should not stop upload when return value of beforeUpload is not false', async () => {
+    const data = vi.fn();
+    const onChangeDone = vi.fn();
     const props = {
       action: 'http://upload.com',
       beforeUpload() {},
       data,
       onChange: () => {
         expect(data).toHaveBeenCalled();
-        done();
+        onChangeDone();
       },
     };
 
@@ -205,6 +209,8 @@ describe('Upload', () => {
         files: [{ file: 'foo.png' }],
       },
     });
+    await waitFakeTimer();
+    expect(onChangeDone).toHaveBeenCalled();
   });
 
   // https://github.com/ant-design/ant-design/issues/14779
@@ -422,7 +428,7 @@ describe('Upload', () => {
   });
 
   it('should stop remove when return value of onRemove is false', async () => {
-    const mockRemove = jest.fn(() => false);
+    const mockRemove = vi.fn(() => false);
     const props: UploadProps = {
       onRemove: mockRemove,
       fileList: [
@@ -462,7 +468,7 @@ describe('Upload', () => {
         expect(file.status).toBe('uploading');
         removePromise = resolve;
       });
-    const onChange = jest.fn();
+    const onChange = vi.fn();
 
     const { container } = render(
       <Upload
@@ -484,7 +490,7 @@ describe('Upload', () => {
   });
 
   it('should not stop download when return use onDownload', async () => {
-    const mockRemove = jest.fn(() => false);
+    const mockRemove = vi.fn(() => false);
     const props: UploadProps = {
       onRemove: mockRemove,
       showUploadList: {
@@ -578,7 +584,7 @@ describe('Upload', () => {
   it('warning if set `value`', () => {
     resetWarned();
     const value = { value: [] } as any;
-    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
     render(<Upload {...value} />);
     expect(errorSpy).toHaveBeenCalledWith(
       'Warning: [antd: Upload] `value` is not a valid prop, do you mean `fileList`?',
@@ -601,9 +607,9 @@ describe('Upload', () => {
 
   // https://github.com/ant-design/ant-design/issues/25077
   it('should support events', () => {
-    const onClick = jest.fn();
-    const onMouseEnter = jest.fn();
-    const onMouseLeave = jest.fn();
+    const onClick = vi.fn();
+    const onMouseEnter = vi.fn();
+    const onMouseLeave = vi.fn();
     const props = { onClick, onMouseEnter, onMouseLeave };
     const { container: wrapper } = render(
       <Upload {...props}>
@@ -620,10 +626,10 @@ describe('Upload', () => {
 
   // https://github.com/ant-design/ant-design/issues/26427
   it('should sync file list with control mode', async () => {
-    const done = jest.fn();
+    const done = vi.fn();
     let callTimes = 0;
 
-    const customRequest = jest.fn(async (options) => {
+    const customRequest = vi.fn(async (options) => {
       // stop here to make sure new fileList has been set and passed to Upload
 
       await new Promise((resolve) => setTimeout(resolve, 0));
@@ -686,7 +692,7 @@ describe('Upload', () => {
 
   describe('maxCount', () => {
     it('replace when only 1', async () => {
-      const onChange = jest.fn();
+      const onChange = vi.fn();
       const fileList = [
         {
           uid: 'bar',
@@ -724,7 +730,7 @@ describe('Upload', () => {
     });
 
     it('maxCount > 1', async () => {
-      const onChange = jest.fn();
+      const onChange = vi.fn();
       const fileList = [
         {
           uid: 'bar',
@@ -776,7 +782,7 @@ describe('Upload', () => {
 
     // https://github.com/ant-design/ant-design/issues/43190
     it('should trigger onChange when remove', async () => {
-      const onChange = jest.fn();
+      const onChange = vi.fn();
 
       const { container } = render(
         <Upload
@@ -812,7 +818,7 @@ describe('Upload', () => {
     });
 
     it('should trigger onChange when defaultFileList.length is longer than maxCount ', async () => {
-      const onChange = jest.fn();
+      const onChange = vi.fn();
 
       const { container } = render(
         <Upload
@@ -874,7 +880,7 @@ describe('Upload', () => {
   });
 
   it('Proxy should support deepClone', async () => {
-    const onChange = jest.fn();
+    const onChange = vi.fn();
 
     const { container: wrapper } = render(
       <Upload onChange={onChange}>
@@ -931,7 +937,7 @@ describe('Upload', () => {
   // https://github.com/ant-design/ant-design/issues/30390
   // IE11 Does not support the File constructor
   it('should not break in IE if beforeUpload returns false', async () => {
-    const onChange = jest.fn();
+    const onChange = vi.fn();
     const { container } = render(
       <Upload beforeUpload={() => false} fileList={[]} onChange={onChange} />,
     );
@@ -939,7 +945,7 @@ describe('Upload', () => {
       throw new TypeError("Object doesn't support this action");
     };
 
-    const spyIE = jest.spyOn(global, 'File').mockImplementationOnce(fileConstructor);
+    const spyIE = vi.spyOn(global, 'File').mockImplementationOnce(fileConstructor);
     fireEvent.change(container.querySelector('input')!, {
       target: { files: [{ file: 'foo.png' }] },
     });
@@ -992,7 +998,7 @@ describe('Upload', () => {
     let info1: UploadRequestOption;
     let info2: UploadRequestOption;
 
-    const onChange = jest.fn();
+    const onChange = vi.fn();
     const { container } = render(
       <Upload
         customRequest={(info) => {
@@ -1035,7 +1041,7 @@ describe('Upload', () => {
     const mockFile1 = new File(['bamboo'], 'bamboo.png', { type: 'image/png' });
     const mockFile2 = new File(['light'], 'light.png', { type: 'image/png' });
 
-    const customRequest = jest.fn(async (options) => {
+    const customRequest = vi.fn(async (options) => {
       // stop here to make sure new fileList has been set and passed to Upload
 
       await new Promise((resolve) => setTimeout(resolve, 0));
@@ -1086,7 +1092,7 @@ describe('Upload', () => {
   });
 
   it('should support paste', async () => {
-    const done = jest.fn();
+    const done = vi.fn();
 
     const { container } = render(
       <Upload
@@ -1157,7 +1163,7 @@ describe('Upload', () => {
     const mockFile1 = new File(['bamboo'], 'bamboo.png', { type: 'image/png' });
     const mockFile2 = new File(['light'], 'light.png', { type: 'image/png' });
 
-    const customRequest = jest.fn(async (options) => {
+    const customRequest = vi.fn(async (options) => {
       // stop here to make sure new fileList has been set and passed to Upload
 
       await new Promise((resolve) => setTimeout(resolve, 0));

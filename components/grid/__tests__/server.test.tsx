@@ -1,9 +1,10 @@
 import React from 'react';
+import { vi } from 'vitest';
 
 import { Col, Row } from '..';
 import { render } from '../../../tests/utils';
 
-jest.mock('@rc-component/util/lib/Dom/canUseDom', () => () => false);
+vi.mock('@rc-component/util/lib/Dom/canUseDom', () => () => false);
 
 describe('Grid.Server', () => {
   it('use compatible gap logic', () => {

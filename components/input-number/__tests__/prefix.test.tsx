@@ -1,4 +1,5 @@
 import React from 'react';
+import { vi } from 'vitest';
 import type { GetRef } from 'antd';
 
 import type { InputNumberProps } from '..';
@@ -24,7 +25,7 @@ describe('prefix', () => {
   it('should trigger focus when prefix is clicked', () => {
     const { container } = render(<InputNumber prefix={<i>123</i>} />);
 
-    const mockFocus = jest.spyOn(container.querySelector('input')!, 'focus');
+    const mockFocus = vi.spyOn(container.querySelector('input')!, 'focus');
     fireEvent.mouseDown(container.querySelector('i')!);
     expect(mockFocus).toHaveBeenCalled();
   });

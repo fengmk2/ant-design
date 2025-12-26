@@ -1,4 +1,5 @@
 import React from 'react';
+import { vi } from 'vitest';
 import { spyElementPrototype } from '@rc-component/util/lib/test/domHook';
 
 import Popconfirm from '..';
@@ -9,12 +10,13 @@ import Button from '../../button';
 import ConfigProvider from '../../config-provider';
 
 // TODO: Remove this. Mock for React 19
-jest.mock('react-dom', () => {
-  const realReactDOM = jest.requireActual('react-dom');
+vi.mock('react-dom', async () => {
+  const realReactDOM = await vi.importActual<typeof import('react-dom')>('react-dom');
 
   if (realReactDOM.version.startsWith('19')) {
-    const realReactDOMClient = jest.requireActual('react-dom/client');
-    realReactDOM.createRoot = realReactDOMClient.createRoot;
+    const realReactDOMClient =
+      await vi.importActual<typeof import('react-dom/client')>('react-dom/client');
+    return { ...realReactDOM, createRoot: realReactDOMClient.createRoot };
   }
 
   return realReactDOM;
@@ -36,16 +38,16 @@ describe('Popconfirm', () => {
   });
 
   beforeEach(() => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
   });
 
   afterEach(() => {
-    jest.clearAllTimers();
-    jest.useRealTimers();
+    vi.clearAllTimers();
+    vi.useRealTimers();
   });
 
   it('should popup Popconfirm dialog', () => {
-    const onOpenChange = jest.fn();
+    const onOpenChange = vi.fn();
 
     const wrapper = render(
       <Popconfirm
@@ -63,7 +65,8 @@ describe('Popconfirm', () => {
     const triggerNode = wrapper.container.querySelectorAll('span')[0];
     fireEvent.click(triggerNode);
     expect(onOpenChange).toHaveBeenLastCalledWith(true, undefined);
-    expect(wrapper.container.querySelectorAll('.popconfirm-test').length).toBe(1);
+    // Query document.body for portal-rendered popconfirm content
+    expect(document.body.querySelectorAll('.popconfirm-test').length).toBe(1);
 
     fireEvent.click(triggerNode);
     expect(onOpenChange).toHaveBeenLastCalledWith(false, undefined);
@@ -76,18 +79,17 @@ describe('Popconfirm', () => {
       </Popconfirm>,
     );
 
-    expect(popconfirm.container.querySelector('.ant-popover')).toBe(null);
+    // Query document.body for portal-rendered popconfirm content
+    expect(document.body.querySelector('.ant-popover')).toBe(null);
 
     const triggerNode = popconfirm.container.querySelectorAll('span')[0];
     fireEvent.click(triggerNode);
 
     await waitFakeTimer(100);
 
-    expect(popconfirm.container.querySelector('.ant-popover')).not.toBeNull();
-    expect(popconfirm.container.querySelector('.ant-popover')).toHaveClass(
-      'ant-popover-placement-top',
-    );
-    expect(popconfirm.container.querySelector('.ant-popover')).toMatchSnapshot();
+    expect(document.body.querySelector('.ant-popover')).not.toBeNull();
+    expect(document.body.querySelector('.ant-popover')).toHaveClass('ant-popover-placement-top');
+    expect(document.body.querySelector('.ant-popover')).toMatchSnapshot();
   });
 
   it('shows content for render functions', async () => {
@@ -99,36 +101,36 @@ describe('Popconfirm', () => {
       </Popconfirm>,
     );
 
-    expect(popconfirm.container.querySelector('.ant-popover')).toBe(null);
+    // Query document.body for portal-rendered popconfirm content
+    expect(document.body.querySelector('.ant-popover')).toBe(null);
 
     const triggerNode = popconfirm.container.querySelectorAll('span')[0];
     fireEvent.click(triggerNode);
     await waitFakeTimer(100);
 
-    expect(popconfirm.container.querySelector('.ant-popover')).not.toBe(null);
-    expect(popconfirm.container.querySelector('.ant-popover')?.innerHTML).toContain('some-title');
-    expect(popconfirm.container.querySelector('.ant-popover')).toMatchSnapshot();
+    expect(document.body.querySelector('.ant-popover')).not.toBe(null);
+    expect(document.body.querySelector('.ant-popover')?.innerHTML).toContain('some-title');
+    expect(document.body.querySelector('.ant-popover')).toMatchSnapshot();
   });
 
   it('should be controlled by open', () => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
     const popconfirm = render(
       <Popconfirm title="code">
         <span>show me your code</span>
       </Popconfirm>,
     );
 
-    expect(popconfirm.container.querySelector('.ant-popover')).toBe(null);
+    // Query document.body for portal-rendered popconfirm content
+    expect(document.body.querySelector('.ant-popover')).toBe(null);
     popconfirm.rerender(
       <Popconfirm title="code" open>
         <span>show me your code</span>
       </Popconfirm>,
     );
 
-    expect(popconfirm.container.querySelector('.ant-popover')).not.toBe(null);
-    expect(popconfirm.container.querySelector('.ant-popover')).not.toHaveClass(
-      'ant-popover-hidden',
-    );
+    expect(document.body.querySelector('.ant-popover')).not.toBe(null);
+    expect(document.body.querySelector('.ant-popover')).not.toHaveClass('ant-popover-hidden');
 
     popconfirm.rerender(
       <Popconfirm title="code" open={false}>
@@ -136,16 +138,16 @@ describe('Popconfirm', () => {
       </Popconfirm>,
     );
     act(() => {
-      jest.runAllTimers();
+      vi.runAllTimers();
     });
-    expect(popconfirm.container.querySelector('.ant-popover')).not.toBe(null);
-    jest.useRealTimers();
+    expect(document.body.querySelector('.ant-popover')).not.toBe(null);
+    vi.useRealTimers();
   });
 
   it('should trigger onConfirm and onCancel', async () => {
-    const confirm = jest.fn();
-    const cancel = jest.fn();
-    const onOpenChange = jest.fn((_, e) => {
+    const confirm = vi.fn();
+    const cancel = vi.fn();
+    const onOpenChange = vi.fn((_, e) => {
       e?.persist?.();
     });
     const popconfirm = render(
@@ -157,14 +159,15 @@ describe('Popconfirm', () => {
     fireEvent.click(triggerNode);
     await waitFakeTimer();
 
-    fireEvent.click(popconfirm.container.querySelector('.ant-btn-primary')!);
+    // Query document.body for portal-rendered popconfirm content
+    fireEvent.click(document.body.querySelector('.ant-btn-primary')!);
     expect(confirm).toHaveBeenCalled();
     expect(onOpenChange).toHaveBeenLastCalledWith(false, eventObject);
 
     fireEvent.click(triggerNode);
     await waitFakeTimer();
 
-    fireEvent.click(popconfirm.container.querySelector('.ant-btn')!);
+    fireEvent.click(document.body.querySelector('.ant-btn')!);
     expect(cancel).toHaveBeenCalled();
     expect(onOpenChange).toHaveBeenLastCalledWith(false, eventObject);
   });
@@ -174,7 +177,7 @@ describe('Popconfirm', () => {
       new Promise((res) => {
         setTimeout(res, 300);
       });
-    const onOpenChange = jest.fn((_, e) => {
+    const onOpenChange = vi.fn((_, e) => {
       e?.persist?.();
     });
     const popconfirm = render(
@@ -187,7 +190,8 @@ describe('Popconfirm', () => {
     fireEvent.click(triggerNode);
     expect(onOpenChange).toHaveBeenCalledTimes(1);
 
-    fireEvent.click(popconfirm.container.querySelectorAll('.ant-btn')[0]);
+    // Query document.body for portal-rendered popconfirm content
+    fireEvent.click(document.body.querySelectorAll('.ant-btn')[0]);
     await waitFakeTimer();
     expect(onOpenChange).toHaveBeenCalledWith(false, eventObject);
   });
@@ -201,12 +205,13 @@ describe('Popconfirm', () => {
 
     const triggerNode = popconfirm.container.querySelectorAll('span')[0];
     fireEvent.click(triggerNode);
-    expect(popconfirm.container.querySelectorAll('.customize-icon').length).toBe(1);
+    // Query document.body for portal-rendered popconfirm content
+    expect(document.body.querySelectorAll('.customize-icon').length).toBe(1);
   });
 
   it('should prefixCls correctly', () => {
     const btnPrefixCls = 'custom-btn';
-    const wrapper = render(
+    render(
       <Popconfirm
         open
         title="x"
@@ -218,17 +223,19 @@ describe('Popconfirm', () => {
       </Popconfirm>,
     );
 
-    expect(wrapper.container.querySelectorAll('.custom-popconfirm').length).toBeGreaterThan(0);
-    expect(wrapper.container.querySelectorAll('.custom-btn').length).toBeGreaterThan(0);
+    // Query document.body for portal-rendered popconfirm content
+    expect(document.body.querySelectorAll('.custom-popconfirm').length).toBeGreaterThan(0);
+    expect(document.body.querySelectorAll('.custom-btn').length).toBeGreaterThan(0);
   });
 
   it('should support defaultOpen', () => {
-    const wrapper = render(
+    render(
       <Popconfirm title="code" defaultOpen>
         <span>show me your code</span>
       </Popconfirm>,
     );
-    expect(wrapper.container.querySelector('.ant-popover')).toBeTruthy();
+    // Query document.body for portal-rendered popconfirm content
+    expect(document.body.querySelector('.ant-popover')).toBeTruthy();
   });
 
   it('should not open in disabled', () => {
@@ -239,11 +246,12 @@ describe('Popconfirm', () => {
     );
     const triggerNode = wrapper.container.querySelectorAll('span')[0];
     fireEvent.click(triggerNode);
-    expect(wrapper.container.querySelector('.ant-popover')).toBeFalsy();
+    // Query document.body for portal-rendered popconfirm content
+    expect(document.body.querySelector('.ant-popover')).toBeFalsy();
   });
 
   it('should be closed by pressing ESC', () => {
-    const onOpenChange = jest.fn((_, e) => {
+    const onOpenChange = vi.fn((_, e) => {
       e?.persist?.();
     });
     const wrapper = render(
@@ -259,7 +267,7 @@ describe('Popconfirm', () => {
   });
 
   it('should not warn memory leaking if setState in async callback', async () => {
-    const error = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const error = vi.spyOn(console, 'error').mockImplementation(() => {});
 
     const Test = () => {
       const [show, setShow] = React.useState(true);
@@ -293,7 +301,8 @@ describe('Popconfirm', () => {
     expect(container.textContent).toEqual('Test');
 
     fireEvent.click(container.querySelector('.clickTarget')!);
-    fireEvent.click(container.querySelector('.ant-btn-primary')!);
+    // Query document.body for portal-rendered popconfirm content
+    fireEvent.click(document.body.querySelector('.ant-btn-primary')!);
 
     await waitFakeTimer(500);
     // expect(container.textContent).toEqual('Unmounted');
@@ -301,7 +310,7 @@ describe('Popconfirm', () => {
   });
 
   it('should trigger onPopupClick', async () => {
-    const onPopupClick = jest.fn();
+    const onPopupClick = vi.fn();
 
     const popconfirm = render(
       <Popconfirm title={<div className="bamboo" />} onPopupClick={onPopupClick}>
@@ -311,7 +320,8 @@ describe('Popconfirm', () => {
     const triggerNode = popconfirm.container.querySelector('span')!;
     fireEvent.click(triggerNode);
     await waitFakeTimer();
-    fireEvent.click(popconfirm.container.querySelector('.bamboo')!);
+    // Query document.body for portal-rendered popconfirm content
+    fireEvent.click(document.body.querySelector('.bamboo')!);
     expect(onPopupClick).toHaveBeenCalled();
   });
 
@@ -337,14 +347,15 @@ describe('Popconfirm', () => {
       root: { padding: 20 },
     };
 
-    const { container } = render(
+    render(
       <Popconfirm classNames={customClassNames} title="" styles={customStyles} open>
         <span />
       </Popconfirm>,
     );
 
-    const popconfirmElement = container.querySelector('.ant-popconfirm');
-    const popconfirmBodyElement = container.querySelector('.ant-popover-container');
+    // Query document.body for portal-rendered popconfirm content
+    const popconfirmElement = document.body.querySelector('.ant-popconfirm');
+    const popconfirmBodyElement = document.body.querySelector('.ant-popover-container');
 
     // 验证 classNames
     expect(popconfirmElement).toHaveClass('custom-root');
@@ -374,7 +385,8 @@ describe('Popconfirm', () => {
       );
     };
     const { container } = render(<TooltipTestComponent />);
-    const getTooltipArrow = () => container.querySelector('.ant-popover-arrow');
+    // Query document.body for portal-rendered popconfirm content
+    const getTooltipArrow = () => document.body.querySelector('.ant-popover-arrow');
     const configbtn = container.querySelector('.configArrow');
 
     expect(getTooltipArrow()).not.toBeNull();
@@ -403,7 +415,8 @@ describe('Popconfirm', () => {
 
     const { container } = render(<TooltipTestComponent />);
 
-    const getTooltipArrow = () => container.querySelector('.ant-popover-arrow');
+    // Query document.body for portal-rendered popconfirm content
+    const getTooltipArrow = () => document.body.querySelector('.ant-popover-arrow');
     const toggleArrowBtn = container.querySelector('.toggleArrow');
 
     // Initial render, arrow should be visible because Tooltip's arrow prop is true

@@ -6,19 +6,19 @@ import toList from '../toList';
 describe('Test utils function', () => {
   describe('throttle', () => {
     beforeAll(() => {
-      jest.useFakeTimers();
+      vi.useFakeTimers();
     });
 
     afterEach(() => {
-      jest.clearAllTimers();
+      vi.clearAllTimers();
     });
 
     afterAll(() => {
-      jest.useRealTimers();
+      vi.useRealTimers();
     });
 
     it('throttle function should work', async () => {
-      const callback = jest.fn();
+      const callback = vi.fn();
       const throttled = throttleByAnimationFrame(callback);
       expect(callback).not.toHaveBeenCalled();
 
@@ -31,7 +31,7 @@ describe('Test utils function', () => {
     });
 
     it('throttle function should be canceled', async () => {
-      const callback = jest.fn();
+      const callback = vi.fn();
       const throttled = throttleByAnimationFrame(callback);
 
       throttled();
@@ -41,7 +41,7 @@ describe('Test utils function', () => {
       expect(callback).not.toHaveBeenCalled();
     });
     it('should work with different argument types', async () => {
-      const callback = jest.fn();
+      const callback = vi.fn();
       const throttled = throttleByAnimationFrame(callback);
 
       const obj = { key: 'value' };

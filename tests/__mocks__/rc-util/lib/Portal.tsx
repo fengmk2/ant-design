@@ -1,10 +1,10 @@
 import React from 'react';
 import type { PortalProps, PortalRef } from '@rc-component/util/lib/Portal';
+import ActualPortalModule from '@rc-component/util/lib/Portal';
+
 import { TriggerMockContext } from '../../../shared/demoTestContext';
 
-const OriginPortalModule = jest.requireActual('@rc-component/util/lib/Portal');
-
-const OriginPortal = OriginPortalModule.default ?? OriginPortalModule;
+const OriginPortal = (ActualPortalModule as any).default ?? ActualPortalModule;
 
 class MockPortal extends React.Component<React.PropsWithChildren> {
   container: boolean | undefined;

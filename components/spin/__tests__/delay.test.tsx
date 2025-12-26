@@ -1,23 +1,35 @@
 import React from 'react';
+import { vi } from 'vitest';
 import { render } from '@testing-library/react';
 import { debounce } from 'throttle-debounce';
 
 import Spin from '..';
 import { waitFakeTimer } from '../../../tests/utils';
 
-jest.mock('throttle-debounce');
-(debounce as jest.Mock).mockImplementation((...args: any[]) =>
-  jest.requireActual('throttle-debounce').debounce(...args),
-);
+vi.mock('throttle-debounce', async () => {
+  const actual = await vi.importActual<typeof import('throttle-debounce')>('throttle-debounce');
+  return {
+    ...actual,
+    debounce: vi.fn((...args: Parameters<typeof actual.debounce>) => actual.debounce(...args)),
+  };
+});
 
 describe('delay spinning', () => {
+  beforeEach(() => {
+    vi.useFakeTimers();
+  });
+
+  afterEach(() => {
+    vi.clearAllTimers();
+    vi.useRealTimers();
+  });
+
   it("should render with delay when it's mounted with spinning=true and delay", () => {
     const { container } = render(<Spin spinning delay={500} />);
     expect(container.querySelector('.ant-spin')).not.toHaveClass('ant-spin-spinning');
   });
 
   it('should render when delay is init set', async () => {
-    jest.useFakeTimers();
     const { container } = render(<Spin spinning delay={100} />);
 
     expect(container.querySelector('.ant-spin-spinning')).toBeFalsy();
@@ -25,16 +37,13 @@ describe('delay spinning', () => {
     await waitFakeTimer();
 
     expect(container.querySelector('.ant-spin-spinning')).toBeTruthy();
-
-    jest.clearAllTimers();
-    jest.useRealTimers();
   });
 
   it('should cancel debounce function when unmount', () => {
-    const debouncedFn = jest.fn();
-    const cancel = jest.fn();
+    const debouncedFn = vi.fn();
+    const cancel = vi.fn();
     (debouncedFn as any).cancel = cancel;
-    (debounce as jest.Mock).mockReturnValueOnce(debouncedFn);
+    (debounce as ReturnType<typeof vi.fn>).mockReturnValueOnce(debouncedFn);
     const { unmount } = render(<Spin spinning delay={100} />);
 
     expect(cancel).not.toHaveBeenCalled();
@@ -43,7 +52,6 @@ describe('delay spinning', () => {
   });
 
   it('should close immediately', async () => {
-    jest.useFakeTimers();
     const { container, rerender } = render(<Spin spinning delay={500} />);
 
     await waitFakeTimer();

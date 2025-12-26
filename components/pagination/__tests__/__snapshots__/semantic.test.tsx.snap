@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Pagination.Semantic rtl render component should be rendered correctly in RTL direction 1`] = `
+exports[`Pagination.Semantic > rtl render > component should be rendered correctly in RTL direction 1`] = `
 <ul
   class="ant-pagination ant-pagination-rtl css-var-root"
 >

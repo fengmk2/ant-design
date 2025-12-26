@@ -1,6 +1,65 @@
-// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Input allowClear semantic dom snapshot 1`] = `
+exports[`Input > rtl render > component should be rendered correctly in RTL direction 1`] = `
+<input
+  class="ant-input ant-input-rtl ant-input-outlined css-var-root ant-input-css-var"
+  type="text"
+  value=""
+/>
+`;
+
+exports[`Input > rtl render > component should be rendered correctly in RTL direction 2`] = `null`;
+
+exports[`Input > should support maxLength 1`] = `
+<input
+  class="ant-input ant-input-outlined css-var-root ant-input-css-var"
+  maxlength="3"
+  type="text"
+  value=""
+/>
+`;
+
+exports[`Input > should support size 1`] = `
+<input
+  class="ant-input ant-input-lg ant-input-outlined css-var-root ant-input-css-var"
+  type="text"
+  value=""
+/>
+`;
+
+exports[`Input > should support size in form 1`] = `
+<form
+  class="ant-form ant-form-horizontal ant-form-large css-var-root ant-form-css-var"
+>
+  <div
+    class="ant-form-item css-var-root ant-form-css-var ant-form-item-horizontal"
+  >
+    <div
+      class="ant-row ant-form-item-row css-var-root"
+    >
+      <div
+        class="ant-col ant-form-item-control css-var-root"
+      >
+        <div
+          class="ant-form-item-control-input"
+        >
+          <div
+            class="ant-form-item-control-input-content"
+          >
+            <input
+              class="ant-input ant-input-lg ant-input-outlined css-var-root ant-input-css-var"
+              type="text"
+              value=""
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+`;
+
+exports[`Input allowClear > semantic dom snapshot 1`] = `
 <div>
   <span
     class="ant-input-affix-wrapper ant-input-outlined custom-class css-var-root ant-input-css-var"
@@ -102,7 +161,7 @@ exports[`Input allowClear semantic dom snapshot 1`] = `
 </div>
 `;
 
-exports[`Input allowClear should change type when click 1`] = `
+exports[`Input allowClear > should change type when click 1`] = `
 <span
   class="ant-input-affix-wrapper ant-input-outlined css-var-root ant-input-css-var"
 >
@@ -144,7 +203,7 @@ exports[`Input allowClear should change type when click 1`] = `
 </span>
 `;
 
-exports[`Input allowClear should change type when click 2`] = `
+exports[`Input allowClear > should change type when click 2`] = `
 <span
   class="ant-input-affix-wrapper ant-input-affix-wrapper-focused ant-input-outlined css-var-root ant-input-css-var"
 >
@@ -186,7 +245,7 @@ exports[`Input allowClear should change type when click 2`] = `
 </span>
 `;
 
-exports[`Input allowClear should not show icon if defaultValue is undefined, null or empty string 1`] = `
+exports[`Input allowClear > should not show icon if defaultValue is undefined, null or empty string 1`] = `
 <span
   class="ant-input-affix-wrapper ant-input-outlined css-var-root ant-input-css-var"
 >
@@ -228,7 +287,7 @@ exports[`Input allowClear should not show icon if defaultValue is undefined, nul
 </span>
 `;
 
-exports[`Input allowClear should not show icon if defaultValue is undefined, null or empty string 2`] = `
+exports[`Input allowClear > should not show icon if defaultValue is undefined, null or empty string 2`] = `
 <span
   class="ant-input-affix-wrapper ant-input-outlined css-var-root ant-input-css-var"
 >
@@ -270,7 +329,7 @@ exports[`Input allowClear should not show icon if defaultValue is undefined, nul
 </span>
 `;
 
-exports[`Input allowClear should not show icon if defaultValue is undefined, null or empty string 3`] = `
+exports[`Input allowClear > should not show icon if defaultValue is undefined, null or empty string 3`] = `
 <span
   class="ant-input-affix-wrapper ant-input-outlined css-var-root ant-input-css-var"
 >
@@ -312,7 +371,7 @@ exports[`Input allowClear should not show icon if defaultValue is undefined, nul
 </span>
 `;
 
-exports[`Input allowClear should not show icon if value is undefined, null or empty string 1`] = `
+exports[`Input allowClear > should not show icon if value is undefined, null or empty string 1`] = `
 <span
   class="ant-input-affix-wrapper ant-input-outlined css-var-root ant-input-css-var"
 >
@@ -354,7 +413,7 @@ exports[`Input allowClear should not show icon if value is undefined, null or em
 </span>
 `;
 
-exports[`Input allowClear should not show icon if value is undefined, null or empty string 2`] = `
+exports[`Input allowClear > should not show icon if value is undefined, null or empty string 2`] = `
 <span
   class="ant-input-affix-wrapper ant-input-outlined css-var-root ant-input-css-var"
 >
@@ -396,7 +455,7 @@ exports[`Input allowClear should not show icon if value is undefined, null or em
 </span>
 `;
 
-exports[`Input allowClear should not show icon if value is undefined, null or empty string 3`] = `
+exports[`Input allowClear > should not show icon if value is undefined, null or empty string 3`] = `
 <span
   class="ant-input-affix-wrapper ant-input-outlined css-var-root ant-input-css-var"
 >
@@ -436,63 +495,4 @@ exports[`Input allowClear should not show icon if value is undefined, null or em
     </button>
   </span>
 </span>
-`;
-
-exports[`Input rtl render component should be rendered correctly in RTL direction 1`] = `
-<input
-  class="ant-input ant-input-rtl ant-input-outlined css-var-root ant-input-css-var"
-  type="text"
-  value=""
-/>
-`;
-
-exports[`Input rtl render component should be rendered correctly in RTL direction 2`] = `null`;
-
-exports[`Input should support maxLength 1`] = `
-<input
-  class="ant-input ant-input-outlined css-var-root ant-input-css-var"
-  maxlength="3"
-  type="text"
-  value=""
-/>
-`;
-
-exports[`Input should support size 1`] = `
-<input
-  class="ant-input ant-input-lg ant-input-outlined css-var-root ant-input-css-var"
-  type="text"
-  value=""
-/>
-`;
-
-exports[`Input should support size in form 1`] = `
-<form
-  class="ant-form ant-form-horizontal ant-form-large css-var-root ant-form-css-var"
->
-  <div
-    class="ant-form-item css-var-root ant-form-css-var ant-form-item-horizontal"
-  >
-    <div
-      class="ant-row ant-form-item-row css-var-root"
-    >
-      <div
-        class="ant-col ant-form-item-control css-var-root"
-      >
-        <div
-          class="ant-form-item-control-input"
-        >
-          <div
-            class="ant-form-item-control-input-content"
-          >
-            <input
-              class="ant-input ant-input-lg ant-input-outlined css-var-root ant-input-css-var"
-              type="text"
-              value=""
-            />
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</form>
 `;

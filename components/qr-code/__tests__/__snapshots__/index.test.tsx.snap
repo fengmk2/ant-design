@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`QRCode test custom status render 1`] = `
+exports[`QRCode test > custom status render 1`] = `
 <div>
   <div
     class="ant-qrcode qrcode-expired css-var-root"
@@ -70,9 +70,9 @@ exports[`QRCode test custom status render 1`] = `
 </div>
 `;
 
-exports[`QRCode test rtl render component should be rendered correctly in RTL direction 1`] = `null`;
+exports[`QRCode test > rtl render > component should be rendered correctly in RTL direction 1`] = `null`;
 
-exports[`QRCode test should correct render 1`] = `
+exports[`QRCode test > should correct render 1`] = `
 <div>
   <div
     class="ant-qrcode css-var-root"
@@ -87,4 +87,4 @@ exports[`QRCode test should correct render 1`] = `
 </div>
 `;
 
-exports[`QRCode test should render \`null\` and console Error when value not exist 1`] = `null`;
+exports[`QRCode test > should render \`null\` and console Error when value not exist 1`] = `null`;

@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Card correct pass tabList props 1`] = `
+exports[`Card > correct pass tabList props 1`] = `
 <div
   class="ant-card ant-card-bordered ant-card-contain-tabs css-var-root"
 >
@@ -258,7 +258,7 @@ exports[`Card correct pass tabList props 1`] = `
 </div>
 `;
 
-exports[`Card rtl render component should be rendered correctly in RTL direction 1`] = `
+exports[`Card > rtl render > component should be rendered correctly in RTL direction 1`] = `
 <div
   class="ant-card ant-card-bordered ant-card-rtl css-var-root"
 >
@@ -268,7 +268,7 @@ exports[`Card rtl render component should be rendered correctly in RTL direction
 </div>
 `;
 
-exports[`Card should still have padding when card which set padding to 0 is loading 1`] = `
+exports[`Card > should still have padding when card which set padding to 0 is loading 1`] = `
 <div
   class="ant-card ant-card-loading ant-card-bordered css-var-root"
 >
@@ -298,7 +298,7 @@ exports[`Card should still have padding when card which set padding to 0 is load
 </div>
 `;
 
-exports[`Card should support left and right properties for tabBarExtraContent props 1`] = `
+exports[`Card > should support left and right properties for tabBarExtraContent props 1`] = `
 <div>
   <div
     class="ant-card ant-card-bordered css-var-root"
@@ -327,7 +327,7 @@ exports[`Card should support left and right properties for tabBarExtraContent pr
 </div>
 `;
 
-exports[`Card title should be vertically aligned 1`] = `
+exports[`Card > title should be vertically aligned 1`] = `
 <div
   class="ant-card ant-card-bordered css-var-root"
   style="width: 300px;"

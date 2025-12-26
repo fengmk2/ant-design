@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`renders components/tabs/demo/animated.tsx extend context correctly 1`] = `
 Array [
@@ -159,23 +159,6 @@ Array [
             </svg>
           </span>
         </button>
-        <div
-          class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-tabs-css-var ant-tabs-dropdown-placement-bottomLeft"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-        >
-          <ul
-            aria-label="expanded dropdown"
-            class="ant-tabs-dropdown-menu ant-tabs-dropdown-menu-root ant-tabs-dropdown-menu-vertical"
-            data-menu-list="true"
-            id="rc-tabs-test-more-popup"
-            role="listbox"
-            tabindex="-1"
-          />
-          <div
-            aria-hidden="true"
-            style="display: none;"
-          />
-        </div>
       </div>
     </div>
     <div
@@ -301,23 +284,6 @@ exports[`renders components/tabs/demo/basic.tsx extend context correctly 1`] = `
           </svg>
         </span>
       </button>
-      <div
-        class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-tabs-css-var ant-tabs-dropdown-placement-bottomLeft"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-      >
-        <ul
-          aria-label="expanded dropdown"
-          class="ant-tabs-dropdown-menu ant-tabs-dropdown-menu-root ant-tabs-dropdown-menu-vertical"
-          data-menu-list="true"
-          id="rc-tabs-test-more-popup"
-          role="listbox"
-          tabindex="-1"
-        />
-        <div
-          aria-hidden="true"
-          style="display: none;"
-        />
-      </div>
     </div>
   </div>
   <div
@@ -441,23 +407,6 @@ exports[`renders components/tabs/demo/card.tsx extend context correctly 1`] = `
           </svg>
         </span>
       </button>
-      <div
-        class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-tabs-css-var ant-tabs-dropdown-placement-bottomLeft"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-      >
-        <ul
-          aria-label="expanded dropdown"
-          class="ant-tabs-dropdown-menu ant-tabs-dropdown-menu-root ant-tabs-dropdown-menu-vertical"
-          data-menu-list="true"
-          id="rc-tabs-test-more-popup"
-          role="listbox"
-          tabindex="-1"
-        />
-        <div
-          aria-hidden="true"
-          style="display: none;"
-        />
-      </div>
     </div>
   </div>
   <div
@@ -482,158 +431,6 @@ exports[`renders components/tabs/demo/card.tsx extend context correctly 1`] = `
 `;
 
 exports[`renders components/tabs/demo/card.tsx extend context correctly 2`] = `[]`;
-
-exports[`renders components/tabs/demo/card-top.tsx extend context correctly 1`] = `
-<div
-  class="acss-1g7foe3"
->
-  <div
-    class="ant-tabs ant-tabs-top ant-tabs-card css-var-test-id ant-tabs-css-var"
-  >
-    <div
-      aria-orientation="horizontal"
-      class="ant-tabs-nav"
-      role="tablist"
-    >
-      <div
-        class="ant-tabs-nav-wrap"
-      >
-        <div
-          class="ant-tabs-nav-list"
-          style="transform: translate(0px, 0px);"
-        >
-          <div
-            class="ant-tabs-tab ant-tabs-tab-active"
-            data-node-key="1"
-          >
-            <div
-              aria-controls="rc-tabs-test-panel-1"
-              aria-selected="true"
-              class="ant-tabs-tab-btn"
-              id="rc-tabs-test-tab-1"
-              role="tab"
-              tabindex="0"
-            >
-              Tab Title 1
-            </div>
-          </div>
-          <div
-            class="ant-tabs-tab"
-            data-node-key="2"
-          >
-            <div
-              aria-controls="rc-tabs-test-panel-2"
-              aria-selected="false"
-              class="ant-tabs-tab-btn"
-              id="rc-tabs-test-tab-2"
-              role="tab"
-              tabindex="-1"
-            >
-              Tab Title 2
-            </div>
-          </div>
-          <div
-            class="ant-tabs-tab"
-            data-node-key="3"
-          >
-            <div
-              aria-controls="rc-tabs-test-panel-3"
-              aria-selected="false"
-              class="ant-tabs-tab-btn"
-              id="rc-tabs-test-tab-3"
-              role="tab"
-              tabindex="-1"
-            >
-              Tab Title 3
-            </div>
-          </div>
-          <div
-            class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
-          />
-        </div>
-      </div>
-      <div
-        class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
-      >
-        <button
-          aria-controls="rc-tabs-test-more-popup"
-          aria-expanded="false"
-          aria-haspopup="listbox"
-          class="ant-tabs-nav-more"
-          id="rc-tabs-test-more"
-          style="visibility: hidden; order: 1;"
-          type="button"
-        >
-          <span
-            aria-label="ellipsis"
-            class="anticon anticon-ellipsis"
-            role="img"
-          >
-            <svg
-              aria-hidden="true"
-              data-icon="ellipsis"
-              fill="currentColor"
-              focusable="false"
-              height="1em"
-              viewBox="64 64 896 896"
-              width="1em"
-            >
-              <path
-                d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
-              />
-            </svg>
-          </span>
-        </button>
-        <div
-          class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-tabs-css-var ant-tabs-dropdown-placement-bottomLeft"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-        >
-          <ul
-            aria-label="expanded dropdown"
-            class="ant-tabs-dropdown-menu ant-tabs-dropdown-menu-root ant-tabs-dropdown-menu-vertical"
-            data-menu-list="true"
-            id="rc-tabs-test-more-popup"
-            role="listbox"
-            tabindex="-1"
-          />
-          <div
-            aria-hidden="true"
-            style="display: none;"
-          />
-        </div>
-      </div>
-    </div>
-    <div
-      class="ant-tabs-content-holder"
-    >
-      <div
-        class="ant-tabs-content ant-tabs-content-top"
-      >
-        <div
-          aria-hidden="false"
-          aria-labelledby="rc-tabs-test-tab-1"
-          class="ant-tabs-tabpane ant-tabs-tabpane-active"
-          id="rc-tabs-test-panel-1"
-          role="tabpanel"
-          tabindex="0"
-        >
-          <p>
-            Content of Tab Pane 1
-          </p>
-          <p>
-            Content of Tab Pane 1
-          </p>
-          <p>
-            Content of Tab Pane 1
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`renders components/tabs/demo/card-top.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/tabs/demo/centered.tsx extend context correctly 1`] = `
 <div
@@ -733,23 +530,6 @@ exports[`renders components/tabs/demo/centered.tsx extend context correctly 1`] 
           </svg>
         </span>
       </button>
-      <div
-        class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-tabs-css-var ant-tabs-dropdown-placement-bottomLeft"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-      >
-        <ul
-          aria-label="expanded dropdown"
-          class="ant-tabs-dropdown-menu ant-tabs-dropdown-menu-root ant-tabs-dropdown-menu-vertical"
-          data-menu-list="true"
-          id="rc-tabs-test-more-popup"
-          role="listbox"
-          tabindex="-1"
-        />
-        <div
-          aria-hidden="true"
-          style="display: none;"
-        />
-      </div>
     </div>
   </div>
   <div
@@ -878,23 +658,6 @@ Array [
               </svg>
             </span>
           </button>
-          <div
-            class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-tabs-css-var ant-tabs-dropdown-placement-bottomLeft"
-            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-          >
-            <ul
-              aria-label="expanded dropdown"
-              class="ant-tabs-dropdown-menu ant-tabs-dropdown-menu-root ant-tabs-dropdown-menu-vertical"
-              data-menu-list="true"
-              id="rc-tabs-test-more-popup"
-              role="listbox"
-              tabindex="-1"
-            />
-            <div
-              aria-hidden="true"
-              style="display: none;"
-            />
-          </div>
         </div>
         <div
           class="ant-tabs-extra-content"
@@ -1028,23 +791,6 @@ Array [
               </svg>
             </span>
           </button>
-          <div
-            class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-tabs-css-var ant-tabs-dropdown-placement-bottomLeft"
-            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-          >
-            <ul
-              aria-label="expanded dropdown"
-              class="ant-tabs-dropdown-menu ant-tabs-dropdown-menu-root ant-tabs-dropdown-menu-vertical"
-              data-menu-list="true"
-              id="rc-tabs-test-more-popup"
-              role="listbox"
-              tabindex="-1"
-            />
-            <div
-              aria-hidden="true"
-              style="display: none;"
-            />
-          </div>
         </div>
         <div
           class="ant-tabs-extra-content"
@@ -1178,23 +924,6 @@ Array [
               </svg>
             </span>
           </button>
-          <div
-            class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-tabs-css-var ant-tabs-dropdown-placement-bottomLeft"
-            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-          >
-            <ul
-              aria-label="expanded dropdown"
-              class="ant-tabs-dropdown-menu ant-tabs-dropdown-menu-root ant-tabs-dropdown-menu-vertical"
-              data-menu-list="true"
-              id="rc-tabs-test-more-popup"
-              role="listbox"
-              tabindex="-1"
-            />
-            <div
-              aria-hidden="true"
-              style="display: none;"
-            />
-          </div>
         </div>
         <div
           class="ant-tabs-extra-content"
@@ -1328,23 +1057,6 @@ Array [
               </svg>
             </span>
           </button>
-          <div
-            class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-tabs-css-var ant-tabs-dropdown-placement-bottomLeft"
-            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-          >
-            <ul
-              aria-label="expanded dropdown"
-              class="ant-tabs-dropdown-menu ant-tabs-dropdown-menu-root ant-tabs-dropdown-menu-vertical"
-              data-menu-list="true"
-              id="rc-tabs-test-more-popup"
-              role="listbox"
-              tabindex="-1"
-            />
-            <div
-              aria-hidden="true"
-              style="display: none;"
-            />
-          </div>
         </div>
         <div
           class="ant-tabs-extra-content"
@@ -1477,23 +1189,6 @@ Array [
               </svg>
             </span>
           </button>
-          <div
-            class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-tabs-css-var ant-tabs-dropdown-placement-bottomLeft"
-            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-          >
-            <ul
-              aria-label="expanded dropdown"
-              class="ant-tabs-dropdown-menu ant-tabs-dropdown-menu-root ant-tabs-dropdown-menu-vertical"
-              data-menu-list="true"
-              id="rc-tabs-test-more-popup"
-              role="listbox"
-              tabindex="-1"
-            />
-            <div
-              aria-hidden="true"
-              style="display: none;"
-            />
-          </div>
         </div>
       </div>
       <div
@@ -1614,23 +1309,6 @@ Array [
               </svg>
             </span>
           </button>
-          <div
-            class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-tabs-css-var ant-tabs-dropdown-placement-bottomLeft"
-            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-          >
-            <ul
-              aria-label="expanded dropdown"
-              class="ant-tabs-dropdown-menu ant-tabs-dropdown-menu-root ant-tabs-dropdown-menu-vertical"
-              data-menu-list="true"
-              id="rc-tabs-test-more-popup"
-              role="listbox"
-              tabindex="-1"
-            />
-            <div
-              aria-hidden="true"
-              style="display: none;"
-            />
-          </div>
         </div>
       </div>
       <div
@@ -1751,23 +1429,6 @@ Array [
               </svg>
             </span>
           </button>
-          <div
-            class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-tabs-css-var ant-tabs-dropdown-placement-bottomLeft"
-            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-          >
-            <ul
-              aria-label="expanded dropdown"
-              class="ant-tabs-dropdown-menu ant-tabs-dropdown-menu-root ant-tabs-dropdown-menu-vertical"
-              data-menu-list="true"
-              id="rc-tabs-test-more-popup"
-              role="listbox"
-              tabindex="-1"
-            />
-            <div
-              aria-hidden="true"
-              style="display: none;"
-            />
-          </div>
         </div>
       </div>
       <div
@@ -1971,23 +1632,6 @@ Array [
             </svg>
           </span>
         </button>
-        <div
-          class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-tabs-css-var ant-tabs-dropdown-placement-bottomLeft"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-        >
-          <ul
-            aria-label="expanded dropdown"
-            class="ant-tabs-dropdown-menu ant-tabs-dropdown-menu-root ant-tabs-dropdown-menu-vertical"
-            data-menu-list="true"
-            id="rc-tabs-test-more-popup"
-            role="listbox"
-            tabindex="-1"
-          />
-          <div
-            aria-hidden="true"
-            style="display: none;"
-          />
-        </div>
         <button
           aria-label="Add tab"
           class="ant-tabs-nav-add"
@@ -2124,23 +1768,6 @@ Array [
               </svg>
             </span>
           </button>
-          <div
-            class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-tabs-css-var ant-tabs-dropdown-placement-bottomLeft"
-            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-          >
-            <ul
-              aria-label="expanded dropdown"
-              class="ant-tabs-dropdown-menu ant-tabs-dropdown-menu-root ant-tabs-dropdown-menu-vertical"
-              data-menu-list="true"
-              id="rc-tabs-test-more-popup"
-              role="listbox"
-              tabindex="-1"
-            />
-            <div
-              aria-hidden="true"
-              style="display: none;"
-            />
-          </div>
         </div>
       </div>
       <div
@@ -2244,23 +1871,6 @@ Array [
               </svg>
             </span>
           </button>
-          <div
-            class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-tabs-css-var ant-tabs-dropdown-placement-bottomLeft"
-            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-          >
-            <ul
-              aria-label="expanded dropdown"
-              class="ant-tabs-dropdown-menu ant-tabs-dropdown-menu-root ant-tabs-dropdown-menu-vertical"
-              data-menu-list="true"
-              id="rc-tabs-test-more-popup"
-              role="listbox"
-              tabindex="-1"
-            />
-            <div
-              aria-hidden="true"
-              style="display: none;"
-            />
-          </div>
         </div>
       </div>
       <div
@@ -2446,23 +2056,6 @@ Array [
               </svg>
             </span>
           </button>
-          <div
-            class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-tabs-css-var ant-tabs-dropdown-placement-bottomLeft"
-            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-          >
-            <ul
-              aria-label="expanded dropdown"
-              class="ant-tabs-dropdown-menu ant-tabs-dropdown-menu-root ant-tabs-dropdown-menu-vertical"
-              data-menu-list="true"
-              id="rc-tabs-test-more-popup"
-              role="listbox"
-              tabindex="-1"
-            />
-            <div
-              aria-hidden="true"
-              style="display: none;"
-            />
-          </div>
           <button
             aria-label="Add tab"
             class="ant-tabs-nav-add"
@@ -2594,23 +2187,6 @@ Array [
               </svg>
             </span>
           </button>
-          <div
-            class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-tabs-css-var ant-tabs-dropdown-placement-bottomLeft"
-            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-          >
-            <ul
-              aria-label="expanded dropdown"
-              class="ant-tabs-dropdown-menu ant-tabs-dropdown-menu-root ant-tabs-dropdown-menu-vertical"
-              data-menu-list="true"
-              id="rc-tabs-test-more-popup"
-              role="listbox"
-              tabindex="-1"
-            />
-            <div
-              aria-hidden="true"
-              style="display: none;"
-            />
-          </div>
         </div>
       </div>
       <div
@@ -2786,23 +2362,6 @@ exports[`renders components/tabs/demo/custom-add-trigger.tsx extend context corr
             </svg>
           </span>
         </button>
-        <div
-          class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-tabs-css-var ant-tabs-dropdown-placement-bottomLeft"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-        >
-          <ul
-            aria-label="expanded dropdown"
-            class="ant-tabs-dropdown-menu ant-tabs-dropdown-menu-root ant-tabs-dropdown-menu-vertical"
-            data-menu-list="true"
-            id="rc-tabs-test-more-popup"
-            role="listbox"
-            tabindex="-1"
-          />
-          <div
-            aria-hidden="true"
-            style="display: none;"
-          />
-        </div>
       </div>
     </div>
     <div
@@ -2987,23 +2546,6 @@ Array [
             </svg>
           </span>
         </button>
-        <div
-          class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-tabs-css-var ant-tabs-dropdown-placement-bottomLeft"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-        >
-          <ul
-            aria-label="expanded dropdown"
-            class="ant-tabs-dropdown-menu ant-tabs-dropdown-menu-root ant-tabs-dropdown-menu-vertical"
-            data-menu-list="true"
-            id="rc-tabs-test-more-popup"
-            role="listbox"
-            tabindex="-1"
-          />
-          <div
-            aria-hidden="true"
-            style="display: none;"
-          />
-        </div>
       </div>
     </div>
     <div
@@ -3133,23 +2675,6 @@ exports[`renders components/tabs/demo/custom-tab-bar.tsx extend context correctl
             </svg>
           </span>
         </button>
-        <div
-          class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-tabs-css-var ant-tabs-dropdown-placement-bottomLeft"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-        >
-          <ul
-            aria-label="expanded dropdown"
-            class="ant-tabs-dropdown-menu ant-tabs-dropdown-menu-root ant-tabs-dropdown-menu-vertical"
-            data-menu-list="true"
-            id="rc-tabs-test-more-popup"
-            role="listbox"
-            tabindex="-1"
-          />
-          <div
-            aria-hidden="true"
-            style="display: none;"
-          />
-        </div>
       </div>
     </div>
   </div>
@@ -3450,23 +2975,6 @@ exports[`renders components/tabs/demo/disabled.tsx extend context correctly 1`] 
           </svg>
         </span>
       </button>
-      <div
-        class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-tabs-css-var ant-tabs-dropdown-placement-bottomLeft"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-      >
-        <ul
-          aria-label="expanded dropdown"
-          class="ant-tabs-dropdown-menu ant-tabs-dropdown-menu-root ant-tabs-dropdown-menu-vertical"
-          data-menu-list="true"
-          id="rc-tabs-test-more-popup"
-          role="listbox"
-          tabindex="-1"
-        />
-        <div
-          aria-hidden="true"
-          style="display: none;"
-        />
-      </div>
     </div>
   </div>
   <div
@@ -3672,23 +3180,6 @@ exports[`renders components/tabs/demo/editable-card.tsx extend context correctly
           </svg>
         </span>
       </button>
-      <div
-        class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-tabs-css-var ant-tabs-dropdown-placement-bottomLeft"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-      >
-        <ul
-          aria-label="expanded dropdown"
-          class="ant-tabs-dropdown-menu ant-tabs-dropdown-menu-root ant-tabs-dropdown-menu-vertical"
-          data-menu-list="true"
-          id="rc-tabs-test-more-popup"
-          role="listbox"
-          tabindex="-1"
-        />
-        <div
-          aria-hidden="true"
-          style="display: none;"
-        />
-      </div>
       <button
         aria-label="Add tab"
         class="ant-tabs-nav-add"
@@ -3841,23 +3332,6 @@ Array [
             </svg>
           </span>
         </button>
-        <div
-          class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-tabs-css-var ant-tabs-dropdown-placement-bottomLeft"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-        >
-          <ul
-            aria-label="expanded dropdown"
-            class="ant-tabs-dropdown-menu ant-tabs-dropdown-menu-root ant-tabs-dropdown-menu-vertical"
-            data-menu-list="true"
-            id="rc-tabs-test-more-popup"
-            role="listbox"
-            tabindex="-1"
-          />
-          <div
-            aria-hidden="true"
-            style="display: none;"
-          />
-        </div>
       </div>
       <div
         class="ant-tabs-extra-content"
@@ -4060,23 +3534,6 @@ Array [
             </svg>
           </span>
         </button>
-        <div
-          class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-tabs-css-var ant-tabs-dropdown-placement-bottomLeft"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-        >
-          <ul
-            aria-label="expanded dropdown"
-            class="ant-tabs-dropdown-menu ant-tabs-dropdown-menu-root ant-tabs-dropdown-menu-vertical"
-            data-menu-list="true"
-            id="rc-tabs-test-more-popup"
-            role="listbox"
-            tabindex="-1"
-          />
-          <div
-            aria-hidden="true"
-            style="display: none;"
-          />
-        </div>
       </div>
       <div
         class="ant-tabs-extra-content"
@@ -4248,23 +3705,6 @@ exports[`renders components/tabs/demo/icon.tsx extend context correctly 1`] = `
           </svg>
         </span>
       </button>
-      <div
-        class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-tabs-css-var ant-tabs-dropdown-placement-bottomLeft"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-      >
-        <ul
-          aria-label="expanded dropdown"
-          class="ant-tabs-dropdown-menu ant-tabs-dropdown-menu-root ant-tabs-dropdown-menu-vertical"
-          data-menu-list="true"
-          id="rc-tabs-test-more-popup"
-          role="listbox"
-          tabindex="-1"
-        />
-        <div
-          aria-hidden="true"
-          style="display: none;"
-        />
-      </div>
     </div>
   </div>
   <div
@@ -4341,113 +3781,51 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
-    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+    class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
+    style="width: 200px;"
   >
-    <div>
+    <div
+      class="ant-select-content"
+    >
       <div
-        id="test-id_list"
-        role="listbox"
-        style="height: 0px; width: 0px; overflow: hidden;"
+        class="ant-select-placeholder"
+        style="visibility: visible;"
+      />
+      <input
+        aria-autocomplete="list"
+        aria-expanded="false"
+        aria-haspopup="listbox"
+        autocomplete="off"
+        class="ant-select-input"
+        id="test-id"
+        readonly=""
+        role="combobox"
+        type="search"
+        value=""
+      />
+    </div>
+    <div
+      class="ant-select-suffix"
+    >
+      <span
+        aria-label="down"
+        class="anticon anticon-down"
+        role="img"
       >
-        <div
-          aria-label="Parent - start"
-          aria-selected="false"
-          id="test-id_list_0"
-          role="option"
+        <svg
+          aria-hidden="true"
+          data-icon="down"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
         >
-          start
-        </div>
-        <div
-          aria-label="Parent - end"
-          aria-selected="false"
-          id="test-id_list_1"
-          role="option"
-        >
-          end
-        </div>
-      </div>
-      <div
-        class="rc-virtual-list"
-        style="position: relative;"
-      >
-        <div
-          class="rc-virtual-list-holder"
-          style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
-        >
-          <div>
-            <div
-              class="rc-virtual-list-holder-inner"
-              style="display: flex; flex-direction: column;"
-            >
-              <div
-                class="ant-select-item ant-select-item-option ant-select-item-option-active"
-                title="Parent - start"
-              >
-                <div
-                  class="ant-select-item-option-content"
-                >
-                  Parent - start
-                </div>
-                <span
-                  aria-hidden="true"
-                  class="ant-select-item-option-state"
-                  style="user-select: none;"
-                  unselectable="on"
-                />
-              </div>
-              <div
-                class="ant-select-item ant-select-item-option"
-                title="Parent - end"
-              >
-                <div
-                  class="ant-select-item-option-content"
-                >
-                  Parent - end
-                </div>
-                <span
-                  aria-hidden="true"
-                  class="ant-select-item-option-state"
-                  style="user-select: none;"
-                  unselectable="on"
-                />
-              </div>
-              <div
-                class="ant-select-item ant-select-item-option"
-                title="Parent - top"
-              >
-                <div
-                  class="ant-select-item-option-content"
-                >
-                  Parent - top
-                </div>
-                <span
-                  aria-hidden="true"
-                  class="ant-select-item-option-state"
-                  style="user-select: none;"
-                  unselectable="on"
-                />
-              </div>
-              <div
-                class="ant-select-item ant-select-item-option"
-                title="Parent - bottom"
-              >
-                <div
-                  class="ant-select-item-option-content"
-                >
-                  Parent - bottom
-                </div>
-                <span
-                  aria-hidden="true"
-                  class="ant-select-item-option-state"
-                  style="user-select: none;"
-                  unselectable="on"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+          <path
+            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+          />
+        </svg>
+      </span>
     </div>
   </div>
   <div
@@ -4499,116 +3877,6 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
-    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-  >
-    <div>
-      <div
-        id="test-id_list"
-        role="listbox"
-        style="height: 0px; width: 0px; overflow: hidden;"
-      >
-        <div
-          aria-label="Child - start"
-          aria-selected="false"
-          id="test-id_list_0"
-          role="option"
-        >
-          start
-        </div>
-        <div
-          aria-label="Child - end"
-          aria-selected="false"
-          id="test-id_list_1"
-          role="option"
-        >
-          end
-        </div>
-      </div>
-      <div
-        class="rc-virtual-list"
-        style="position: relative;"
-      >
-        <div
-          class="rc-virtual-list-holder"
-          style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
-        >
-          <div>
-            <div
-              class="rc-virtual-list-holder-inner"
-              style="display: flex; flex-direction: column;"
-            >
-              <div
-                class="ant-select-item ant-select-item-option ant-select-item-option-active"
-                title="Child - start"
-              >
-                <div
-                  class="ant-select-item-option-content"
-                >
-                  Child - start
-                </div>
-                <span
-                  aria-hidden="true"
-                  class="ant-select-item-option-state"
-                  style="user-select: none;"
-                  unselectable="on"
-                />
-              </div>
-              <div
-                class="ant-select-item ant-select-item-option"
-                title="Child - end"
-              >
-                <div
-                  class="ant-select-item-option-content"
-                >
-                  Child - end
-                </div>
-                <span
-                  aria-hidden="true"
-                  class="ant-select-item-option-state"
-                  style="user-select: none;"
-                  unselectable="on"
-                />
-              </div>
-              <div
-                class="ant-select-item ant-select-item-option"
-                title="Child - top"
-              >
-                <div
-                  class="ant-select-item-option-content"
-                >
-                  Child - top
-                </div>
-                <span
-                  aria-hidden="true"
-                  class="ant-select-item-option-state"
-                  style="user-select: none;"
-                  unselectable="on"
-                />
-              </div>
-              <div
-                class="ant-select-item ant-select-item-option"
-                title="Child - bottom"
-              >
-                <div
-                  class="ant-select-item-option-content"
-                >
-                  Child - bottom
-                </div>
-                <span
-                  aria-hidden="true"
-                  class="ant-select-item-option-state"
-                  style="user-select: none;"
-                  unselectable="on"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div
     class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
     style="width: 200px;"
   >
@@ -4654,242 +3922,6 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
           />
         </svg>
       </span>
-    </div>
-  </div>
-  <div
-    class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
-    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-  >
-    <div>
-      <div
-        id="test-id_list"
-        role="listbox"
-        style="height: 0px; width: 0px; overflow: hidden;"
-      >
-        <div
-          aria-label="Parent - line"
-          aria-selected="false"
-          id="test-id_list_0"
-          role="option"
-        >
-          line
-        </div>
-        <div
-          aria-label="Parent - card"
-          aria-selected="false"
-          id="test-id_list_1"
-          role="option"
-        >
-          card
-        </div>
-      </div>
-      <div
-        class="rc-virtual-list"
-        style="position: relative;"
-      >
-        <div
-          class="rc-virtual-list-holder"
-          style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
-        >
-          <div>
-            <div
-              class="rc-virtual-list-holder-inner"
-              style="display: flex; flex-direction: column;"
-            >
-              <div
-                class="ant-select-item ant-select-item-option ant-select-item-option-active"
-                title="Parent - line"
-              >
-                <div
-                  class="ant-select-item-option-content"
-                >
-                  Parent - line
-                </div>
-                <span
-                  aria-hidden="true"
-                  class="ant-select-item-option-state"
-                  style="user-select: none;"
-                  unselectable="on"
-                />
-              </div>
-              <div
-                class="ant-select-item ant-select-item-option"
-                title="Parent - card"
-              >
-                <div
-                  class="ant-select-item-option-content"
-                >
-                  Parent - card
-                </div>
-                <span
-                  aria-hidden="true"
-                  class="ant-select-item-option-state"
-                  style="user-select: none;"
-                  unselectable="on"
-                />
-              </div>
-              <div
-                class="ant-select-item ant-select-item-option"
-                title="Parent - card edit"
-              >
-                <div
-                  class="ant-select-item-option-content"
-                >
-                  Parent - card edit
-                </div>
-                <span
-                  aria-hidden="true"
-                  class="ant-select-item-option-state"
-                  style="user-select: none;"
-                  unselectable="on"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div
-    class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
-    style="width: 200px;"
-  >
-    <div
-      class="ant-select-content"
-    >
-      <div
-        class="ant-select-placeholder"
-        style="visibility: visible;"
-      />
-      <input
-        aria-autocomplete="list"
-        aria-expanded="false"
-        aria-haspopup="listbox"
-        autocomplete="off"
-        class="ant-select-input"
-        id="test-id"
-        readonly=""
-        role="combobox"
-        type="search"
-        value=""
-      />
-    </div>
-    <div
-      class="ant-select-suffix"
-    >
-      <span
-        aria-label="down"
-        class="anticon anticon-down"
-        role="img"
-      >
-        <svg
-          aria-hidden="true"
-          data-icon="down"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
-        >
-          <path
-            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-          />
-        </svg>
-      </span>
-    </div>
-  </div>
-  <div
-    class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
-    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-  >
-    <div>
-      <div
-        id="test-id_list"
-        role="listbox"
-        style="height: 0px; width: 0px; overflow: hidden;"
-      >
-        <div
-          aria-label="Child - line"
-          aria-selected="false"
-          id="test-id_list_0"
-          role="option"
-        >
-          line
-        </div>
-        <div
-          aria-label="Child - card"
-          aria-selected="false"
-          id="test-id_list_1"
-          role="option"
-        >
-          card
-        </div>
-      </div>
-      <div
-        class="rc-virtual-list"
-        style="position: relative;"
-      >
-        <div
-          class="rc-virtual-list-holder"
-          style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
-        >
-          <div>
-            <div
-              class="rc-virtual-list-holder-inner"
-              style="display: flex; flex-direction: column;"
-            >
-              <div
-                class="ant-select-item ant-select-item-option ant-select-item-option-active"
-                title="Child - line"
-              >
-                <div
-                  class="ant-select-item-option-content"
-                >
-                  Child - line
-                </div>
-                <span
-                  aria-hidden="true"
-                  class="ant-select-item-option-state"
-                  style="user-select: none;"
-                  unselectable="on"
-                />
-              </div>
-              <div
-                class="ant-select-item ant-select-item-option"
-                title="Child - card"
-              >
-                <div
-                  class="ant-select-item-option-content"
-                >
-                  Child - card
-                </div>
-                <span
-                  aria-hidden="true"
-                  class="ant-select-item-option-state"
-                  style="user-select: none;"
-                  unselectable="on"
-                />
-              </div>
-              <div
-                class="ant-select-item ant-select-item-option"
-                title="Child - card edit"
-              >
-                <div
-                  class="ant-select-item-option-content"
-                >
-                  Child - card edit
-                </div>
-                <span
-                  aria-hidden="true"
-                  class="ant-select-item-option-state"
-                  style="user-select: none;"
-                  unselectable="on"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
   </div>
   <div
@@ -4974,23 +4006,6 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
             </svg>
           </span>
         </button>
-        <div
-          class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-tabs-css-var ant-tabs-dropdown-placement-bottomLeft"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-        >
-          <ul
-            aria-label="expanded dropdown"
-            class="ant-tabs-dropdown-menu ant-tabs-dropdown-menu-root ant-tabs-dropdown-menu-vertical"
-            data-menu-list="true"
-            id="rc-tabs-test-more-popup"
-            role="listbox"
-            tabindex="-1"
-          />
-          <div
-            aria-hidden="true"
-            style="display: none;"
-          />
-        </div>
       </div>
     </div>
     <div
@@ -5360,23 +4375,6 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
                     </svg>
                   </span>
                 </button>
-                <div
-                  class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-tabs-css-var ant-tabs-dropdown-placement-bottomLeft"
-                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-                >
-                  <ul
-                    aria-label="expanded dropdown"
-                    class="ant-tabs-dropdown-menu ant-tabs-dropdown-menu-root ant-tabs-dropdown-menu-vertical"
-                    data-menu-list="true"
-                    id="rc-tabs-test-more-popup"
-                    role="listbox"
-                    tabindex="-1"
-                  />
-                  <div
-                    aria-hidden="true"
-                    style="display: none;"
-                  />
-                </div>
               </div>
             </div>
             <div
@@ -5613,23 +4611,6 @@ Array [
             </svg>
           </span>
         </button>
-        <div
-          class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-tabs-css-var ant-tabs-dropdown-placement-bottomLeft"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-        >
-          <ul
-            aria-label="expanded dropdown"
-            class="ant-tabs-dropdown-menu ant-tabs-dropdown-menu-root ant-tabs-dropdown-menu-vertical"
-            data-menu-list="true"
-            id="rc-tabs-test-more-popup"
-            role="listbox"
-            tabindex="-1"
-          />
-          <div
-            aria-hidden="true"
-            style="display: none;"
-          />
-        </div>
       </div>
     </div>
     <div
@@ -5828,23 +4809,6 @@ exports[`renders components/tabs/demo/size.tsx extend context correctly 1`] = `
             </svg>
           </span>
         </button>
-        <div
-          class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-tabs-css-var ant-tabs-dropdown-placement-bottomLeft"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-        >
-          <ul
-            aria-label="expanded dropdown"
-            class="ant-tabs-dropdown-menu ant-tabs-dropdown-menu-root ant-tabs-dropdown-menu-vertical"
-            data-menu-list="true"
-            id="rc-tabs-test-more-popup"
-            role="listbox"
-            tabindex="-1"
-          />
-          <div
-            aria-hidden="true"
-            style="display: none;"
-          />
-        </div>
       </div>
     </div>
     <div
@@ -5964,23 +4928,6 @@ exports[`renders components/tabs/demo/size.tsx extend context correctly 1`] = `
             </svg>
           </span>
         </button>
-        <div
-          class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-tabs-css-var ant-tabs-dropdown-placement-bottomLeft"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-        >
-          <ul
-            aria-label="expanded dropdown"
-            class="ant-tabs-dropdown-menu ant-tabs-dropdown-menu-root ant-tabs-dropdown-menu-vertical"
-            data-menu-list="true"
-            id="rc-tabs-test-more-popup"
-            role="listbox"
-            tabindex="-1"
-          />
-          <div
-            aria-hidden="true"
-            style="display: none;"
-          />
-        </div>
       </div>
     </div>
     <div
@@ -6208,23 +5155,6 @@ exports[`renders components/tabs/demo/size.tsx extend context correctly 1`] = `
             </svg>
           </span>
         </button>
-        <div
-          class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-tabs-css-var ant-tabs-dropdown-placement-bottomLeft"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-        >
-          <ul
-            aria-label="expanded dropdown"
-            class="ant-tabs-dropdown-menu ant-tabs-dropdown-menu-root ant-tabs-dropdown-menu-vertical"
-            data-menu-list="true"
-            id="rc-tabs-test-more-popup"
-            role="listbox"
-            tabindex="-1"
-          />
-          <div
-            aria-hidden="true"
-            style="display: none;"
-          />
-        </div>
         <button
           aria-label="Add tab"
           class="ant-tabs-nav-add"
@@ -6863,23 +5793,6 @@ exports[`renders components/tabs/demo/slide.tsx extend context correctly 1`] = `
             </svg>
           </span>
         </button>
-        <div
-          class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-tabs-css-var ant-tabs-dropdown-placement-bottomLeft"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-        >
-          <ul
-            aria-label="expanded dropdown"
-            class="ant-tabs-dropdown-menu ant-tabs-dropdown-menu-root ant-tabs-dropdown-menu-vertical"
-            data-menu-list="true"
-            id="rc-tabs-test-more-popup"
-            role="listbox"
-            tabindex="-1"
-          />
-          <div
-            aria-hidden="true"
-            style="display: none;"
-          />
-        </div>
       </div>
     </div>
     <div
@@ -6905,291 +5818,3 @@ exports[`renders components/tabs/demo/slide.tsx extend context correctly 1`] = `
 `;
 
 exports[`renders components/tabs/demo/slide.tsx extend context correctly 2`] = `[]`;
-
-exports[`renders components/tabs/demo/style-class.tsx extend context correctly 1`] = `
-<div
-  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
->
-  <div
-    class="ant-tabs ant-tabs-top acss-1lyenb6 css-var-test-id ant-tabs-css-var"
-    style="border-width: 2px; border-style: dashed; padding: 16px; margin-bottom: 10px;"
-  >
-    <div
-      aria-orientation="horizontal"
-      class="ant-tabs-nav"
-      role="tablist"
-      style="background-color: rgba(245, 245, 245, 0.5);"
-    >
-      <div
-        class="ant-tabs-nav-wrap"
-      >
-        <div
-          class="ant-tabs-nav-list"
-          style="transform: translate(0px, 0px);"
-        >
-          <div
-            class="ant-tabs-tab ant-tabs-tab-active"
-            data-node-key="1"
-            style="font-weight: bold; color: rgb(24, 144, 255); padding: 6px 10px;"
-          >
-            <div
-              aria-controls="rc-tabs-test-panel-1"
-              aria-selected="true"
-              class="ant-tabs-tab-btn"
-              id="rc-tabs-test-tab-1"
-              role="tab"
-              tabindex="0"
-            >
-              Tab 1
-            </div>
-          </div>
-          <div
-            class="ant-tabs-tab"
-            data-node-key="2"
-            style="font-weight: bold; color: rgb(24, 144, 255); padding: 6px 10px;"
-          >
-            <div
-              aria-controls="rc-tabs-test-panel-2"
-              aria-selected="false"
-              class="ant-tabs-tab-btn"
-              id="rc-tabs-test-tab-2"
-              role="tab"
-              tabindex="-1"
-            >
-              Tab 2
-            </div>
-          </div>
-          <div
-            class="ant-tabs-tab"
-            data-node-key="3"
-            style="font-weight: bold; color: rgb(24, 144, 255); padding: 6px 10px;"
-          >
-            <div
-              aria-controls="rc-tabs-test-panel-3"
-              aria-selected="false"
-              class="ant-tabs-tab-btn"
-              id="rc-tabs-test-tab-3"
-              role="tab"
-              tabindex="-1"
-            >
-              Tab 3
-            </div>
-          </div>
-          <div
-            class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
-            style="background-color: rgba(255, 77, 79, 0.3); height: 4px;"
-          />
-        </div>
-      </div>
-      <div
-        class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
-      >
-        <button
-          aria-controls="rc-tabs-test-more-popup"
-          aria-expanded="false"
-          aria-haspopup="listbox"
-          class="ant-tabs-nav-more"
-          id="rc-tabs-test-more"
-          style="visibility: hidden; order: 1;"
-          type="button"
-        >
-          <span
-            aria-label="ellipsis"
-            class="anticon anticon-ellipsis"
-            role="img"
-          >
-            <svg
-              aria-hidden="true"
-              data-icon="ellipsis"
-              fill="currentColor"
-              focusable="false"
-              height="1em"
-              viewBox="64 64 896 896"
-              width="1em"
-            >
-              <path
-                d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
-              />
-            </svg>
-          </span>
-        </button>
-        <div
-          class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-tabs-css-var ant-tabs-dropdown-placement-bottomLeft"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-        >
-          <ul
-            aria-label="expanded dropdown"
-            class="ant-tabs-dropdown-menu ant-tabs-dropdown-menu-root ant-tabs-dropdown-menu-vertical"
-            data-menu-list="true"
-            id="rc-tabs-test-more-popup"
-            role="listbox"
-            tabindex="-1"
-          />
-          <div
-            aria-hidden="true"
-            style="display: none;"
-          />
-        </div>
-      </div>
-    </div>
-    <div
-      class="ant-tabs-content-holder"
-    >
-      <div
-        class="ant-tabs-content ant-tabs-content-top"
-      >
-        <div
-          aria-hidden="false"
-          aria-labelledby="rc-tabs-test-tab-1"
-          class="ant-tabs-tabpane ant-tabs-tabpane-active"
-          id="rc-tabs-test-panel-1"
-          role="tabpanel"
-          style="background-color: rgba(230, 247, 255, 0.8); padding: 16px;"
-          tabindex="0"
-        >
-          Content of Tab Pane 1
-        </div>
-      </div>
-    </div>
-  </div>
-  <div
-    class="ant-tabs ant-tabs-left ant-tabs-card acss-1lyenb6 css-var-test-id ant-tabs-css-var"
-    style="background-color: rgba(250, 250, 250, 0.8); border-color: rgb(217, 217, 217);"
-  >
-    <div
-      aria-orientation="vertical"
-      class="ant-tabs-nav"
-      role="tablist"
-      style="text-align: start;"
-    >
-      <div
-        class="ant-tabs-nav-wrap"
-      >
-        <div
-          class="ant-tabs-nav-list"
-          style="transform: translate(0px, 0px);"
-        >
-          <div
-            class="ant-tabs-tab ant-tabs-tab-active"
-            data-node-key="1"
-          >
-            <div
-              aria-controls="rc-tabs-test-panel-1"
-              aria-selected="true"
-              class="ant-tabs-tab-btn"
-              id="rc-tabs-test-tab-1"
-              role="tab"
-              tabindex="0"
-            >
-              Tab 1
-            </div>
-          </div>
-          <div
-            class="ant-tabs-tab"
-            data-node-key="2"
-          >
-            <div
-              aria-controls="rc-tabs-test-panel-2"
-              aria-selected="false"
-              class="ant-tabs-tab-btn"
-              id="rc-tabs-test-tab-2"
-              role="tab"
-              tabindex="-1"
-            >
-              Tab 2
-            </div>
-          </div>
-          <div
-            class="ant-tabs-tab"
-            data-node-key="3"
-          >
-            <div
-              aria-controls="rc-tabs-test-panel-3"
-              aria-selected="false"
-              class="ant-tabs-tab-btn"
-              id="rc-tabs-test-tab-3"
-              role="tab"
-              tabindex="-1"
-            >
-              Tab 3
-            </div>
-          </div>
-          <div
-            class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
-          />
-        </div>
-      </div>
-      <div
-        class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
-      >
-        <button
-          aria-controls="rc-tabs-test-more-popup"
-          aria-expanded="false"
-          aria-haspopup="listbox"
-          class="ant-tabs-nav-more"
-          id="rc-tabs-test-more"
-          style="visibility: hidden; order: 1;"
-          type="button"
-        >
-          <span
-            aria-label="ellipsis"
-            class="anticon anticon-ellipsis"
-            role="img"
-          >
-            <svg
-              aria-hidden="true"
-              data-icon="ellipsis"
-              fill="currentColor"
-              focusable="false"
-              height="1em"
-              viewBox="64 64 896 896"
-              width="1em"
-            >
-              <path
-                d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
-              />
-            </svg>
-          </span>
-        </button>
-        <div
-          class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-tabs-css-var ant-tabs-dropdown-placement-bottomLeft"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-        >
-          <ul
-            aria-label="expanded dropdown"
-            class="ant-tabs-dropdown-menu ant-tabs-dropdown-menu-root ant-tabs-dropdown-menu-vertical"
-            data-menu-list="true"
-            id="rc-tabs-test-more-popup"
-            role="listbox"
-            tabindex="-1"
-          />
-          <div
-            aria-hidden="true"
-            style="display: none;"
-          />
-        </div>
-      </div>
-    </div>
-    <div
-      class="ant-tabs-content-holder"
-    >
-      <div
-        class="ant-tabs-content ant-tabs-content-left"
-      >
-        <div
-          aria-hidden="false"
-          aria-labelledby="rc-tabs-test-tab-1"
-          class="ant-tabs-tabpane ant-tabs-tabpane-active"
-          id="rc-tabs-test-panel-1"
-          role="tabpanel"
-          tabindex="0"
-        >
-          Content of Tab Pane 1
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`renders components/tabs/demo/style-class.tsx extend context correctly 2`] = `[]`;

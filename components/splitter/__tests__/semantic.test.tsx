@@ -1,4 +1,5 @@
 import React from 'react';
+import { vi } from 'vitest';
 import type { GetProps, SplitterProps } from 'antd';
 
 import Splitter from '..';
@@ -24,7 +25,7 @@ const resizeSplitter = async () => {
 
 describe('Splitter.Semantic', () => {
   it('should support classNames as function', async () => {
-    const classNamesFn = jest.fn(({ props }) => ({
+    const classNamesFn = vi.fn(({ props }) => ({
       root: `custom-root-${props.orientation}`,
       panel: 'custom-panel',
       dragger: 'custom-dragger',
@@ -55,7 +56,7 @@ describe('Splitter.Semantic', () => {
   });
 
   it('should support styles as function', async () => {
-    const stylesFn = jest.fn(({ props }) => ({
+    const stylesFn = vi.fn(({ props }) => ({
       root: {
         backgroundColor:
           props.orientation === 'horizontal' ? 'rgba(255, 0, 0, 0.5)' : 'rgba(0, 0, 255, 0.5)',
@@ -87,12 +88,12 @@ describe('Splitter.Semantic', () => {
   });
 
   it('should support both function and object classNames/styles', async () => {
-    const classNamesFn = jest.fn(() => ({
+    const classNamesFn = vi.fn(() => ({
       root: 'fn-root',
       panel: 'fn-panel',
     }));
 
-    const stylesFn = jest.fn(() => ({
+    const stylesFn = vi.fn(() => ({
       root: { color: 'rgb(255, 0, 0)' },
       panel: { margin: '5px' },
     }));
@@ -119,7 +120,7 @@ describe('Splitter.Semantic', () => {
   });
 
   it('should work with complex dragger classNames as function', async () => {
-    const classNamesFn = jest.fn(() => ({
+    const classNamesFn = vi.fn(() => ({
       dragger: {
         default: 'custom-dragger-default',
         active: 'custom-dragger-active',

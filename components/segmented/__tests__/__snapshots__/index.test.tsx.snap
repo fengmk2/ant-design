@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Segmented render empty segmented 1`] = `
+exports[`Segmented > render empty segmented 1`] = `
 <div
   aria-label="segmented control"
   aria-orientation="horizontal"
@@ -14,7 +14,7 @@ exports[`Segmented render empty segmented 1`] = `
 </div>
 `;
 
-exports[`Segmented render label with ReactNode 1`] = `
+exports[`Segmented > render label with ReactNode 1`] = `
 <div
   aria-label="segmented control"
   aria-orientation="horizontal"
@@ -81,7 +81,7 @@ exports[`Segmented render label with ReactNode 1`] = `
 </div>
 `;
 
-exports[`Segmented render segmented ok 1`] = `
+exports[`Segmented > render segmented ok 1`] = `
 <div
   aria-label="segmented control"
   aria-orientation="horizontal"
@@ -142,7 +142,7 @@ exports[`Segmented render segmented ok 1`] = `
 </div>
 `;
 
-exports[`Segmented render segmented with \`block\` 1`] = `
+exports[`Segmented > render segmented with \`block\` 1`] = `
 <div
   aria-label="segmented control"
   aria-orientation="horizontal"
@@ -203,7 +203,7 @@ exports[`Segmented render segmented with \`block\` 1`] = `
 </div>
 `;
 
-exports[`Segmented render segmented with \`size#large\` 1`] = `
+exports[`Segmented > render segmented with \`size#large\` 1`] = `
 <div
   aria-label="segmented control"
   aria-orientation="horizontal"
@@ -264,7 +264,7 @@ exports[`Segmented render segmented with \`size#large\` 1`] = `
 </div>
 `;
 
-exports[`Segmented render segmented with \`size#small\` 1`] = `
+exports[`Segmented > render segmented with \`size#small\` 1`] = `
 <div
   aria-label="segmented control"
   aria-orientation="horizontal"
@@ -325,7 +325,7 @@ exports[`Segmented render segmented with \`size#small\` 1`] = `
 </div>
 `;
 
-exports[`Segmented render segmented with mixed options 1`] = `
+exports[`Segmented > render segmented with mixed options 1`] = `
 <div
   aria-label="segmented control"
   aria-orientation="horizontal"
@@ -386,7 +386,7 @@ exports[`Segmented render segmented with mixed options 1`] = `
 </div>
 `;
 
-exports[`Segmented render segmented with numeric options 1`] = `
+exports[`Segmented > render segmented with numeric options 1`] = `
 <div
   aria-label="segmented control"
   aria-orientation="horizontal"
@@ -477,7 +477,7 @@ exports[`Segmented render segmented with numeric options 1`] = `
 </div>
 `;
 
-exports[`Segmented render segmented with options null/undefined 1`] = `
+exports[`Segmented > render segmented with options null/undefined 1`] = `
 <div
   aria-label="segmented control"
   aria-orientation="horizontal"
@@ -532,7 +532,7 @@ exports[`Segmented render segmented with options null/undefined 1`] = `
 </div>
 `;
 
-exports[`Segmented render segmented with options: disabled 1`] = `
+exports[`Segmented > render segmented with options: disabled 1`] = `
 <div
   aria-label="segmented control"
   aria-orientation="horizontal"
@@ -594,7 +594,7 @@ exports[`Segmented render segmented with options: disabled 1`] = `
 </div>
 `;
 
-exports[`Segmented render segmented with string options 1`] = `
+exports[`Segmented > render segmented with string options 1`] = `
 <div
   aria-label="segmented control"
   aria-orientation="horizontal"
@@ -655,7 +655,7 @@ exports[`Segmented render segmented with string options 1`] = `
 </div>
 `;
 
-exports[`Segmented render segmented with thumb 1`] = `
+exports[`Segmented > render segmented with thumb 1`] = `
 <div
   aria-label="segmented control"
   aria-orientation="horizontal"
@@ -716,7 +716,7 @@ exports[`Segmented render segmented with thumb 1`] = `
 </div>
 `;
 
-exports[`Segmented render segmented: disabled 1`] = `
+exports[`Segmented > render segmented: disabled 1`] = `
 <div
   aria-label="segmented control"
   aria-orientation="horizontal"
@@ -779,7 +779,7 @@ exports[`Segmented render segmented: disabled 1`] = `
 </div>
 `;
 
-exports[`Segmented render with icons 1`] = `
+exports[`Segmented > render with icons 1`] = `
 <div
   aria-label="segmented control"
   aria-orientation="horizontal"
@@ -870,7 +870,7 @@ exports[`Segmented render with icons 1`] = `
 </div>
 `;
 
-exports[`Segmented rtl render component should be rendered correctly in RTL direction 1`] = `
+exports[`Segmented > rtl render > component should be rendered correctly in RTL direction 1`] = `
 <div
   aria-label="segmented control"
   aria-orientation="horizontal"

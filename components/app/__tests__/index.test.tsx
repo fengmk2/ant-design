@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { SmileOutlined } from '@ant-design/icons';
-import ConfigProvider from 'antd/es/config-provider';
-import type { NotificationConfig } from 'antd/es/notification/interface';
+import ConfigProvider from '../../config-provider';
+import type { NotificationConfig } from '../../notification/interface';
 
 import App from '..';
 import mountTest from '../../../tests/shared/mountTest';
@@ -15,12 +15,12 @@ describe('App', () => {
   rtlTest(App);
 
   beforeEach(() => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
   });
 
   afterEach(() => {
-    jest.clearAllTimers();
-    jest.useRealTimers();
+    vi.clearAllTimers();
+    vi.useRealTimers();
   });
 
   it('single', () => {
@@ -216,7 +216,7 @@ describe('App', () => {
   });
 
   describe('component', () => {
-    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
 
     afterEach(() => {
       errorSpy.mockReset();

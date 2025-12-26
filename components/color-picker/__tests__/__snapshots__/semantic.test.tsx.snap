@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`ColorPicker.Semantic rtl render component should be rendered correctly in RTL direction 1`] = `
+exports[`ColorPicker.Semantic > rtl render > component should be rendered correctly in RTL direction 1`] = `
 <div
   class="ant-color-picker-trigger css-var-root ant-color-picker-css-var ant-color-picker-rtl"
 >

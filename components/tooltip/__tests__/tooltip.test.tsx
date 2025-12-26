@@ -1,4 +1,5 @@
 import React from 'react';
+import { vi } from 'vitest';
 import { warning } from '@rc-component/util';
 import { spyElementPrototype } from '@rc-component/util/lib/test/domHook';
 
@@ -31,16 +32,16 @@ describe('Tooltip', () => {
   });
 
   beforeEach(() => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
   });
 
   afterEach(() => {
-    jest.useRealTimers();
-    jest.clearAllTimers();
+    vi.useRealTimers();
+    vi.clearAllTimers();
   });
 
   it('check `onOpenChange` arguments', async () => {
-    const onOpenChange = jest.fn();
+    const onOpenChange = vi.fn();
     const ref = React.createRef<any>();
 
     const { container, rerender } = render(
@@ -122,7 +123,7 @@ describe('Tooltip', () => {
   });
 
   it('should hide when mouse leave native disabled button', async () => {
-    const onOpenChange = jest.fn();
+    const onOpenChange = vi.fn();
     const ref = React.createRef<any>();
 
     const { container } = render(
@@ -157,7 +158,7 @@ describe('Tooltip', () => {
   describe('should hide when mouse leave antd disabled component', () => {
     function testComponent(name: string, Component: typeof Button | typeof Switch) {
       it(name, async () => {
-        const onOpenChange = jest.fn();
+        const onOpenChange = vi.fn();
         const ref = React.createRef<any>();
         const { container } = render(
           <Tooltip
@@ -211,7 +212,7 @@ describe('Tooltip', () => {
   });
 
   it('should works for date picker', async () => {
-    const onOpenChange = jest.fn();
+    const onOpenChange = vi.fn();
     const ref = React.createRef<any>();
 
     const { container } = render(
@@ -237,7 +238,7 @@ describe('Tooltip', () => {
   });
 
   it('should works for input group', async () => {
-    const onOpenChange = jest.fn();
+    const onOpenChange = vi.fn();
     const ref = React.createRef<any>();
     const { container } = render(
       <Tooltip title="hello" onOpenChange={onOpenChange} ref={ref}>
@@ -265,12 +266,13 @@ describe('Tooltip', () => {
 
   // https://github.com/ant-design/ant-design/issues/20891
   it('should display zero', () => {
-    const { container } = render(
+    render(
       <Tooltip title={0} open>
         <div />
       </Tooltip>,
     );
-    expect(container.querySelector('.ant-tooltip-container')?.innerHTML).toBe('0');
+    // Query document.body for portal-rendered tooltip content
+    expect(document.body.querySelector('.ant-tooltip-container')?.innerHTML).toBe('0');
   });
 
   it('autoAdjustOverflow should be object or undefined', () => {
@@ -371,18 +373,19 @@ describe('Tooltip', () => {
   });
 
   it('should pass styles.container through to the inner component', () => {
-    const { container } = render(
+    render(
       <Tooltip styles={{ container: { color: 'red' } }} title="xxxxx" open>
         <div />
       </Tooltip>,
     );
-    expect(container.querySelector<HTMLDivElement>('.ant-tooltip-container')).toHaveStyle({
+    // Query document.body for portal-rendered tooltip content
+    expect(document.body.querySelector<HTMLDivElement>('.ant-tooltip-container')).toHaveStyle({
       color: 'rgb(255, 0, 0)',
     });
   });
 
   it('should work with loading switch', () => {
-    const onOpenChange = jest.fn();
+    const onOpenChange = vi.fn();
     const { container } = render(
       <Tooltip
         title="loading tips"
@@ -400,7 +403,7 @@ describe('Tooltip', () => {
   });
 
   it('should work with disabled Radio', () => {
-    const onOpenChange = jest.fn();
+    const onOpenChange = vi.fn();
     const { container } = render(
       <Tooltip
         title="loading tips"
@@ -418,7 +421,7 @@ describe('Tooltip', () => {
   });
 
   it('should work with Fragment children', async () => {
-    const onOpenChange = jest.fn();
+    const onOpenChange = vi.fn();
     const ref = React.createRef<any>();
 
     const { container } = render(
@@ -452,7 +455,7 @@ describe('Tooltip', () => {
 
   it('deprecated warning', async () => {
     resetWarned();
-    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
     const { rerender } = render(
       <Tooltip open title="bamboo">
         <a />
@@ -481,7 +484,8 @@ describe('Tooltip', () => {
     );
 
     expect(container.querySelector('.bamboo')).toBeTruthy();
-    expect(container.querySelector('.ant-tooltip')).toBeTruthy();
+    // Query document.body for portal-rendered tooltip content
+    expect(document.body.querySelector('.ant-tooltip')).toBeTruthy();
   });
 
   it('support arrow props pass false to hide arrow', () => {
@@ -513,14 +517,16 @@ describe('Tooltip', () => {
       root: { padding: 20 },
     };
 
-    const { container } = render(
+    render(
       <Tooltip classNames={customClassNames} overlay={<div />} styles={customStyles} open>
         <button type="button">button</button>
       </Tooltip>,
     );
 
-    const tooltipElement = container.querySelector<HTMLElement>('.ant-tooltip');
-    const tooltipContainerElement = container.querySelector<HTMLElement>('.ant-tooltip-container');
+    // Query document.body for portal-rendered tooltip content
+    const tooltipElement = document.body.querySelector<HTMLElement>('.ant-tooltip');
+    const tooltipContainerElement =
+      document.body.querySelector<HTMLElement>('.ant-tooltip-container');
 
     // 验证 classNames
     expect(tooltipElement).toHaveClass(customClassNames.root);
@@ -547,7 +553,8 @@ describe('Tooltip', () => {
       );
     };
     const { container } = render(<TooltipTestComponent />);
-    const getTooltipArrow = () => container.querySelector('.ant-tooltip-arrow');
+    // Query document.body for portal-rendered tooltip content
+    const getTooltipArrow = () => document.body.querySelector('.ant-tooltip-arrow');
     const configbtn = container.querySelector('.configArrow');
 
     expect(getTooltipArrow()).not.toBeNull();
@@ -571,7 +578,8 @@ describe('Tooltip', () => {
     };
 
     const { container } = render(<TooltipTestComponent />);
-    const getTooltipArrow = () => container.querySelector('.ant-tooltip-arrow');
+    // Query document.body for portal-rendered tooltip content
+    const getTooltipArrow = () => document.body.querySelector('.ant-tooltip-arrow');
     const toggleArrowBtn = container.querySelector('.toggleArrow');
 
     // Initial render, arrow should be visible because Tooltip's arrow prop is true
@@ -603,18 +611,19 @@ describe('Tooltip', () => {
       expect(overlayStyle['--ant-tooltip-color']).toBe('#000');
     });
     it('actual tooltip color rendering (default)', () => {
-      const { container } = render(
+      render(
         <Tooltip title="Test" color="#003366" open>
           <span>Hover me</span>
         </Tooltip>,
       );
 
-      const tooltipContainer = container.querySelector('.ant-tooltip-container');
+      // Query document.body for portal-rendered tooltip content
+      const tooltipContainer = document.body.querySelector('.ant-tooltip-container');
 
       expect(tooltipContainer).toHaveStyle('--ant-tooltip-color: #FFF');
     });
     it('actual tooltip color rendering (styles)', () => {
-      const { container } = render(
+      render(
         <Tooltip
           title="Test"
           open
@@ -625,7 +634,8 @@ describe('Tooltip', () => {
         </Tooltip>,
       );
 
-      const tooltipContainer = container.querySelector('.ant-tooltip-container');
+      // Query document.body for portal-rendered tooltip content
+      const tooltipContainer = document.body.querySelector('.ant-tooltip-container');
       expect(tooltipContainer!).toHaveStyle({
         color: 'rgb(0, 255, 255)',
       });

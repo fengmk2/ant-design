@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`renders components/button/demo/basic.tsx extend context correctly 1`] = `
 <div
@@ -331,327 +331,6 @@ exports[`renders components/button/demo/chinese-space.tsx extend context correct
 `;
 
 exports[`renders components/button/demo/chinese-space.tsx extend context correctly 2`] = `[]`;
-
-exports[`renders components/button/demo/color-variant.tsx extend context correctly 1`] = `
-<div
-  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-small ant-flex-vertical"
->
-  <div
-    class="ant-flex css-var-test-id ant-flex-wrap-wrap ant-flex-gap-small"
-  >
-    <button
-      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-solid ant-btn-sm"
-      type="button"
-    >
-      <span>
-        Solid
-      </span>
-    </button>
-    <button
-      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm"
-      type="button"
-    >
-      <span>
-        Outlined
-      </span>
-    </button>
-    <button
-      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-dashed ant-btn-sm"
-      type="button"
-    >
-      <span>
-        Dashed
-      </span>
-    </button>
-    <button
-      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-filled ant-btn-sm"
-      type="button"
-    >
-      <span>
-        Filled
-      </span>
-    </button>
-    <button
-      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-text ant-btn-sm"
-      type="button"
-    >
-      <span>
-        Text
-      </span>
-    </button>
-    <button
-      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-link ant-btn-sm"
-      type="button"
-    >
-      <span>
-        Link
-      </span>
-    </button>
-  </div>
-  <div
-    class="ant-flex css-var-test-id ant-flex-wrap-wrap ant-flex-gap-small"
-  >
-    <button
-      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
-      type="button"
-    >
-      <span>
-        Solid
-      </span>
-    </button>
-    <button
-      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-primary ant-btn-variant-outlined ant-btn-sm"
-      type="button"
-    >
-      <span>
-        Outlined
-      </span>
-    </button>
-    <button
-      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-primary ant-btn-variant-dashed ant-btn-sm"
-      type="button"
-    >
-      <span>
-        Dashed
-      </span>
-    </button>
-    <button
-      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-primary ant-btn-variant-filled ant-btn-sm"
-      type="button"
-    >
-      <span>
-        Filled
-      </span>
-    </button>
-    <button
-      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-primary ant-btn-variant-text ant-btn-sm"
-      type="button"
-    >
-      <span>
-        Text
-      </span>
-    </button>
-    <button
-      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-primary ant-btn-variant-link ant-btn-sm"
-      type="button"
-    >
-      <span>
-        Link
-      </span>
-    </button>
-  </div>
-  <div
-    class="ant-flex css-var-test-id ant-flex-wrap-wrap ant-flex-gap-small"
-  >
-    <button
-      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-dangerous ant-btn-variant-solid ant-btn-sm"
-      type="button"
-    >
-      <span>
-        Solid
-      </span>
-    </button>
-    <button
-      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-dangerous ant-btn-variant-outlined ant-btn-sm"
-      type="button"
-    >
-      <span>
-        Outlined
-      </span>
-    </button>
-    <button
-      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-dangerous ant-btn-variant-dashed ant-btn-sm"
-      type="button"
-    >
-      <span>
-        Dashed
-      </span>
-    </button>
-    <button
-      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-dangerous ant-btn-variant-filled ant-btn-sm"
-      type="button"
-    >
-      <span>
-        Filled
-      </span>
-    </button>
-    <button
-      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-dangerous ant-btn-variant-text ant-btn-sm"
-      type="button"
-    >
-      <span>
-        Text
-      </span>
-    </button>
-    <button
-      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-dangerous ant-btn-variant-link ant-btn-sm"
-      type="button"
-    >
-      <span>
-        Link
-      </span>
-    </button>
-  </div>
-  <div
-    class="ant-flex css-var-test-id ant-flex-wrap-wrap ant-flex-gap-small"
-  >
-    <button
-      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-pink ant-btn-variant-solid ant-btn-sm"
-      type="button"
-    >
-      <span>
-        Solid
-      </span>
-    </button>
-    <button
-      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-pink ant-btn-variant-outlined ant-btn-sm"
-      type="button"
-    >
-      <span>
-        Outlined
-      </span>
-    </button>
-    <button
-      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-pink ant-btn-variant-dashed ant-btn-sm"
-      type="button"
-    >
-      <span>
-        Dashed
-      </span>
-    </button>
-    <button
-      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-pink ant-btn-variant-filled ant-btn-sm"
-      type="button"
-    >
-      <span>
-        Filled
-      </span>
-    </button>
-    <button
-      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-pink ant-btn-variant-text ant-btn-sm"
-      type="button"
-    >
-      <span>
-        Text
-      </span>
-    </button>
-    <button
-      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-pink ant-btn-variant-link ant-btn-sm"
-      type="button"
-    >
-      <span>
-        Link
-      </span>
-    </button>
-  </div>
-  <div
-    class="ant-flex css-var-test-id ant-flex-wrap-wrap ant-flex-gap-small"
-  >
-    <button
-      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-purple ant-btn-variant-solid ant-btn-sm"
-      type="button"
-    >
-      <span>
-        Solid
-      </span>
-    </button>
-    <button
-      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-purple ant-btn-variant-outlined ant-btn-sm"
-      type="button"
-    >
-      <span>
-        Outlined
-      </span>
-    </button>
-    <button
-      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-purple ant-btn-variant-dashed ant-btn-sm"
-      type="button"
-    >
-      <span>
-        Dashed
-      </span>
-    </button>
-    <button
-      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-purple ant-btn-variant-filled ant-btn-sm"
-      type="button"
-    >
-      <span>
-        Filled
-      </span>
-    </button>
-    <button
-      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-purple ant-btn-variant-text ant-btn-sm"
-      type="button"
-    >
-      <span>
-        Text
-      </span>
-    </button>
-    <button
-      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-purple ant-btn-variant-link ant-btn-sm"
-      type="button"
-    >
-      <span>
-        Link
-      </span>
-    </button>
-  </div>
-  <div
-    class="ant-flex css-var-test-id ant-flex-wrap-wrap ant-flex-gap-small"
-  >
-    <button
-      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-cyan ant-btn-variant-solid ant-btn-sm"
-      type="button"
-    >
-      <span>
-        Solid
-      </span>
-    </button>
-    <button
-      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-cyan ant-btn-variant-outlined ant-btn-sm"
-      type="button"
-    >
-      <span>
-        Outlined
-      </span>
-    </button>
-    <button
-      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-cyan ant-btn-variant-dashed ant-btn-sm"
-      type="button"
-    >
-      <span>
-        Dashed
-      </span>
-    </button>
-    <button
-      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-cyan ant-btn-variant-filled ant-btn-sm"
-      type="button"
-    >
-      <span>
-        Filled
-      </span>
-    </button>
-    <button
-      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-cyan ant-btn-variant-text ant-btn-sm"
-      type="button"
-    >
-      <span>
-        Text
-      </span>
-    </button>
-    <button
-      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-cyan ant-btn-variant-link ant-btn-sm"
-      type="button"
-    >
-      <span>
-        Link
-      </span>
-    </button>
-  </div>
-</div>
-`;
-
-exports[`renders components/button/demo/color-variant.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/button/demo/custom-disabled-bg.tsx extend context correctly 1`] = `
 <div
@@ -1069,7 +748,6 @@ Array [
       class="ant-flex css-var-test-id ant-flex-wrap-wrap ant-flex-gap-small"
     >
       <button
-        aria-describedby="test-id"
         class="ant-btn css-var-test-id ant-btn-circle ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-lg ant-btn-icon-only"
         type="button"
       >
@@ -1097,26 +775,6 @@ Array [
           </span>
         </span>
       </button>
-      <div
-        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-      >
-        <div
-          class="ant-tooltip-arrow"
-          style="position: absolute; bottom: 0px; left: 0px;"
-        >
-          <span
-            class="ant-tooltip-arrow-content"
-          />
-        </div>
-        <div
-          class="ant-tooltip-container"
-          id="test-id"
-          role="tooltip"
-        >
-          search
-        </div>
-      </div>
       <button
         class="ant-btn css-var-test-id ant-btn-circle ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-lg"
         type="button"
@@ -1157,7 +815,6 @@ Array [
         </span>
       </button>
       <button
-        aria-describedby="test-id"
         class="ant-btn css-var-test-id ant-btn-circle ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-lg ant-btn-icon-only"
         type="button"
       >
@@ -1185,26 +842,6 @@ Array [
           </span>
         </span>
       </button>
-      <div
-        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-      >
-        <div
-          class="ant-tooltip-arrow"
-          style="position: absolute; bottom: 0px; left: 0px;"
-        >
-          <span
-            class="ant-tooltip-arrow-content"
-          />
-        </div>
-        <div
-          class="ant-tooltip-container"
-          id="test-id"
-          role="tooltip"
-        >
-          search
-        </div>
-      </div>
       <button
         class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-lg"
         type="button"
@@ -1241,7 +878,6 @@ Array [
       class="ant-flex css-var-test-id ant-flex-wrap-wrap ant-flex-gap-small"
     >
       <button
-        aria-describedby="test-id"
         class="ant-btn css-var-test-id ant-btn-circle ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-lg ant-btn-icon-only"
         type="button"
       >
@@ -1269,26 +905,6 @@ Array [
           </span>
         </span>
       </button>
-      <div
-        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-      >
-        <div
-          class="ant-tooltip-arrow"
-          style="position: absolute; bottom: 0px; left: 0px;"
-        >
-          <span
-            class="ant-tooltip-arrow-content"
-          />
-        </div>
-        <div
-          class="ant-tooltip-container"
-          id="test-id"
-          role="tooltip"
-        >
-          search
-        </div>
-      </div>
       <button
         class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-lg"
         type="button"
@@ -1321,7 +937,6 @@ Array [
         </span>
       </button>
       <button
-        aria-describedby="test-id"
         class="ant-btn css-var-test-id ant-btn-circle ant-btn-dashed ant-btn-color-default ant-btn-variant-dashed ant-btn-lg ant-btn-icon-only"
         type="button"
       >
@@ -1349,26 +964,6 @@ Array [
           </span>
         </span>
       </button>
-      <div
-        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-      >
-        <div
-          class="ant-tooltip-arrow"
-          style="position: absolute; bottom: 0px; left: 0px;"
-        >
-          <span
-            class="ant-tooltip-arrow-content"
-          />
-        </div>
-        <div
-          class="ant-tooltip-container"
-          id="test-id"
-          role="tooltip"
-        >
-          search
-        </div>
-      </div>
       <button
         class="ant-btn css-var-test-id ant-btn-dashed ant-btn-color-default ant-btn-variant-dashed ant-btn-lg"
         type="button"
@@ -2402,7 +1997,6 @@ exports[`renders components/button/demo/icon.tsx extend context correctly 1`] = 
     class="ant-flex css-var-test-id ant-flex-wrap-wrap ant-flex-gap-small"
   >
     <button
-      aria-describedby="test-id"
       class="ant-btn css-var-test-id ant-btn-circle ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-icon-only"
       type="button"
     >
@@ -2430,26 +2024,6 @@ exports[`renders components/button/demo/icon.tsx extend context correctly 1`] = 
         </span>
       </span>
     </button>
-    <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-    >
-      <div
-        class="ant-tooltip-arrow"
-        style="position: absolute; bottom: 0px; left: 0px;"
-      >
-        <span
-          class="ant-tooltip-arrow-content"
-        />
-      </div>
-      <div
-        class="ant-tooltip-container"
-        id="test-id"
-        role="tooltip"
-      >
-        search
-      </div>
-    </div>
     <button
       class="ant-btn css-var-test-id ant-btn-circle ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
       type="button"
@@ -2490,7 +2064,6 @@ exports[`renders components/button/demo/icon.tsx extend context correctly 1`] = 
       </span>
     </button>
     <button
-      aria-describedby="test-id"
       class="ant-btn css-var-test-id ant-btn-circle ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only"
       type="button"
     >
@@ -2518,26 +2091,6 @@ exports[`renders components/button/demo/icon.tsx extend context correctly 1`] = 
         </span>
       </span>
     </button>
-    <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-    >
-      <div
-        class="ant-tooltip-arrow"
-        style="position: absolute; bottom: 0px; left: 0px;"
-      >
-        <span
-          class="ant-tooltip-arrow-content"
-        />
-      </div>
-      <div
-        class="ant-tooltip-container"
-        id="test-id"
-        role="tooltip"
-      >
-        search
-      </div>
-    </div>
     <button
       class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       type="button"
@@ -2574,7 +2127,6 @@ exports[`renders components/button/demo/icon.tsx extend context correctly 1`] = 
     class="ant-flex css-var-test-id ant-flex-wrap-wrap ant-flex-gap-small"
   >
     <button
-      aria-describedby="test-id"
       class="ant-btn css-var-test-id ant-btn-circle ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only"
       type="button"
     >
@@ -2602,26 +2154,6 @@ exports[`renders components/button/demo/icon.tsx extend context correctly 1`] = 
         </span>
       </span>
     </button>
-    <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-    >
-      <div
-        class="ant-tooltip-arrow"
-        style="position: absolute; bottom: 0px; left: 0px;"
-      >
-        <span
-          class="ant-tooltip-arrow-content"
-        />
-      </div>
-      <div
-        class="ant-tooltip-container"
-        id="test-id"
-        role="tooltip"
-      >
-        search
-      </div>
-    </div>
     <button
       class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       type="button"
@@ -2654,7 +2186,6 @@ exports[`renders components/button/demo/icon.tsx extend context correctly 1`] = 
       </span>
     </button>
     <button
-      aria-describedby="test-id"
       class="ant-btn css-var-test-id ant-btn-circle ant-btn-dashed ant-btn-color-default ant-btn-variant-dashed ant-btn-icon-only"
       type="button"
     >
@@ -2682,26 +2213,6 @@ exports[`renders components/button/demo/icon.tsx extend context correctly 1`] = 
         </span>
       </span>
     </button>
-    <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-    >
-      <div
-        class="ant-tooltip-arrow"
-        style="position: absolute; bottom: 0px; left: 0px;"
-      >
-        <span
-          class="ant-tooltip-arrow-content"
-        />
-      </div>
-      <div
-        class="ant-tooltip-container"
-        id="test-id"
-        role="tooltip"
-      >
-        search
-      </div>
-    </div>
     <button
       class="ant-btn css-var-test-id ant-btn-dashed ant-btn-color-default ant-btn-variant-dashed"
       type="button"
@@ -2852,7 +2363,6 @@ Array [
       class="ant-flex css-var-test-id ant-flex-wrap-wrap ant-flex-gap-small"
     >
       <button
-        aria-describedby="test-id"
         class="ant-btn css-var-test-id ant-btn-circle ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-icon-only"
         type="button"
       >
@@ -2880,26 +2390,6 @@ Array [
           </span>
         </span>
       </button>
-      <div
-        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-      >
-        <div
-          class="ant-tooltip-arrow"
-          style="position: absolute; bottom: 0px; left: 0px;"
-        >
-          <span
-            class="ant-tooltip-arrow-content"
-          />
-        </div>
-        <div
-          class="ant-tooltip-container"
-          id="test-id"
-          role="tooltip"
-        >
-          search
-        </div>
-      </div>
       <button
         class="ant-btn css-var-test-id ant-btn-circle ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
         type="button"
@@ -2940,7 +2430,6 @@ Array [
         </span>
       </button>
       <button
-        aria-describedby="test-id"
         class="ant-btn css-var-test-id ant-btn-circle ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only"
         type="button"
       >
@@ -2968,26 +2457,6 @@ Array [
           </span>
         </span>
       </button>
-      <div
-        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-      >
-        <div
-          class="ant-tooltip-arrow"
-          style="position: absolute; bottom: 0px; left: 0px;"
-        >
-          <span
-            class="ant-tooltip-arrow-content"
-          />
-        </div>
-        <div
-          class="ant-tooltip-container"
-          id="test-id"
-          role="tooltip"
-        >
-          search
-        </div>
-      </div>
       <button
         class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-end"
         type="button"
@@ -3024,7 +2493,6 @@ Array [
       class="ant-flex css-var-test-id ant-flex-wrap-wrap ant-flex-gap-small"
     >
       <button
-        aria-describedby="test-id"
         class="ant-btn css-var-test-id ant-btn-circle ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only"
         type="button"
       >
@@ -3052,26 +2520,6 @@ Array [
           </span>
         </span>
       </button>
-      <div
-        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-      >
-        <div
-          class="ant-tooltip-arrow"
-          style="position: absolute; bottom: 0px; left: 0px;"
-        >
-          <span
-            class="ant-tooltip-arrow-content"
-          />
-        </div>
-        <div
-          class="ant-tooltip-container"
-          id="test-id"
-          role="tooltip"
-        >
-          search
-        </div>
-      </div>
       <button
         class="ant-btn css-var-test-id ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-icon-end"
         type="button"
@@ -3104,7 +2552,6 @@ Array [
         </span>
       </button>
       <button
-        aria-describedby="test-id"
         class="ant-btn css-var-test-id ant-btn-circle ant-btn-dashed ant-btn-color-default ant-btn-variant-dashed ant-btn-icon-only"
         type="button"
       >
@@ -3132,26 +2579,6 @@ Array [
           </span>
         </span>
       </button>
-      <div
-        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-      >
-        <div
-          class="ant-tooltip-arrow"
-          style="position: absolute; bottom: 0px; left: 0px;"
-        >
-          <span
-            class="ant-tooltip-arrow-content"
-          />
-        </div>
-        <div
-          class="ant-tooltip-container"
-          id="test-id"
-          role="tooltip"
-        >
-          search
-        </div>
-      </div>
       <button
         class="ant-btn css-var-test-id ant-btn-dashed ant-btn-color-default ant-btn-variant-dashed ant-btn-icon-end"
         type="button"
@@ -3274,7 +2701,6 @@ Array [
       </span>
     </button>
     <button
-      aria-describedby="test-id"
       class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-icon-only"
       disabled=""
       type="button"
@@ -3303,28 +2729,7 @@ Array [
         </span>
       </span>
     </button>
-    <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-    >
-      <div
-        class="ant-tooltip-arrow"
-        style="position: absolute; bottom: 0px; left: 0px;"
-      >
-        <span
-          class="ant-tooltip-arrow-content"
-        />
-      </div>
-      <div
-        class="ant-tooltip-container"
-        id="test-id"
-        role="tooltip"
-      >
-        Tooltip
-      </div>
-    </div>
     <button
-      aria-describedby="test-id"
       class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-icon-only"
       type="button"
     >
@@ -3352,26 +2757,6 @@ Array [
         </span>
       </span>
     </button>
-    <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-    >
-      <div
-        class="ant-tooltip-arrow"
-        style="position: absolute; bottom: 0px; left: 0px;"
-      >
-        <span
-          class="ant-tooltip-arrow-content"
-        />
-      </div>
-      <div
-        class="ant-tooltip-container"
-        id="test-id"
-        role="tooltip"
-      >
-        Tooltip
-      </div>
-    </div>
   </div>,
   <br />,
   <div
@@ -3394,7 +2779,6 @@ Array [
       </span>
     </button>
     <button
-      aria-describedby="test-id"
       class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-icon-only"
       disabled=""
       type="button"
@@ -3423,28 +2807,7 @@ Array [
         </span>
       </span>
     </button>
-    <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-    >
-      <div
-        class="ant-tooltip-arrow"
-        style="position: absolute; bottom: 0px; left: 0px;"
-      >
-        <span
-          class="ant-tooltip-arrow-content"
-        />
-      </div>
-      <div
-        class="ant-tooltip-container"
-        id="test-id"
-        role="tooltip"
-      >
-        Tooltip
-      </div>
-    </div>
     <button
-      aria-describedby="test-id"
       class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-icon-only"
       type="button"
     >
@@ -3472,26 +2835,6 @@ Array [
         </span>
       </span>
     </button>
-    <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-    >
-      <div
-        class="ant-tooltip-arrow"
-        style="position: absolute; bottom: 0px; left: 0px;"
-      >
-        <span
-          class="ant-tooltip-arrow-content"
-        />
-      </div>
-      <div
-        class="ant-tooltip-container"
-        id="test-id"
-        role="tooltip"
-      >
-        Tooltip
-      </div>
-    </div>
   </div>,
   <br />,
   <div
@@ -3514,7 +2857,6 @@ Array [
       </span>
     </button>
     <button
-      aria-describedby="test-id"
       class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-lg ant-btn-icon-only"
       disabled=""
       type="button"
@@ -3543,28 +2885,7 @@ Array [
         </span>
       </span>
     </button>
-    <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-    >
-      <div
-        class="ant-tooltip-arrow"
-        style="position: absolute; bottom: 0px; left: 0px;"
-      >
-        <span
-          class="ant-tooltip-arrow-content"
-        />
-      </div>
-      <div
-        class="ant-tooltip-container"
-        id="test-id"
-        role="tooltip"
-      >
-        Tooltip
-      </div>
-    </div>
     <button
-      aria-describedby="test-id"
       class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-lg ant-btn-icon-only"
       type="button"
     >
@@ -3592,26 +2913,6 @@ Array [
         </span>
       </span>
     </button>
-    <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-    >
-      <div
-        class="ant-tooltip-arrow"
-        style="position: absolute; bottom: 0px; left: 0px;"
-      >
-        <span
-          class="ant-tooltip-arrow-content"
-        />
-      </div>
-      <div
-        class="ant-tooltip-container"
-        id="test-id"
-        role="tooltip"
-      >
-        Tooltip
-      </div>
-    </div>
   </div>,
 ]
 `;
@@ -3981,115 +3282,6 @@ exports[`renders components/button/demo/multiple.tsx extend context correctly 1`
         </span>
       </span>
     </button>
-    <div
-      class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-dropdown-css-var ant-dropdown-placement-bottomRight"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-    >
-      <ul
-        class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light css-var-test-id ant-dropdown-css-var css-var-test-id ant-dropdown-menu-css-var"
-        data-menu-list="true"
-        role="menu"
-        tabindex="0"
-      >
-        <li
-          aria-describedby="test-id"
-          class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-          data-menu-id="rc-menu-uuid-1"
-          role="menuitem"
-          tabindex="-1"
-        >
-          <span
-            class="ant-dropdown-menu-title-content"
-          >
-            1st item
-          </span>
-        </li>
-        <div
-          class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-        >
-          <div
-            class="ant-tooltip-arrow"
-            style="position: absolute; top: 0px; left: 0px;"
-          >
-            <span
-              class="ant-tooltip-arrow-content"
-            />
-          </div>
-          <div
-            class="ant-tooltip-container"
-            id="test-id"
-            role="tooltip"
-          />
-        </div>
-        <li
-          aria-describedby="test-id"
-          class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-          data-menu-id="rc-menu-uuid-2"
-          role="menuitem"
-          tabindex="-1"
-        >
-          <span
-            class="ant-dropdown-menu-title-content"
-          >
-            2nd item
-          </span>
-        </li>
-        <div
-          class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-        >
-          <div
-            class="ant-tooltip-arrow"
-            style="position: absolute; top: 0px; left: 0px;"
-          >
-            <span
-              class="ant-tooltip-arrow-content"
-            />
-          </div>
-          <div
-            class="ant-tooltip-container"
-            id="test-id"
-            role="tooltip"
-          />
-        </div>
-        <li
-          aria-describedby="test-id"
-          class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-          data-menu-id="rc-menu-uuid-3"
-          role="menuitem"
-          tabindex="-1"
-        >
-          <span
-            class="ant-dropdown-menu-title-content"
-          >
-            3rd item
-          </span>
-        </li>
-        <div
-          class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-        >
-          <div
-            class="ant-tooltip-arrow"
-            style="position: absolute; top: 0px; left: 0px;"
-          >
-            <span
-              class="ant-tooltip-arrow-content"
-            />
-          </div>
-          <div
-            class="ant-tooltip-container"
-            id="test-id"
-            role="tooltip"
-          />
-        </div>
-      </ul>
-      <div
-        aria-hidden="true"
-        style="display: none;"
-      />
-    </div>
   </div>
 </div>
 `;
@@ -4379,84 +3571,3 @@ Array [
 `;
 
 exports[`renders components/button/demo/size.tsx extend context correctly 2`] = `[]`;
-
-exports[`renders components/button/demo/style-class.tsx extend context correctly 1`] = `
-<div
-  class="ant-flex css-var-test-id ant-flex-gap-small"
->
-  <button
-    class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined acss-nfftpo"
-    style="box-shadow: 0 1px 2px 0 rgba(0,0,0,0.05);"
-    type="button"
-  >
-    <span
-      class="acss-12ew5h6"
-    >
-      Object
-    </span>
-  </button>
-  <button
-    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid acss-nfftpo"
-    style="background-color: rgb(23, 23, 23);"
-    type="button"
-  >
-    <span
-      class="acss-12ew5h6"
-      style="color: rgb(255, 255, 255);"
-    >
-      Function
-    </span>
-  </button>
-</div>
-`;
-
-exports[`renders components/button/demo/style-class.tsx extend context correctly 2`] = `[]`;
-
-exports[`renders components/button/demo/wave.tsx extend context correctly 1`] = `
-<div
-  class="ant-flex css-var-test-id ant-flex-wrap-wrap ant-flex-gap-large"
->
-  <button
-    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
-    type="button"
-  >
-    <span>
-      Disabled
-    </span>
-  </button>
-  <button
-    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
-    type="button"
-  >
-    <span>
-      Default
-    </span>
-  </button>
-  <button
-    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
-    type="button"
-  >
-    <span>
-      Inset
-    </span>
-  </button>
-  <button
-    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
-    type="button"
-  >
-    <span>
-      Shake
-    </span>
-  </button>
-  <button
-    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
-    type="button"
-  >
-    <span>
-      Happy Work
-    </span>
-  </button>
-</div>
-`;
-
-exports[`renders components/button/demo/wave.tsx extend context correctly 2`] = `[]`;

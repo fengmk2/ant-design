@@ -1,4 +1,5 @@
 import React from 'react';
+import { vi } from 'vitest';
 import { ConfigProvider, Form } from 'antd';
 
 import Mentions, { Option } from '..';
@@ -37,12 +38,12 @@ function simulateInput(wrapper: ReturnType<typeof render>, text: string, keyEven
 }
 
 describe('Mentions', () => {
-  beforeAll(() => {
-    jest.useFakeTimers();
+  beforeEach(() => {
+    vi.useFakeTimers();
   });
 
-  afterAll(() => {
-    jest.useRealTimers();
+  afterEach(() => {
+    vi.useRealTimers();
   });
 
   it('getMentions', () => {
@@ -54,8 +55,8 @@ describe('Mentions', () => {
   });
 
   it('focus', () => {
-    const onFocus = jest.fn();
-    const onBlur = jest.fn();
+    const onFocus = vi.fn();
+    const onBlur = vi.fn();
 
     const { container } = render(<Mentions onFocus={onFocus} onBlur={onBlur} />);
     fireEvent.focus(container.querySelector('textarea')!);
@@ -63,7 +64,7 @@ describe('Mentions', () => {
     expect(onFocus).toHaveBeenCalled();
     fireEvent.blur(container.querySelector('textarea')!);
     act(() => {
-      jest.runAllTimers();
+      vi.runAllTimers();
     });
     expect(container.querySelector('.ant-mentions')).not.toHaveClass('ant-mentions-focused');
     expect(onBlur).toHaveBeenCalled();
@@ -76,15 +77,17 @@ describe('Mentions', () => {
   it('loading', () => {
     const wrapper = render(<Mentions loading />);
     simulateInput(wrapper, '@');
-    expect(wrapper.container.querySelectorAll('li.ant-mentions-dropdown-menu-item').length).toBe(1);
-    expect(wrapper.container.querySelectorAll('.ant-spin').length).toBeTruthy();
+    // Query document.body for portal-rendered dropdown content
+    expect(document.body.querySelectorAll('li.ant-mentions-dropdown-menu-item').length).toBe(1);
+    expect(document.body.querySelectorAll('.ant-spin').length).toBeTruthy();
   });
 
   it('notFoundContent', () => {
     const wrapper = render(<Mentions notFoundContent={<span className="bamboo-light" />} />);
     simulateInput(wrapper, '@');
-    expect(wrapper.container.querySelectorAll('li.ant-mentions-dropdown-menu-item').length).toBe(1);
-    expect(wrapper.container.querySelectorAll('.bamboo-light').length).toBeTruthy();
+    // Query document.body for portal-rendered dropdown content
+    expect(document.body.querySelectorAll('li.ant-mentions-dropdown-menu-item').length).toBe(1);
+    expect(document.body.querySelectorAll('.bamboo-light').length).toBeTruthy();
   });
 
   it('allowClear', () => {
@@ -101,7 +104,7 @@ describe('Mentions', () => {
   });
 
   it('warning if use Mentions.Option', () => {
-    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
     render(
       <Mentions style={{ width: '100%' }} defaultValue="@afc163">
         <Option value="afc163">afc163</Option>
@@ -124,13 +127,16 @@ describe('Mentions', () => {
     );
     simulateInput(wrapper, '@');
     const { container } = wrapper;
-    fireEvent.mouseEnter(container.querySelector('li.ant-mentions-dropdown-menu-item:last-child')!);
+    // Query document.body for portal-rendered dropdown content
+    fireEvent.mouseEnter(
+      document.body.querySelector('li.ant-mentions-dropdown-menu-item:last-child')!,
+    );
     fireEvent.focus(container.querySelector('textarea')!);
     act(() => {
-      jest.runAllTimers();
+      vi.runAllTimers();
     });
     expect(
-      wrapper.container.querySelector('.ant-mentions-dropdown-menu-item-active')?.textContent,
+      document.body.querySelector('.ant-mentions-dropdown-menu-item-active')?.textContent,
     ).toBe('Yesmeck');
   });
 
@@ -175,15 +181,17 @@ describe('Mentions', () => {
       );
       simulateInput(wrapper, '@');
       const { container } = wrapper;
+      // Query document.body for portal-rendered dropdown content
       fireEvent.mouseEnter(
-        container.querySelector('li.ant-mentions-dropdown-menu-item:last-child')!,
+        document.body.querySelector('li.ant-mentions-dropdown-menu-item:last-child')!,
       );
       fireEvent.focus(container.querySelector('textarea')!);
       act(() => {
-        jest.runAllTimers();
+        vi.runAllTimers();
       });
       const root = container.querySelector('.ant-mentions');
-      const popup = container.querySelector('.ant-mentions-dropdown');
+      // Query document.body for portal-rendered dropdown content
+      const popup = document.body.querySelector('.ant-mentions-dropdown');
       const textarea = container.querySelector('.rc-textarea');
       expect(root).toHaveClass(customClassNames.root);
       expect(popup).toHaveClass(customClassNames.popup);

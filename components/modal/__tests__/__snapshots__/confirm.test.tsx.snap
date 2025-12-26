@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Modal.confirm triggers callbacks correctly footer confirm should render the footer when footer is set 1`] = `
+exports[`Modal.confirm triggers callbacks correctly > footer > confirm should render the footer when footer is set 1`] = `
 <div
   class="ant-modal-container"
 >

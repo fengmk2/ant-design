@@ -1,6 +1,7 @@
 import React from 'react';
 import { CloseOutlined } from '@ant-design/icons';
 import { Button, Input, Space } from 'antd';
+import { vi } from 'vitest';
 
 import type { SelectProps } from '..';
 import Select from '..';
@@ -19,29 +20,31 @@ describe('Select', () => {
   function toggleOpen(container: ReturnType<typeof render>['container']): void {
     fireEvent.mouseDown(container.querySelector('.ant-select')!);
     act(() => {
-      jest.runAllTimers();
+      vi.runAllTimers();
     });
   }
 
   beforeEach(() => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
   });
 
   afterEach(() => {
-    jest.useRealTimers();
+    vi.useRealTimers();
   });
 
   it('should have default notFoundContent', () => {
     const { container } = render(<Select mode="multiple" />);
     toggleOpen(container);
-    expect(container.querySelectorAll('.ant-select-item-option').length).toBe(0);
-    expect(container.querySelectorAll('.ant-empty').length).toBeTruthy();
+    // Query document.body for portal-rendered dropdown content
+    expect(document.body.querySelectorAll('.ant-select-item-option').length).toBe(0);
+    expect(document.body.querySelectorAll('.ant-empty').length).toBeTruthy();
   });
 
   it('should support set notFoundContent to null', () => {
     const { container } = render(<Select mode="multiple" notFoundContent={null} />);
     toggleOpen(container);
-    expect(container.querySelectorAll('.ant-empty').length).toBe(0);
+    // Query document.body for portal-rendered dropdown content
+    expect(document.body.querySelectorAll('.ant-empty').length).toBe(0);
   });
 
   it('should not have default notFoundContent when mode is combobox', () => {
@@ -49,7 +52,8 @@ describe('Select', () => {
       <Select mode={Select.SECRET_COMBOBOX_MODE_DO_NOT_USE as SelectProps['mode']} />,
     );
     toggleOpen(container);
-    expect(container.querySelector('.ant-empty')).toBeFalsy();
+    // Query document.body for portal-rendered dropdown content
+    expect(document.body.querySelector('.ant-empty')).toBeFalsy();
   });
 
   it('should not have notFoundContent when mode is combobox and notFoundContent is set', () => {
@@ -60,12 +64,13 @@ describe('Select', () => {
       />,
     );
     toggleOpen(container);
-    expect(container.querySelector('.ant-select-item-option')).toBeFalsy();
-    expect(container.querySelector('.ant-select-item-empty')).toHaveTextContent('not at all');
+    // Query document.body for portal-rendered dropdown content
+    expect(document.body.querySelector('.ant-select-item-option')).toBeFalsy();
+    expect(document.body.querySelector('.ant-select-item-empty')).toHaveTextContent('not at all');
   });
 
   it('should be controlled by open prop', () => {
-    const onOpenChange = jest.fn();
+    const onOpenChange = vi.fn();
     const TestComponent: React.FC = () => {
       const [open, setOpen] = React.useState(false);
       const handleChange: SelectProps['onOpenChange'] = (value) => {
@@ -77,14 +82,15 @@ describe('Select', () => {
       );
     };
     const { container } = render(<TestComponent />);
-    expect(container.querySelector('.ant-select-dropdown')).toBeFalsy();
+    // Query document.body for portal-rendered dropdown content
+    expect(document.body.querySelector('.ant-select-dropdown')).toBeFalsy();
     toggleOpen(container);
-    expect(container.querySelectorAll('.ant-select-dropdown').length).toBe(1);
+    expect(document.body.querySelectorAll('.ant-select-dropdown').length).toBe(1);
     expect(onOpenChange).toHaveBeenLastCalledWith(true);
   });
 
   it('should show search icon when showSearch and open', () => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
     const { container } = render(<Select options={[{ label: '1', value: '1' }]} showSearch />);
     expect(container.querySelector('.anticon-down')).toBeTruthy();
     expect(container.querySelector('.anticon-search')).toBeFalsy();
@@ -112,7 +118,7 @@ describe('Select', () => {
         />,
       );
       act(() => {
-        jest.runAllTimers();
+        vi.runAllTimers();
       });
       expect(asFragment().firstChild).toMatchSnapshot();
     });
@@ -175,12 +181,13 @@ describe('Select', () => {
     it('legacy popupClassName', () => {
       resetWarned();
 
-      const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-      const { container } = render(<Select popupClassName="legacy" open />);
+      const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+      render(<Select popupClassName="legacy" open />);
       expect(errSpy).toHaveBeenCalledWith(
         'Warning: [antd: Select] `popupClassName` is deprecated. Please use `classNames.popup.root` instead.',
       );
-      expect(container.querySelector('.legacy')).toBeTruthy();
+      // Query document.body for portal-rendered dropdown content
+      expect(document.body.querySelector('.legacy')).toBeTruthy();
 
       errSpy.mockRestore();
     });
@@ -188,32 +195,34 @@ describe('Select', () => {
     it('legacy dropdownClassName', () => {
       resetWarned();
 
-      const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-      const { container } = render(<Select dropdownClassName="legacy" open />);
+      const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+      render(<Select dropdownClassName="legacy" open />);
       expect(errSpy).toHaveBeenCalledWith(
         'Warning: [antd: Select] `dropdownClassName` is deprecated. Please use `classNames.popup.root` instead.',
       );
-      expect(container.querySelector('.legacy')).toBeTruthy();
+      // Query document.body for portal-rendered dropdown content
+      expect(document.body.querySelector('.legacy')).toBeTruthy();
 
       errSpy.mockRestore();
     });
 
     it('legacy dropdownStyle', () => {
       resetWarned();
-      const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-      const { container } = render(<Select dropdownStyle={{ background: 'red' }} open />);
+      const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+      render(<Select dropdownStyle={{ background: 'red' }} open />);
       expect(errSpy).toHaveBeenCalledWith(
         'Warning: [antd: Select] `dropdownStyle` is deprecated. Please use `styles.popup.root` instead.',
       );
-      const dropdown = container.querySelector('.ant-select-dropdown');
+      // Query document.body for portal-rendered dropdown content
+      const dropdown = document.body.querySelector('.ant-select-dropdown');
       expect(dropdown?.getAttribute('style')).toMatch(/background:\s*red/);
       errSpy.mockRestore();
     });
 
     it('legacy dropdownRender', () => {
       resetWarned();
-      const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-      const { container } = render(
+      const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+      render(
         <Select
           open
           dropdownRender={(menu) => <div className="custom-dropdown">{menu} custom render</div>}
@@ -223,7 +232,8 @@ describe('Select', () => {
       expect(errSpy).toHaveBeenCalledWith(
         'Warning: [antd: Select] `dropdownRender` is deprecated. Please use `popupRender` instead.',
       );
-      const customDropdown = container.querySelector('.custom-dropdown');
+      // Query document.body for portal-rendered dropdown content
+      const customDropdown = document.body.querySelector('.custom-dropdown');
       expect(customDropdown).toBeTruthy();
       expect(customDropdown?.textContent).toContain('custom render');
       errSpy.mockRestore();
@@ -231,7 +241,7 @@ describe('Select', () => {
 
     it('legacy onDropdownVisibleChange', () => {
       resetWarned();
-      const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
       render(<Select onDropdownVisibleChange={() => {}} open />);
       expect(errSpy).toHaveBeenCalledWith(
         'Warning: [antd: Select] `onDropdownVisibleChange` is deprecated. Please use `onOpenChange` instead.',
@@ -242,7 +252,7 @@ describe('Select', () => {
     it('warning for legacy dropdownMatchSelectWidth', () => {
       resetWarned();
 
-      const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
       render(<Select dropdownMatchSelectWidth open />);
       expect(errSpy).toHaveBeenCalledWith(
         'Warning: [antd: Select] `dropdownMatchSelectWidth` is deprecated. Please use `popupMatchSelectWidth` instead.',
@@ -254,7 +264,7 @@ describe('Select', () => {
     it('deprecate showArrow', () => {
       resetWarned();
 
-      const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
       const { container } = render(<Select showArrow />);
       expect(errSpy).toHaveBeenCalledWith(
         'Warning: [antd: Select] `showArrow` is deprecated which will be removed in next major version. It will be a default behavior, you can hide it by setting `suffixIcon` to null.',
@@ -267,7 +277,7 @@ describe('Select', () => {
     it('deprecate bordered', () => {
       resetWarned();
 
-      const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
       const { container } = render(<Select bordered={false} />);
       expect(errSpy).toHaveBeenCalledWith(
         expect.stringContaining('Warning: [antd: Select] `bordered` is deprecated'),
@@ -279,7 +289,7 @@ describe('Select', () => {
 
     it('Select maxCount warning', () => {
       resetWarned();
-      const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
       render(<Select maxCount={10} />);
       expect(errSpy).toHaveBeenCalledWith(
         'Warning: [antd: Select] `maxCount` only works with mode `multiple` or `tags`',

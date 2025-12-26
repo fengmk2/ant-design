@@ -1,4 +1,5 @@
 import React from 'react';
+import { vi } from 'vitest';
 import { spyElementPrototypes } from '@rc-component/util/lib/test/domHook';
 
 import Masonry from '..';
@@ -11,8 +12,10 @@ const resizeMasonry = async () => {
 };
 
 // Mock for `responsiveObserve` to test `unsubscribe` call
-jest.mock('../../_util/responsiveObserver', () => {
-  const modules = jest.requireActual('../../_util/responsiveObserver');
+vi.mock('../../_util/responsiveObserver', async () => {
+  const modules = await vi.importActual<{ default: (...args: any[]) => any }>(
+    '../../_util/responsiveObserver',
+  );
   const originHook = modules.default;
 
   const useMockResponsiveObserver = (...args: any[]) => {
@@ -42,7 +45,7 @@ describe('Masonry', () => {
   let minWidth = '';
 
   beforeAll(() => {
-    jest.spyOn(window, 'matchMedia').mockImplementation(
+    vi.spyOn(window, 'matchMedia').mockImplementation(
       (query) =>
         ({
           addEventListener: (type: string, cb: (e: { matches: boolean }) => void) => {
@@ -50,7 +53,7 @@ describe('Masonry', () => {
               cb({ matches: query === `(min-width: ${minWidth})` });
             }
           },
-          removeEventListener: jest.fn(),
+          removeEventListener: vi.fn(),
           matches: query === `(min-width: ${minWidth})`,
         }) as any,
     );
@@ -71,7 +74,7 @@ describe('Masonry', () => {
   });
 
   beforeEach(() => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
     minWidth = '1200px';
     (global as any).unsubscribeCnt = 0;
   });
@@ -79,9 +82,9 @@ describe('Masonry', () => {
   afterEach(async () => {
     await waitFakeTimer();
 
-    jest.clearAllTimers();
-    jest.useRealTimers();
-    jest.restoreAllMocks();
+    vi.clearAllTimers();
+    vi.useRealTimers();
+    vi.restoreAllMocks();
     document.body.innerHTML = '';
   });
 
@@ -119,7 +122,7 @@ describe('Masonry', () => {
   };
 
   it('should render correctly', async () => {
-    const onLayoutChange = jest.fn();
+    const onLayoutChange = vi.fn();
     const { container } = render(<DemoMasonry columns={3} onLayoutChange={onLayoutChange} />);
     await resizeMasonry();
 
@@ -247,7 +250,7 @@ describe('Masonry', () => {
     });
 
     it('should handle responsive gutter with array', async () => {
-      const mockMatchMedia = jest.spyOn(window, 'matchMedia').mockImplementation(
+      const mockMatchMedia = vi.spyOn(window, 'matchMedia').mockImplementation(
         (query) =>
           ({
             addEventListener: (type: string, cb: (e: { matches: boolean }) => void) => {
@@ -255,7 +258,7 @@ describe('Masonry', () => {
                 cb({ matches: query === '(min-width: 576px)' });
               }
             },
-            removeEventListener: jest.fn(),
+            removeEventListener: vi.fn(),
             matches: query === '(min-width: 576px)',
           }) as any,
       );

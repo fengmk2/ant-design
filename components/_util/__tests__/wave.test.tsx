@@ -1,4 +1,5 @@
 import React from 'react';
+import { vi } from 'vitest';
 import { clsx } from 'clsx';
 
 import mountTest from '../../../tests/shared/mountTest';
@@ -10,21 +11,21 @@ import { TARGET_CLS } from '../wave/interface';
 (global as any).isVisible = true;
 
 // TODO: Remove this. Mock for React 19
-jest.mock('react-dom', () => {
-  const realReactDOM = jest.requireActual('react-dom');
+vi.mock('react-dom', async () => {
+  const realReactDOM = await vi.importActual<typeof import('react-dom')>('react-dom');
 
   if (realReactDOM.version.startsWith('19')) {
-    const realReactDOMClient = jest.requireActual('react-dom/client');
-    realReactDOM.createRoot = realReactDOMClient.createRoot;
+    const realReactDOMClient =
+      await vi.importActual<typeof import('react-dom/client')>('react-dom/client');
+    return { ...realReactDOM, createRoot: realReactDOMClient.createRoot };
   }
 
   return realReactDOM;
 });
 
-jest.mock('@rc-component/util/lib/Dom/isVisible', () => {
-  const mockFn = () => (global as any).isVisible;
-  return mockFn;
-});
+vi.mock('@rc-component/util/lib/Dom/isVisible', () => ({
+  default: () => (global as any).isVisible,
+}));
 
 describe('Wave component', () => {
   mountTest(Wave);
@@ -46,16 +47,49 @@ describe('Wave component', () => {
     (window as any).ResizeObserver = FakeResizeObserver;
   });
 
+  // Store original getComputedStyle
+  const originalGetComputedStyle = window.getComputedStyle;
+
+  // Convert named colors to RGB (as browsers do)
+  const colorToRgb: Record<string, string> = {
+    blue: 'rgb(0, 0, 255)',
+    green: 'rgb(0, 128, 0)',
+    yellow: 'rgb(255, 255, 0)',
+    red: 'rgb(255, 0, 0)',
+    transparent: 'transparent',
+  };
+  const toRgb = (color: string) => colorToRgb[color] || color;
+
   beforeEach(() => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
     (global as any).isVisible = true;
     document.body.innerHTML = '';
+    // Mock getComputedStyle to return inline styles since jsdom doesn't
+    window.getComputedStyle = (element: Element) => {
+      const style = (element as HTMLElement).style;
+      // Handle borderColor properly: if it contains spaces (shorthand), use borderRightColor as fallback
+      // since that typically represents the "main" color in shorthand notation
+      let borderColor = style.borderColor || '';
+      if (borderColor.includes(' ')) {
+        // For shorthand like 'transparent red red', use the non-transparent value
+        borderColor = style.borderRightColor || style.borderBottomColor || 'red';
+      }
+      return {
+        borderTopColor: toRgb(style.borderTopColor || ''),
+        borderColor,
+        backgroundColor:
+          toRgb(style.backgroundColor || '') || toRgb((style as any).background || ''),
+        color: style.color || '',
+        getPropertyValue: (prop: string) => (style as any)[prop] || '',
+      } as CSSStyleDeclaration;
+    };
   });
 
   afterEach(async () => {
+    window.getComputedStyle = originalGetComputedStyle;
     await waitFakeTimer();
 
-    jest.clearAllTimers();
+    vi.clearAllTimers();
     const styles = document.getElementsByTagName('style');
     for (let i = 0; i < styles.length; i += 1) {
       styles[i].remove();
@@ -63,7 +97,7 @@ describe('Wave component', () => {
   });
 
   afterAll(() => {
-    jest.useRealTimers();
+    vi.useRealTimers();
     expect(obCnt).not.toBe(0);
     expect(disCnt).not.toBe(0);
   });
@@ -83,15 +117,15 @@ describe('Wave component', () => {
 
   function waitRaf() {
     act(() => {
-      jest.advanceTimersByTime(100);
+      vi.advanceTimersByTime(100);
     });
     act(() => {
-      jest.advanceTimersByTime(100);
+      vi.advanceTimersByTime(100);
     });
   }
 
   it('work', async () => {
-    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
     const { container, unmount } = render(
       <Wave>
         <button type="button">button</button>
@@ -351,7 +385,7 @@ describe('Wave component', () => {
   });
 
   it('Checkbox with uncheck should not trigger wave', () => {
-    const onChange = jest.fn();
+    const onChange = vi.fn();
     const { container } = render(<Checkbox defaultChecked onChange={onChange} />);
 
     // Click

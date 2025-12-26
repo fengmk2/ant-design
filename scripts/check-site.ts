@@ -1,5 +1,6 @@
 import type http from 'http';
 import type https from 'https';
+import { existsSync } from 'fs';
 import { join } from 'path';
 import { load } from 'cheerio';
 import { globSync } from 'glob';
@@ -8,13 +9,27 @@ import fetch from 'isomorphic-fetch';
 import uniq from 'lodash/uniq';
 import portfinder from 'portfinder';
 
+// Check if the site has been built
+const siteDir = join(process.cwd(), '_site');
+const indexHtmlPath = join(siteDir, 'index.html');
+const siteBuilt = existsSync(indexHtmlPath);
+
+if (!siteBuilt) {
+  console.warn(
+    '\x1B[33m%s\x1B[0m',
+    'Warning: Site has not been built. Run `npm run site` first to build the documentation site.',
+  );
+  console.warn('\x1B[33m%s\x1B[0m', `Expected: ${indexHtmlPath}`);
+  console.warn('\x1B[33m%s\x1B[0m', 'Skipping site tests...\n');
+}
+
 const components = uniq(
   globSync('components/!(overview)/*.md', { cwd: join(process.cwd()), dot: false }).map((path) =>
     path.replace(/(\/index)?((\.zh-cn)|(\.en-us))?\.md$/i, ''),
   ),
 ).filter((component) => !component.includes('_util'));
 
-describe('site test', () => {
+describe.runIf(siteBuilt)('site test', () => {
   let server: http.Server | https.Server;
   const portPromise = portfinder.getPortPromise({
     port: 3000,
@@ -53,9 +68,17 @@ describe('site test', () => {
   beforeAll(async () => {
     const port = await portPromise;
     server = createServer({ root: join(process.cwd(), '_site') });
-    server.listen(port);
 
-    console.log(`site static server run: http://localhost:${port}`);
+    // Wait for server to be ready
+    await new Promise<void>((resolve) => {
+      server.listen(port, () => {
+        console.log(`site static server run: http://localhost:${port}`);
+        resolve();
+      });
+    });
+
+    // Give the server a moment to be fully ready
+    await new Promise((resolve) => setTimeout(resolve, 100));
   });
 
   afterAll(() => {

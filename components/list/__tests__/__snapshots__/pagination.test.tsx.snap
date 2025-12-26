@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`List.pagination pagination button should be displayed normally, when the paginator total is not defined 1`] = `
+exports[`List.pagination > pagination button should be displayed normally, when the paginator total is not defined 1`] = `
 <ul
   class="ant-pagination ant-pagination-end css-var-root"
 >
@@ -93,7 +93,7 @@ exports[`List.pagination pagination button should be displayed normally, when th
 </ul>
 `;
 
-exports[`List.pagination renders pagination correctly 1`] = `
+exports[`List.pagination > renders pagination correctly 1`] = `
 <div
   class="ant-list ant-list-vertical ant-list-split ant-list-something-after-last-item css-var-root"
 >
@@ -216,7 +216,7 @@ exports[`List.pagination renders pagination correctly 1`] = `
 </div>
 `;
 
-exports[`List.pagination should default work 1`] = `
+exports[`List.pagination > should default work 1`] = `
 <ul
   class="ant-pagination ant-pagination-end css-var-root"
 >

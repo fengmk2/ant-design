@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`renders components/grid/demo/basic.tsx extend context correctly 1`] = `
 Array [
@@ -948,11 +948,11 @@ Array [
   </div>,
   <div
     class="ant-row css-var-test-id"
-    style="margin-inline: calc(2rem / -2);"
+    style="margin-inline: calc(-1rem);"
   >
     <div
       class="ant-col ant-col-6 gutter-row css-var-test-id"
-      style="padding-inline: calc(2rem / 2);"
+      style="padding-inline: calc(1rem);"
     >
       <div
         style="background: rgb(0, 146, 255); padding: 8px 0px;"
@@ -962,7 +962,7 @@ Array [
     </div>
     <div
       class="ant-col ant-col-6 gutter-row css-var-test-id"
-      style="padding-inline: calc(2rem / 2);"
+      style="padding-inline: calc(1rem);"
     >
       <div
         style="background: rgb(0, 146, 255); padding: 8px 0px;"
@@ -972,7 +972,7 @@ Array [
     </div>
     <div
       class="ant-col ant-col-6 gutter-row css-var-test-id"
-      style="padding-inline: calc(2rem / 2);"
+      style="padding-inline: calc(1rem);"
     >
       <div
         style="background: rgb(0, 146, 255); padding: 8px 0px;"
@@ -982,7 +982,7 @@ Array [
     </div>
     <div
       class="ant-col ant-col-6 gutter-row css-var-test-id"
-      style="padding-inline: calc(2rem / 2);"
+      style="padding-inline: calc(1rem);"
     >
       <div
         style="background: rgb(0, 146, 255); padding: 8px 0px;"
@@ -1087,7 +1087,6 @@ Array [
         />
       </div>
       <div
-        aria-describedby="test-id"
         aria-disabled="false"
         aria-orientation="horizontal"
         aria-valuemax="5"
@@ -1098,26 +1097,6 @@ Array [
         style="left: 20%; transform: translateX(-50%);"
         tabindex="0"
       />
-      <div
-        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-slider-tooltip ant-tooltip-placement-top"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-      >
-        <div
-          class="ant-tooltip-arrow"
-          style="position: absolute; bottom: 0px; left: 0px;"
-        >
-          <span
-            class="ant-tooltip-arrow-content"
-          />
-        </div>
-        <div
-          class="ant-tooltip-container"
-          id="test-id"
-          role="tooltip"
-        >
-          16
-        </div>
-      </div>
       <div
         class="ant-slider-mark"
       >
@@ -1205,7 +1184,6 @@ Array [
         />
       </div>
       <div
-        aria-describedby="test-id"
         aria-disabled="false"
         aria-orientation="horizontal"
         aria-valuemax="5"
@@ -1216,26 +1194,6 @@ Array [
         style="left: 20%; transform: translateX(-50%);"
         tabindex="0"
       />
-      <div
-        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-slider-tooltip ant-tooltip-placement-top"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-      >
-        <div
-          class="ant-tooltip-arrow"
-          style="position: absolute; bottom: 0px; left: 0px;"
-        >
-          <span
-            class="ant-tooltip-arrow-content"
-          />
-        </div>
-        <div
-          class="ant-tooltip-container"
-          id="test-id"
-          role="tooltip"
-        >
-          16
-        </div>
-      </div>
       <div
         class="ant-slider-mark"
       >
@@ -1323,7 +1281,6 @@ Array [
         />
       </div>
       <div
-        aria-describedby="test-id"
         aria-disabled="false"
         aria-orientation="horizontal"
         aria-valuemax="5"
@@ -1334,26 +1291,6 @@ Array [
         style="left: 40%; transform: translateX(-50%);"
         tabindex="0"
       />
-      <div
-        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-slider-tooltip ant-tooltip-placement-top"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-      >
-        <div
-          class="ant-tooltip-arrow"
-          style="position: absolute; bottom: 0px; left: 0px;"
-        >
-          <span
-            class="ant-tooltip-arrow-content"
-          />
-        </div>
-        <div
-          class="ant-tooltip-container"
-          id="test-id"
-          role="tooltip"
-        >
-          4
-        </div>
-      </div>
       <div
         class="ant-slider-mark"
       >

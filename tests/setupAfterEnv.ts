@@ -1,29 +1,35 @@
-import '@testing-library/jest-dom';
+import '@testing-library/jest-dom/vitest';
 
-import { toHaveNoViolations } from 'jest-axe';
 import jsdom from 'jsdom';
 import format, { plugins } from 'pretty-format';
+import { expect } from 'vitest';
 
 import { defaultConfig } from '../components/theme/internal';
 
 // Not use dynamic hashed for test env since version will change hash dynamically.
 defaultConfig.hashed = false;
 
-if (process.env.LIB_DIR === 'dist') {
-  jest.mock('antd', () => jest.requireActual('../dist/antd'));
-} else if (process.env.LIB_DIR === 'dist-min') {
-  jest.mock('antd', () => jest.requireActual('../dist/antd.min'));
-} else if (process.env.LIB_DIR === 'es') {
-  jest.mock('antd', () => jest.requireActual('../es'));
-  jest.mock('../es/theme/internal', () => {
-    const esTheme = jest.requireActual('../es/theme/internal');
-    if (esTheme.defaultConfig) {
-      esTheme.defaultConfig.hashed = false;
-    }
-
-    return esTheme;
-  });
+// Add custom matcher for axe accessibility testing
+declare module 'vitest' {
+  interface Assertion {
+    toHaveNoViolations: () => void;
+  }
 }
+
+expect.extend({
+  toHaveNoViolations(received: { violations: unknown[] }) {
+    const pass = received?.violations?.length === 0;
+    return {
+      pass,
+      message: () =>
+        pass
+          ? 'Expected to have accessibility violations, but found none'
+          : `Expected no accessibility violations, but found ${received?.violations?.length}`,
+    };
+  },
+});
+
+// Conditional mocking for dist/es builds is handled in separate setup files
 
 function cleanup(node: HTMLElement) {
   const childList = Array.from(node.childNodes);
@@ -111,5 +117,3 @@ expect.addSnapshotSerializer({
     return formatHTML(children.length > 1 ? children : children[0]);
   },
 });
-
-expect.extend(toHaveNoViolations);

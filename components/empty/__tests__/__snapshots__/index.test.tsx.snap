@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Empty rtl render component should be rendered correctly in RTL direction 1`] = `
+exports[`Empty > rtl render > component should be rendered correctly in RTL direction 1`] = `
 <div
   class="css-var-root ant-empty ant-empty-rtl"
 >
@@ -78,7 +78,7 @@ exports[`Empty rtl render component should be rendered correctly in RTL directio
 </div>
 `;
 
-exports[`Empty should render in RTL direction 1`] = `
+exports[`Empty > should render in RTL direction 1`] = `
 <div
   class="css-var-root ant-empty ant-empty-rtl"
 >

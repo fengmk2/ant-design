@@ -1,4 +1,5 @@
 import React from 'react';
+import { vi } from 'vitest';
 
 import type { TimelineProps } from '..';
 import TimeLine from '..';
@@ -27,7 +28,7 @@ describe('TimeLine', () => {
 
   describe('render TimeLine.Item', () => {
     it('TimeLine.Item should correctly', () => {
-      const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
 
       const { container } = render(
         <TimeLine reverse>
@@ -47,7 +48,7 @@ describe('TimeLine', () => {
     });
 
     it('legacy pending', () => {
-      const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
       const { container } = render(
         <TimeLine pending="Little" pendingDot={'bamboo'} mode="alternate">
           <TimeLine.Item>foo</TimeLine.Item>
@@ -207,7 +208,7 @@ describe('TimeLine', () => {
   });
 
   it('legacy mode', () => {
-    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
 
     // Left
     const { container, rerender } = render(
@@ -226,10 +227,10 @@ describe('TimeLine', () => {
     errSpy.mockRestore();
   });
   describe('Timeline placement compatibility', () => {
-    let consoleErrorSpy: jest.SpyInstance;
+    let consoleErrorSpy: ReturnType<typeof vi.spyOn>;
 
     beforeAll(() => {
-      consoleErrorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      consoleErrorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
     });
 
     afterEach(() => {

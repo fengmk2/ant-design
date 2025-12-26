@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Modal Both ways should be rendered normally on the page 1`] = `
+exports[`Modal > Both ways should be rendered normally on the page 1`] = `
 <div
   class="first-origin"
 >
@@ -23,7 +23,7 @@ exports[`Modal Both ways should be rendered normally on the page 1`] = `
 </div>
 `;
 
-exports[`Modal Both ways should be rendered normally on the page 2`] = `
+exports[`Modal > Both ways should be rendered normally on the page 2`] = `
 <div
   class="second-props-origin"
 >
@@ -46,7 +46,7 @@ exports[`Modal Both ways should be rendered normally on the page 2`] = `
 </div>
 `;
 
-exports[`Modal render correctly 1`] = `
+exports[`Modal > render correctly 1`] = `
 <div>
   <div>
     <div
@@ -141,7 +141,7 @@ exports[`Modal render correctly 1`] = `
 </div>
 `;
 
-exports[`Modal render without footer 1`] = `
+exports[`Modal > render without footer 1`] = `
 <div>
   <div>
     <div
@@ -216,9 +216,9 @@ exports[`Modal render without footer 1`] = `
 </div>
 `;
 
-exports[`Modal rtl render component should be rendered correctly in RTL direction 1`] = `null`;
+exports[`Modal > rtl render > component should be rendered correctly in RTL direction 1`] = `null`;
 
-exports[`Modal support closeIcon 1`] = `
+exports[`Modal > support closeIcon 1`] = `
 <div
   class="ant-modal-root css-var-root ant-modal-css-var"
 >

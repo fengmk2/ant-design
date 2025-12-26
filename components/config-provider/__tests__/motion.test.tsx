@@ -1,11 +1,15 @@
 import React from 'react';
+import { vi } from 'vitest';
 
 import ConfigProvider from '..';
 import { pureRender } from '../../../tests/utils';
 
 let MotionProviderRun = 0;
-jest.mock('@rc-component/motion', () => {
-  const RcMotion = jest.requireActual('@rc-component/motion');
+vi.mock('@rc-component/motion', async () => {
+  const RcMotion = await vi.importActual<{
+    Provider: React.ComponentType<any>;
+    [key: string]: any;
+  }>('@rc-component/motion');
   const MotionProvider = RcMotion.Provider;
   return {
     ...RcMotion,

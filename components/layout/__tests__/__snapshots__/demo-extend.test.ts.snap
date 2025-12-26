@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`renders components/layout/demo/basic.tsx extend context correctly 1`] = `
 <div
@@ -227,146 +227,6 @@ exports[`renders components/layout/demo/component-token.tsx extend context corre
                 class="ant-menu-submenu-arrow"
               />
             </div>
-            <div
-              class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-light css-var-test-id ant-menu-css-var"
-              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-            >
-              <ul
-                class="ant-menu ant-menu-sub ant-menu-inline"
-                data-menu-list="true"
-                id="rc-menu-uuid-sub1-popup"
-                role="menu"
-              >
-                <li
-                  aria-describedby="test-id"
-                  class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
-                  data-menu-id="rc-menu-uuid-1"
-                  role="menuitem"
-                  style="padding-left: 48px;"
-                  tabindex="-1"
-                >
-                  <span
-                    class="ant-menu-title-content"
-                  >
-                    option1
-                  </span>
-                </li>
-                <div
-                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-                >
-                  <div
-                    class="ant-tooltip-arrow"
-                    style="position: absolute; top: 0px; left: 0px;"
-                  >
-                    <span
-                      class="ant-tooltip-arrow-content"
-                    />
-                  </div>
-                  <div
-                    class="ant-tooltip-container"
-                    id="test-id"
-                    role="tooltip"
-                  />
-                </div>
-                <li
-                  aria-describedby="test-id"
-                  class="ant-menu-item ant-menu-item-only-child"
-                  data-menu-id="rc-menu-uuid-2"
-                  role="menuitem"
-                  style="padding-left: 48px;"
-                  tabindex="-1"
-                >
-                  <span
-                    class="ant-menu-title-content"
-                  >
-                    option2
-                  </span>
-                </li>
-                <div
-                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-                >
-                  <div
-                    class="ant-tooltip-arrow"
-                    style="position: absolute; top: 0px; left: 0px;"
-                  >
-                    <span
-                      class="ant-tooltip-arrow-content"
-                    />
-                  </div>
-                  <div
-                    class="ant-tooltip-container"
-                    id="test-id"
-                    role="tooltip"
-                  />
-                </div>
-                <li
-                  aria-describedby="test-id"
-                  class="ant-menu-item ant-menu-item-only-child"
-                  data-menu-id="rc-menu-uuid-3"
-                  role="menuitem"
-                  style="padding-left: 48px;"
-                  tabindex="-1"
-                >
-                  <span
-                    class="ant-menu-title-content"
-                  >
-                    option3
-                  </span>
-                </li>
-                <div
-                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-                >
-                  <div
-                    class="ant-tooltip-arrow"
-                    style="position: absolute; top: 0px; left: 0px;"
-                  >
-                    <span
-                      class="ant-tooltip-arrow-content"
-                    />
-                  </div>
-                  <div
-                    class="ant-tooltip-container"
-                    id="test-id"
-                    role="tooltip"
-                  />
-                </div>
-                <li
-                  aria-describedby="test-id"
-                  class="ant-menu-item ant-menu-item-only-child"
-                  data-menu-id="rc-menu-uuid-4"
-                  role="menuitem"
-                  style="padding-left: 48px;"
-                  tabindex="-1"
-                >
-                  <span
-                    class="ant-menu-title-content"
-                  >
-                    option4
-                  </span>
-                </li>
-                <div
-                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-                >
-                  <div
-                    class="ant-tooltip-arrow"
-                    style="position: absolute; top: 0px; left: 0px;"
-                  >
-                    <span
-                      class="ant-tooltip-arrow-content"
-                    />
-                  </div>
-                  <div
-                    class="ant-tooltip-container"
-                    id="test-id"
-                    role="tooltip"
-                  />
-                </div>
-              </ul>
-            </div>
             <ul
               class="ant-menu ant-menu-sub ant-menu-inline"
               data-menu-list="true"
@@ -374,7 +234,6 @@ exports[`renders components/layout/demo/component-token.tsx extend context corre
               role="menu"
             >
               <li
-                aria-describedby="test-id"
                 class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
                 data-menu-id="rc-menu-uuid-1"
                 role="menuitem"
@@ -387,26 +246,7 @@ exports[`renders components/layout/demo/component-token.tsx extend context corre
                   option1
                 </span>
               </li>
-              <div
-                class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-              >
-                <div
-                  class="ant-tooltip-arrow"
-                  style="position: absolute; top: 0px; left: 0px;"
-                >
-                  <span
-                    class="ant-tooltip-arrow-content"
-                  />
-                </div>
-                <div
-                  class="ant-tooltip-container"
-                  id="test-id"
-                  role="tooltip"
-                />
-              </div>
               <li
-                aria-describedby="test-id"
                 class="ant-menu-item ant-menu-item-only-child"
                 data-menu-id="rc-menu-uuid-2"
                 role="menuitem"
@@ -419,26 +259,7 @@ exports[`renders components/layout/demo/component-token.tsx extend context corre
                   option2
                 </span>
               </li>
-              <div
-                class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-              >
-                <div
-                  class="ant-tooltip-arrow"
-                  style="position: absolute; top: 0px; left: 0px;"
-                >
-                  <span
-                    class="ant-tooltip-arrow-content"
-                  />
-                </div>
-                <div
-                  class="ant-tooltip-container"
-                  id="test-id"
-                  role="tooltip"
-                />
-              </div>
               <li
-                aria-describedby="test-id"
                 class="ant-menu-item ant-menu-item-only-child"
                 data-menu-id="rc-menu-uuid-3"
                 role="menuitem"
@@ -451,26 +272,7 @@ exports[`renders components/layout/demo/component-token.tsx extend context corre
                   option3
                 </span>
               </li>
-              <div
-                class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-              >
-                <div
-                  class="ant-tooltip-arrow"
-                  style="position: absolute; top: 0px; left: 0px;"
-                >
-                  <span
-                    class="ant-tooltip-arrow-content"
-                  />
-                </div>
-                <div
-                  class="ant-tooltip-container"
-                  id="test-id"
-                  role="tooltip"
-                />
-              </div>
               <li
-                aria-describedby="test-id"
                 class="ant-menu-item ant-menu-item-only-child"
                 data-menu-id="rc-menu-uuid-4"
                 role="menuitem"
@@ -483,24 +285,6 @@ exports[`renders components/layout/demo/component-token.tsx extend context corre
                   option4
                 </span>
               </li>
-              <div
-                class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-              >
-                <div
-                  class="ant-tooltip-arrow"
-                  style="position: absolute; top: 0px; left: 0px;"
-                >
-                  <span
-                    class="ant-tooltip-arrow-content"
-                  />
-                </div>
-                <div
-                  class="ant-tooltip-container"
-                  id="test-id"
-                  role="tooltip"
-                />
-              </div>
             </ul>
           </li>
           <li
@@ -545,146 +329,6 @@ exports[`renders components/layout/demo/component-token.tsx extend context corre
                 class="ant-menu-submenu-arrow"
               />
             </div>
-            <div
-              class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-light css-var-test-id ant-menu-css-var"
-              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-            >
-              <ul
-                class="ant-menu ant-menu-sub ant-menu-inline"
-                data-menu-list="true"
-                id="rc-menu-uuid-sub2-popup"
-                role="menu"
-              >
-                <li
-                  aria-describedby="test-id"
-                  class="ant-menu-item ant-menu-item-only-child"
-                  data-menu-id="rc-menu-uuid-5"
-                  role="menuitem"
-                  style="padding-left: 48px;"
-                  tabindex="-1"
-                >
-                  <span
-                    class="ant-menu-title-content"
-                  >
-                    option5
-                  </span>
-                </li>
-                <div
-                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-                >
-                  <div
-                    class="ant-tooltip-arrow"
-                    style="position: absolute; top: 0px; left: 0px;"
-                  >
-                    <span
-                      class="ant-tooltip-arrow-content"
-                    />
-                  </div>
-                  <div
-                    class="ant-tooltip-container"
-                    id="test-id"
-                    role="tooltip"
-                  />
-                </div>
-                <li
-                  aria-describedby="test-id"
-                  class="ant-menu-item ant-menu-item-only-child"
-                  data-menu-id="rc-menu-uuid-6"
-                  role="menuitem"
-                  style="padding-left: 48px;"
-                  tabindex="-1"
-                >
-                  <span
-                    class="ant-menu-title-content"
-                  >
-                    option6
-                  </span>
-                </li>
-                <div
-                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-                >
-                  <div
-                    class="ant-tooltip-arrow"
-                    style="position: absolute; top: 0px; left: 0px;"
-                  >
-                    <span
-                      class="ant-tooltip-arrow-content"
-                    />
-                  </div>
-                  <div
-                    class="ant-tooltip-container"
-                    id="test-id"
-                    role="tooltip"
-                  />
-                </div>
-                <li
-                  aria-describedby="test-id"
-                  class="ant-menu-item ant-menu-item-only-child"
-                  data-menu-id="rc-menu-uuid-7"
-                  role="menuitem"
-                  style="padding-left: 48px;"
-                  tabindex="-1"
-                >
-                  <span
-                    class="ant-menu-title-content"
-                  >
-                    option7
-                  </span>
-                </li>
-                <div
-                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-                >
-                  <div
-                    class="ant-tooltip-arrow"
-                    style="position: absolute; top: 0px; left: 0px;"
-                  >
-                    <span
-                      class="ant-tooltip-arrow-content"
-                    />
-                  </div>
-                  <div
-                    class="ant-tooltip-container"
-                    id="test-id"
-                    role="tooltip"
-                  />
-                </div>
-                <li
-                  aria-describedby="test-id"
-                  class="ant-menu-item ant-menu-item-only-child"
-                  data-menu-id="rc-menu-uuid-8"
-                  role="menuitem"
-                  style="padding-left: 48px;"
-                  tabindex="-1"
-                >
-                  <span
-                    class="ant-menu-title-content"
-                  >
-                    option8
-                  </span>
-                </li>
-                <div
-                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-                >
-                  <div
-                    class="ant-tooltip-arrow"
-                    style="position: absolute; top: 0px; left: 0px;"
-                  >
-                    <span
-                      class="ant-tooltip-arrow-content"
-                    />
-                  </div>
-                  <div
-                    class="ant-tooltip-container"
-                    id="test-id"
-                    role="tooltip"
-                  />
-                </div>
-              </ul>
-            </div>
           </li>
           <li
             class="ant-menu-submenu ant-menu-submenu-inline"
@@ -727,146 +371,6 @@ exports[`renders components/layout/demo/component-token.tsx extend context corre
               <i
                 class="ant-menu-submenu-arrow"
               />
-            </div>
-            <div
-              class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-light css-var-test-id ant-menu-css-var"
-              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-            >
-              <ul
-                class="ant-menu ant-menu-sub ant-menu-inline"
-                data-menu-list="true"
-                id="rc-menu-uuid-sub3-popup"
-                role="menu"
-              >
-                <li
-                  aria-describedby="test-id"
-                  class="ant-menu-item ant-menu-item-only-child"
-                  data-menu-id="rc-menu-uuid-9"
-                  role="menuitem"
-                  style="padding-left: 48px;"
-                  tabindex="-1"
-                >
-                  <span
-                    class="ant-menu-title-content"
-                  >
-                    option9
-                  </span>
-                </li>
-                <div
-                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-                >
-                  <div
-                    class="ant-tooltip-arrow"
-                    style="position: absolute; top: 0px; left: 0px;"
-                  >
-                    <span
-                      class="ant-tooltip-arrow-content"
-                    />
-                  </div>
-                  <div
-                    class="ant-tooltip-container"
-                    id="test-id"
-                    role="tooltip"
-                  />
-                </div>
-                <li
-                  aria-describedby="test-id"
-                  class="ant-menu-item ant-menu-item-only-child"
-                  data-menu-id="rc-menu-uuid-10"
-                  role="menuitem"
-                  style="padding-left: 48px;"
-                  tabindex="-1"
-                >
-                  <span
-                    class="ant-menu-title-content"
-                  >
-                    option10
-                  </span>
-                </li>
-                <div
-                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-                >
-                  <div
-                    class="ant-tooltip-arrow"
-                    style="position: absolute; top: 0px; left: 0px;"
-                  >
-                    <span
-                      class="ant-tooltip-arrow-content"
-                    />
-                  </div>
-                  <div
-                    class="ant-tooltip-container"
-                    id="test-id"
-                    role="tooltip"
-                  />
-                </div>
-                <li
-                  aria-describedby="test-id"
-                  class="ant-menu-item ant-menu-item-only-child"
-                  data-menu-id="rc-menu-uuid-11"
-                  role="menuitem"
-                  style="padding-left: 48px;"
-                  tabindex="-1"
-                >
-                  <span
-                    class="ant-menu-title-content"
-                  >
-                    option11
-                  </span>
-                </li>
-                <div
-                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-                >
-                  <div
-                    class="ant-tooltip-arrow"
-                    style="position: absolute; top: 0px; left: 0px;"
-                  >
-                    <span
-                      class="ant-tooltip-arrow-content"
-                    />
-                  </div>
-                  <div
-                    class="ant-tooltip-container"
-                    id="test-id"
-                    role="tooltip"
-                  />
-                </div>
-                <li
-                  aria-describedby="test-id"
-                  class="ant-menu-item ant-menu-item-only-child"
-                  data-menu-id="rc-menu-uuid-12"
-                  role="menuitem"
-                  style="padding-left: 48px;"
-                  tabindex="-1"
-                >
-                  <span
-                    class="ant-menu-title-content"
-                  >
-                    option12
-                  </span>
-                </li>
-                <div
-                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-                >
-                  <div
-                    class="ant-tooltip-arrow"
-                    style="position: absolute; top: 0px; left: 0px;"
-                  >
-                    <span
-                      class="ant-tooltip-arrow-content"
-                    />
-                  </div>
-                  <div
-                    class="ant-tooltip-container"
-                    id="test-id"
-                    role="tooltip"
-                  />
-                </div>
-              </ul>
             </div>
           </li>
         </ul>
@@ -964,7 +468,6 @@ exports[`renders components/layout/demo/custom-trigger.tsx extend context correc
         tabindex="0"
       >
         <li
-          aria-describedby="test-id"
           class="ant-menu-item ant-menu-item-selected"
           data-menu-id="rc-menu-uuid-1"
           role="menuitem"
@@ -996,26 +499,7 @@ exports[`renders components/layout/demo/custom-trigger.tsx extend context correc
             nav 1
           </span>
         </li>
-        <div
-          class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-        >
-          <div
-            class="ant-tooltip-arrow"
-            style="position: absolute; top: 0px; left: 0px;"
-          >
-            <span
-              class="ant-tooltip-arrow-content"
-            />
-          </div>
-          <div
-            class="ant-tooltip-container"
-            id="test-id"
-            role="tooltip"
-          />
-        </div>
         <li
-          aria-describedby="test-id"
           class="ant-menu-item"
           data-menu-id="rc-menu-uuid-2"
           role="menuitem"
@@ -1047,26 +531,7 @@ exports[`renders components/layout/demo/custom-trigger.tsx extend context correc
             nav 2
           </span>
         </li>
-        <div
-          class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-        >
-          <div
-            class="ant-tooltip-arrow"
-            style="position: absolute; top: 0px; left: 0px;"
-          >
-            <span
-              class="ant-tooltip-arrow-content"
-            />
-          </div>
-          <div
-            class="ant-tooltip-container"
-            id="test-id"
-            role="tooltip"
-          />
-        </div>
         <li
-          aria-describedby="test-id"
           class="ant-menu-item"
           data-menu-id="rc-menu-uuid-3"
           role="menuitem"
@@ -1098,24 +563,6 @@ exports[`renders components/layout/demo/custom-trigger.tsx extend context correc
             nav 3
           </span>
         </li>
-        <div
-          class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-        >
-          <div
-            class="ant-tooltip-arrow"
-            style="position: absolute; top: 0px; left: 0px;"
-          >
-            <span
-              class="ant-tooltip-arrow-content"
-            />
-          </div>
-          <div
-            class="ant-tooltip-container"
-            id="test-id"
-            role="tooltip"
-          />
-        </div>
       </ul>
       <div
         aria-hidden="true"
@@ -1191,7 +638,6 @@ exports[`renders components/layout/demo/fixed.tsx extend context correctly 1`] =
       tabindex="0"
     >
       <li
-        aria-describedby="test-id"
         class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child"
         data-menu-id="rc-menu-uuid-1"
         role="menuitem"
@@ -1204,26 +650,7 @@ exports[`renders components/layout/demo/fixed.tsx extend context correctly 1`] =
           nav 1
         </span>
       </li>
-      <div
-        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-      >
-        <div
-          class="ant-tooltip-arrow"
-          style="position: absolute; top: 0px; left: 0px;"
-        >
-          <span
-            class="ant-tooltip-arrow-content"
-          />
-        </div>
-        <div
-          class="ant-tooltip-container"
-          id="test-id"
-          role="tooltip"
-        />
-      </div>
       <li
-        aria-describedby="test-id"
         class="ant-menu-overflow-item ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
         role="menuitem"
         style="opacity: 1; order: 1;"
@@ -1235,26 +662,7 @@ exports[`renders components/layout/demo/fixed.tsx extend context correctly 1`] =
           nav 2
         </span>
       </li>
-      <div
-        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-      >
-        <div
-          class="ant-tooltip-arrow"
-          style="position: absolute; top: 0px; left: 0px;"
-        >
-          <span
-            class="ant-tooltip-arrow-content"
-          />
-        </div>
-        <div
-          class="ant-tooltip-container"
-          id="test-id"
-          role="tooltip"
-        />
-      </div>
       <li
-        aria-describedby="test-id"
         class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child"
         role="menuitem"
         style="opacity: 1; order: 2;"
@@ -1266,24 +674,6 @@ exports[`renders components/layout/demo/fixed.tsx extend context correctly 1`] =
           nav 3
         </span>
       </li>
-      <div
-        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-      >
-        <div
-          class="ant-tooltip-arrow"
-          style="position: absolute; top: 0px; left: 0px;"
-        >
-          <span
-            class="ant-tooltip-arrow-content"
-          />
-        </div>
-        <div
-          class="ant-tooltip-container"
-          id="test-id"
-          role="tooltip"
-        />
-      </div>
       <li
         aria-hidden="true"
         class="ant-menu-overflow-item ant-menu-overflow-item-rest ant-menu-submenu ant-menu-submenu-horizontal ant-menu-submenu-selected"
@@ -1320,17 +710,6 @@ exports[`renders components/layout/demo/fixed.tsx extend context correctly 1`] =
           </span>
           <i
             class="ant-menu-submenu-arrow"
-          />
-        </div>
-        <div
-          class="ant-menu-submenu ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-menu-submenu-popup ant-menu ant-menu-dark css-var-test-id ant-menu-css-var ant-menu-submenu-placement-bottomLeft"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-        >
-          <ul
-            class="ant-menu ant-menu-sub ant-menu-vertical"
-            data-menu-list="true"
-            id="rc-menu-uuid-rc-menu-more-popup"
-            role="menu"
           />
         </div>
       </li>
@@ -1428,7 +807,6 @@ exports[`renders components/layout/demo/fixed-sider.tsx extend context correctly
         tabindex="0"
       >
         <li
-          aria-describedby="test-id"
           class="ant-menu-item"
           data-menu-id="rc-menu-uuid-1"
           role="menuitem"
@@ -1460,26 +838,7 @@ exports[`renders components/layout/demo/fixed-sider.tsx extend context correctly
             nav 1
           </span>
         </li>
-        <div
-          class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-        >
-          <div
-            class="ant-tooltip-arrow"
-            style="position: absolute; top: 0px; left: 0px;"
-          >
-            <span
-              class="ant-tooltip-arrow-content"
-            />
-          </div>
-          <div
-            class="ant-tooltip-container"
-            id="test-id"
-            role="tooltip"
-          />
-        </div>
         <li
-          aria-describedby="test-id"
           class="ant-menu-item"
           data-menu-id="rc-menu-uuid-2"
           role="menuitem"
@@ -1511,26 +870,7 @@ exports[`renders components/layout/demo/fixed-sider.tsx extend context correctly
             nav 2
           </span>
         </li>
-        <div
-          class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-        >
-          <div
-            class="ant-tooltip-arrow"
-            style="position: absolute; top: 0px; left: 0px;"
-          >
-            <span
-              class="ant-tooltip-arrow-content"
-            />
-          </div>
-          <div
-            class="ant-tooltip-container"
-            id="test-id"
-            role="tooltip"
-          />
-        </div>
         <li
-          aria-describedby="test-id"
           class="ant-menu-item"
           data-menu-id="rc-menu-uuid-3"
           role="menuitem"
@@ -1562,26 +902,7 @@ exports[`renders components/layout/demo/fixed-sider.tsx extend context correctly
             nav 3
           </span>
         </li>
-        <div
-          class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-        >
-          <div
-            class="ant-tooltip-arrow"
-            style="position: absolute; top: 0px; left: 0px;"
-          >
-            <span
-              class="ant-tooltip-arrow-content"
-            />
-          </div>
-          <div
-            class="ant-tooltip-container"
-            id="test-id"
-            role="tooltip"
-          />
-        </div>
         <li
-          aria-describedby="test-id"
           class="ant-menu-item ant-menu-item-selected"
           data-menu-id="rc-menu-uuid-4"
           role="menuitem"
@@ -1613,26 +934,7 @@ exports[`renders components/layout/demo/fixed-sider.tsx extend context correctly
             nav 4
           </span>
         </li>
-        <div
-          class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-        >
-          <div
-            class="ant-tooltip-arrow"
-            style="position: absolute; top: 0px; left: 0px;"
-          >
-            <span
-              class="ant-tooltip-arrow-content"
-            />
-          </div>
-          <div
-            class="ant-tooltip-container"
-            id="test-id"
-            role="tooltip"
-          />
-        </div>
         <li
-          aria-describedby="test-id"
           class="ant-menu-item"
           data-menu-id="rc-menu-uuid-5"
           role="menuitem"
@@ -1664,26 +966,7 @@ exports[`renders components/layout/demo/fixed-sider.tsx extend context correctly
             nav 5
           </span>
         </li>
-        <div
-          class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-        >
-          <div
-            class="ant-tooltip-arrow"
-            style="position: absolute; top: 0px; left: 0px;"
-          >
-            <span
-              class="ant-tooltip-arrow-content"
-            />
-          </div>
-          <div
-            class="ant-tooltip-container"
-            id="test-id"
-            role="tooltip"
-          />
-        </div>
         <li
-          aria-describedby="test-id"
           class="ant-menu-item"
           data-menu-id="rc-menu-uuid-6"
           role="menuitem"
@@ -1715,26 +998,7 @@ exports[`renders components/layout/demo/fixed-sider.tsx extend context correctly
             nav 6
           </span>
         </li>
-        <div
-          class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-        >
-          <div
-            class="ant-tooltip-arrow"
-            style="position: absolute; top: 0px; left: 0px;"
-          >
-            <span
-              class="ant-tooltip-arrow-content"
-            />
-          </div>
-          <div
-            class="ant-tooltip-container"
-            id="test-id"
-            role="tooltip"
-          />
-        </div>
         <li
-          aria-describedby="test-id"
           class="ant-menu-item"
           data-menu-id="rc-menu-uuid-7"
           role="menuitem"
@@ -1766,26 +1030,7 @@ exports[`renders components/layout/demo/fixed-sider.tsx extend context correctly
             nav 7
           </span>
         </li>
-        <div
-          class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-        >
-          <div
-            class="ant-tooltip-arrow"
-            style="position: absolute; top: 0px; left: 0px;"
-          >
-            <span
-              class="ant-tooltip-arrow-content"
-            />
-          </div>
-          <div
-            class="ant-tooltip-container"
-            id="test-id"
-            role="tooltip"
-          />
-        </div>
         <li
-          aria-describedby="test-id"
           class="ant-menu-item"
           data-menu-id="rc-menu-uuid-8"
           role="menuitem"
@@ -1817,24 +1062,6 @@ exports[`renders components/layout/demo/fixed-sider.tsx extend context correctly
             nav 8
           </span>
         </li>
-        <div
-          class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-        >
-          <div
-            class="ant-tooltip-arrow"
-            style="position: absolute; top: 0px; left: 0px;"
-          >
-            <span
-              class="ant-tooltip-arrow-content"
-            />
-          </div>
-          <div
-            class="ant-tooltip-container"
-            id="test-id"
-            role="tooltip"
-          />
-        </div>
       </ul>
       <div
         aria-hidden="true"
@@ -2079,7 +1306,7 @@ exports[`renders components/layout/demo/responsive.tsx extend context correctly 
 >
   <aside
     class="ant-layout-sider ant-layout-sider-dark ant-layout-sider-collapsed ant-layout-sider-below ant-layout-sider-zero-width css-var-test-id"
-    style="max-width: 0px; min-width: 0px; width: 0px; flex: 0 0 0px;"
+    style="flex: 0 0 0px; max-width: 0px; min-width: 0px; width: 0px;"
   >
     <div
       class="ant-layout-sider-children"
@@ -2094,7 +1321,6 @@ exports[`renders components/layout/demo/responsive.tsx extend context correctly 
         tabindex="0"
       >
         <li
-          aria-describedby="test-id"
           class="ant-menu-item"
           data-menu-id="rc-menu-uuid-1"
           role="menuitem"
@@ -2126,28 +1352,7 @@ exports[`renders components/layout/demo/responsive.tsx extend context correctly 
             nav 1
           </span>
         </li>
-        <div
-          class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-        >
-          <div
-            class="ant-tooltip-arrow"
-            style="position: absolute; top: 0px; left: 0px;"
-          >
-            <span
-              class="ant-tooltip-arrow-content"
-            />
-          </div>
-          <div
-            class="ant-tooltip-container"
-            id="test-id"
-            role="tooltip"
-          >
-            nav 1
-          </div>
-        </div>
         <li
-          aria-describedby="test-id"
           class="ant-menu-item"
           data-menu-id="rc-menu-uuid-2"
           role="menuitem"
@@ -2179,28 +1384,7 @@ exports[`renders components/layout/demo/responsive.tsx extend context correctly 
             nav 2
           </span>
         </li>
-        <div
-          class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-        >
-          <div
-            class="ant-tooltip-arrow"
-            style="position: absolute; top: 0px; left: 0px;"
-          >
-            <span
-              class="ant-tooltip-arrow-content"
-            />
-          </div>
-          <div
-            class="ant-tooltip-container"
-            id="test-id"
-            role="tooltip"
-          >
-            nav 2
-          </div>
-        </div>
         <li
-          aria-describedby="test-id"
           class="ant-menu-item"
           data-menu-id="rc-menu-uuid-3"
           role="menuitem"
@@ -2232,28 +1416,7 @@ exports[`renders components/layout/demo/responsive.tsx extend context correctly 
             nav 3
           </span>
         </li>
-        <div
-          class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-        >
-          <div
-            class="ant-tooltip-arrow"
-            style="position: absolute; top: 0px; left: 0px;"
-          >
-            <span
-              class="ant-tooltip-arrow-content"
-            />
-          </div>
-          <div
-            class="ant-tooltip-container"
-            id="test-id"
-            role="tooltip"
-          >
-            nav 3
-          </div>
-        </div>
         <li
-          aria-describedby="test-id"
           class="ant-menu-item ant-menu-item-selected"
           data-menu-id="rc-menu-uuid-4"
           role="menuitem"
@@ -2285,26 +1448,6 @@ exports[`renders components/layout/demo/responsive.tsx extend context correctly 
             nav 4
           </span>
         </li>
-        <div
-          class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-        >
-          <div
-            class="ant-tooltip-arrow"
-            style="position: absolute; top: 0px; left: 0px;"
-          >
-            <span
-              class="ant-tooltip-arrow-content"
-            />
-          </div>
-          <div
-            class="ant-tooltip-container"
-            id="test-id"
-            role="tooltip"
-          >
-            nav 4
-          </div>
-        </div>
       </ul>
       <div
         aria-hidden="true"
@@ -2386,7 +1529,6 @@ exports[`renders components/layout/demo/side.tsx extend context correctly 1`] = 
         tabindex="0"
       >
         <li
-          aria-describedby="test-id"
           class="ant-menu-item ant-menu-item-selected"
           data-menu-id="rc-menu-uuid-1"
           role="menuitem"
@@ -2418,26 +1560,7 @@ exports[`renders components/layout/demo/side.tsx extend context correctly 1`] = 
             Option 1
           </span>
         </li>
-        <div
-          class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-        >
-          <div
-            class="ant-tooltip-arrow"
-            style="position: absolute; top: 0px; left: 0px;"
-          >
-            <span
-              class="ant-tooltip-arrow-content"
-            />
-          </div>
-          <div
-            class="ant-tooltip-container"
-            id="test-id"
-            role="tooltip"
-          />
-        </div>
         <li
-          aria-describedby="test-id"
           class="ant-menu-item"
           data-menu-id="rc-menu-uuid-2"
           role="menuitem"
@@ -2469,24 +1592,6 @@ exports[`renders components/layout/demo/side.tsx extend context correctly 1`] = 
             Option 2
           </span>
         </li>
-        <div
-          class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-        >
-          <div
-            class="ant-tooltip-arrow"
-            style="position: absolute; top: 0px; left: 0px;"
-          >
-            <span
-              class="ant-tooltip-arrow-content"
-            />
-          </div>
-          <div
-            class="ant-tooltip-container"
-            id="test-id"
-            role="tooltip"
-          />
-        </div>
         <li
           class="ant-menu-submenu ant-menu-submenu-inline"
           role="none"
@@ -2528,114 +1633,6 @@ exports[`renders components/layout/demo/side.tsx extend context correctly 1`] = 
             <i
               class="ant-menu-submenu-arrow"
             />
-          </div>
-          <div
-            class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-dark css-var-test-id ant-menu-css-var"
-            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-          >
-            <ul
-              class="ant-menu ant-menu-sub ant-menu-inline"
-              data-menu-list="true"
-              id="rc-menu-uuid-sub1-popup"
-              role="menu"
-            >
-              <li
-                aria-describedby="test-id"
-                class="ant-menu-item ant-menu-item-only-child"
-                data-menu-id="rc-menu-uuid-3"
-                role="menuitem"
-                style="padding-left: 48px;"
-                tabindex="-1"
-              >
-                <span
-                  class="ant-menu-title-content"
-                >
-                  Tom
-                </span>
-              </li>
-              <div
-                class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-              >
-                <div
-                  class="ant-tooltip-arrow"
-                  style="position: absolute; top: 0px; left: 0px;"
-                >
-                  <span
-                    class="ant-tooltip-arrow-content"
-                  />
-                </div>
-                <div
-                  class="ant-tooltip-container"
-                  id="test-id"
-                  role="tooltip"
-                />
-              </div>
-              <li
-                aria-describedby="test-id"
-                class="ant-menu-item ant-menu-item-only-child"
-                data-menu-id="rc-menu-uuid-4"
-                role="menuitem"
-                style="padding-left: 48px;"
-                tabindex="-1"
-              >
-                <span
-                  class="ant-menu-title-content"
-                >
-                  Bill
-                </span>
-              </li>
-              <div
-                class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-              >
-                <div
-                  class="ant-tooltip-arrow"
-                  style="position: absolute; top: 0px; left: 0px;"
-                >
-                  <span
-                    class="ant-tooltip-arrow-content"
-                  />
-                </div>
-                <div
-                  class="ant-tooltip-container"
-                  id="test-id"
-                  role="tooltip"
-                />
-              </div>
-              <li
-                aria-describedby="test-id"
-                class="ant-menu-item ant-menu-item-only-child"
-                data-menu-id="rc-menu-uuid-5"
-                role="menuitem"
-                style="padding-left: 48px;"
-                tabindex="-1"
-              >
-                <span
-                  class="ant-menu-title-content"
-                >
-                  Alex
-                </span>
-              </li>
-              <div
-                class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-              >
-                <div
-                  class="ant-tooltip-arrow"
-                  style="position: absolute; top: 0px; left: 0px;"
-                >
-                  <span
-                    class="ant-tooltip-arrow-content"
-                  />
-                </div>
-                <div
-                  class="ant-tooltip-container"
-                  id="test-id"
-                  role="tooltip"
-                />
-              </div>
-            </ul>
           </div>
         </li>
         <li
@@ -2680,85 +1677,8 @@ exports[`renders components/layout/demo/side.tsx extend context correctly 1`] = 
               class="ant-menu-submenu-arrow"
             />
           </div>
-          <div
-            class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-dark css-var-test-id ant-menu-css-var"
-            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-          >
-            <ul
-              class="ant-menu ant-menu-sub ant-menu-inline"
-              data-menu-list="true"
-              id="rc-menu-uuid-sub2-popup"
-              role="menu"
-            >
-              <li
-                aria-describedby="test-id"
-                class="ant-menu-item ant-menu-item-only-child"
-                data-menu-id="rc-menu-uuid-6"
-                role="menuitem"
-                style="padding-left: 48px;"
-                tabindex="-1"
-              >
-                <span
-                  class="ant-menu-title-content"
-                >
-                  Team 1
-                </span>
-              </li>
-              <div
-                class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-              >
-                <div
-                  class="ant-tooltip-arrow"
-                  style="position: absolute; top: 0px; left: 0px;"
-                >
-                  <span
-                    class="ant-tooltip-arrow-content"
-                  />
-                </div>
-                <div
-                  class="ant-tooltip-container"
-                  id="test-id"
-                  role="tooltip"
-                />
-              </div>
-              <li
-                aria-describedby="test-id"
-                class="ant-menu-item ant-menu-item-only-child"
-                data-menu-id="rc-menu-uuid-8"
-                role="menuitem"
-                style="padding-left: 48px;"
-                tabindex="-1"
-              >
-                <span
-                  class="ant-menu-title-content"
-                >
-                  Team 2
-                </span>
-              </li>
-              <div
-                class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-              >
-                <div
-                  class="ant-tooltip-arrow"
-                  style="position: absolute; top: 0px; left: 0px;"
-                >
-                  <span
-                    class="ant-tooltip-arrow-content"
-                  />
-                </div>
-                <div
-                  class="ant-tooltip-container"
-                  id="test-id"
-                  role="tooltip"
-                />
-              </div>
-            </ul>
-          </div>
         </li>
         <li
-          aria-describedby="test-id"
           class="ant-menu-item"
           data-menu-id="rc-menu-uuid-9"
           role="menuitem"
@@ -2790,24 +1710,6 @@ exports[`renders components/layout/demo/side.tsx extend context correctly 1`] = 
             Files
           </span>
         </li>
-        <div
-          class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-        >
-          <div
-            class="ant-tooltip-arrow"
-            style="position: absolute; top: 0px; left: 0px;"
-          >
-            <span
-              class="ant-tooltip-arrow-content"
-            />
-          </div>
-          <div
-            class="ant-tooltip-container"
-            id="test-id"
-            role="tooltip"
-          />
-        </div>
       </ul>
       <div
         aria-hidden="true"
@@ -2918,7 +1820,6 @@ exports[`renders components/layout/demo/top.tsx extend context correctly 1`] = `
       tabindex="0"
     >
       <li
-        aria-describedby="test-id"
         class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child"
         data-menu-id="rc-menu-uuid-1"
         role="menuitem"
@@ -2931,26 +1832,7 @@ exports[`renders components/layout/demo/top.tsx extend context correctly 1`] = `
           nav 1
         </span>
       </li>
-      <div
-        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-      >
-        <div
-          class="ant-tooltip-arrow"
-          style="position: absolute; top: 0px; left: 0px;"
-        >
-          <span
-            class="ant-tooltip-arrow-content"
-          />
-        </div>
-        <div
-          class="ant-tooltip-container"
-          id="test-id"
-          role="tooltip"
-        />
-      </div>
       <li
-        aria-describedby="test-id"
         class="ant-menu-overflow-item ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
         role="menuitem"
         style="opacity: 1; order: 1;"
@@ -2962,26 +1844,7 @@ exports[`renders components/layout/demo/top.tsx extend context correctly 1`] = `
           nav 2
         </span>
       </li>
-      <div
-        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-      >
-        <div
-          class="ant-tooltip-arrow"
-          style="position: absolute; top: 0px; left: 0px;"
-        >
-          <span
-            class="ant-tooltip-arrow-content"
-          />
-        </div>
-        <div
-          class="ant-tooltip-container"
-          id="test-id"
-          role="tooltip"
-        />
-      </div>
       <li
-        aria-describedby="test-id"
         class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child"
         role="menuitem"
         style="opacity: 1; order: 2;"
@@ -2993,26 +1856,7 @@ exports[`renders components/layout/demo/top.tsx extend context correctly 1`] = `
           nav 3
         </span>
       </li>
-      <div
-        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-      >
-        <div
-          class="ant-tooltip-arrow"
-          style="position: absolute; top: 0px; left: 0px;"
-        >
-          <span
-            class="ant-tooltip-arrow-content"
-          />
-        </div>
-        <div
-          class="ant-tooltip-container"
-          id="test-id"
-          role="tooltip"
-        />
-      </div>
       <li
-        aria-describedby="test-id"
         class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child"
         role="menuitem"
         style="opacity: 1; order: 3;"
@@ -3024,26 +1868,7 @@ exports[`renders components/layout/demo/top.tsx extend context correctly 1`] = `
           nav 4
         </span>
       </li>
-      <div
-        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-      >
-        <div
-          class="ant-tooltip-arrow"
-          style="position: absolute; top: 0px; left: 0px;"
-        >
-          <span
-            class="ant-tooltip-arrow-content"
-          />
-        </div>
-        <div
-          class="ant-tooltip-container"
-          id="test-id"
-          role="tooltip"
-        />
-      </div>
       <li
-        aria-describedby="test-id"
         class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child"
         role="menuitem"
         style="opacity: 1; order: 4;"
@@ -3055,26 +1880,7 @@ exports[`renders components/layout/demo/top.tsx extend context correctly 1`] = `
           nav 5
         </span>
       </li>
-      <div
-        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-      >
-        <div
-          class="ant-tooltip-arrow"
-          style="position: absolute; top: 0px; left: 0px;"
-        >
-          <span
-            class="ant-tooltip-arrow-content"
-          />
-        </div>
-        <div
-          class="ant-tooltip-container"
-          id="test-id"
-          role="tooltip"
-        />
-      </div>
       <li
-        aria-describedby="test-id"
         class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child"
         role="menuitem"
         style="opacity: 1; order: 5;"
@@ -3086,26 +1892,7 @@ exports[`renders components/layout/demo/top.tsx extend context correctly 1`] = `
           nav 6
         </span>
       </li>
-      <div
-        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-      >
-        <div
-          class="ant-tooltip-arrow"
-          style="position: absolute; top: 0px; left: 0px;"
-        >
-          <span
-            class="ant-tooltip-arrow-content"
-          />
-        </div>
-        <div
-          class="ant-tooltip-container"
-          id="test-id"
-          role="tooltip"
-        />
-      </div>
       <li
-        aria-describedby="test-id"
         class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child"
         role="menuitem"
         style="opacity: 1; order: 6;"
@@ -3117,26 +1904,7 @@ exports[`renders components/layout/demo/top.tsx extend context correctly 1`] = `
           nav 7
         </span>
       </li>
-      <div
-        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-      >
-        <div
-          class="ant-tooltip-arrow"
-          style="position: absolute; top: 0px; left: 0px;"
-        >
-          <span
-            class="ant-tooltip-arrow-content"
-          />
-        </div>
-        <div
-          class="ant-tooltip-container"
-          id="test-id"
-          role="tooltip"
-        />
-      </div>
       <li
-        aria-describedby="test-id"
         class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child"
         role="menuitem"
         style="opacity: 1; order: 7;"
@@ -3148,26 +1916,7 @@ exports[`renders components/layout/demo/top.tsx extend context correctly 1`] = `
           nav 8
         </span>
       </li>
-      <div
-        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-      >
-        <div
-          class="ant-tooltip-arrow"
-          style="position: absolute; top: 0px; left: 0px;"
-        >
-          <span
-            class="ant-tooltip-arrow-content"
-          />
-        </div>
-        <div
-          class="ant-tooltip-container"
-          id="test-id"
-          role="tooltip"
-        />
-      </div>
       <li
-        aria-describedby="test-id"
         class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child"
         role="menuitem"
         style="opacity: 1; order: 8;"
@@ -3179,26 +1928,7 @@ exports[`renders components/layout/demo/top.tsx extend context correctly 1`] = `
           nav 9
         </span>
       </li>
-      <div
-        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-      >
-        <div
-          class="ant-tooltip-arrow"
-          style="position: absolute; top: 0px; left: 0px;"
-        >
-          <span
-            class="ant-tooltip-arrow-content"
-          />
-        </div>
-        <div
-          class="ant-tooltip-container"
-          id="test-id"
-          role="tooltip"
-        />
-      </div>
       <li
-        aria-describedby="test-id"
         class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child"
         role="menuitem"
         style="opacity: 1; order: 9;"
@@ -3210,26 +1940,7 @@ exports[`renders components/layout/demo/top.tsx extend context correctly 1`] = `
           nav 10
         </span>
       </li>
-      <div
-        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-      >
-        <div
-          class="ant-tooltip-arrow"
-          style="position: absolute; top: 0px; left: 0px;"
-        >
-          <span
-            class="ant-tooltip-arrow-content"
-          />
-        </div>
-        <div
-          class="ant-tooltip-container"
-          id="test-id"
-          role="tooltip"
-        />
-      </div>
       <li
-        aria-describedby="test-id"
         class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child"
         role="menuitem"
         style="opacity: 1; order: 10;"
@@ -3241,26 +1952,7 @@ exports[`renders components/layout/demo/top.tsx extend context correctly 1`] = `
           nav 11
         </span>
       </li>
-      <div
-        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-      >
-        <div
-          class="ant-tooltip-arrow"
-          style="position: absolute; top: 0px; left: 0px;"
-        >
-          <span
-            class="ant-tooltip-arrow-content"
-          />
-        </div>
-        <div
-          class="ant-tooltip-container"
-          id="test-id"
-          role="tooltip"
-        />
-      </div>
       <li
-        aria-describedby="test-id"
         class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child"
         role="menuitem"
         style="opacity: 1; order: 11;"
@@ -3272,26 +1964,7 @@ exports[`renders components/layout/demo/top.tsx extend context correctly 1`] = `
           nav 12
         </span>
       </li>
-      <div
-        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-      >
-        <div
-          class="ant-tooltip-arrow"
-          style="position: absolute; top: 0px; left: 0px;"
-        >
-          <span
-            class="ant-tooltip-arrow-content"
-          />
-        </div>
-        <div
-          class="ant-tooltip-container"
-          id="test-id"
-          role="tooltip"
-        />
-      </div>
       <li
-        aria-describedby="test-id"
         class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child"
         role="menuitem"
         style="opacity: 1; order: 12;"
@@ -3303,26 +1976,7 @@ exports[`renders components/layout/demo/top.tsx extend context correctly 1`] = `
           nav 13
         </span>
       </li>
-      <div
-        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-      >
-        <div
-          class="ant-tooltip-arrow"
-          style="position: absolute; top: 0px; left: 0px;"
-        >
-          <span
-            class="ant-tooltip-arrow-content"
-          />
-        </div>
-        <div
-          class="ant-tooltip-container"
-          id="test-id"
-          role="tooltip"
-        />
-      </div>
       <li
-        aria-describedby="test-id"
         class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child"
         role="menuitem"
         style="opacity: 1; order: 13;"
@@ -3334,26 +1988,7 @@ exports[`renders components/layout/demo/top.tsx extend context correctly 1`] = `
           nav 14
         </span>
       </li>
-      <div
-        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-      >
-        <div
-          class="ant-tooltip-arrow"
-          style="position: absolute; top: 0px; left: 0px;"
-        >
-          <span
-            class="ant-tooltip-arrow-content"
-          />
-        </div>
-        <div
-          class="ant-tooltip-container"
-          id="test-id"
-          role="tooltip"
-        />
-      </div>
       <li
-        aria-describedby="test-id"
         class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child"
         role="menuitem"
         style="opacity: 1; order: 14;"
@@ -3365,24 +2000,6 @@ exports[`renders components/layout/demo/top.tsx extend context correctly 1`] = `
           nav 15
         </span>
       </li>
-      <div
-        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-      >
-        <div
-          class="ant-tooltip-arrow"
-          style="position: absolute; top: 0px; left: 0px;"
-        >
-          <span
-            class="ant-tooltip-arrow-content"
-          />
-        </div>
-        <div
-          class="ant-tooltip-container"
-          id="test-id"
-          role="tooltip"
-        />
-      </div>
       <li
         aria-hidden="true"
         class="ant-menu-overflow-item ant-menu-overflow-item-rest ant-menu-submenu ant-menu-submenu-horizontal ant-menu-submenu-selected"
@@ -3419,17 +2036,6 @@ exports[`renders components/layout/demo/top.tsx extend context correctly 1`] = `
           </span>
           <i
             class="ant-menu-submenu-arrow"
-          />
-        </div>
-        <div
-          class="ant-menu-submenu ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-menu-submenu-popup ant-menu ant-menu-dark css-var-test-id ant-menu-css-var ant-menu-submenu-placement-bottomLeft"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-        >
-          <ul
-            class="ant-menu ant-menu-sub ant-menu-vertical"
-            data-menu-list="true"
-            id="rc-menu-uuid-rc-menu-more-popup"
-            role="menu"
           />
         </div>
       </li>
@@ -3525,7 +2131,6 @@ exports[`renders components/layout/demo/top-side.tsx extend context correctly 1`
       tabindex="0"
     >
       <li
-        aria-describedby="test-id"
         class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child"
         data-menu-id="rc-menu-uuid-1"
         role="menuitem"
@@ -3538,26 +2143,7 @@ exports[`renders components/layout/demo/top-side.tsx extend context correctly 1`
           nav 1
         </span>
       </li>
-      <div
-        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-      >
-        <div
-          class="ant-tooltip-arrow"
-          style="position: absolute; top: 0px; left: 0px;"
-        >
-          <span
-            class="ant-tooltip-arrow-content"
-          />
-        </div>
-        <div
-          class="ant-tooltip-container"
-          id="test-id"
-          role="tooltip"
-        />
-      </div>
       <li
-        aria-describedby="test-id"
         class="ant-menu-overflow-item ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
         role="menuitem"
         style="opacity: 1; order: 1;"
@@ -3569,26 +2155,7 @@ exports[`renders components/layout/demo/top-side.tsx extend context correctly 1`
           nav 2
         </span>
       </li>
-      <div
-        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-      >
-        <div
-          class="ant-tooltip-arrow"
-          style="position: absolute; top: 0px; left: 0px;"
-        >
-          <span
-            class="ant-tooltip-arrow-content"
-          />
-        </div>
-        <div
-          class="ant-tooltip-container"
-          id="test-id"
-          role="tooltip"
-        />
-      </div>
       <li
-        aria-describedby="test-id"
         class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child"
         role="menuitem"
         style="opacity: 1; order: 2;"
@@ -3600,24 +2167,6 @@ exports[`renders components/layout/demo/top-side.tsx extend context correctly 1`
           nav 3
         </span>
       </li>
-      <div
-        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-      >
-        <div
-          class="ant-tooltip-arrow"
-          style="position: absolute; top: 0px; left: 0px;"
-        >
-          <span
-            class="ant-tooltip-arrow-content"
-          />
-        </div>
-        <div
-          class="ant-tooltip-container"
-          id="test-id"
-          role="tooltip"
-        />
-      </div>
       <li
         aria-hidden="true"
         class="ant-menu-overflow-item ant-menu-overflow-item-rest ant-menu-submenu ant-menu-submenu-horizontal ant-menu-submenu-selected"
@@ -3654,17 +2203,6 @@ exports[`renders components/layout/demo/top-side.tsx extend context correctly 1`
           </span>
           <i
             class="ant-menu-submenu-arrow"
-          />
-        </div>
-        <div
-          class="ant-menu-submenu ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-menu-submenu-popup ant-menu ant-menu-dark css-var-test-id ant-menu-css-var ant-menu-submenu-placement-bottomLeft"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-        >
-          <ul
-            class="ant-menu ant-menu-sub ant-menu-vertical"
-            data-menu-list="true"
-            id="rc-menu-uuid-rc-menu-more-popup"
-            role="menu"
           />
         </div>
       </li>
@@ -3783,146 +2321,6 @@ exports[`renders components/layout/demo/top-side.tsx extend context correctly 1`
                   class="ant-menu-submenu-arrow"
                 />
               </div>
-              <div
-                class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-light css-var-test-id ant-menu-css-var"
-                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-              >
-                <ul
-                  class="ant-menu ant-menu-sub ant-menu-inline"
-                  data-menu-list="true"
-                  id="rc-menu-uuid-sub1-popup"
-                  role="menu"
-                >
-                  <li
-                    aria-describedby="test-id"
-                    class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
-                    data-menu-id="rc-menu-uuid-1"
-                    role="menuitem"
-                    style="padding-left: 48px;"
-                    tabindex="-1"
-                  >
-                    <span
-                      class="ant-menu-title-content"
-                    >
-                      option1
-                    </span>
-                  </li>
-                  <div
-                    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-                  >
-                    <div
-                      class="ant-tooltip-arrow"
-                      style="position: absolute; top: 0px; left: 0px;"
-                    >
-                      <span
-                        class="ant-tooltip-arrow-content"
-                      />
-                    </div>
-                    <div
-                      class="ant-tooltip-container"
-                      id="test-id"
-                      role="tooltip"
-                    />
-                  </div>
-                  <li
-                    aria-describedby="test-id"
-                    class="ant-menu-item ant-menu-item-only-child"
-                    data-menu-id="rc-menu-uuid-2"
-                    role="menuitem"
-                    style="padding-left: 48px;"
-                    tabindex="-1"
-                  >
-                    <span
-                      class="ant-menu-title-content"
-                    >
-                      option2
-                    </span>
-                  </li>
-                  <div
-                    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-                  >
-                    <div
-                      class="ant-tooltip-arrow"
-                      style="position: absolute; top: 0px; left: 0px;"
-                    >
-                      <span
-                        class="ant-tooltip-arrow-content"
-                      />
-                    </div>
-                    <div
-                      class="ant-tooltip-container"
-                      id="test-id"
-                      role="tooltip"
-                    />
-                  </div>
-                  <li
-                    aria-describedby="test-id"
-                    class="ant-menu-item ant-menu-item-only-child"
-                    data-menu-id="rc-menu-uuid-3"
-                    role="menuitem"
-                    style="padding-left: 48px;"
-                    tabindex="-1"
-                  >
-                    <span
-                      class="ant-menu-title-content"
-                    >
-                      option3
-                    </span>
-                  </li>
-                  <div
-                    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-                  >
-                    <div
-                      class="ant-tooltip-arrow"
-                      style="position: absolute; top: 0px; left: 0px;"
-                    >
-                      <span
-                        class="ant-tooltip-arrow-content"
-                      />
-                    </div>
-                    <div
-                      class="ant-tooltip-container"
-                      id="test-id"
-                      role="tooltip"
-                    />
-                  </div>
-                  <li
-                    aria-describedby="test-id"
-                    class="ant-menu-item ant-menu-item-only-child"
-                    data-menu-id="rc-menu-uuid-4"
-                    role="menuitem"
-                    style="padding-left: 48px;"
-                    tabindex="-1"
-                  >
-                    <span
-                      class="ant-menu-title-content"
-                    >
-                      option4
-                    </span>
-                  </li>
-                  <div
-                    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-                  >
-                    <div
-                      class="ant-tooltip-arrow"
-                      style="position: absolute; top: 0px; left: 0px;"
-                    >
-                      <span
-                        class="ant-tooltip-arrow-content"
-                      />
-                    </div>
-                    <div
-                      class="ant-tooltip-container"
-                      id="test-id"
-                      role="tooltip"
-                    />
-                  </div>
-                </ul>
-              </div>
               <ul
                 class="ant-menu ant-menu-sub ant-menu-inline"
                 data-menu-list="true"
@@ -3930,7 +2328,6 @@ exports[`renders components/layout/demo/top-side.tsx extend context correctly 1`
                 role="menu"
               >
                 <li
-                  aria-describedby="test-id"
                   class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
                   data-menu-id="rc-menu-uuid-1"
                   role="menuitem"
@@ -3943,26 +2340,7 @@ exports[`renders components/layout/demo/top-side.tsx extend context correctly 1`
                     option1
                   </span>
                 </li>
-                <div
-                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-                >
-                  <div
-                    class="ant-tooltip-arrow"
-                    style="position: absolute; top: 0px; left: 0px;"
-                  >
-                    <span
-                      class="ant-tooltip-arrow-content"
-                    />
-                  </div>
-                  <div
-                    class="ant-tooltip-container"
-                    id="test-id"
-                    role="tooltip"
-                  />
-                </div>
                 <li
-                  aria-describedby="test-id"
                   class="ant-menu-item ant-menu-item-only-child"
                   data-menu-id="rc-menu-uuid-2"
                   role="menuitem"
@@ -3975,26 +2353,7 @@ exports[`renders components/layout/demo/top-side.tsx extend context correctly 1`
                     option2
                   </span>
                 </li>
-                <div
-                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-                >
-                  <div
-                    class="ant-tooltip-arrow"
-                    style="position: absolute; top: 0px; left: 0px;"
-                  >
-                    <span
-                      class="ant-tooltip-arrow-content"
-                    />
-                  </div>
-                  <div
-                    class="ant-tooltip-container"
-                    id="test-id"
-                    role="tooltip"
-                  />
-                </div>
                 <li
-                  aria-describedby="test-id"
                   class="ant-menu-item ant-menu-item-only-child"
                   data-menu-id="rc-menu-uuid-3"
                   role="menuitem"
@@ -4007,26 +2366,7 @@ exports[`renders components/layout/demo/top-side.tsx extend context correctly 1`
                     option3
                   </span>
                 </li>
-                <div
-                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-                >
-                  <div
-                    class="ant-tooltip-arrow"
-                    style="position: absolute; top: 0px; left: 0px;"
-                  >
-                    <span
-                      class="ant-tooltip-arrow-content"
-                    />
-                  </div>
-                  <div
-                    class="ant-tooltip-container"
-                    id="test-id"
-                    role="tooltip"
-                  />
-                </div>
                 <li
-                  aria-describedby="test-id"
                   class="ant-menu-item ant-menu-item-only-child"
                   data-menu-id="rc-menu-uuid-4"
                   role="menuitem"
@@ -4039,24 +2379,6 @@ exports[`renders components/layout/demo/top-side.tsx extend context correctly 1`
                     option4
                   </span>
                 </li>
-                <div
-                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-                >
-                  <div
-                    class="ant-tooltip-arrow"
-                    style="position: absolute; top: 0px; left: 0px;"
-                  >
-                    <span
-                      class="ant-tooltip-arrow-content"
-                    />
-                  </div>
-                  <div
-                    class="ant-tooltip-container"
-                    id="test-id"
-                    role="tooltip"
-                  />
-                </div>
               </ul>
             </li>
             <li
@@ -4101,146 +2423,6 @@ exports[`renders components/layout/demo/top-side.tsx extend context correctly 1`
                   class="ant-menu-submenu-arrow"
                 />
               </div>
-              <div
-                class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-light css-var-test-id ant-menu-css-var"
-                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-              >
-                <ul
-                  class="ant-menu ant-menu-sub ant-menu-inline"
-                  data-menu-list="true"
-                  id="rc-menu-uuid-sub2-popup"
-                  role="menu"
-                >
-                  <li
-                    aria-describedby="test-id"
-                    class="ant-menu-item ant-menu-item-only-child"
-                    data-menu-id="rc-menu-uuid-5"
-                    role="menuitem"
-                    style="padding-left: 48px;"
-                    tabindex="-1"
-                  >
-                    <span
-                      class="ant-menu-title-content"
-                    >
-                      option5
-                    </span>
-                  </li>
-                  <div
-                    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-                  >
-                    <div
-                      class="ant-tooltip-arrow"
-                      style="position: absolute; top: 0px; left: 0px;"
-                    >
-                      <span
-                        class="ant-tooltip-arrow-content"
-                      />
-                    </div>
-                    <div
-                      class="ant-tooltip-container"
-                      id="test-id"
-                      role="tooltip"
-                    />
-                  </div>
-                  <li
-                    aria-describedby="test-id"
-                    class="ant-menu-item ant-menu-item-only-child"
-                    data-menu-id="rc-menu-uuid-6"
-                    role="menuitem"
-                    style="padding-left: 48px;"
-                    tabindex="-1"
-                  >
-                    <span
-                      class="ant-menu-title-content"
-                    >
-                      option6
-                    </span>
-                  </li>
-                  <div
-                    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-                  >
-                    <div
-                      class="ant-tooltip-arrow"
-                      style="position: absolute; top: 0px; left: 0px;"
-                    >
-                      <span
-                        class="ant-tooltip-arrow-content"
-                      />
-                    </div>
-                    <div
-                      class="ant-tooltip-container"
-                      id="test-id"
-                      role="tooltip"
-                    />
-                  </div>
-                  <li
-                    aria-describedby="test-id"
-                    class="ant-menu-item ant-menu-item-only-child"
-                    data-menu-id="rc-menu-uuid-7"
-                    role="menuitem"
-                    style="padding-left: 48px;"
-                    tabindex="-1"
-                  >
-                    <span
-                      class="ant-menu-title-content"
-                    >
-                      option7
-                    </span>
-                  </li>
-                  <div
-                    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-                  >
-                    <div
-                      class="ant-tooltip-arrow"
-                      style="position: absolute; top: 0px; left: 0px;"
-                    >
-                      <span
-                        class="ant-tooltip-arrow-content"
-                      />
-                    </div>
-                    <div
-                      class="ant-tooltip-container"
-                      id="test-id"
-                      role="tooltip"
-                    />
-                  </div>
-                  <li
-                    aria-describedby="test-id"
-                    class="ant-menu-item ant-menu-item-only-child"
-                    data-menu-id="rc-menu-uuid-8"
-                    role="menuitem"
-                    style="padding-left: 48px;"
-                    tabindex="-1"
-                  >
-                    <span
-                      class="ant-menu-title-content"
-                    >
-                      option8
-                    </span>
-                  </li>
-                  <div
-                    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-                  >
-                    <div
-                      class="ant-tooltip-arrow"
-                      style="position: absolute; top: 0px; left: 0px;"
-                    >
-                      <span
-                        class="ant-tooltip-arrow-content"
-                      />
-                    </div>
-                    <div
-                      class="ant-tooltip-container"
-                      id="test-id"
-                      role="tooltip"
-                    />
-                  </div>
-                </ul>
-              </div>
             </li>
             <li
               class="ant-menu-submenu ant-menu-submenu-inline"
@@ -4283,146 +2465,6 @@ exports[`renders components/layout/demo/top-side.tsx extend context correctly 1`
                 <i
                   class="ant-menu-submenu-arrow"
                 />
-              </div>
-              <div
-                class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-light css-var-test-id ant-menu-css-var"
-                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-              >
-                <ul
-                  class="ant-menu ant-menu-sub ant-menu-inline"
-                  data-menu-list="true"
-                  id="rc-menu-uuid-sub3-popup"
-                  role="menu"
-                >
-                  <li
-                    aria-describedby="test-id"
-                    class="ant-menu-item ant-menu-item-only-child"
-                    data-menu-id="rc-menu-uuid-9"
-                    role="menuitem"
-                    style="padding-left: 48px;"
-                    tabindex="-1"
-                  >
-                    <span
-                      class="ant-menu-title-content"
-                    >
-                      option9
-                    </span>
-                  </li>
-                  <div
-                    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-                  >
-                    <div
-                      class="ant-tooltip-arrow"
-                      style="position: absolute; top: 0px; left: 0px;"
-                    >
-                      <span
-                        class="ant-tooltip-arrow-content"
-                      />
-                    </div>
-                    <div
-                      class="ant-tooltip-container"
-                      id="test-id"
-                      role="tooltip"
-                    />
-                  </div>
-                  <li
-                    aria-describedby="test-id"
-                    class="ant-menu-item ant-menu-item-only-child"
-                    data-menu-id="rc-menu-uuid-10"
-                    role="menuitem"
-                    style="padding-left: 48px;"
-                    tabindex="-1"
-                  >
-                    <span
-                      class="ant-menu-title-content"
-                    >
-                      option10
-                    </span>
-                  </li>
-                  <div
-                    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-                  >
-                    <div
-                      class="ant-tooltip-arrow"
-                      style="position: absolute; top: 0px; left: 0px;"
-                    >
-                      <span
-                        class="ant-tooltip-arrow-content"
-                      />
-                    </div>
-                    <div
-                      class="ant-tooltip-container"
-                      id="test-id"
-                      role="tooltip"
-                    />
-                  </div>
-                  <li
-                    aria-describedby="test-id"
-                    class="ant-menu-item ant-menu-item-only-child"
-                    data-menu-id="rc-menu-uuid-11"
-                    role="menuitem"
-                    style="padding-left: 48px;"
-                    tabindex="-1"
-                  >
-                    <span
-                      class="ant-menu-title-content"
-                    >
-                      option11
-                    </span>
-                  </li>
-                  <div
-                    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-                  >
-                    <div
-                      class="ant-tooltip-arrow"
-                      style="position: absolute; top: 0px; left: 0px;"
-                    >
-                      <span
-                        class="ant-tooltip-arrow-content"
-                      />
-                    </div>
-                    <div
-                      class="ant-tooltip-container"
-                      id="test-id"
-                      role="tooltip"
-                    />
-                  </div>
-                  <li
-                    aria-describedby="test-id"
-                    class="ant-menu-item ant-menu-item-only-child"
-                    data-menu-id="rc-menu-uuid-12"
-                    role="menuitem"
-                    style="padding-left: 48px;"
-                    tabindex="-1"
-                  >
-                    <span
-                      class="ant-menu-title-content"
-                    >
-                      option12
-                    </span>
-                  </li>
-                  <div
-                    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-                  >
-                    <div
-                      class="ant-tooltip-arrow"
-                      style="position: absolute; top: 0px; left: 0px;"
-                    >
-                      <span
-                        class="ant-tooltip-arrow-content"
-                      />
-                    </div>
-                    <div
-                      class="ant-tooltip-container"
-                      id="test-id"
-                      role="tooltip"
-                    />
-                  </div>
-                </ul>
               </div>
             </li>
           </ul>
@@ -4470,7 +2512,6 @@ exports[`renders components/layout/demo/top-side-2.tsx extend context correctly 
       tabindex="0"
     >
       <li
-        aria-describedby="test-id"
         class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child"
         data-menu-id="rc-menu-uuid-1"
         role="menuitem"
@@ -4483,26 +2524,7 @@ exports[`renders components/layout/demo/top-side-2.tsx extend context correctly 
           nav 1
         </span>
       </li>
-      <div
-        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-      >
-        <div
-          class="ant-tooltip-arrow"
-          style="position: absolute; top: 0px; left: 0px;"
-        >
-          <span
-            class="ant-tooltip-arrow-content"
-          />
-        </div>
-        <div
-          class="ant-tooltip-container"
-          id="test-id"
-          role="tooltip"
-        />
-      </div>
       <li
-        aria-describedby="test-id"
         class="ant-menu-overflow-item ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
         role="menuitem"
         style="opacity: 1; order: 1;"
@@ -4514,26 +2536,7 @@ exports[`renders components/layout/demo/top-side-2.tsx extend context correctly 
           nav 2
         </span>
       </li>
-      <div
-        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-      >
-        <div
-          class="ant-tooltip-arrow"
-          style="position: absolute; top: 0px; left: 0px;"
-        >
-          <span
-            class="ant-tooltip-arrow-content"
-          />
-        </div>
-        <div
-          class="ant-tooltip-container"
-          id="test-id"
-          role="tooltip"
-        />
-      </div>
       <li
-        aria-describedby="test-id"
         class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child"
         role="menuitem"
         style="opacity: 1; order: 2;"
@@ -4545,24 +2548,6 @@ exports[`renders components/layout/demo/top-side-2.tsx extend context correctly 
           nav 3
         </span>
       </li>
-      <div
-        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-      >
-        <div
-          class="ant-tooltip-arrow"
-          style="position: absolute; top: 0px; left: 0px;"
-        >
-          <span
-            class="ant-tooltip-arrow-content"
-          />
-        </div>
-        <div
-          class="ant-tooltip-container"
-          id="test-id"
-          role="tooltip"
-        />
-      </div>
       <li
         aria-hidden="true"
         class="ant-menu-overflow-item ant-menu-overflow-item-rest ant-menu-submenu ant-menu-submenu-horizontal ant-menu-submenu-selected"
@@ -4599,17 +2584,6 @@ exports[`renders components/layout/demo/top-side-2.tsx extend context correctly 
           </span>
           <i
             class="ant-menu-submenu-arrow"
-          />
-        </div>
-        <div
-          class="ant-menu-submenu ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-menu-submenu-popup ant-menu ant-menu-dark css-var-test-id ant-menu-css-var ant-menu-submenu-placement-bottomLeft"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-        >
-          <ul
-            class="ant-menu ant-menu-sub ant-menu-vertical"
-            data-menu-list="true"
-            id="rc-menu-uuid-rc-menu-more-popup"
-            role="menu"
           />
         </div>
       </li>
@@ -4678,146 +2652,6 @@ exports[`renders components/layout/demo/top-side-2.tsx extend context correctly 
                 class="ant-menu-submenu-arrow"
               />
             </div>
-            <div
-              class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-light css-var-test-id ant-menu-css-var"
-              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-            >
-              <ul
-                class="ant-menu ant-menu-sub ant-menu-inline"
-                data-menu-list="true"
-                id="rc-menu-uuid-sub1-popup"
-                role="menu"
-              >
-                <li
-                  aria-describedby="test-id"
-                  class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
-                  data-menu-id="rc-menu-uuid-1"
-                  role="menuitem"
-                  style="padding-left: 48px;"
-                  tabindex="-1"
-                >
-                  <span
-                    class="ant-menu-title-content"
-                  >
-                    option1
-                  </span>
-                </li>
-                <div
-                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-                >
-                  <div
-                    class="ant-tooltip-arrow"
-                    style="position: absolute; top: 0px; left: 0px;"
-                  >
-                    <span
-                      class="ant-tooltip-arrow-content"
-                    />
-                  </div>
-                  <div
-                    class="ant-tooltip-container"
-                    id="test-id"
-                    role="tooltip"
-                  />
-                </div>
-                <li
-                  aria-describedby="test-id"
-                  class="ant-menu-item ant-menu-item-only-child"
-                  data-menu-id="rc-menu-uuid-2"
-                  role="menuitem"
-                  style="padding-left: 48px;"
-                  tabindex="-1"
-                >
-                  <span
-                    class="ant-menu-title-content"
-                  >
-                    option2
-                  </span>
-                </li>
-                <div
-                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-                >
-                  <div
-                    class="ant-tooltip-arrow"
-                    style="position: absolute; top: 0px; left: 0px;"
-                  >
-                    <span
-                      class="ant-tooltip-arrow-content"
-                    />
-                  </div>
-                  <div
-                    class="ant-tooltip-container"
-                    id="test-id"
-                    role="tooltip"
-                  />
-                </div>
-                <li
-                  aria-describedby="test-id"
-                  class="ant-menu-item ant-menu-item-only-child"
-                  data-menu-id="rc-menu-uuid-3"
-                  role="menuitem"
-                  style="padding-left: 48px;"
-                  tabindex="-1"
-                >
-                  <span
-                    class="ant-menu-title-content"
-                  >
-                    option3
-                  </span>
-                </li>
-                <div
-                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-                >
-                  <div
-                    class="ant-tooltip-arrow"
-                    style="position: absolute; top: 0px; left: 0px;"
-                  >
-                    <span
-                      class="ant-tooltip-arrow-content"
-                    />
-                  </div>
-                  <div
-                    class="ant-tooltip-container"
-                    id="test-id"
-                    role="tooltip"
-                  />
-                </div>
-                <li
-                  aria-describedby="test-id"
-                  class="ant-menu-item ant-menu-item-only-child"
-                  data-menu-id="rc-menu-uuid-4"
-                  role="menuitem"
-                  style="padding-left: 48px;"
-                  tabindex="-1"
-                >
-                  <span
-                    class="ant-menu-title-content"
-                  >
-                    option4
-                  </span>
-                </li>
-                <div
-                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-                >
-                  <div
-                    class="ant-tooltip-arrow"
-                    style="position: absolute; top: 0px; left: 0px;"
-                  >
-                    <span
-                      class="ant-tooltip-arrow-content"
-                    />
-                  </div>
-                  <div
-                    class="ant-tooltip-container"
-                    id="test-id"
-                    role="tooltip"
-                  />
-                </div>
-              </ul>
-            </div>
             <ul
               class="ant-menu ant-menu-sub ant-menu-inline"
               data-menu-list="true"
@@ -4825,7 +2659,6 @@ exports[`renders components/layout/demo/top-side-2.tsx extend context correctly 
               role="menu"
             >
               <li
-                aria-describedby="test-id"
                 class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
                 data-menu-id="rc-menu-uuid-1"
                 role="menuitem"
@@ -4838,26 +2671,7 @@ exports[`renders components/layout/demo/top-side-2.tsx extend context correctly 
                   option1
                 </span>
               </li>
-              <div
-                class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-              >
-                <div
-                  class="ant-tooltip-arrow"
-                  style="position: absolute; top: 0px; left: 0px;"
-                >
-                  <span
-                    class="ant-tooltip-arrow-content"
-                  />
-                </div>
-                <div
-                  class="ant-tooltip-container"
-                  id="test-id"
-                  role="tooltip"
-                />
-              </div>
               <li
-                aria-describedby="test-id"
                 class="ant-menu-item ant-menu-item-only-child"
                 data-menu-id="rc-menu-uuid-2"
                 role="menuitem"
@@ -4870,26 +2684,7 @@ exports[`renders components/layout/demo/top-side-2.tsx extend context correctly 
                   option2
                 </span>
               </li>
-              <div
-                class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-              >
-                <div
-                  class="ant-tooltip-arrow"
-                  style="position: absolute; top: 0px; left: 0px;"
-                >
-                  <span
-                    class="ant-tooltip-arrow-content"
-                  />
-                </div>
-                <div
-                  class="ant-tooltip-container"
-                  id="test-id"
-                  role="tooltip"
-                />
-              </div>
               <li
-                aria-describedby="test-id"
                 class="ant-menu-item ant-menu-item-only-child"
                 data-menu-id="rc-menu-uuid-3"
                 role="menuitem"
@@ -4902,26 +2697,7 @@ exports[`renders components/layout/demo/top-side-2.tsx extend context correctly 
                   option3
                 </span>
               </li>
-              <div
-                class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-              >
-                <div
-                  class="ant-tooltip-arrow"
-                  style="position: absolute; top: 0px; left: 0px;"
-                >
-                  <span
-                    class="ant-tooltip-arrow-content"
-                  />
-                </div>
-                <div
-                  class="ant-tooltip-container"
-                  id="test-id"
-                  role="tooltip"
-                />
-              </div>
               <li
-                aria-describedby="test-id"
                 class="ant-menu-item ant-menu-item-only-child"
                 data-menu-id="rc-menu-uuid-4"
                 role="menuitem"
@@ -4934,24 +2710,6 @@ exports[`renders components/layout/demo/top-side-2.tsx extend context correctly 
                   option4
                 </span>
               </li>
-              <div
-                class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-              >
-                <div
-                  class="ant-tooltip-arrow"
-                  style="position: absolute; top: 0px; left: 0px;"
-                >
-                  <span
-                    class="ant-tooltip-arrow-content"
-                  />
-                </div>
-                <div
-                  class="ant-tooltip-container"
-                  id="test-id"
-                  role="tooltip"
-                />
-              </div>
             </ul>
           </li>
           <li
@@ -4996,146 +2754,6 @@ exports[`renders components/layout/demo/top-side-2.tsx extend context correctly 
                 class="ant-menu-submenu-arrow"
               />
             </div>
-            <div
-              class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-light css-var-test-id ant-menu-css-var"
-              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-            >
-              <ul
-                class="ant-menu ant-menu-sub ant-menu-inline"
-                data-menu-list="true"
-                id="rc-menu-uuid-sub2-popup"
-                role="menu"
-              >
-                <li
-                  aria-describedby="test-id"
-                  class="ant-menu-item ant-menu-item-only-child"
-                  data-menu-id="rc-menu-uuid-5"
-                  role="menuitem"
-                  style="padding-left: 48px;"
-                  tabindex="-1"
-                >
-                  <span
-                    class="ant-menu-title-content"
-                  >
-                    option5
-                  </span>
-                </li>
-                <div
-                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-                >
-                  <div
-                    class="ant-tooltip-arrow"
-                    style="position: absolute; top: 0px; left: 0px;"
-                  >
-                    <span
-                      class="ant-tooltip-arrow-content"
-                    />
-                  </div>
-                  <div
-                    class="ant-tooltip-container"
-                    id="test-id"
-                    role="tooltip"
-                  />
-                </div>
-                <li
-                  aria-describedby="test-id"
-                  class="ant-menu-item ant-menu-item-only-child"
-                  data-menu-id="rc-menu-uuid-6"
-                  role="menuitem"
-                  style="padding-left: 48px;"
-                  tabindex="-1"
-                >
-                  <span
-                    class="ant-menu-title-content"
-                  >
-                    option6
-                  </span>
-                </li>
-                <div
-                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-                >
-                  <div
-                    class="ant-tooltip-arrow"
-                    style="position: absolute; top: 0px; left: 0px;"
-                  >
-                    <span
-                      class="ant-tooltip-arrow-content"
-                    />
-                  </div>
-                  <div
-                    class="ant-tooltip-container"
-                    id="test-id"
-                    role="tooltip"
-                  />
-                </div>
-                <li
-                  aria-describedby="test-id"
-                  class="ant-menu-item ant-menu-item-only-child"
-                  data-menu-id="rc-menu-uuid-7"
-                  role="menuitem"
-                  style="padding-left: 48px;"
-                  tabindex="-1"
-                >
-                  <span
-                    class="ant-menu-title-content"
-                  >
-                    option7
-                  </span>
-                </li>
-                <div
-                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-                >
-                  <div
-                    class="ant-tooltip-arrow"
-                    style="position: absolute; top: 0px; left: 0px;"
-                  >
-                    <span
-                      class="ant-tooltip-arrow-content"
-                    />
-                  </div>
-                  <div
-                    class="ant-tooltip-container"
-                    id="test-id"
-                    role="tooltip"
-                  />
-                </div>
-                <li
-                  aria-describedby="test-id"
-                  class="ant-menu-item ant-menu-item-only-child"
-                  data-menu-id="rc-menu-uuid-8"
-                  role="menuitem"
-                  style="padding-left: 48px;"
-                  tabindex="-1"
-                >
-                  <span
-                    class="ant-menu-title-content"
-                  >
-                    option8
-                  </span>
-                </li>
-                <div
-                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-                >
-                  <div
-                    class="ant-tooltip-arrow"
-                    style="position: absolute; top: 0px; left: 0px;"
-                  >
-                    <span
-                      class="ant-tooltip-arrow-content"
-                    />
-                  </div>
-                  <div
-                    class="ant-tooltip-container"
-                    id="test-id"
-                    role="tooltip"
-                  />
-                </div>
-              </ul>
-            </div>
           </li>
           <li
             class="ant-menu-submenu ant-menu-submenu-inline"
@@ -5178,146 +2796,6 @@ exports[`renders components/layout/demo/top-side-2.tsx extend context correctly 
               <i
                 class="ant-menu-submenu-arrow"
               />
-            </div>
-            <div
-              class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-light css-var-test-id ant-menu-css-var"
-              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-            >
-              <ul
-                class="ant-menu ant-menu-sub ant-menu-inline"
-                data-menu-list="true"
-                id="rc-menu-uuid-sub3-popup"
-                role="menu"
-              >
-                <li
-                  aria-describedby="test-id"
-                  class="ant-menu-item ant-menu-item-only-child"
-                  data-menu-id="rc-menu-uuid-9"
-                  role="menuitem"
-                  style="padding-left: 48px;"
-                  tabindex="-1"
-                >
-                  <span
-                    class="ant-menu-title-content"
-                  >
-                    option9
-                  </span>
-                </li>
-                <div
-                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-                >
-                  <div
-                    class="ant-tooltip-arrow"
-                    style="position: absolute; top: 0px; left: 0px;"
-                  >
-                    <span
-                      class="ant-tooltip-arrow-content"
-                    />
-                  </div>
-                  <div
-                    class="ant-tooltip-container"
-                    id="test-id"
-                    role="tooltip"
-                  />
-                </div>
-                <li
-                  aria-describedby="test-id"
-                  class="ant-menu-item ant-menu-item-only-child"
-                  data-menu-id="rc-menu-uuid-10"
-                  role="menuitem"
-                  style="padding-left: 48px;"
-                  tabindex="-1"
-                >
-                  <span
-                    class="ant-menu-title-content"
-                  >
-                    option10
-                  </span>
-                </li>
-                <div
-                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-                >
-                  <div
-                    class="ant-tooltip-arrow"
-                    style="position: absolute; top: 0px; left: 0px;"
-                  >
-                    <span
-                      class="ant-tooltip-arrow-content"
-                    />
-                  </div>
-                  <div
-                    class="ant-tooltip-container"
-                    id="test-id"
-                    role="tooltip"
-                  />
-                </div>
-                <li
-                  aria-describedby="test-id"
-                  class="ant-menu-item ant-menu-item-only-child"
-                  data-menu-id="rc-menu-uuid-11"
-                  role="menuitem"
-                  style="padding-left: 48px;"
-                  tabindex="-1"
-                >
-                  <span
-                    class="ant-menu-title-content"
-                  >
-                    option11
-                  </span>
-                </li>
-                <div
-                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-                >
-                  <div
-                    class="ant-tooltip-arrow"
-                    style="position: absolute; top: 0px; left: 0px;"
-                  >
-                    <span
-                      class="ant-tooltip-arrow-content"
-                    />
-                  </div>
-                  <div
-                    class="ant-tooltip-container"
-                    id="test-id"
-                    role="tooltip"
-                  />
-                </div>
-                <li
-                  aria-describedby="test-id"
-                  class="ant-menu-item ant-menu-item-only-child"
-                  data-menu-id="rc-menu-uuid-12"
-                  role="menuitem"
-                  style="padding-left: 48px;"
-                  tabindex="-1"
-                >
-                  <span
-                    class="ant-menu-title-content"
-                  >
-                    option12
-                  </span>
-                </li>
-                <div
-                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-                >
-                  <div
-                    class="ant-tooltip-arrow"
-                    style="position: absolute; top: 0px; left: 0px;"
-                  >
-                    <span
-                      class="ant-tooltip-arrow-content"
-                    />
-                  </div>
-                  <div
-                    class="ant-tooltip-container"
-                    id="test-id"
-                    role="tooltip"
-                  />
-                </div>
-              </ul>
             </div>
           </li>
         </ul>

@@ -9,6 +9,7 @@ import dayJsGenerateConfig from '@rc-component/picker/generate/dayjs';
 import { warning } from '@rc-component/util';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
 import MockDate from 'mockdate';
+import { vi } from 'vitest';
 
 import DatePicker from '..';
 import focusTest from '../../../tests/shared/focusTest';
@@ -22,10 +23,10 @@ dayjs.extend(customParseFormat);
 
 let triggerProps: TriggerProps;
 
-jest.mock('@rc-component/trigger', () => {
-  let Trigger = jest.requireActual('@rc-component/trigger/lib/mock');
+vi.mock('@rc-component/trigger', async () => {
+  let Trigger = await vi.importActual<any>('@rc-component/trigger/lib/mock');
   Trigger = Trigger.default || Trigger;
-  const h: typeof React = jest.requireActual('react');
+  const h = await vi.importActual<typeof React>('react');
 
   return {
     default: h.forwardRef<HTMLElement, TriggerProps>((props, ref) => {
@@ -43,7 +44,7 @@ function getCell(text: string) {
 }
 
 describe('DatePicker', () => {
-  const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+  const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
 
   focusTest(DatePicker, { refFocus: true });
 
@@ -405,7 +406,7 @@ describe('DatePicker', () => {
   it('legacy dropdownClassName & popupClassName', () => {
     resetWarned();
 
-    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
     const { container, rerender } = render(<DatePicker dropdownClassName="legacy" open />);
     expect(errSpy).toHaveBeenCalledWith(
       'Warning: [antd: DatePicker] `dropdownClassName` is deprecated. Please use `classNames.popup.root` instead.',
@@ -424,12 +425,13 @@ describe('DatePicker', () => {
   it('legacy popupStyle', () => {
     resetWarned();
 
-    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-    const { container } = render(<DatePicker popupStyle={{ backgroundColor: 'red' }} open />);
+    const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+    render(<DatePicker popupStyle={{ backgroundColor: 'red' }} open />);
     expect(errSpy).toHaveBeenCalledWith(
       'Warning: [antd: DatePicker] `popupStyle` is deprecated. Please use `styles.popup.root` instead.',
     );
-    expect(container.querySelector('.ant-picker-dropdown')).toHaveStyle(
+    // Query document.body for portal-rendered popup content
+    expect(document.body.querySelector('.ant-picker-dropdown')).toHaveStyle(
       'background-color: rgb(255, 0, 0)',
     );
 

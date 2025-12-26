@@ -11,13 +11,14 @@ import { JSDOM } from 'jsdom';
 import MockDate from 'mockdate';
 import type { HTTPRequest, Viewport } from 'puppeteer';
 import ReactDOMServer from 'react-dom/server';
+import { vi } from 'vitest';
 
 import { App, ConfigProvider, theme } from '../../components';
 import { fillWindowEnv } from '../setup';
 import { render } from '../utils';
 import { TriggerMockContext } from './demoTestContext';
 
-jest.mock('../../components/grid/hooks/useBreakpoint', () => () => ({}));
+vi.mock('../../components/grid/hooks/useBreakpoint', () => ({ default: () => ({}) }));
 
 const snapshotPath = path.join(process.cwd(), 'imageSnapshots');
 fse.ensureDirSync(snapshotPath);
@@ -94,8 +95,8 @@ export default function imageTest(
     // Fake matchMedia
     win.matchMedia = (() => ({
       matches: false,
-      addEventListener: jest.fn(),
-      removeEventListener: jest.fn(),
+      addEventListener: vi.fn(),
+      removeEventListener: vi.fn(),
     })) as unknown as typeof matchMedia;
 
     // Fill window
@@ -310,7 +311,7 @@ export function imageDemoTest(component: string, options: Options = {}) {
     }
 
     describeMethod(`Test ${file} image`, () => {
-      let Demo = require(`../../${file}`).default;
+      let Demo = require(`${process.cwd()}/${file}`).default;
       if (typeof Demo === 'function') {
         Demo = <Demo />;
       }

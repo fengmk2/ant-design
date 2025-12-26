@@ -16,14 +16,15 @@ describe('Tooltip.Semantic', () => {
       container: { color: 'blue' },
     };
 
-    const { container } = render(
+    render(
       <Tooltip title="Test tooltip" classNames={classNames} styles={styles} open>
         Test
       </Tooltip>,
     );
 
-    const tooltipElement = container.querySelector('.ant-tooltip');
-    const tooltipInner = container.querySelector('.ant-tooltip-container');
+    // Query document.body for portal-rendered tooltip content
+    const tooltipElement = document.body.querySelector('.ant-tooltip');
+    const tooltipInner = document.body.querySelector('.ant-tooltip-container');
 
     expect(tooltipElement).toHaveClass(classNames.root!);
     expect(tooltipInner).toHaveClass(classNames.container!);
@@ -46,7 +47,7 @@ describe('Tooltip.Semantic', () => {
       return { container: { fontSize: '14px' } };
     };
 
-    const { container } = render(
+    render(
       <Tooltip
         title="Test tooltip"
         color="blue"
@@ -59,8 +60,9 @@ describe('Tooltip.Semantic', () => {
       </Tooltip>,
     );
 
-    const tooltipElement = container.querySelector('.ant-tooltip');
-    const tooltipContainer = container.querySelector('.ant-tooltip-container');
+    // Query document.body for portal-rendered tooltip content
+    const tooltipElement = document.body.querySelector('.ant-tooltip');
+    const tooltipContainer = document.body.querySelector('.ant-tooltip-container');
 
     expect(tooltipElement).toHaveClass('blue-tooltip');
     expect(tooltipContainer).toHaveStyle('font-size: 16px');

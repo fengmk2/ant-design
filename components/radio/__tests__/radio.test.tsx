@@ -1,4 +1,5 @@
 import React from 'react';
+import { vi } from 'vitest';
 
 import Radio, { Button, Group } from '..';
 import focusTest from '../../../tests/shared/focusTest';
@@ -18,11 +19,11 @@ describe('Radio', () => {
   rtlTest(Button);
 
   beforeEach(() => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
   });
 
   afterEach(() => {
-    jest.useRealTimers();
+    vi.useRealTimers();
   });
 
   it('should render correctly', () => {
@@ -31,8 +32,8 @@ describe('Radio', () => {
   });
 
   it('responses hover events', () => {
-    const onMouseEnter = jest.fn();
-    const onMouseLeave = jest.fn();
+    const onMouseEnter = vi.fn();
+    const onMouseLeave = vi.fn();
 
     const { container } = render(<Radio onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave} />);
 
@@ -68,8 +69,8 @@ describe('Radio', () => {
   });
 
   it('event bubble should not trigger twice', () => {
-    const onClick = jest.fn();
-    const onRootClick = jest.fn();
+    const onClick = vi.fn();
+    const onRootClick = vi.fn();
 
     const { container } = render(
       <div onClick={onRootClick}>
@@ -82,7 +83,7 @@ describe('Radio', () => {
     expect(onClick).toHaveBeenCalledTimes(1);
     expect(onRootClick).toHaveBeenCalledTimes(1);
     act(() => {
-      jest.runAllTimers();
+      vi.runAllTimers();
     });
 
     // Click on input
@@ -90,7 +91,7 @@ describe('Radio', () => {
     expect(onClick).toHaveBeenCalledTimes(2);
     expect(onRootClick).toHaveBeenCalledTimes(2);
     act(() => {
-      jest.runAllTimers();
+      vi.runAllTimers();
     });
 
     // Click on input again

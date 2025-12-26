@@ -46,7 +46,8 @@ describe('TimePicker.Semantic', () => {
     expect(inputElement).toHaveClass('semantic-input');
     expect(inputElement).toHaveStyle('font-weight: bold');
 
-    const popupRoot = container.querySelector('.ant-picker-dropdown');
+    // Query document.body for portal-rendered popup content
+    const popupRoot = document.body.querySelector('.ant-picker-dropdown');
     expect(popupRoot).toHaveClass('semantic-popup-root');
     expect(popupRoot).toHaveStyle('border-radius: 8px');
   });

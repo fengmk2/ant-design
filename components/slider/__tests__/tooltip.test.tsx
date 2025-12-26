@@ -1,4 +1,5 @@
 import React from 'react';
+import { vi } from 'vitest';
 
 import Slider from '..';
 import { fireEvent, render, waitFakeTimer } from '../../../tests/utils';
@@ -8,24 +9,28 @@ function tooltipProps(): TooltipProps {
   return (global as any).tooltipProps;
 }
 
-jest.mock('../../tooltip', () => {
-  const ReactReal: typeof React = jest.requireActual('react');
-  const Tooltip = jest.requireActual('../../tooltip');
+vi.mock('../../tooltip', async () => {
+  const ReactReal: typeof React = await vi.importActual('react');
+  const Tooltip = await vi.importActual<typeof import('../../tooltip')>('../../tooltip');
   const TooltipComponent = Tooltip.default;
-  return ReactReal.forwardRef<TooltipRef, TooltipProps>((props, ref) => {
+  const MockedTooltip = ReactReal.forwardRef<TooltipRef, TooltipProps>((props, ref) => {
     (global as any).tooltipProps = props;
     return <TooltipComponent {...props} ref={ref} />;
   });
+  return {
+    ...Tooltip,
+    default: MockedTooltip,
+  };
 });
 
 describe('Slider.Tooltip', () => {
   beforeEach(() => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
   });
 
   afterEach(() => {
-    jest.clearAllTimers();
-    jest.useRealTimers();
+    vi.clearAllTimers();
+    vi.useRealTimers();
   });
 
   it('Correct show the tooltip', async () => {
@@ -82,14 +87,13 @@ describe('Slider.Tooltip', () => {
     fireEvent.mouseEnter(handler1);
     fireEvent.mouseEnter(handler2);
     await waitFakeTimer();
-    expect(container1.querySelector('.ant-tooltip-open')).toBeFalsy();
-    expect(container2.querySelector('.ant-tooltip-open')).toBeFalsy();
+    // Query document.body for portal-rendered tooltip content
+    expect(document.body.querySelector('.ant-tooltip-open')).toBeFalsy();
 
     // Down
     fireEvent.focus(handler1);
     fireEvent.focus(handler2);
     await waitFakeTimer();
-    expect(container1.querySelector('.ant-tooltip-open')).toBeFalsy();
-    expect(container2.querySelector('.ant-tooltip-open')).toBeFalsy();
+    expect(document.body.querySelector('.ant-tooltip-open')).toBeFalsy();
   });
 });

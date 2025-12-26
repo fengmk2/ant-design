@@ -3,6 +3,7 @@ import { CloseCircleFilled } from '@ant-design/icons';
 import { warning } from '@rc-component/util';
 import dayjs from 'dayjs';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
+import { vi } from 'vitest';
 
 import DatePicker from '..';
 import focusTest from '../../../tests/shared/focusTest';
@@ -153,20 +154,20 @@ describe('RangePicker', () => {
   it('legacy dropdownClassName & popupClassName', () => {
     resetWarned();
 
-    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-    const { container, rerender } = render(
-      <DatePicker.RangePicker dropdownClassName="legacy" open />,
-    );
+    const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+    const { rerender } = render(<DatePicker.RangePicker dropdownClassName="legacy" open />);
     expect(errSpy).toHaveBeenCalledWith(
       'Warning: [antd: DatePicker.RangePicker] `dropdownClassName` is deprecated. Please use `classNames.popup.root` instead.',
     );
-    expect(container.querySelector('.legacy')).toBeTruthy();
+    // Query document.body for portal-rendered popup content
+    expect(document.body.querySelector('.legacy')).toBeTruthy();
 
     rerender(<DatePicker.RangePicker popupClassName="legacy" open />);
     expect(errSpy).toHaveBeenCalledWith(
       'Warning: [antd: DatePicker.RangePicker] `popupClassName` is deprecated. Please use `classNames.popup.root` instead.',
     );
-    expect(container.querySelector('.legacy')).toBeTruthy();
+    // Query document.body for portal-rendered popup content
+    expect(document.body.querySelector('.legacy')).toBeTruthy();
 
     errSpy.mockRestore();
   });
@@ -174,14 +175,13 @@ describe('RangePicker', () => {
   it('legacy popupStyle', () => {
     resetWarned();
 
-    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-    const { container } = render(
-      <DatePicker.RangePicker popupStyle={{ backgroundColor: 'red' }} open />,
-    );
+    const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+    render(<DatePicker.RangePicker popupStyle={{ backgroundColor: 'red' }} open />);
     expect(errSpy).toHaveBeenCalledWith(
       'Warning: [antd: DatePicker.RangePicker] `popupStyle` is deprecated. Please use `styles.popup.root` instead.',
     );
-    expect(container.querySelector('.ant-picker-dropdown')).toHaveStyle(
+    // Query document.body for portal-rendered popup content
+    expect(document.body.querySelector('.ant-picker-dropdown')).toHaveStyle(
       'background-color: rgb(255, 0, 0)',
     );
 

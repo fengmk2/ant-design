@@ -60,9 +60,14 @@ describe('Select.Semantic', () => {
     expect(container.querySelector(`.${classNames.placeholder}`)).toHaveStyle(styles.placeholder);
     expect(container.querySelector(`.${classNames.input}`)).toHaveStyle(styles.input);
     expect(container.querySelector(`.${classNames.content}`)).toHaveStyle(styles.content);
-    expect(container.querySelector(`.${classNames.popup?.root}`)).toHaveStyle(styles.popup.root);
-    expect(container.querySelector(`.${classNames.popup?.list}`)).toHaveStyle(styles.popup.list);
-    expect(container.querySelector(`.${classNames.popup?.listItem}`)).toHaveStyle(
+    // Query document.body for portal-rendered popup content
+    expect(document.body.querySelector(`.${classNames.popup?.root}`)).toHaveStyle(
+      styles.popup.root,
+    );
+    expect(document.body.querySelector(`.${classNames.popup?.list}`)).toHaveStyle(
+      styles.popup.list,
+    );
+    expect(document.body.querySelector(`.${classNames.popup?.listItem}`)).toHaveStyle(
       styles.popup.listItem,
     );
   });
@@ -110,9 +115,10 @@ describe('Select.Semantic', () => {
     const root = container.querySelector('.ant-select');
     const prefix = container.querySelector('.ant-select-prefix');
     const suffix = container.querySelector('.ant-select-suffix');
-    const list = container.querySelector('.rc-virtual-list');
-    const listItem = container.querySelector('.ant-select-item');
-    const popup = container.querySelector('.ant-select-dropdown');
+    // Query document.body for portal-rendered popup content
+    const list = document.body.querySelector('.rc-virtual-list');
+    const listItem = document.body.querySelector('.ant-select-item');
+    const popup = document.body.querySelector('.ant-select-dropdown');
     const item = container.querySelector('.ant-select-selection-item');
     const itemContent = container.querySelector('.ant-select-selection-item-content');
     const itemRemove = container.querySelector('.ant-select-selection-item-remove');

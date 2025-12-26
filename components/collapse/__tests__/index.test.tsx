@@ -1,19 +1,19 @@
 import React from 'react';
+import { vi } from 'vitest';
 
+import Collapse from '..';
 import { resetWarned } from '../../_util/warning';
 import { act, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 
 describe('Collapse', () => {
-  const Collapse = require('..').default;
-
-  const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+  const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
 
   // fix React concurrent
   function triggerAllTimer() {
     for (let i = 0; i < 10; i += 1) {
       act(() => {
-        jest.runAllTimers();
+        vi.runAllTimers();
       });
     }
   }
@@ -33,7 +33,7 @@ describe('Collapse', () => {
   it('should support remove expandIcon', () => {
     const { asFragment } = render(
       <Collapse expandIcon={() => null}>
-        <Collapse.Panel header="header" />
+        <Collapse.Panel header="header" key="1" />
       </Collapse>,
     );
     expect(asFragment().firstChild).toMatchSnapshot();
@@ -56,7 +56,7 @@ describe('Collapse', () => {
           </button>
         )}
       >
-        <Collapse.Panel header="header" />
+        <Collapse.Panel header="header" key="1" />
       </Collapse>,
     );
 
@@ -66,15 +66,15 @@ describe('Collapse', () => {
   it('should render extra node of panel', () => {
     const { asFragment } = render(
       <Collapse>
-        <Collapse.Panel header="header" extra={<button type="button">action</button>} />
-        <Collapse.Panel header="header" extra={<button type="button">action</button>} />
+        <Collapse.Panel header="header" key="1" extra={<button type="button">action</button>} />
+        <Collapse.Panel header="header" key="2" extra={<button type="button">action</button>} />
       </Collapse>,
     );
     expect(asFragment().firstChild).toMatchSnapshot();
   });
 
   it('could be expand and collapse', async () => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
     const { container } = render(
       <Collapse>
         <Collapse.Panel header="This is panel header 1" key="1">
@@ -88,12 +88,12 @@ describe('Collapse', () => {
     fireEvent.click(container.querySelector('.ant-collapse-header')!);
     await waitFakeTimer();
     expect(container.querySelector('.ant-collapse-item')).toHaveClass('ant-collapse-item-active');
-    jest.useRealTimers();
+    vi.useRealTimers();
   });
 
   it('could override default openMotion', () => {
     const { container, asFragment } = render(
-      <Collapse openMotion={{}}>
+      <Collapse {...({ openMotion: {} } as any)}>
         <Collapse.Panel header="This is panel header 1" key="1">
           content
         </Collapse.Panel>
@@ -132,14 +132,14 @@ describe('Collapse', () => {
   });
 
   it('should end motion when set activeKey while hiding', async () => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
     const spiedRAF = jest
       .spyOn(window, 'requestAnimationFrame')
       .mockImplementation((cb) => setTimeout(cb, 1000 / 60));
 
-    let setActiveKeyOuter: React.Dispatch<React.SetStateAction<React.Key | undefined>>;
+    let setActiveKeyOuter: React.Dispatch<React.SetStateAction<string | undefined>>;
     const Test: React.FC = () => {
-      const [activeKey, setActiveKey] = React.useState<React.Key>();
+      const [activeKey, setActiveKey] = React.useState<string>();
       setActiveKeyOuter = setActiveKey;
       return (
         <div hidden>
@@ -164,7 +164,7 @@ describe('Collapse', () => {
     expect(container.querySelectorAll('.ant-motion-collapse').length).toBe(0);
 
     spiedRAF.mockRestore();
-    jest.useRealTimers();
+    vi.useRealTimers();
   });
 
   it('ref should work', () => {
@@ -283,10 +283,10 @@ describe('Collapse', () => {
   });
 
   describe('expandIconPlacement and expandIconPosition behavior', () => {
-    let consoleErrorSpy: jest.SpyInstance;
+    let consoleErrorSpy: ReturnType<typeof vi.spyOn>;
 
     beforeEach(() => {
-      consoleErrorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      consoleErrorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
     });
 
     afterEach(() => {
@@ -327,7 +327,7 @@ describe('Collapse', () => {
     ])('should render with $expectedClass for %j', ({ props, expectedClass, shouldWarn }) => {
       const { container } = render(
         <Collapse
-          {...props}
+          {...(props as any)}
           items={[{ children: '1', key: '1', label: 'This is panel header 1' }]}
         />,
       );

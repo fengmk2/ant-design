@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Drawer render correctly 1`] = `
+exports[`Drawer > render correctly 1`] = `
 <div
   class="ant-drawer ant-drawer-right css-var-root ant-drawer-inline"
   tabindex="-1"

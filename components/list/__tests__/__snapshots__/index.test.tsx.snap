@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`List rtl render component should be rendered correctly in RTL direction 1`] = `
+exports[`List > rtl render > component should be rendered correctly in RTL direction 1`] = `
 <div
   class="ant-list ant-list-split ant-list-rtl css-var-root"
 >
@@ -67,7 +67,7 @@ exports[`List rtl render component should be rendered correctly in RTL direction
 </div>
 `;
 
-exports[`List rtl render component should be rendered correctly in RTL direction 2`] = `
+exports[`List > rtl render > component should be rendered correctly in RTL direction 2`] = `
 <li
   class="ant-list-item"
 />

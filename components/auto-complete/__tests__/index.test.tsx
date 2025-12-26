@@ -1,4 +1,5 @@
 import React from 'react';
+import { vi } from 'vitest';
 import userEvent from '@testing-library/user-event';
 
 import AutoComplete from '..';
@@ -50,7 +51,7 @@ describe('AutoComplete', () => {
   });
 
   it('AutoComplete throws error when contains invalid dataSource', () => {
-    const spy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const spy = vi.spyOn(console, 'error').mockImplementation(() => {});
 
     render(
       // @ts-ignore
@@ -83,7 +84,7 @@ describe('AutoComplete', () => {
   });
 
   it('should not warning when getInputElement is null', () => {
-    const warnSpy = jest.spyOn(console, 'warn').mockImplementation(() => {});
+    const warnSpy = vi.spyOn(console, 'warn').mockImplementation(() => {});
     render(<AutoComplete placeholder="input here" allowClear />);
     expect(warnSpy).not.toHaveBeenCalled();
     warnSpy.mockRestore();
@@ -101,8 +102,8 @@ describe('AutoComplete', () => {
   it('deprecated popupClassName', () => {
     resetWarned();
 
-    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-    const { container } = render(
+    const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+    const { container: _ } = render(
       <AutoComplete
         popupClassName="legacy"
         open
@@ -113,7 +114,8 @@ describe('AutoComplete', () => {
     expect(errSpy).toHaveBeenCalledWith(
       'Warning: [antd: AutoComplete] `popupClassName` is deprecated. Please use `classNames.popup.root` instead.',
     );
-    expect(container.querySelector('.legacy')).toBeTruthy();
+    // Query document.body for portal-rendered dropdown content
+    expect(document.body.querySelector('.legacy')).toBeTruthy();
 
     errSpy.mockRestore();
   });
@@ -121,7 +123,7 @@ describe('AutoComplete', () => {
   it('deprecated dropdownMatchSelectWidth', () => {
     resetWarned();
 
-    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
     render(
       <AutoComplete
         dropdownMatchSelectWidth
@@ -139,7 +141,7 @@ describe('AutoComplete', () => {
   it('deprecated dropdownStyle', () => {
     resetWarned();
 
-    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
     render(
       <AutoComplete
         dropdownStyle={{ color: 'rgb(255, 0, 0)' }}
@@ -157,7 +159,7 @@ describe('AutoComplete', () => {
   it('deprecated dropdownRender', () => {
     resetWarned();
 
-    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
     render(
       <AutoComplete
         dropdownRender={(menu) => <div>{menu}</div>}
@@ -175,7 +177,7 @@ describe('AutoComplete', () => {
   it('deprecated onDropdownVisibleChange', () => {
     resetWarned();
 
-    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
     render(
       <AutoComplete
         onDropdownVisibleChange={() => {}}

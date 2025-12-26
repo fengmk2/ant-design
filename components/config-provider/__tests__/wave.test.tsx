@@ -1,23 +1,24 @@
 import React from 'react';
+import { vi } from 'vitest';
 
 import ConfigProvider from '..';
 import { fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 import Button from '../../button';
 
-jest.mock('@rc-component/util/lib/Dom/isVisible', () => () => true);
+vi.mock('@rc-component/util/lib/Dom/isVisible', () => ({ default: () => true }));
 
 describe('ConfigProvider.Wave', () => {
   beforeEach(() => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
   });
 
   afterEach(() => {
-    jest.useRealTimers();
+    vi.useRealTimers();
   });
 
   it('disable', async () => {
-    const showEffect = jest.fn();
-    const onClick = jest.fn();
+    const showEffect = vi.fn();
+    const onClick = vi.fn();
 
     const { container } = render(
       <ConfigProvider wave={{ disabled: true, showEffect }}>
@@ -33,8 +34,8 @@ describe('ConfigProvider.Wave', () => {
   });
 
   it('support customize effect', async () => {
-    const showEffect = jest.fn();
-    const onClick = jest.fn();
+    const showEffect = vi.fn();
+    const onClick = vi.fn();
 
     const { container } = render(
       <ConfigProvider wave={{ showEffect }}>
