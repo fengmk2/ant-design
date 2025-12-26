@@ -35,3 +35,11 @@ declare module '@microflash/rehype-figure';
 declare module 'dekko';
 
 declare module 'csstree-validator';
+
+// Vite import.meta.glob
+interface ImportMeta {
+  glob: <T = unknown>(
+    pattern: string,
+    options?: { eager?: boolean; import?: string },
+  ) => Record<string, () => Promise<T>>;
+}

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import type { MockInstance } from 'vitest';
 import { vi } from 'vitest';
 
 import type { ColumnGroupType, ColumnType, TableProps } from '..';
@@ -2862,7 +2863,7 @@ describe('Table.filter', () => {
   });
 
   describe('filteredKeys should all be controlled or not controlled', () => {
-    let errorSpy: vi.SpyInstance;
+    let errorSpy: MockInstance;
 
     beforeEach(() => {
       resetWarned();
