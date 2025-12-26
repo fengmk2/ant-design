@@ -5,7 +5,6 @@
     "jsxFactory": "React.createElement",
     "jsxFragmentFactory": "React.Fragment",
     "lib": ["dom", "es2017"],
-    "types": ["vitest/globals"],
     "experimentalDecorators": true,
     "baseUrl": "./",
     "module": "esnext",
@@ -18,6 +17,7 @@
       "antd/locale/*": ["components/locale/*"]
     },
     "resolvePackageJsonExports": true,
+    "types": ["vitest/globals", "node"],
     "strict": true,
     "strictNullChecks": true,
     "noImplicitAny": true,
