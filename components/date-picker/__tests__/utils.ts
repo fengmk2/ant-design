@@ -12,7 +12,7 @@ export function closePicker(wrapper: ReturnType<typeof render>, index = 0) {
   fireEvent.blur(wrapper.container?.querySelectorAll('input')[index]);
 }
 
-export function selectCell(wrapper: ReturnType<typeof render>, text: string | number, index = 0) {
+export function selectCell(_wrapper: ReturnType<typeof render>, text: string | number, index = 0) {
   let matchCell: HTMLTableCellElement | null = null;
   // Query document.body for portal-rendered popup content
   const tds = document.body.querySelectorAll('table')?.[index]?.querySelectorAll('td');

@@ -13,7 +13,9 @@ const resizeMasonry = async () => {
 
 // Mock for `responsiveObserve` to test `unsubscribe` call
 vi.mock('../../_util/responsiveObserver', async () => {
-  const modules = await vi.importActual('../../_util/responsiveObserver');
+  const modules = await vi.importActual<{ default: (...args: any[]) => any }>(
+    '../../_util/responsiveObserver',
+  );
   const originHook = modules.default;
 
   const useMockResponsiveObserver = (...args: any[]) => {

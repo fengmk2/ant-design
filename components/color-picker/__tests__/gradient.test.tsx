@@ -35,7 +35,7 @@ describe('ColorPicker.gradient', () => {
   });
 
   function doMouseDown(
-    container: HTMLElement | Document,
+    _container: HTMLElement | Document,
     start: number,
     query: string | HTMLElement = '.ant-slider-handle',
     skipEventCheck = false,

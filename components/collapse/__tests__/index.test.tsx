@@ -33,7 +33,7 @@ describe('Collapse', () => {
   it('should support remove expandIcon', () => {
     const { asFragment } = render(
       <Collapse expandIcon={() => null}>
-        <Collapse.Panel header="header" />
+        <Collapse.Panel header="header" key="1" />
       </Collapse>,
     );
     expect(asFragment().firstChild).toMatchSnapshot();
@@ -56,7 +56,7 @@ describe('Collapse', () => {
           </button>
         )}
       >
-        <Collapse.Panel header="header" />
+        <Collapse.Panel header="header" key="1" />
       </Collapse>,
     );
 
@@ -66,8 +66,8 @@ describe('Collapse', () => {
   it('should render extra node of panel', () => {
     const { asFragment } = render(
       <Collapse>
-        <Collapse.Panel header="header" extra={<button type="button">action</button>} />
-        <Collapse.Panel header="header" extra={<button type="button">action</button>} />
+        <Collapse.Panel header="header" key="1" extra={<button type="button">action</button>} />
+        <Collapse.Panel header="header" key="2" extra={<button type="button">action</button>} />
       </Collapse>,
     );
     expect(asFragment().firstChild).toMatchSnapshot();
@@ -93,7 +93,7 @@ describe('Collapse', () => {
 
   it('could override default openMotion', () => {
     const { container, asFragment } = render(
-      <Collapse openMotion={{}}>
+      <Collapse {...({ openMotion: {} } as any)}>
         <Collapse.Panel header="This is panel header 1" key="1">
           content
         </Collapse.Panel>
@@ -137,9 +137,9 @@ describe('Collapse', () => {
       .spyOn(window, 'requestAnimationFrame')
       .mockImplementation((cb) => setTimeout(cb, 1000 / 60));
 
-    let setActiveKeyOuter: React.Dispatch<React.SetStateAction<React.Key | undefined>>;
+    let setActiveKeyOuter: React.Dispatch<React.SetStateAction<string | undefined>>;
     const Test: React.FC = () => {
-      const [activeKey, setActiveKey] = React.useState<React.Key>();
+      const [activeKey, setActiveKey] = React.useState<string>();
       setActiveKeyOuter = setActiveKey;
       return (
         <div hidden>
@@ -327,7 +327,7 @@ describe('Collapse', () => {
     ])('should render with $expectedClass for %j', ({ props, expectedClass, shouldWarn }) => {
       const { container } = render(
         <Collapse
-          {...props}
+          {...(props as any)}
           items={[{ children: '1', key: '1', label: 'This is panel header 1' }]}
         />,
       );

@@ -63,8 +63,8 @@ describe('DatePicker.typescript', () => {
 
   it('DatePicker should accept only single value if multiple is false', () => {
     const mockSingleValue = dayjs();
-    const mockOnChange = vi.fn<void, [Dayjs | null, string | null]>();
-    const mockOnOk = vi.fn<void, [Dayjs | null]>();
+    const mockOnChange = vi.fn<(date: Dayjs | null, dateString: string | null) => void>();
+    const mockOnOk = vi.fn<(date: Dayjs | null) => void>();
 
     const datePicker = (
       <DatePicker
@@ -80,8 +80,8 @@ describe('DatePicker.typescript', () => {
 
   it('DatePicker should accept only array value if multiple is true', () => {
     const mockMultiValue = [dayjs()];
-    const mockOnChange = vi.fn<void, [Dayjs[] | null, string[] | null]>();
-    const mockOnOk = vi.fn<void, [Dayjs[] | null]>();
+    const mockOnChange = vi.fn<(date: Dayjs[] | null, dateString: string[] | null) => void>();
+    const mockOnOk = vi.fn<(date: Dayjs[] | null) => void>();
 
     const datePicker = (
       <DatePicker

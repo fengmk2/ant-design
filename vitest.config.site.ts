@@ -3,7 +3,8 @@ import react from '@vitejs/plugin-react';
 import { defineConfig } from 'vitest/config';
 
 export default defineConfig({
-  plugins: [react()],
+  // Cast to any to avoid type mismatch between vitest's rollup types and @vitejs/plugin-react types
+  plugins: [react()] as any,
   resolve: {
     alias: {
       antd: resolve(__dirname, './components/index'),

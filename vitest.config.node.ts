@@ -19,7 +19,8 @@ const compileModules = [
 ];
 
 export default defineConfig({
-  plugins: [react(), demoPlugin(), imagePlugin()],
+  // Cast to any to avoid type mismatch between vitest's rollup types and @vitejs/plugin-react types
+  plugins: [react(), demoPlugin(), imagePlugin()] as any,
   resolve: {
     alias: [
       // Handle antd/es/* and antd/lib/* imports
@@ -46,6 +47,7 @@ export default defineConfig({
         inline: [/.*/],
       },
     },
+    // Cast to any to avoid type incompatibility with vitest's internal types
     deps: {
       interopDefault: true,
       optimizer: {
@@ -53,6 +55,6 @@ export default defineConfig({
           include: compileModules,
         },
       },
-    },
+    } as any,
   },
 });

@@ -24,5 +24,5 @@ const rtlTest = (Component: React.ComponentType, mockDate = false) => {
   });
 };
 
-// eslint-disable-next-line vitest/no-export
+// eslint-disable-next-line jest/no-export
 export default rtlTest;

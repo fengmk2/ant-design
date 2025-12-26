@@ -22,7 +22,8 @@ const compileModules = [
 ];
 
 export default defineConfig({
-  plugins: [react(), demoPlugin(), imagePlugin()],
+  // Cast to any to avoid type mismatch between vitest's rollup types and @vitejs/plugin-react types
+  plugins: [react(), demoPlugin(), imagePlugin()] as any,
   resolve: {
     alias: [
       // Handle antd/es/* and antd/lib/* imports (must be before antd to match first)
@@ -75,6 +76,7 @@ export default defineConfig({
     hookTimeout: 10000,
     reporters: ['default'],
     // Handle deps that need to be inlined for transformation
+    // Cast to any to avoid type incompatibility with vitest's internal types
     deps: {
       interopDefault: true,
       // Force inline these packages so they go through Vite's transform and use our aliases
@@ -84,6 +86,6 @@ export default defineConfig({
           include: compileModules,
         },
       },
-    },
+    } as any,
   },
 });

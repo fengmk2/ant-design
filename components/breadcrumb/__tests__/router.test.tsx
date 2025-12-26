@@ -2,6 +2,14 @@
 import React from 'react';
 import { vi } from 'vitest';
 
+import Breadcrumb from '..';
+import { render } from '../../../tests/utils';
+
+// Type stubs for skipped react-router tests
+type ReactRouterLocation = { pathname: string };
+const useLocation = (): ReactRouterLocation => ({ pathname: '/' });
+const MemoryRouter: React.FC<{ children: React.ReactNode }> = ({ children }) => <>{children}</>;
+
 describe.skip('react router', () => {
   // Tests are skipped because react-router-dom import fails in jsdom
   beforeAll(() => {

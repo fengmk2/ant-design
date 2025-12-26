@@ -40,7 +40,10 @@ vi.mock('../Header', async () => {
 });
 
 vi.mock('@rc-component/picker', async () => {
-  const RcPicker = await vi.importActual('@rc-component/picker');
+  const RcPicker = await vi.importActual<{
+    PickerPanel: React.ComponentType<any>;
+    [key: string]: any;
+  }>('@rc-component/picker');
   const PickerPanelComponent = RcPicker.PickerPanel;
   return {
     ...RcPicker,

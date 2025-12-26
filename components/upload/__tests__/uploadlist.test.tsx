@@ -50,8 +50,8 @@ describe('Upload List', () => {
   const mockHeightGet = vi.spyOn(Image.prototype, 'height', 'get');
   const mockSrcSet = vi.spyOn(Image.prototype, 'src', 'set');
 
-  let drawImageCallback: ReturnType<typeof vi.fn> | null = null;
-  function hookDrawImageCall(callback: ReturnType<typeof vi.fn>) {
+  let drawImageCallback: ((...args: any[]) => void) | null = null;
+  function hookDrawImageCall(callback: (...args: any[]) => void) {
     drawImageCallback = callback;
   }
   const mockGetCanvasContext = vi.spyOn(HTMLCanvasElement.prototype, 'getContext');
@@ -1230,23 +1230,21 @@ describe('Upload List', () => {
       const thumbUrl =
         'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png';
       let wrapper: ReturnType<typeof render>;
-      const onChange = vi.fn<void, Record<'fileList', UploadProps['fileList']>[]>(
-        ({ fileList: files }) => {
-          const newFileList = files?.map<UploadFile<any>>((item) => ({ ...item, thumbUrl }));
+      const onChange = vi.fn(({ fileList: files }: { fileList: UploadProps['fileList'] }) => {
+        const newFileList = files?.map<UploadFile<any>>((item) => ({ ...item, thumbUrl }));
 
-          wrapper.rerender(
-            <Upload
-              action="http://jsonplaceholder.typicode.com/posts/"
-              listType="picture-card"
-              fileList={newFileList}
-              onChange={onChange}
-              customRequest={successRequest}
-            >
-              <button type="button">upload</button>
-            </Upload>,
-          );
-        },
-      );
+        wrapper.rerender(
+          <Upload
+            action="http://jsonplaceholder.typicode.com/posts/"
+            listType="picture-card"
+            fileList={newFileList}
+            onChange={onChange}
+            customRequest={successRequest}
+          >
+            <button type="button">upload</button>
+          </Upload>,
+        );
+      });
 
       wrapper = render(
         <Upload
@@ -1286,21 +1284,19 @@ describe('Upload List', () => {
       (global as any).testName =
         'should not render <img /> when upload non-image file without thumbUrl in onChange';
       let wrapper: ReturnType<typeof render>;
-      const onChange = vi.fn<void, Record<'fileList', UploadProps['fileList']>[]>(
-        ({ fileList: files }) => {
-          wrapper.rerender(
-            <Upload
-              action="http://jsonplaceholder.typicode.com/posts/"
-              listType="picture-card"
-              fileList={files}
-              onChange={onChange}
-              customRequest={successRequest}
-            >
-              <button type="button">upload</button>
-            </Upload>,
-          );
-        },
-      );
+      const onChange = vi.fn(({ fileList: files }: { fileList: UploadProps['fileList'] }) => {
+        wrapper.rerender(
+          <Upload
+            action="http://jsonplaceholder.typicode.com/posts/"
+            listType="picture-card"
+            fileList={files}
+            onChange={onChange}
+            customRequest={successRequest}
+          >
+            <button type="button">upload</button>
+          </Upload>,
+        );
+      });
       wrapper = render(
         <Upload
           action="http://jsonplaceholder.typicode.com/posts/"

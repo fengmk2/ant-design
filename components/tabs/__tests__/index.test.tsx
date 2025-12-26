@@ -30,7 +30,7 @@ describe('Tabs', () => {
     beforeEach(() => {
       handleEdit = vi.fn();
       const { container } = render(
-        <Tabs type="editable-card" onEdit={handleEdit}>
+        <Tabs type="editable-card" onEdit={handleEdit as any}>
           <TabPane tab="foo" key="1">
             foo
           </TabPane>

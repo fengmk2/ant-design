@@ -6,7 +6,10 @@ import { pureRender } from '../../../tests/utils';
 
 let MotionProviderRun = 0;
 vi.mock('@rc-component/motion', async () => {
-  const RcMotion = await vi.importActual('@rc-component/motion');
+  const RcMotion = await vi.importActual<{
+    Provider: React.ComponentType<any>;
+    [key: string]: any;
+  }>('@rc-component/motion');
   const MotionProvider = RcMotion.Provider;
   return {
     ...RcMotion,
